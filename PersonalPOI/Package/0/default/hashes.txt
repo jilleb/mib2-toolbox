@@ -1,0 +1,45 @@
+FileName = "bitmaps.xml"
+FileSize = "227"
+CheckSumSize = "524288"
+CheckSum = "b8c0a02c21ff9ae805d0401458a4ac0498ef2f9a"
+
+FileName = "categories.pc"
+FileSize = "1412"
+CheckSumSize = "524288"
+CheckSum = "11b6ba76593c9fc694efc768d342d1a7261a4af0"
+
+FileName = "lang_map.xml"
+FileSize = "215"
+CheckSumSize = "524288"
+CheckSum = "f8a8295ab9b0b1451347dc80207c450f100ec632"
+
+FileName = "poidata.db"
+FileSize = "5696512"
+CheckSumSize = "1048576"
+CheckSum = "637aefbc49f071eb2c90fcef70cd4956df87f204"
+CheckSum1 = "830b572e6eeada0d601b58574aaf143d0da2783f"
+CheckSum2 = "95033ac81a73bf4e048d672a6f06890e32c71606"
+CheckSum3 = "f30b575f2f300afab264500bd2b3aa84c88e8051"
+CheckSum4 = "192b622283c52babcb1913b14084e7acc9c7f54b"
+CheckSum5 = "c0f6bda849a05ff3a2a8c882f8124bc9e0d46330"
+
+FileName = "strings_de-DE.xml"
+FileSize = "317"
+CheckSumSize = "524288"
+CheckSum = "8d9dbf097b7f6bccecf029d18823155cb147ce04"
+
+FileName = "versions.xml"
+FileSize = "496"
+CheckSumSize = "524288"
+CheckSum = "bc38aa443735d2395cd685a252db6bf746a34351"
+
+FileName = "bitmaps/000_image.png"
+FileSize = "2054"
+CheckSumSize = "524288"
+CheckSum = "1293f8c743328e03b5916ff46165d0febed596f6"
+
+FileName = "bitmaps/001_image.png"
+FileSize = "2054"
+CheckSumSize = "524288"
+CheckSum = "1293f8c743328e03b5916ff46165d0febed596f6"
+

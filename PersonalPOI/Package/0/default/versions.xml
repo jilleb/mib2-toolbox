@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<versioninfos>
+  <versioninfo>
+    <component>poiconfig</component>
+    <version>
+      <major>1</major>
+      <minor>06</minor>
+    </version>
+  </versioninfo>
+  <versioninfo>
+    <component>poidb</component>
+    <version>
+      <major>2</major>
+      <minor>0</minor>
+    </version>
+  </versioninfo>
+  <versioninfo>
+    <component>sqlite</component>
+    <version>
+      <major>3.6.23</major>
+      <minor/>
+    </version>
+  </versioninfo>
+</versioninfos>

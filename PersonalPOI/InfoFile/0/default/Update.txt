@@ -1,0 +1,27 @@
+device=PersonalPOI
+
+name.default=Personal POI
+name.de_DE=Personal POI
+name.en_GB=Personal POI
+name.en_SA=Personal POI
+name.es_ES=Personal POI
+name.fr_FR=Personal POI
+name.it_IT=Personal POI
+name.nl_NL=Personal POI
+name.pt_PT=Personal POI
+name.ru_RU=Personal POI
+name.pl_PL=Personal POI
+name.cs_CZ=Personal POI
+
+version.default=06.07.2018
+version.de_DE=06.07.2018
+version.en_GB=2018-07-06
+version.en_SA=2018-07-06
+version.es_ES=2018-07-06
+version.fr_FR=2018-07-06
+version.it_IT=2018-07-06
+version.nl_NL=2018-07-06
+version.pt_PT=2018-07-06
+version.ru_RU=2018-07-06
+version.pl_PL=2018-07-06
+version.cs_CZ=2018-07-06

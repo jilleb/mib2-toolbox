@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<poicategories version="02010011">
+    <categories>
+        <category bitmapIndex="1" warnable="true" name="0" id="1000">
+            <bitmap res_id="1">bitmaps/000_image.png,0,0,39,39,-19,-39</bitmap>
+        </category>
+        <category bitmapIndex="2" warnable="true" name="1" id="1001">
+            <bitmap res_id="2">bitmaps/001_image.png,0,0,39,39,-19,-39</bitmap>
+        </category>
+    </categories>
+    <types>
+        <type id="0">
+            <bitmap res_id="1" size="10" module="0">bitmaps/000_image.png,0,0,39,39,-19,-39</bitmap>
+            <bitmap res_id="1" size="10" module="1">bitmaps/000_image.png,0,0,39,39,-19,-39</bitmap>
+            <zoomlevel max="60" min="0"/>
+            <priority>1</priority>
+            <code>0</code>
+        </type>
+        <type id="1">
+            <bitmap res_id="2" size="10" module="0">bitmaps/001_image.png,0,0,39,39,-19,-39</bitmap>
+            <bitmap res_id="2" size="10" module="1">bitmaps/001_image.png,0,0,39,39,-19,-39</bitmap>
+            <zoomlevel max="60" min="0"/>
+            <priority>1</priority>
+            <code>1</code>
+        </type>
+    </types>
+    <search type="Generic">
+        <category index="10" id="1000">
+            <type id="0"/>
+        </category>
+        <category index="10" id="1001">
+            <type id="1"/>
+        </category>
+    </search>
+</poicategories>

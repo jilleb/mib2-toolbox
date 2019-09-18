@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<strings>
+    <string type="0" id="0">
+        <lang lang="de-DE">
+            <text>SCDB</text>
+        </lang>
+    </string>
+    <string type="0" id="1">
+        <lang lang="de-DE">
+            <text>SCDB_mobil</text>
+        </lang>
+    </string>
+</strings>

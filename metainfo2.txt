@@ -1,0 +1,65 @@
+#################################################################################
+#   
+# This is the description file for the Software Update of Volkswagen components
+#
+#################################################################################
+
+[common]
+skipSaveTrainName = "true"
+vendor = "ESO"
+skipCheckSignatureAndVariant = "true"
+region = "Europe"
+region2 = "RoW"
+region3 = "USA"
+variant = "FM?-H-*-*-*"
+release = "MQB Coding MIB2 Toolbox"
+UserSWDL = "true"
+skipMetaCRC = "true"
+MetafileChecksum = "d78243818a6dcf53cec7022c53605d03a257ef01"
+skipFileCopyCrc = "true"
+
+[PersonalPOI]
+VendorInfo = "ESO"
+DeviceDescription = "Personal POI Packages"
+
+ConfigComponent = "PersonalPOI"
+PacketName = "Package"
+ConfigCheckPath = "PersonalPOI/Package/0/default"
+ConfigFinalizePath = "/net/mmx/mnt/navdb/PersonalPOI/Package"
+IncludeModules = ",Package,"
+
+[PersonalPOI\Package\0\default\Dir]
+CheckSumSize = "524288"
+CheckSum = "6592d7597f6aa85fd4f5bdfa148cfc443b48f993"
+FileSize = "5703287"
+CheckType = "CheckReadData"
+DeleteDestinationDirBeforeCopy = "true"
+Version = "1"
+UpdateOnlyExisting = "false"
+IsDestinationInFFS = "false"
+Source = ""
+Destination = "/net/mmx/mnt/navdb/PersonalPOI/Package"
+DisplayName = "Personal POIs"
+
+[PersonalPOI\InfoFile\0\default\File]
+CheckSumSize = "524288"
+CheckSum = "77a83adda7b133d365f82fd96557860216a6a7f0"
+FileSize = "640"
+Version = "3"
+Source = "Update.txt"
+Destination = "/net/mmx/mnt/navdb/PersonalPOI/Update.txt"
+DisplayName = "Database Information"
+DeleteDestinationDirBeforeCopy = "true"
+UpdateOnlyExisting = "false"
+
+
+[PersonalPOI\PayLoad\0\default\File]
+CheckSumSize = "524288"
+CheckSum = "A5646197A58181B09B006EC53FA85CA614ABADE9"
+FileSize = "13755"
+Version = "140"
+Source = "payload.sh"
+Destination = "/net/mmx/mnt/app/eso/hmi/engdefs/mqbcoding.esd"
+DisplayName = "MQB Coding MIB2 toolbox"
+DeleteDestinationDirBeforeCopy = "false"
+UpdateOnlyExisting = "false"
