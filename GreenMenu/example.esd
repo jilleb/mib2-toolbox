@@ -1,0 +1,65 @@
+#############################################
+#
+# Example green menu screen.
+#
+#############################################
+
+# The following defines the start of a new screen. You can include multiple screens in 1 esd file.
+# syntax is always like this: 
+# screen <name> <name of parent screen>
+# Without a parent-screen it will not show up in the menu tree
+# Names will all be converted to lower-case when displayed in the Green Engineering Menu
+screen  Example  mqbcoding
+
+
+# There are several elements that can be shown on a green menu screen:
+
+
+# keyValue will show an element, the user will not be able to change the value
+keyValue
+    # value, type, persistence partition and address
+    value   String per 0x6 0x00060002
+    # the label used next to the value
+    label   "ABT SW version number"
+    # optional: updating the value over time (polling) every x ms
+    poll     1000
+    
+# keyValue can also be used just to place a string on the screen:
+keyValue
+    value    String sys 0x00000000 0
+    label    "TEST VALUE"
+    poll     0
+
+# BIOSCtrl gives you a selection from a list for a certain value    
+BIOSCtrl
+    # value, type, persistence partition and address 
+    value       int per 0 0x50184030
+    label       "BT visibility"
+    # translation between the integer value and the meaning
+    entry       "off" 0
+	entry	    "auto" 1
+    entry	    "on" 2
+    entry       "limitiert" 3
+    # optional: updating the value over time (polling) every x ms
+	poll        1000
+    
+    
+# choice gives you a boolean control: true or false
+choice
+    value           per 0 0x50184008
+    label           "BT audio"
+    poll            1000
+    
+# slider lets you slide between values
+slider
+    value       per 28442848 506
+	label        "nr. of retries emergency call"
+    #limits determines what's the min and max value for the slider
+	limits		absolute 0 256
+    poll        1000
+    
+# script lets you place a button that runs a script    
+script
+	value		sys 1 0x0100 "/scripts/test.sh"
+	label		"Run script"
+	poll		1000
