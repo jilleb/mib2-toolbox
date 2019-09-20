@@ -1,0 +1,90 @@
+#############################################
+#
+# Engineering screeen Variant Info
+# $Id: //Audi_MIB/Public/TCFG/Release/MIB2SOP1/tcfg/mib/common/arm/default/engdefs/VariantInfoRCC.esd#1 $
+# $Date: 2013/09/18 $
+# Original author of this screen: VW/Esolutions.
+#
+#############################################
+
+screen  VariantInfo  Pro
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "This screen is meant to display and/or change variant info. "
+    poll     0  
+    
+keyValue
+    value    String sys 0x00000000 0
+    label    "It can render your unit useless if you dont know what you're doing."
+    poll     0  
+
+ 
+keyValue
+    value   String per 0x286f058c 12
+    label   "Variant Info"
+    
+keyValue
+    value   String per 0x286f058c 13
+    label   "Diagnosis Variant"
+ 
+BIOSCtrl        
+    value   int per 0x286f058c 4
+    label   "Variant::Type"
+    entry   "High" 1
+    entry   "Entry" 2   
+    entry   "Standard" 3
+    entry   "Premium" 4
+   
+ BIOSCtrl       
+    value   int per 0x286f058c 9
+    label   "Variant::Region"
+    entry   "Europe/ROW" 1
+    entry   "Europe" 2  
+    entry   "NAR" 3
+    entry   "ROW" 4 
+    entry   "China" 5
+    entry   "Japan" 6   
+    entry   "Korea" 7
+    entry   "Asia" 8
+    entry   "Taiwan" 9
+   
+  BIOSCtrl      
+    value   int per 0x286f058c 10
+    label   "Variant::Brand"
+    entry   "Volkswagen" 1
+    entry   "Audi" 2    
+    entry   "Skoda" 3
+    entry   "Seat" 4    
+    entry   "Porsche" 5
+    entry   "Bentley" 6 
+    entry   "Lamborghini" 7
+  
+choice
+    value   per 0x286f058c 5
+    label   "Variant::Feature Tel"
+
+choice
+    value   per 0x286f058c 6
+    label   "Variant::Feature Navi"
+   
+choice
+    value   per 0x286f058c 7
+    label   "Variant::Feature DAB"
+    
+choice
+    value   per 0x286f058c 8
+    label   "Variant::Feature Sirius"
+ 
+choice
+    value   per 0x286f058c 17
+    label   "Variant::Feature LTE"  
+
+choice
+    value   per 0x286f058c 18
+    label   "Variant::Feature 2D Nav"   
+
+choice
+    value   per 0x286f058c 19
+    label   "Variant::Feature MMI Radio"   
+        

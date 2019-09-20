@@ -8,7 +8,7 @@ It's never our intention to harm any person, car or brand. Use the tools wisely,
 - Read the entire readme
 - At least 1 healthy set of brains
 - An MIB2 HIGH infotainment unit. It will **not** work on MIB1 or MIB2 Standard units. Discover Media / Compostion Media is not MIB2 HIGH!
-- 1 empty SD-card, with enough space. Everything bigger than 1GB is fine
+- 1 empty, **FAT32 formatted** SD-card, with enough space, . Everything bigger than 1GB is fine
 - Some place to save your backups
 - Developer mode enabled on module 5F (you need VCDS/OBD11/VCP for this!)
 
@@ -33,6 +33,8 @@ It's never our intention to harm any person, car or brand. Use the tools wisely,
 
 ![The MQB Coding toolbox menu](https://i.imgur.com/yJ0ZvKb.png)
 
+- Run the "Get new scripts and files from SD-card (slot1)" script, and additional files will be installed.
+- You're now done.
 - Enjoy!
 
 # How to use the new screens
