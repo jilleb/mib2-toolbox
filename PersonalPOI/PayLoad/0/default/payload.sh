@@ -2,7 +2,7 @@
 #
 # Custom Green Engineering Menu screen
 # Author:       Jille
-# Version:      1.4B
+# Version:      2.0B
 # Disclaimer:   THIS SCREEN WILL VOID YOUR WARRANTY
 #
 ####################################################################
@@ -10,7 +10,7 @@ screen   MQBCoding Main
 
 keyValue
     value    String sys 0x00000000 0
-    label    "MQB CODING - MIB Toolbox v1.4B"
+    label    "MQB CODING - MIB Toolbox v2.0B"
     poll     0
     
 keyValue
@@ -326,9 +326,9 @@ script
    value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/copy_fec.sh"
    label    "Copy FecContainer.fec from sda0/Advanced/FEC"
    
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/flash_ifs.sh"
-   label    "Flash ifsroot.ifs from sda0/Advanced/IFS"
+#script
+#   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/flash_ifs.sh"
+#   label    "Flash ifsroot.ifs from sda0/Advanced/IFS"
    
 #############################################
 

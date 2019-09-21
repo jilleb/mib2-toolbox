@@ -2,12 +2,7 @@
 <strings>
     <string type="0" id="0">
         <lang lang="de-DE">
-            <text>SCDB</text>
-        </lang>
-    </string>
-    <string type="0" id="1">
-        <lang lang="de-DE">
-            <text>SCDB_mobil</text>
+            <text>MQBCoding</text>
         </lang>
     </string>
 </strings>

@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<bitmaps count="2">
+<bitmaps count="1">
     <resource id="1" name="bitmaps/000_image.png,0,0,39,39,-19,-39"/>
-    <resource id="2" name="bitmaps/001_image.png,0,0,39,39,-19,-39"/>
 </bitmaps>
