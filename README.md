@@ -4,6 +4,8 @@ The ultimate MIB2-HIGH toolbox for all your MIB2 High customization needs.
 Note: this screen has to potential to ruin your MIB2 HIGH unit. The developers are not responsible for any troubles to anyone or anything caused by this toolbox.
 It's never our intention to harm any person, car or brand. Use the tools wisely, don't be a douche.
 
+Note: This is **not** a universal Jailbreak-like solution for all your needs and firmware versions.
+
 # Requirements
 - Read the entire readme
 - At least 1 healthy set of brains
@@ -90,6 +92,21 @@ This is the script to compress the MCF-container. Usage: compress-mif.py <origin
 ## F.A.Q.
 
 If you run into any issues, consult the [F.A.Q.](https://github.com/jilleb/mib2-toolbox/blob/master/FAQ.md).
+
+## Supported firmware versions
+This toolbox probably doesn't work on all available firmware versions.
+
+
+| Brand         | Version       | Works?|
+| ------------- |:-------------:| -----:|
+| VW | 0343 | Yes |
+| VW | 1367 | Yes |
+| Seat | 1219 | Yes |
+| Seat | 1409 | Yes |
+| Audi | 1362 | No, reason currently unkown |
+
+
+Please report whether or not the toolkit works with your version, so I can add new info to this page.
 
 
 # Disclaimer:
