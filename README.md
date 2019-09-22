@@ -103,6 +103,9 @@ This toolbox probably doesn't work on all available firmware versions.
 | VW | 1367 | Yes |
 | Seat | 1219 | Yes |
 | Seat | 1409 | Yes |
+| Skoda | 1240 | [Metainfo error](https://github.com/jilleb/mib2-toolbox/issues/4) |
+| Skoda | 1382 | Yes |
+| Skoda | 1440 | Yes |
 | Audi | 1362 | No, reason currently unkown |
 
 
