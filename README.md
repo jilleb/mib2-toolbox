@@ -100,6 +100,7 @@ This toolbox probably doesn't work on all available firmware versions.
 | Brand         | Version       | Works?|
 | ------------- |:-------------:| -----:|
 | VW | 0343 | Yes |
+| VW | 1161 | Yes |
 | VW | 1367 | Yes |
 | Seat | 1219 | Yes |
 | Seat | 1409 | Yes |
