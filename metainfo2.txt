@@ -14,11 +14,11 @@ region3 = "USA"
 region4 = "Japan"
 region5 = "China"
 region6 = "Taiwan"
-variant = "FM?-H-*-*-*"
+variant = "FM?-*-*-*-*"
 release = "MQB Coding Toolbox V2"
 UserSWDL = "true"
 skipMetaCRC = "true"
-MetafileChecksum = "0196145f211283937e89d20b2b97b0143c37647a"
+MetafileChecksum = "cb48da84e8eb0a4f99e3c89e9a2c1e911eadd7ff"
 skipFileCopyCrc = "true"
 
 [PersonalPOI]
