@@ -1,0 +1,38 @@
+#############################################
+#
+# Green Engineering screen definition for privacy-features
+# Author: Jille
+# v0.1
+#
+#############################################
+
+screen  privacy  mqbcoding
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "This screen allows you to clean specific information from your unit."
+    poll     0
+    
+keyValue
+    value    String sys 0x00000000 0
+    label    "Note: there is no undelete."
+    poll     0
+
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/privacy_cleanhistory.sh"
+   label    "Clean software version update history"    
+
+
+script
+   value    sys 1 0x0100 "/scripts/archiveCorefiles.sh"
+   label    "Archive core dumps and logs"
+   
+script
+   value    sys 1 0x0100 "/scripts/deleteCorefiles.sh"
+   label    "Delete core dumps and logs"
+   
+script
+   value    sys 1 0x0100 "/scripts/deleteBrowserCache.sh"
+   label    "Delete browser cache"
+   
+   

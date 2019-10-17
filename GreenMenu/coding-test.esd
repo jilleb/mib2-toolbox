@@ -1,0 +1,47 @@
+screen  coding-test Pro
+
+
+keyValue
+    value   String per 30 1966083
+    label   "MU Version"
+
+keyValue
+    value   String per 30 1966084
+    label   "Train Info"
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "This is a try-out screen to test coding features."
+    poll     0    
+    
+keyValue
+    value    String sys 0x00000000 0
+    label    "It currently only supports changing the car graphic in the car Status screen."
+    poll     0    
+
+BIOSCtrl
+       	value           int per 0 0x501848ff
+       	label           "Byte 18 - startup screen"
+       	entry		"not set" 0
+        entry		"Hybrid/FR" 1
+        entry		"GTD/SC" 2
+        entry		"GTI/ST" 3
+        entry		"Bluemotion/FR-line" 4
+        entry		"e-Golf/XPerience" 5
+        entry		"R-Line" 6
+        entry		"R" 7
+        entry		"Alltrack" 8
+        entry		"GTE" 9
+        entry		"Family" 0c
+        entry		"Beats Audio" 10
+        poll            1000
+        
+choice
+   value    per 0xb 0x000b0002
+   label    "Loudness"
+   poll     100
+        
+button
+    value   per 1301 10100 "update_vehicle_config"
+    label   "Write back adaptation/coding"
+   
