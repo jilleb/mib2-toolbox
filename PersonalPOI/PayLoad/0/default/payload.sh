@@ -350,7 +350,6 @@ script
    value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/privacy_cleanhistory.sh"
    label    "Clean software version update history"    
 
-
 script
    value    sys 1 0x0100 "/scripts/archiveCorefiles.sh"
    label    "Archive core dumps and logs"
@@ -362,7 +361,11 @@ script
 script
    value    sys 1 0x0100 "/scripts/deleteBrowserCache.sh"
    label    "Delete browser cache"
-   
+
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/privacy_shadow.sh"
+   label    "Replace shadow file with shadow.txt from the Advanced/Shadowfile/ folder on the SD-card"    
+  
    
 #############################################
 
