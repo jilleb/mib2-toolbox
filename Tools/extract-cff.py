@@ -6,10 +6,6 @@
 # Revision:    0
 # Purpose:     MIB2 cff file exporter
 # Comments:    Usage: extract-cff.py <filename> <outdir>
-# Credits:     Partially based on code supplied by booto @ 
-# 			   https://goo.gl/GqSfpt
-# 			   Format explanation by WRS @
-# 			   https://goo.gl/HkhLwg
 #----------------------------------------------------------
 
 import struct
