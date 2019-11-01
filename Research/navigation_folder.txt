@@ -39,6 +39,8 @@ Navigation
 │   │       │   │   amzoomconfig.xml        # In what cases should the navi autozoom?
 │   │       │   │   amzoomconfig_1280x640.xml # same, but for big screen. Not there for all regions.
 │   │       │   │   images.cff              # !! Container with navi-related images. Icons, POI icons, Flags, Road classes, brand logos, etc.
+│   │       │   │                           # !!use extract-cff.py from tools to extract this file.                
+│   │       │   │  
 │   │       │   │   resourceConfig.xml      # resource ID's for each of the files in images.cff
 │   │       │   │   revision.txt            # version management file
 │   │       │   │   version-cfg.txt         # version management file
@@ -54,7 +56,7 @@ Navigation
 │   │       │   │       triangle.png        # TriangleMarkingTexture image file
 │   │       │   │       validityrules.xml   # Basic rules for exitview
 │   │       │   │       
-│   │       │   ├───Font
+│   │       │   ├───Font                        # Fonts used by navigation
 │   │       │   │       VWTextCarUI-Bold.ttf
 │   │       │   │       VWTextCarUI-Light.ttf
 │   │       │   │       VWTextCarUI-Regular.ttf
@@ -63,17 +65,17 @@ Navigation
 │   │       │   │       VWThesisSemibold.ttf
 │   │       │   │       
 │   │       │   ├───gui
-│   │       │   │   │   bitmap.skn
-│   │       │   │   │   road_name_marker.png
-│   │       │   │   │   Street_Pin_Shadow2D.png
-│   │       │   │   │   Street_Pin_Shadow3D.png
+│   │       │   │   │   bitmap.skn              # xml file with some gui element configurations
+│   │       │   │   │   road_name_marker.png    # graphic used for street pins
+│   │       │   │   │   Street_Pin_Shadow2D.png # shadow for this pin
+│   │       │   │   │   Street_Pin_Shadow3D.png # shadow for this pin in 3d-view
 │   │       │   │   │   
 │   │       │   │   └───1
 │   │       │   │           road_name_marker.png
 │   │       │   │           Street_Pin_Shadow2D.png
 │   │       │   │           Street_Pin_Shadow3D.png
 │   │       │   │           
-│   │       │   ├───guidanceview
+│   │       │   ├───guidanceview        
 │   │       │   │       guidanceviewcommon_285x276.cff
 │   │       │   │       guidanceviewcommon_363x260.cff
 │   │       │   │       guidanceview_default_285x276.xml
@@ -84,7 +86,7 @@ Navigation
 │   │       │   │       guidanceview_kdk_363x260.xml
 │   │       │   │       
 │   │       │   ├───HUD
-│   │       │   │       exitview_id_map.txt.gz
+│   │       │   │       exitview_id_map.txt.gz  #zip file, holds a textfile which links resource id's to certain usecases
 │   │       │   │       
 │   │       │   ├───intersectionmap
 │   │       │   │       KDKConfig.kdx
@@ -108,7 +110,7 @@ Navigation
 │   │       │   │           mapconfig_traffic_kombi_1.mxf.gz
 │   │       │   │           
 │   │       │   ├───Models
-│   │       │   │       objects.cff
+│   │       │   │       objects.cff     # holds carsor.sfc and shadow png files. This is the navigation arrow.
 │   │       │   │       
 │   │       │   ├───pcconfig
 │   │       │   │       iconsmappings.xml
@@ -180,16 +182,16 @@ Navigation
 │   │       │   │           uk-UA.xml.gz
 │   │       │   │           
 │   │       │   ├───roadicon
-│   │       │   │       roadicon.ri.gz
+│   │       │   │       roadicon.ri.gz      # zipped xml file with mappings for country-specific road icons
 │   │       │   │       
 │   │       │   ├───signpost
-│   │       │   │       alternate.sp
+│   │       │   │       alternate.sp        # this file just indicates, that the alternate color scheme is to be used for the signposts.
 │   │       │   │       
 │   │       │   ├───textures
-│   │       │   │       textures.cff
+│   │       │   │       textures.cff        # container file with textures
 │   │       │   │       
 │   │       │   └───tti
-│   │       │           paytmc.json
+│   │       │           paytmc.json         # TMC channels
 │   │       │           paytmc_aus.json
 │   │       │           paytmc_s0to15.json
 │   │       │           paytmc_s0to15online.json

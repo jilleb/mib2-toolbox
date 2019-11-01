@@ -89,7 +89,7 @@ This is the script to compress the MCF-container. Usage: compress-mif.py <origin
 ```compress-mcf.py images.mcf images2.mcf .\extracted\```
 
 - extract-cff.py
-This script can extract cff files, container files for navigation icons and materials. Usage: extract-cff.py <output dir>, for instance:
+This script can extract images.cff files, container files for navigation icons and materials. Usage: extract-cff.py <output dir>, for instance:
   
 ```extract-cff.py images.cff c:\extracted\```
 
