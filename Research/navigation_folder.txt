@@ -1,0 +1,302 @@
+Navigation
+│   AppStartATF                             # ?
+│   ATFHorizonProvider.conf                 # ?
+│   channel_configuration.txt               # ?
+│   CTracer.conf                            # ?
+│   current.usage                           # ?
+│   DRController                            # ?
+│   DRController.cfg                        # ?
+│   IconProviderApp                         # ?
+│   IconProviderApp.cfg                     # ?
+│   lib*.so                                 # compiled library files
+│   mapprefs.xml                            # map preferences file. Potentially interesting.
+│   memdump.cfg                             # ?
+│   navStartup                              # navStartup binary
+│   navStartup.sh                           # Script to run navStartup with certain environment variables
+│   PNavApp                                 # ? Executable, mostly identical to AppStartATF
+│   PNavApp.cfg                             # ?
+│   PSFVersion.txt                          # Some version info
+│   SCC                                     # ScriptingCommandlineClient, used for testing?
+│   SignalMapper-1.4.cfg                    # ? Something for testing, I guess.
+│   SignalMapper-1.4_Org.cfg                # ? Something for testing, I guess.
+│   SignalMapper-1.4_TrafficPlayer.cfg      # ? Something for testing, I guess.
+│   SignalMapper-1.5.cfg                    # ? Something for testing, I guess.
+│   SignalMapper-1.5_Org.cfg                # ? Something for testing, I guess.
+│   SignalMapper-1.5_TrafficPlayer.cfg      # ? Something for testing, I guess.
+│   TrafficPlaybackControlTmc.cfg           # Configuration file for TrafficPlaybackControl
+│   TrafficPlaybackControlTpeg.cfg          # Configuration file for TrafficPlaybackControl
+│   vp.sh                                   # Script that will run a given test scenario
+│   
+├───Materials
+│       materials.cff                       # Containerfile for materials.
+│       
+├───resources
+│   ├───app
+│   │   └───vw                              # Folder has resources for each region.
+│   │       ├───asia                        
+│   │       ├───aus
+│   │       ├───eu
+│   │       │   │   amzoomconfig.xml        # In what cases should the navi autozoom?
+│   │       │   │   amzoomconfig_1280x640.xml # same, but for big screen. Not there for all regions.
+│   │       │   │   images.cff              # !! Container with navi-related images. Icons, POI icons, Flags, Road classes, brand logos, etc.
+│   │       │   │   resourceConfig.xml      # resource ID's for each of the files in images.cff
+│   │       │   │   revision.txt            # version management file
+│   │       │   │   version-cfg.txt         # version management file
+│   │       │   │   
+│   │       │   ├───exitview                # folder with graphics for exitview, and 
+│   │       │   │       dash.png            # BetweenMarkingTexture image file
+│   │       │   │       dashramp.png        # RampMarkingTexture image file
+│   │       │   │       exitviewconfig.evx  # What does the exit view look like, xml file with colors, settings, etc.
+│   │       │   │       guardrail.png       # image file
+│   │       │   │       ramp.png            # RampTexture image file
+│   │       │   │       road.png            # RoadTexture image file
+│   │       │   │       solid.png           # BorderMarkingTexture image file
+│   │       │   │       triangle.png        # TriangleMarkingTexture image file
+│   │       │   │       validityrules.xml   # Basic rules for exitview
+│   │       │   │       
+│   │       │   ├───Font
+│   │       │   │       VWTextCarUI-Bold.ttf
+│   │       │   │       VWTextCarUI-Light.ttf
+│   │       │   │       VWTextCarUI-Regular.ttf
+│   │       │   │       VWThesisSansLight.ttf
+│   │       │   │       VWThesisSansRegular.ttf
+│   │       │   │       VWThesisSemibold.ttf
+│   │       │   │       
+│   │       │   ├───gui
+│   │       │   │   │   bitmap.skn
+│   │       │   │   │   road_name_marker.png
+│   │       │   │   │   Street_Pin_Shadow2D.png
+│   │       │   │   │   Street_Pin_Shadow3D.png
+│   │       │   │   │   
+│   │       │   │   └───1
+│   │       │   │           road_name_marker.png
+│   │       │   │           Street_Pin_Shadow2D.png
+│   │       │   │           Street_Pin_Shadow3D.png
+│   │       │   │           
+│   │       │   ├───guidanceview
+│   │       │   │       guidanceviewcommon_285x276.cff
+│   │       │   │       guidanceviewcommon_363x260.cff
+│   │       │   │       guidanceview_default_285x276.xml
+│   │       │   │       guidanceview_default_363x260.xml
+│   │       │   │       guidanceview_exitview_285x276.xml
+│   │       │   │       guidanceview_exitview_363x260.xml
+│   │       │   │       guidanceview_kdk_285x276.xml
+│   │       │   │       guidanceview_kdk_363x260.xml
+│   │       │   │       
+│   │       │   ├───HUD
+│   │       │   │       exitview_id_map.txt.gz
+│   │       │   │       
+│   │       │   ├───intersectionmap
+│   │       │   │       KDKConfig.kdx
+│   │       │   │       
+│   │       │   ├───MapConfigs
+│   │       │   │   │   fontconfig_default_0.fcx
+│   │       │   │   │   mapconfig_default_0_DTM.mxf.gz
+│   │       │   │   │   mapconfig_default_1_DTM.mxf.gz
+│   │       │   │   │   mapconfig_default_kombi_0.mxf.gz
+│   │       │   │   │   mapconfig_default_kombi_1.mxf.gz
+│   │       │   │   │   mapconfig_traffic_kombi_0.mxf.gz
+│   │       │   │   │   mapconfig_traffic_kombi_1.mxf.gz
+│   │       │   │   │   tti_events.csv.gz
+│   │       │   │   │   
+│   │       │   │   └───1280x640
+│   │       │   │           mapconfig_default_0_DTM.mxf.gz
+│   │       │   │           mapconfig_default_1_DTM.mxf.gz
+│   │       │   │           mapconfig_default_kombi_0.mxf.gz
+│   │       │   │           mapconfig_default_kombi_1.mxf.gz
+│   │       │   │           mapconfig_traffic_kombi_0.mxf.gz
+│   │       │   │           mapconfig_traffic_kombi_1.mxf.gz
+│   │       │   │           
+│   │       │   ├───Models
+│   │       │   │       objects.cff
+│   │       │   │       
+│   │       │   ├───pcconfig
+│   │       │   │       iconsmappings.xml
+│   │       │   │       komoviewstyle.conf
+│   │       │   │       pcmap.conf
+│   │       │   │       PCMappings.xml.gz
+│   │       │   │       spellersettings.xml
+│   │       │   │       tmcadapter.cfg
+│   │       │   │       translitcountries.txt
+│   │       │   │       zoomlevel.conf
+│   │       │   │       zoomlevel_instance0.xml.gz
+│   │       │   │       zoomlevel_instance1.xml.gz
+│   │       │   │       zoomlevel_instance2.xml.gz
+│   │       │   │       zoomlevel_instance3.xml.gz
+│   │       │   │       zoomlevel_instance4.xml.gz
+│   │       │   │       
+│   │       │   ├───poi
+│   │       │   │   │   lang_map.xml
+│   │       │   │   │   petrol_stations.pc.gz
+│   │       │   │   │   poi_vw.pc.gz
+│   │       │   │   │   
+│   │       │   │   └───_replace
+│   │       │   │       └───petrol_stations
+│   │       │   │               fuel_cnggasoline.pc1.gz
+│   │       │   │               fuel_diesel.pc1.gz
+│   │       │   │               fuel_electric.pc1.gz
+│   │       │   │               fuel_electricgasoline.pc1.gz
+│   │       │   │               fuel_gasoline.pc1.gz
+│   │       │   │               fuel_gasolinecng.pc1.gz
+│   │       │   │               fuel_gasolineelectric.pc1.gz
+│   │       │   │               fuel_gasolinelpg.pc1.gz
+│   │       │   │               fuel_lpggasoline.pc1.gz
+│   │       │   │               
+│   │       │   ├───res
+│   │       │   │   └───strings
+│   │       │   │           ar-AE.xml.gz
+│   │       │   │           ar-SA.xml.gz
+│   │       │   │           bg-BG.xml.gz
+│   │       │   │           bs-BA.xml.gz
+│   │       │   │           cs-CZ.xml.gz
+│   │       │   │           da-DK.xml.gz
+│   │       │   │           de-DE.xml.gz
+│   │       │   │           el-GR.xml.gz
+│   │       │   │           en-GB.xml.gz
+│   │       │   │           en-US.xml.gz
+│   │       │   │           es-ES.xml.gz
+│   │       │   │           es-MX.xml.gz
+│   │       │   │           et-EE.xml.gz
+│   │       │   │           fi-FI.xml.gz
+│   │       │   │           fr-FR.xml.gz
+│   │       │   │           hr-HR.xml.gz
+│   │       │   │           hu-HU.xml.gz
+│   │       │   │           it-IT.xml.gz
+│   │       │   │           lang_map.xml
+│   │       │   │           lt-LT.xml.gz
+│   │       │   │           lv-LV.xml.gz
+│   │       │   │           nl-NL.xml.gz
+│   │       │   │           no-NO.xml.gz
+│   │       │   │           pl-PL.xml.gz
+│   │       │   │           pt-BR.xml.gz
+│   │       │   │           pt-PT.xml.gz
+│   │       │   │           ro-RO.xml.gz
+│   │       │   │           ru-RU.xml.gz
+│   │       │   │           sk-SK.xml.gz
+│   │       │   │           sl-SI.xml.gz
+│   │       │   │           sr-RS.xml.gz
+│   │       │   │           sv-SE.xml.gz
+│   │       │   │           tr-TR.xml.gz
+│   │       │   │           uk-UA.xml.gz
+│   │       │   │           
+│   │       │   ├───roadicon
+│   │       │   │       roadicon.ri.gz
+│   │       │   │       
+│   │       │   ├───signpost
+│   │       │   │       alternate.sp
+│   │       │   │       
+│   │       │   ├───textures
+│   │       │   │       textures.cff
+│   │       │   │       
+│   │       │   └───tti
+│   │       │           paytmc.json
+│   │       │           paytmc_aus.json
+│   │       │           paytmc_s0to15.json
+│   │       │           paytmc_s0to15online.json
+│   │       │           supplements.cs_CZ.gz
+│   │       │           supplements.de_DE.gz
+│   │       │           supplements.en_GB.gz
+│   │       │           supplements.es_ES.gz
+│   │       │           supplements.fi_FI.gz
+│   │       │           supplements.fr_FR.gz
+│   │       │           supplements.it_IT.gz
+│   │       │           supplements.nl_NL.gz
+│   │       │           supplements.no_NO.gz
+│   │       │           supplements.pl_PL.gz
+│   │       │           supplements.pt_PT.gz
+│   │       │           supplements.ru_RU.gz
+│   │       │           supplements.sv_SE.gz
+│   │       │           supplements.tr_TR.gz
+│   │       │           tmcevents.be_BE.gz
+│   │       │           tmcevents.bg_BG.gz
+│   │       │           tmcevents.bg_BG.imperial.gz
+│   │       │           tmcevents.bs_BA.gz
+│   │       │           tmcevents.bs_BA.imperial.gz
+│   │       │           tmcevents.cs_CZ.gz
+│   │       │           tmcevents.cs_CZ.imperial.gz
+│   │       │           tmcevents.da_DK.gz
+│   │       │           tmcevents.da_DK.imperial.gz
+│   │       │           tmcevents.de_DE.gz
+│   │       │           tmcevents.de_DE.imperial.gz
+│   │       │           tmcevents.el_GR.gz
+│   │       │           tmcevents.el_GR.imperial.gz
+│   │       │           tmcevents.en_CA.gz
+│   │       │           tmcevents.en_GB.gz
+│   │       │           tmcevents.en_GB.imperial.gz
+│   │       │           tmcevents.en_UK.gz
+│   │       │           tmcevents.en_US.gz
+│   │       │           tmcevents.en_US.imperial.gz
+│   │       │           tmcevents.es_ES.gz
+│   │       │           tmcevents.es_ES.imperial.gz
+│   │       │           tmcevents.es_MX.gz
+│   │       │           tmcevents.es_MX.imperial.gz
+│   │       │           tmcevents.et_EE.gz
+│   │       │           tmcevents.et_EE.imperial.gz
+│   │       │           tmcevents.fi_FI.gz
+│   │       │           tmcevents.fi_FI.imperial.gz
+│   │       │           tmcevents.fr_CA.gz
+│   │       │           tmcevents.fr_CA.imperial.gz
+│   │       │           tmcevents.fr_FR.gz
+│   │       │           tmcevents.fr_FR.imperial.gz
+│   │       │           tmcevents.hr_HR.gz
+│   │       │           tmcevents.hr_HR.imperial.gz
+│   │       │           tmcevents.hu_HU.gz
+│   │       │           tmcevents.hu_HU.imperial.gz
+│   │       │           tmcevents.it_IT.gz
+│   │       │           tmcevents.it_IT.imperial.gz
+│   │       │           tmcevents.lt_LT.gz
+│   │       │           tmcevents.lt_LT.imperial.gz
+│   │       │           tmcevents.lv_LV.gz
+│   │       │           tmcevents.lv_LV.imperial.gz
+│   │       │           tmcevents.nl_NL.gz
+│   │       │           tmcevents.nl_NL.imperial.gz
+│   │       │           tmcevents.no_NO.gz
+│   │       │           tmcevents.no_NO.imperial.gz
+│   │       │           tmcevents.pl_PL.gz
+│   │       │           tmcevents.pl_PL.imperial.gz
+│   │       │           tmcevents.pt_BR.gz
+│   │       │           tmcevents.pt_BR.imperial.gz
+│   │       │           tmcevents.pt_PT.gz
+│   │       │           tmcevents.pt_PT.imperial.gz
+│   │       │           tmcevents.ro_RO.gz
+│   │       │           tmcevents.ro_RO.imperial.gz
+│   │       │           tmcevents.ru_RU.gz
+│   │       │           tmcevents.ru_RU.imperial.gz
+│   │       │           tmcevents.sk_SK.gz
+│   │       │           tmcevents.sk_SK.imperial.gz
+│   │       │           tmcevents.sl_SI.gz
+│   │       │           tmcevents.sl_SI.imperial.gz
+│   │       │           tmcevents.sr_RS.gz
+│   │       │           tmcevents.sr_RS.imperial.gz
+│   │       │           tmcevents.sv_SE.gz
+│   │       │           tmcevents.sv_SE.imperial.gz
+│   │       │           tmcevents.tr_TR.gz
+│   │       │           tmcevents.tr_TR.imperial.gz
+│   │       │           tmcevents.uk_UA.gz
+│   │       │           tmcevents.uk_UA.imperial.gz
+│   │       │           tmcevents.zh_HK.gz
+│   │       │           tmcevents.zh_HK.imperial.gz
+│   │       │           tti.te.gz
+│   │       │           
+│   │       ├───il
+│   │       ├───india
+│   │       ├───meast
+│   │       ├───msa
+│   │       ├───msa2
+│   │       ├───neast
+│   │       └───za
+│   └───iso
+│       └───vw
+│           ├───asia
+│           ├───aus
+│           ├───eu
+│           ├───il
+│           ├───india
+│           ├───meast
+│           ├───msa
+│           ├───msa2
+│           ├───neast
+│           └───za
+└───Scripts
+        tmcPlayback.sd
+        vp.sd

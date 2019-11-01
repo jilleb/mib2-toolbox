@@ -4,6 +4,7 @@
 - [Can this remove component protection?](#can-this-remove-component-protection)
 - [Can this give me more FECs?](#can-this-give-me-more-fecs)
 - [Can this enable Android Auto / CarPlay?](#can-this-enable-android-auto--carplay)
+- [Why do I get a variant-conflict error?](#why-do-i-get-a-variant-conflict-error)
 
 ## What can I do with this?
 Customize your MIB2HIGH unit graphics, patch Android Auto so it can run custom apps.
@@ -19,6 +20,9 @@ Customize your MIB2HIGH unit graphics, patch Android Auto so it can run custom a
 
 ## Can this enable Android Auto / CarPlay?
 - No. That's a SWaP feature, and your dealer is happy to help you.
+
+## Why do I get a variant-conflict error?
+- This happens when you tried installing it on a non MIB2-HIGH system. It will **not** work on MIB1 or MIB2 Standard units. Discover Media / Compostion Media is not MIB2 HIGH!
 
 
 

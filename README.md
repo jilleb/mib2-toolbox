@@ -88,13 +88,17 @@ This is the script to compress the MCF-container. Usage: compress-mif.py <origin
   
 ```compress-mcf.py images.mcf images2.mcf .\extracted\```
 
+- extract-cff.py
+This script can extract cff files, container files for navigation icons and materials. Usage: extract-cff.py <output dir>, for instance:
+  
+```extract-cff.py images.cff c:\extracted\```
+
 
 ## F.A.Q.
-
 If you run into any issues, consult the [F.A.Q.](https://github.com/jilleb/mib2-toolbox/blob/master/FAQ.md).
 
 ## Supported firmware versions
-This toolbox probably doesn't work on all available firmware versions.
+This toolbox probably doesn't work on all available firmware versions. IOC version can be an issue too and can cause fatal metadata/release info errors upon installing. I'm currently investigating this issue (issue #1).
 
 
 | Brand         | Version       | Works?|

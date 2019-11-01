@@ -2,7 +2,7 @@
 #
 # Custom Green Engineering Menu screen
 # Author:       Jille
-# Version:      2.0B
+# Version:      1.6B
 # Disclaimer:   THIS SCREEN WILL VOID YOUR WARRANTY
 #
 ####################################################################
@@ -10,7 +10,7 @@ screen   MQBCoding Main
 
 keyValue
     value    String sys 0x00000000 0
-    label    "MQB CODING - MIB Toolbox v2.0B"
+    label    "MQB CODING - MIB Toolbox v1.6B"
     poll     0
     
 keyValue
@@ -113,7 +113,6 @@ script
 	value sys 1 0x0100 "/scripts/performePersReset.sh"
 	label "Reboot"
 
-
 ####################################################################
 screen  Startup Graphics 
 
@@ -173,9 +172,13 @@ script
    value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/recover_forcedcanim.sh"
    label    "Recover the forced splashscreen install if something failed."  
 
+####################################################################   
+
+screen  Various Graphics 
+
 keyValue
     value    String sys 0x00000000 0
-    label    ""
+    label    "Various tweaks:"
     poll     0  
     
 script
@@ -184,8 +187,11 @@ script
    
 script
    value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/recovery_googleearth.sh"
-   label    "Recover backupped Carnet Google Earth configuration"  
+   label    "Recover backupped Carnet Google Earth configuration"
    
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/patch_menumode.sh"
+   label    "Activate User-switchable MenuMode"  
 
 ####################################################################   
 screen   GreenMenu MQBCoding
@@ -205,19 +211,16 @@ keyValue
     label    "make sure you install them with the Get new scripts and files function."
     poll     0   
 
-
 keyValue
     value    String sys 0x00000000 0
     label    "In your ESD-files, point to scripts at /eso/bin/PhoneCustomer/default/"
     poll     0   
-    
-    
+       
 keyValue
     value    String sys 0x00000000 0
     label    ""
     poll     0   
-    
-    
+        
 script
    value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/install_esd.sh"
    label    "Install green-menu screen files"   
@@ -267,7 +270,6 @@ script
    
 ####################################################################
 screen  coding Pro
-
 
 keyValue
     value    String sys 0x00000000 0
@@ -329,6 +331,41 @@ script
 #script
 #   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/flash_ifs.sh"
 #   label    "Flash ifsroot.ifs from sda0/Advanced/IFS"
+   
+#############################################
+
+screen  privacy  mqbcoding
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "This screen allows you to clean specific information from your unit."
+    poll     0
+    
+keyValue
+    value    String sys 0x00000000 0
+    label    "Note: there is no undelete."
+    poll     0
+
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/privacy_cleanhistory.sh"
+   label    "Clean software version update history"    
+
+script
+   value    sys 1 0x0100 "/scripts/archiveCorefiles.sh"
+   label    "Archive core dumps and logs"
+   
+script
+   value    sys 1 0x0100 "/scripts/deleteCorefiles.sh"
+   label    "Delete core dumps and logs"
+   
+script
+   value    sys 1 0x0100 "/scripts/deleteBrowserCache.sh"
+   label    "Delete browser cache"
+
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/privacy_shadow.sh"
+   label    "Replace shadow file with shadow.txt from the Advanced/Shadowfile/ folder on the SD-card"    
+  
    
 #############################################
 
@@ -508,6 +545,11 @@ screen  History MQBCoding
 
 keyValue
     value    String sys 0x00000000 0
+    label    "v1.6B - Added Privacy screen and menumode tweak"
+    poll     0
+
+keyValue
+    value    String sys 0x00000000 0
     label    "v1.5B - Added Variantinfo screen"
     poll     0
 
@@ -515,7 +557,6 @@ keyValue
     value    String sys 0x00000000 0
     label    "v1.4B - Beta release version"
     poll     0
-
 
 keyValue
     value    String sys 0x00000000 0
