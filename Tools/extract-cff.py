@@ -12,8 +12,21 @@ import struct
 import sys
 import os
 import zlib
-from PIL import Image
-from progressbar import ProgressBar, Percentage, Bar
+try:
+  from PIL import Image
+except ImportError:
+  sys.exit("""  You are missing the PIL module!
+  install it by running: 
+  pip install image""")
+
+try:
+  from progressbar import ProgressBar, Percentage, Bar
+except ImportError:
+  sys.exit("""  You are missing the progressbar module!
+  install it by running: 
+  pip install progressbar""")
+
+
 
 if len(sys.argv) != 3:
   print ("usage: extract-cff.py <filename> <outdir>")

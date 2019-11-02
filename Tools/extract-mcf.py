@@ -16,7 +16,13 @@ import struct
 import sys
 import os
 import zlib
-from PIL import Image
+
+try:
+  from PIL import Image
+except ImportError:
+  sys.exit("""  You are missing the PIL module!
+  install it by running: 
+  pip install image""")
 
 if len(sys.argv) != 3:
   print ("usage: extract-mcf.py <filename> <outdir>")
