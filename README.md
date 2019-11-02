@@ -9,7 +9,7 @@ Note: This is **not** a universal Jailbreak-like solution for all your needs and
 # Requirements
 - Read the entire readme
 - At least 1 healthy set of brains
-- An MIB2 HIGH infotainment unit. It will **not** work on MIB1 or MIB2 Standard units. Discover Media / Compostion Media is not MIB2 HIGH!
+- An MIB2 HIGH or MIB2.5 HIGH infotainment unit. It will **not** work on MIB1 or MIB2 Standard units. Discover Media / Compostion Media is not MIB2 HIGH!
 - 1 empty, **FAT32 formatted** SD-card, with enough space. Everything bigger than 1GB is fine
 - Some place to save your backups
 - Developer mode enabled on module 5F (you need VCDS/OBD11/VCP for this!)
