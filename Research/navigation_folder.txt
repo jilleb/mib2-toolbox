@@ -93,10 +93,10 @@ Navigation
 │   │       │   │       
 │   │       │   ├───MapConfigs
 │   │       │   │   │   fontconfig_default_0.fcx
-│   │       │   │   │   mapconfig_default_0_DTM.mxf.gz
-│   │       │   │   │   mapconfig_default_1_DTM.mxf.gz
-│   │       │   │   │   mapconfig_default_kombi_0.mxf.gz
-│   │       │   │   │   mapconfig_default_kombi_1.mxf.gz
+│   │       │   │   │   mapconfig_default_0_DTM.mxf.gz      #map configuration, colors and such for daytime, zipped xml file
+│   │       │   │   │   mapconfig_default_1_DTM.mxf.gz      #map configuration, colors and such for nighttime, zipped xml file
+│   │       │   │   │   mapconfig_default_kombi_0.mxf.gz    #KOMBI map configuration, colors and such for daytime, zipped xml file
+│   │       │   │   │   mapconfig_default_kombi_1.mxf.gz    #KOMBI map configuration, colors and such for nighttime, zipped xml file
 │   │       │   │   │   mapconfig_traffic_kombi_0.mxf.gz
 │   │       │   │   │   mapconfig_traffic_kombi_1.mxf.gz
 │   │       │   │   │   tti_events.csv.gz

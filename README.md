@@ -4,7 +4,9 @@ The ultimate MIB2-HIGH toolbox for all your MIB2 High customization needs.
 Note: this screen has to potential to ruin your MIB2 HIGH unit. The developers are not responsible for any troubles to anyone or anything caused by this toolbox.
 It's never our intention to harm any person, car or brand. Use the tools wisely, don't be a douche.
 
-Note: This is **not** a universal Jailbreak-like solution for all your needs and firmware versions.
+Note2: This is **not** a universal Jailbreak-like solution for all your needs and firmware versions.
+
+Note3: If you're a business who tries to make a profit off of this:  Don't be an asshole: Don't charge money for this. This project is done in my own time, out of love for the community. I've risked bricking my own hardware while testing, and invested a lot of time in the research. Instead of making money, why not support this project with your knowledge or a [small donation](https://paypal.me/chillout1?locale.x=nl_NL). 
 
 # Requirements
 - Read the entire readme
@@ -120,5 +122,7 @@ Please report whether or not the toolkit works with your version, so I can add n
 # Disclaimer:
 **Warning** These screens have the potential to break your unit and void your warranty. Be careful. We are not responsible for any troubles to you, your car or software. MQB Coding is always looking for cool hacks and retrofits to increase the potential of the MQB platform. It's never our intention to harm any person, car or brand.
 
+## Support this project
 
+You're always welcome to support this project with your knowledge, ideas or a [small donation](https://paypal.me/chillout1?locale.x=nl_NL) to my Paypal. 
 
