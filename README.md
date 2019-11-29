@@ -124,5 +124,5 @@ Please report whether or not the toolkit works with your version, so I can add n
 
 ## Support this project
 
-You're always welcome to support this project with your knowledge, ideas or a [small donation](https://paypal.me/chillout1?locale.x=nl_NL) to my Paypal. 
+You're always welcome to support this project with your knowledge, ideas or a [small donation](https://paypal.me/chillout1) to my Paypal. 
 
