@@ -18,7 +18,7 @@ variant = "FM?-*-*-*-*"
 release = "MQB Coding Toolbox V2"
 UserSWDL = "true"
 skipMetaCRC = "true"
-MetafileChecksum = "fe5922b834bdf115d6db7cb17dfdc0648cd4a43c"
+MetafileChecksum = "b2823262241fd58575d4882b5b08d388b03a7c42"
 skipFileCopyCrc = "true"
 
 [PersonalPOI]
@@ -57,9 +57,9 @@ UpdateOnlyExisting = "false"
 
 [PersonalPOI\PayLoad\0\default\File]
 CheckSumSize = "524288"
-CheckSum = "1CA3A09242AC8BB9110F6F5C70F4B6EC200D0A1C"
-FileSize = "17019"
-Version = "1610"
+CheckSum = "576687E8EECAD9C617652219F1C882E36232F493"
+FileSize = "17010"
+Version = "1611"
 Source = "payload.sh"
 Destination = "/net/mmx/mnt/app/eso/hmi/engdefs/mqbcoding.esd"
 DisplayName = "MQB Coding MIB2 toolbox"

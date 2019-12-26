@@ -50,12 +50,12 @@ screen  AndroidAuto MQBCoding
 
 keyValue
     value    String sys 0x00000000 0
-    label    "Important: make sure you have a gal.json file suitable for your firmware version."
+    label    "This script will patch your gal.json file to allow third party apps."
     poll     0    
 
 keyValue
     value    String sys 0x00000000 0
-    label    "This gal.json file should be in the AndroidAuto folder on your SD-card"
+    label    "Make sure you have an SD-card in slot 1 or 2 to allow a backup to be made."
     poll     0    
 
 script
