@@ -66,6 +66,11 @@ echo Dumping Android Auto config filefiles
 mkdir -p $DUMPPATH/AndroidAuto
 cp /etc/eso/production/gal.json $DUMPPATH/AndroidAuto/
 
+echo Dumping Ringtones
+mkdir -p $DUMPPATH/Ringtones
+cp /net/rcc/mnt/efs-system/opt/audio/tones/*.* $DUMPPATH/Ringtones/
+
+
 # Make readonly again
 mount -ur $VOLUME
 

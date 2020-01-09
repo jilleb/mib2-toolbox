@@ -9,7 +9,8 @@
 # screen <name> <name of parent screen>
 # Without a parent-screen it will not show up in the menu tree
 # Names will all be converted to lower-case when displayed in the Green Engineering Menu
-screen  Example  mqbcoding
+# the following screen has the name "Example" and will be placed in parent-screen with the name "test"
+screen  Example  test
 
 
 # There are several elements that can be shown on a green menu screen:

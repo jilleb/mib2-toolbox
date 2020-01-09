@@ -2,7 +2,7 @@
 #
 # Custom Green Engineering Menu screen
 # Author:       Jille
-# Version:      1.6B
+# Version:      1.8B
 # Disclaimer:   THIS SCREEN WILL VOID YOUR WARRANTY
 #
 ####################################################################
@@ -10,7 +10,7 @@ screen   MQBCoding Main
 
 keyValue
     value    String sys 0x00000000 0
-    label    "MQB CODING - MIB Toolbox v1.6B"
+    label    "MQB CODING - MIB Toolbox v1.8B"
     poll     0
     
 keyValue
@@ -43,7 +43,7 @@ keyValue
     
 script
    value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/dump_all.sh"
-   label    "Dump skins, startup screens, android auto config to SD-card"
+   label    "Dump skins, startup screens, android auto config, ringtones to SD-card"
 
 ####################################################################
 screen  AndroidAuto MQBCoding
@@ -67,9 +67,14 @@ script
    label    "Recovery script for Android Auto patch (use in case of troubles after installing AA-patch"   
 
 ####################################################################
-screen  Graphics MQBCoding 
+screen  Customization MQBCoding 
 ####################################################################
-screen  Skin Graphics 
+screen  Skin Customization 
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "This screen can be used to replace skin-graphics of the MIB."
+    poll     0  
 
 keyValue
     value    String sys 0x00000000 0
@@ -114,7 +119,12 @@ script
 	label "Reboot"
 
 ####################################################################
-screen  Startup Graphics 
+screen  Startup Customization 
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "This screen can be used to replace startup-graphics of the MIB."
+    poll     0  
 
 keyValue
     value    String sys 0x00000000 0
@@ -173,8 +183,31 @@ script
    label    "Recover the forced splashscreen install if something failed."  
 
 ####################################################################   
+screen  Sounds Customization 
 
-screen  Various Graphics 
+keyValue
+    value    String sys 0x00000000 0
+    label    "This screen can be used to replace ringtones and sounds of the MIB."
+    poll     0  
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "Wav-files go into the Ringtones-folder on SD-card in slot 1"
+    poll     0  
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "Reboot after installing new files."
+    poll     0      
+
+#todo: make ringtones install script.
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/install_ringtones.sh"
+   label    "Install new graphics for Skin0"
+
+####################################################################
+
+screen  Various Customization 
 
 keyValue
     value    String sys 0x00000000 0
@@ -194,7 +227,7 @@ script
    label    "Activate User-switchable MenuMode"  
 
 ####################################################################   
-screen   GreenMenu MQBCoding
+screen   GreenMenu Customization
 
 keyValue
     value    String sys 0x00000000 0
@@ -268,6 +301,61 @@ script
    value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/dump_eeprom.sh"
    label    "Dump EEPROM"
    
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/dump_gem.sh"
+   label    "Dump GEM.jar"
+   
+   script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/dump_lsdjxe.sh"
+   label    "Dump LSD.jxe"
+   
+
+        
+####################################################################
+screen  import Pro
+
+keyValue
+    value   String per 30 1966083
+    label   "MU Version"
+
+keyValue
+    value   String per 30 1966084
+    label   "Train Info"
+    
+keyValue
+    value    String sys 0x00000000 0
+    label    "WARNING: This screen WILL void your warranty"
+    poll     0    
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "And it can and will seriously ruin your day if you don't know what you're doing."
+    poll     0    
+    
+keyValue
+    value    String sys 0x00000000 0
+    label    "Be sure to only flash if you're sure you're flashing the right file."
+    poll     0    
+    
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/copy_fec.sh"
+   label    "Import FecContainer.fec from sda0/Advanced/FEC"
+   
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/copy_gem.sh"
+   label    "Import GEM.jar from sda0/Advanced/GEM"
+   
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/install_lsdjxe.sh"
+   label    "Import LSD.jxe"
+
+
+   
+#script
+#   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/flash_ifs.sh"
+#   label    "Flash ifsroot.ifs from sda0/Advanced/IFS"
+  
+
 ####################################################################
 screen  coding Pro
 
@@ -297,44 +385,10 @@ BIOSCtrl
         entry		"Family" 0c
         entry		"Beats Audio" 10
         poll            1000
-        
-####################################################################
-screen  flashing Pro
-
-keyValue
-    value   String per 30 1966083
-    label   "MU Version"
-
-keyValue
-    value   String per 30 1966084
-    label   "Train Info"
-    
-keyValue
-    value    String sys 0x00000000 0
-    label    "WARNING: This screen WILL void your warranty"
-    poll     0    
-
-keyValue
-    value    String sys 0x00000000 0
-    label    "And it can and will seriously ruin your day if you don't know what you're doing."
-    poll     0    
-    
-keyValue
-    value    String sys 0x00000000 0
-    label    "Be sure to only flash if you're sure you're flashing the right file."
-    poll     0    
-    
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/copy_fec.sh"
-   label    "Copy FecContainer.fec from sda0/Advanced/FEC"
-   
-#script
-#   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/flash_ifs.sh"
-#   label    "Flash ifsroot.ifs from sda0/Advanced/IFS"
-   
+  
 #############################################
 
-screen  privacy  mqbcoding
+screen  privacy  MQBCoding
 
 keyValue
     value    String sys 0x00000000 0
@@ -449,6 +503,7 @@ choice
 choice
     value   per 0x286f058c 19
     label   "Variant::Feature MMI Radio"   
+    
         
 
 ####################################################################
@@ -542,6 +597,16 @@ keyValue
     
 ####################################################################
 screen  History MQBCoding
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "v1.8B - Added LSD.jxe and GEM.jar dump and import (pro features)"
+    poll     0
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "v1.7B - Added Ringtones dump and import"
+    poll     0
 
 keyValue
     value    String sys 0x00000000 0
