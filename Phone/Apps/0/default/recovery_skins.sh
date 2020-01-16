@@ -6,7 +6,7 @@
 
 #info
 TOPIC=Skinfiles
-DESCRIPTION="This script will recover the backupped skinfiles"
+DESCRIPTION="This script will recover the backupped skinfiles and ambienceColorMaps"
 
 #Firmware/unit info:
 VERSION="$(cat /net/rcc/dev/shmem/version.txt | grep "Current train" | sed 's/Current train = //g' | sed -e 's|["'\'']||g' | sed 's/\r//')"
@@ -54,6 +54,13 @@ cp $BACKUPFOLDER/skin2/images.mcf $RESOURCESFOLDER/skin2/images.mcf
 cp $BACKUPFOLDER/skin3/images.mcf $RESOURCESFOLDER/skin3/images.mcf
 cp $BACKUPFOLDER/skin4/images.mcf $RESOURCESFOLDER/skin4/images.mcf
 cp $BACKUPFOLDER/skin5/images.mcf $RESOURCESFOLDER/skin5/images.mcf
+
+cp $BACKUPFOLDER/skin0/ambienceColorMap.res $RESOURCESFOLDER/skin0/ambienceColorMap.res
+cp $BACKUPFOLDER/skin1/ambienceColorMap.res $RESOURCESFOLDER/skin1/ambienceColorMap.res
+cp $BACKUPFOLDER/skin2/ambienceColorMap.res $RESOURCESFOLDER/skin2/ambienceColorMap.res
+cp $BACKUPFOLDER/skin3/ambienceColorMap.res $RESOURCESFOLDER/skin3/ambienceColorMap.res
+cp $BACKUPFOLDER/skin4/ambienceColorMap.res $RESOURCESFOLDER/skin4/ambienceColorMap.res
+cp $BACKUPFOLDER/skin5/ambienceColorMap.res $RESOURCESFOLDER/skin5/ambienceColorMap.res
 
 
 $ Make readonly again

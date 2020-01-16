@@ -1,20 +1,19 @@
 #!/bin/sh
-TOPIC=Ringtones
 
 #info
-DESCRIPTION="This script will install Ringtones"
+TOPIC=Storage
+DESCRIPTION="This script will dump storage1.raw and storage2.raw"
 
 #Firmware/unit info:
 VERSION="$(cat /net/rcc/dev/shmem/version.txt | grep "Current train" | sed 's/Current train = //g' | sed -e 's|["'\'']||g' | sed 's/\r//')"
 FAZIT=$(cat /tmp/fazit-id);
 
-echo "---------------------------"
 echo $DESCRIPTION
 echo FAZIT of this unit: $FAZIT
 echo Firmware version: $VERSION
 echo "---------------------------"
-echo ""
 sleep .5
+
 
 #Is there any SD-card inserted?
 if [ -d /net/mmx/fs/sda0 ]; then
@@ -36,26 +35,22 @@ mount -uw $VOLUME
 sleep .5
 
 #Make backup folder
-BACKUPFOLDER=$VOLUME/Backup/$VERSION/$FAZIT/$TOPIC/
+DUMPFOLDER=$VOLUME/Dump/$VERSION/$FAZIT/$TOPIC
 
-# Make app volume writable
-echo Mounting app folder.
-mount -uw /mnt/app
+echo Dump-folder: $DUMPFOLDER
 
-echo Making backup folders on SD-card.
-mkdir -p $BACKUPFOLDER
+mkdir -p $DUMPFOLDER
+echo "Please wait while the file is dumped"
+echo "It will appear like nothing is happening."
+sleep 1
+echo
+echo "Dumping, this will take a while. Please be patient."
 
-echo Copying file to backup folder on SD-card.
-cp //net/mmx/mnt/app/hb/ringtones/*.* $BACKUPFOLDER
+cp /net/rcc/mnt/efs-persist/*.raw $DUMPFOLDER/
 
-echo Copying modified files from SD folder to MIB.
-cp /$VOLUME/$TOPIC/*.* /net/mmx/mnt/app/hb/ringtones/
 # Make readonly again
-mount -ur /mnt/app
 mount -ur $VOLUME
 
-echo Done. 
-echo "Please restart the unit to apply the new audio"
-echo "Backups are placed at $BACKUPFOLDER"
+echo "Done. storage1.raw and storage2.raw dump can be found in the Dump folder on your SD-card"
 
 exit 0

@@ -66,10 +66,16 @@ echo Dumping Android Auto config filefiles
 mkdir -p $DUMPPATH/AndroidAuto
 cp /etc/eso/production/gal.json $DUMPPATH/AndroidAuto/
 
-echo Dumping Ringtones
-mkdir -p $DUMPPATH/Ringtones
-cp /net/rcc/mnt/efs-system/opt/audio/tones/*.* $DUMPPATH/Ringtones/
 
+mkdir -p $DUMPPATH/Sounds/Systemsounds/
+mkdir -p $DUMPPATH/Sounds/Ringtones/
+mkdir -p $DUMPPATH/Sounds/TTS-audio/
+echo Dumping System sounds
+cp /net/rcc/mnt/efs-system/opt/audio/tones/*.* $DUMPPATH/Sounds/Systemsounds/
+echo Dumping Telephone ringtones 
+cp /net/mmx/mnt/app/hb/ringtones/*.* $DUMPPATH/Sounds/Ringtones/
+echo Dump TTS-audio alerts
+cp /net/mmx/ifs/tts-audio/*.* $DUMPPATH/Sounds/TTS-audio/
 
 # Make readonly again
 mount -ur $VOLUME

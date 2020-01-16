@@ -2,7 +2,7 @@
 #
 # Custom Green Engineering Menu screen
 # Author:       Jille
-# Version:      1.8B
+# Version:      1.9B
 # Disclaimer:   THIS SCREEN WILL VOID YOUR WARRANTY
 #
 ####################################################################
@@ -10,7 +10,7 @@ screen   MQBCoding Main
 
 keyValue
     value    String sys 0x00000000 0
-    label    "MQB CODING - MIB Toolbox v1.8B"
+    label    "MQB CODING - MIB Toolbox v1.9B"
     poll     0
     
 keyValue
@@ -46,7 +46,79 @@ script
    label    "Dump skins, startup screens, android auto config, ringtones to SD-card"
 
 ####################################################################
-screen  AndroidAuto MQBCoding
+screen  Customization MQBCoding 
+####################################################################
+screen  Skin Customization 
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "This screen can be used to replace skin-graphics of the MIB."
+    poll     0  
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "Skin images.mcf-files and ambienceColorMap.res go into the Skinfiles folder on SD-card in slot 1"
+    poll     0  
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "Reboot after installing a new skin or ambienceColorMap."
+    poll     0      
+    
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/install_skin0.sh"
+   label    "Install new graphics for Skin0 from /Skinfiles/Skin0/ on SD"
+
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/install_skin1.sh"
+   label    "Install new graphics for Skin1 from /Skinfiles/Skin1/ on SD"
+   
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/install_skin1_ambient.sh"
+   label    "Install new ambient colors for Skin1 from /Skinfiles/Skin1/ on SD"
+
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/install_skin2.sh"
+   label    "Install new graphics for Skin2 from /Skinfiles/Skin2/ on SD"
+   
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/install_skin2_ambient.sh"
+   label    "Install new ambient colors for Skin2 from /Skinfiles/Skin2/ on SD"
+
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/install_skin3.sh"
+   label    "Install new graphics for Skin3 from /Skinfiles/Skin3/ on SD"
+   
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/install_skin3_ambient.sh"
+   label    "Install new ambient colors for Skin3 from /Skinfiles/Skin3/ on SD"
+
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/install_skin4.sh"
+   label    "Install new graphics for Skin4 from /Skinfiles/Skin4/ on SD"
+   
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/install_skin4_ambient.sh"
+   label    "Install new ambient colors for Skin4 from /Skinfiles/Skin4/ on SD"
+
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/install_skin5.sh"
+   label    "Install new graphics for Skin5 from /Skinfiles/Skin5/ on SD"   
+
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/install_skin5_ambient.sh"
+   label    "Install new ambient colors for Skin5 from /Skinfiles/Skin5/ on SD"
+    
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/recovery_skins.sh"
+   label    "Recovery script to recover all skins and ambienceColorMaps from backup"   
+   
+script
+	value sys 1 0x0100 "/scripts/performePersReset.sh"
+	label "Reboot"
+
+####################################################################
+screen  AndroidAuto Customization
 
 keyValue
     value    String sys 0x00000000 0
@@ -64,59 +136,7 @@ script
    
 script
    value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/recovery_aapatch.sh"
-   label    "Recovery script for Android Auto patch (use in case of troubles after installing AA-patch"   
-
-####################################################################
-screen  Customization MQBCoding 
-####################################################################
-screen  Skin Customization 
-
-keyValue
-    value    String sys 0x00000000 0
-    label    "This screen can be used to replace skin-graphics of the MIB."
-    poll     0  
-
-keyValue
-    value    String sys 0x00000000 0
-    label    "Skin images.mcf-files go into the Skinfiles folder on SD-card in slot 1"
-    poll     0  
-
-keyValue
-    value    String sys 0x00000000 0
-    label    "Reboot after installing a new skin."
-    poll     0      
-    
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/install_skin0.sh"
-   label    "Install new graphics for Skin0"
-
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/install_skin1.sh"
-   label    "Install new graphics for Skin1"
-
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/install_skin2.sh"
-   label    "Install new graphics for Skin2"
-
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/install_skin3.sh"
-   label    "Install new graphics for Skin3"
-
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/install_skin4.sh"
-   label    "Install new graphics for Skin4"
-
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/install_skin5.sh"
-   label    "Install new graphics for Skin5"   
-    
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/recovery_skins.sh"
-   label    "Recovery script to recover all skins from backup"   
-   
-script
-	value sys 1 0x0100 "/scripts/performePersReset.sh"
-	label "Reboot"
+   label    "Recovery script for Android Auto patch (use in case of troubles after installing AA-patch" 
 
 ####################################################################
 screen  Startup Customization 
@@ -200,10 +220,13 @@ keyValue
     label    "Reboot after installing new files."
     poll     0      
 
-#todo: make ringtones install script.
 script
    value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/install_ringtones.sh"
-   label    "Install new graphics for Skin0"
+   label    "Install new ringtones from /Ringtones/ on SD"
+   
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/install_systemsounds.sh"
+   label    "Install new system sounds from /Systemsounds/ on SD"
 
 ####################################################################
 
@@ -305,9 +328,13 @@ script
    value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/dump_gem.sh"
    label    "Dump GEM.jar"
    
-   script
+script
    value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/dump_lsdjxe.sh"
    label    "Dump LSD.jxe"
+   
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/dump_storage.sh"
+   label    "Dump storage1.raw and storage2.raw "
    
 
         
@@ -597,6 +624,11 @@ keyValue
     
 ####################################################################
 screen  History MQBCoding
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "v1.9B - Added storage.raw dump and ambient color maps dump/import."
+    poll     0
 
 keyValue
     value    String sys 0x00000000 0

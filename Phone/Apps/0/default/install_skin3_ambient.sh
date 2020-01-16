@@ -1,8 +1,9 @@
 #!/bin/sh
-TOPIC=Ringtones
+SKINNAME=skin3
+TOPIC=Skinfiles
 
 #info
-DESCRIPTION="This script will install Ringtones"
+DESCRIPTION="This script will install $SKINNAME"
 
 #Firmware/unit info:
 VERSION="$(cat /net/rcc/dev/shmem/version.txt | grep "Current train" | sed 's/Current train = //g' | sed -e 's|["'\'']||g' | sed 's/\r//')"
@@ -36,7 +37,7 @@ mount -uw $VOLUME
 sleep .5
 
 #Make backup folder
-BACKUPFOLDER=$VOLUME/Backup/$VERSION/$FAZIT/$TOPIC/
+BACKUPFOLDER=$VOLUME/Backup/$VERSION/$FAZIT/$TOPIC/$SKINNAME
 
 # Make app volume writable
 echo Mounting app folder.
@@ -46,16 +47,17 @@ echo Making backup folders on SD-card.
 mkdir -p $BACKUPFOLDER
 
 echo Copying file to backup folder on SD-card.
-cp //net/mmx/mnt/app/hb/ringtones/*.* $BACKUPFOLDER
+cp /eso/hmi/lsd/Resources/$SKINNAME/ambienceColorMap.res $BACKUPFOLDER/ambienceColorMap.res
 
-echo Copying modified files from SD folder to MIB.
-cp /$VOLUME/$TOPIC/*.* /net/mmx/mnt/app/hb/ringtones/
+echo Copying modified files from SD Skinfiles folder to MIB.
+cp /$VOLUME/$TOPIC/$SKINNAME/ambienceColorMap.res /eso/hmi/lsd/Resources/$SKINNAME/ambienceColorMap.res
+
 # Make readonly again
 mount -ur /mnt/app
 mount -ur $VOLUME
 
 echo Done. 
-echo "Please restart the unit to apply the new audio"
+echo "Please restart the unit to apply the graphics"
 echo "Backups are placed at $BACKUPFOLDER"
 
 exit 0
