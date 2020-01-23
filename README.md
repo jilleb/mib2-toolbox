@@ -41,6 +41,23 @@ Note3: If you're a business who tries to make a profit off of this:  Don't be an
 - You're now done.
 - Enjoy!
 
+# How to do a manual installation
+- Put the mib2-toolbox on an SD-card and insert it into the MIB-unit
+- Make a connection to the debug console of the unit (either via D-Link Dub-E100 on the USB port, or serial interface on the back of the unit)
+- Log in
+- make the mmx app volume writable: mount -uw /net/mmx/mnt/app/
+- copy mqbcoding.esd to /net/mmx/mnt/app/eso/hmi/engdefs/mqbcoding.esd:
+
+
+```cp /net/mmx/fs/sda0/PersonalPOI/PayLoad/0/default/payload.sh /net/mmx/mnt/app/eso/hmi/engdefs/mqbcoding.esd```
+
+- Hold the MENU button, and go to TESTMODE. On older versions you can go to the developer menu by holding the MENU button for about 10 seconds.
+- Go to the Green Developer Menu
+- There will be an additional menu called "mqbcoding". When you see this, the installation was succesful.
+- Run the "Get new scripts and files from SD-card (slot1)" script, and additional files will be installed.
+- You're now done.
+- Enjoy!
+
 # How to use the new screens
 
 ## dump
