@@ -1,12 +1,12 @@
 #!/bin/sh
 
 #info
-TOPIC=Shadowfile
-DESCRIPTION="This script will replace the shadow file with the shadow file in Advanced/Shadowfile/shadow.txt."
+TOPIC=Hosts
+DESCRIPTION="This script will replace the hosts file with the hosts file in Advanced/Hosts/hosts.txt."
 
 #Volumes/files
 VOLUME=/fs/sda0
-FILENAME=shadow
+FILENAME=hosts
 ORIGINAL=/net/mmx/mnt/system/etc/
 
 #Firmware/unit info:
@@ -38,8 +38,8 @@ fi
 
 sleep .5
 
-if [ -f $VOLUME/Advanced/Shadowfile/shadow.txt ]; then
-    echo "New shadow.txt file found"
+if [ -f $VOLUME/Advanced/Hosts/hosts.txt ]; then
+    echo "New hosts.txt file found"
 
     echo Mounting SD-card.
     mount -uw $VOLUME
@@ -57,27 +57,27 @@ if [ -f $VOLUME/Advanced/Shadowfile/shadow.txt ]; then
     mkdir -p $DUMPFOLDER
 
     echo Copying shadow file to SD-card.
-    cp /$ORIGINAL/$FILENAME $DUMPFOLDER/shadow.txt
+    cp /$ORIGINAL/$FILENAME $DUMPFOLDER/hosts.txt
 
     #show contents
-    echo "Original shadow file:"
+    echo "Original Hosts file:"
     sleep 1
-    cat $DUMPFOLDER/shadow.txt
+    cat $DUMPFOLDER/hosts.txt
     sleep 1
 
     echo
     echo "Copy new shadow file"
-    cp $VOLUME/Advanced/Shadowfile/shadow.txt /$ORIGINAL/$FILENAME 
+    cp $VOLUME/Advanced/Hosts/hosts.txt /$ORIGINAL/$FILENAME 
     
     # Make readonly again
     mount -ur $VOLUME
     mount -ur /net/mmx/mnt/system/
     
     echo "Done. Backup can be found on your SD-card."
-    echo "shadow file replaced, new password is now active."
+    echo "hosts file replaced"
 
 else 
-    echo "No shadowfile found at /Advanced/Shadowfile/shadow.txt"
+    echo "No hosts.txt found at /Advanced/Hosts/"
     exit 0
 fi
 

@@ -2,7 +2,7 @@
 #
 # Custom Green Engineering Menu screen
 # Author:       Jille
-# Version:      1.9B
+# Version:      2.0B
 # Disclaimer:   THIS SCREEN WILL VOID YOUR WARRANTY
 #
 ####################################################################
@@ -10,7 +10,7 @@ screen   MQBCoding Main
 
 keyValue
     value    String sys 0x00000000 0
-    label    "MQB CODING - MIB Toolbox v1.9B"
+    label    "MQB CODING - MIB Toolbox v2.0B"
     poll     0
     
 keyValue
@@ -312,9 +312,9 @@ script
    value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/dump_fec.sh"
    label    "Dump FEC container"   
    
-#script
-#   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/dump_ifs.sh"
-#   label    "Dump IFS-root"   
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/dump_ifs.sh"
+   label    "Dump IFS-root"   
    
 script
    value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/dump_shadow.sh"
@@ -323,6 +323,10 @@ script
 script
    value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/dump_eeprom.sh"
    label    "Dump EEPROM"
+   
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/dump_hosts.sh"
+   label    "Dump hosts file"
    
 script
    value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/dump_gem.sh"
@@ -375,12 +379,18 @@ script
 script
    value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/install_lsdjxe.sh"
    label    "Import LSD.jxe"
-
-
    
-#script
-#   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/flash_ifs.sh"
-#   label    "Flash ifsroot.ifs from sda0/Advanced/IFS"
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/privacy_shadow.sh"
+   label    "Import shadow file"
+   
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/import_hosts.sh"
+   label    "Import hosts file"
+  
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/flash_ifs.sh"
+   label    "Flash ifsroot.ifs from sda0/Advanced/IFS"
   
 
 ####################################################################
@@ -530,8 +540,35 @@ choice
 choice
     value   per 0x286f058c 19
     label   "Variant::Feature MMI Radio"   
+
+
+####################################################################
+screen  password Pro
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "This feature will find the root passwords for MMX and RCC"
+    poll     0
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "Update passwords.csv in the Advanced folder on your SD in slot 1"
+    poll     0
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "with your own passwords."
+    poll     0
+
+keyValue
+    value    String sys 0x00000000 0
+    label    ""
+    poll     0
     
-        
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/find_password.sh"
+   label    "Find the root passwords."
+         
 
 ####################################################################
 screen   Disclaimer MQBCoding
@@ -624,6 +661,11 @@ keyValue
     
 ####################################################################
 screen  History MQBCoding
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "v2.0B - Dump/Import hosts file and minor fixes."
+    poll     0
 
 keyValue
     value    String sys 0x00000000 0
