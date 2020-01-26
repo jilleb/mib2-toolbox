@@ -32,7 +32,7 @@ fi
 sleep .5
 
 echo Mounting SD-card, in case any unknown hashes are found..
-mount -uw $
+mount -uw $VOLUME
 
 sleep .5
 sleep .5
