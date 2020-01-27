@@ -10,7 +10,14 @@ FAZIT=$(cat /tmp/fazit-id);
 echo $DESCRIPTION
 echo FAZIT of this unit: $FAZIT
 echo Firmware version: $VERSION
+echo ""
+echo ""
 
+
+sleep .5
+
+echo "Looking for SD-card in slot 0"
+sleep .5
 
 #Is there any SD-card inserted?
 if [ -d /net/mmx/fs/sda0 ]; then
@@ -20,6 +27,11 @@ else
     echo No SD-cards found.
     exit 0
 fi
+
+sleep .5
+
+echo "Looking for passwords.csv on SD-card"
+sleep .5
 
 if [ ! -f /net/mmx/fs/sda0/Advanced/passwords.csv ]
 then
@@ -33,8 +45,9 @@ sleep .5
 
 echo Mounting SD-card, in case any unknown hashes are found..
 mount -uw $VOLUME
+echo ""
 
-sleep .5
+
 sleep .5
 
 #Make backup folder
@@ -47,6 +60,8 @@ mkdir -p $DUMPFOLDER
 HASH=`awk -F ':' '{ if ($1 == "root") { print $2 } }' /net/mmx/mnt/system/etc/shadow`
 PASSWORD=`awk -v hashvar="$HASH" -F',' '{ if ($1 == hashvar) { print $2 } }' /net/mmx/fs/sda0/Advanced/passwords.csv`
 
+sleep .5
+
 if [ "$PASSWORD" == "" ];then
    echo "MMX password not found in password list."
    echo $HASH > $DUMPFOLDER/mmx_hash.txt
@@ -54,7 +69,7 @@ else
     echo "Your MMX root password is: $PASSWORD"
 fi
 
-
+sleep .5
 
 HASHRCC=`awk -F ':' '{ if ($1 == "root") { print $2 } }' /net/rcc/etc/shadow_rcc`
 PASSWORDRCC=`awk -v hashvar2="$HASHRCC" -F ',' '{ if ($1 == hashvar2) { print $2 } }' /net/mmx/fs/sda0/Advanced/passwords.csv`
