@@ -247,7 +247,11 @@ script
    
 script
    value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/patch_menumode.sh"
-   label    "Activate User-switchable MenuMode"  
+   label    "Activate User-switchable MenuMode"
+   
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/recovery_menumode.sh"
+   label    "Deactivate User-switchable MenuMode"
 
 ####################################################################   
 screen   GreenMenu Customization
