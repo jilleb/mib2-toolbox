@@ -252,6 +252,10 @@ script
 script
    value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/recovery_menumode.sh"
    label    "Deactivate User-switchable MenuMode"
+   
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/install_rsdb.sh"
+   label    "Install new Radio Station DB"
 
 ####################################################################   
 screen   GreenMenu Customization
