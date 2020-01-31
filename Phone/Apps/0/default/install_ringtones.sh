@@ -46,7 +46,7 @@ echo Making backup folders on SD-card.
 mkdir -p $BACKUPFOLDER
 
 echo Copying file to backup folder on SD-card.
-cp //net/mmx/mnt/app/hb/ringtones/*.* $BACKUPFOLDER
+cp /net/mmx/mnt/app/hb/ringtones/*.* $BACKUPFOLDER
 
 echo Copying modified files from SD folder to MIB.
 cp /$VOLUME/$TOPIC/*.* /net/mmx/mnt/app/hb/ringtones/
