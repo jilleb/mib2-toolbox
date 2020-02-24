@@ -10,7 +10,7 @@ screen   MQBCoding Main
 
 keyValue
     value    String sys 0x00000000 0
-    label    "MQB CODING - MIB Toolbox v2.0B"
+    label    "MQB CODING - MIB Toolbox v2.1B"
     poll     0
     
 keyValue
@@ -430,6 +430,167 @@ BIOSCtrl
         entry		"Family" 0c
         entry		"Beats Audio" 10
         poll            1000
+
+####################################################################  
+screen  scanning Pro
+  
+keyValue
+    value    String sys 0x00000000 0
+    label    "Scanning for cool stuff in persistence"
+    poll     0    
+    
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan.sh"
+   label    "Perform a persistence scan. (SD-card needed)"
+   
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_0.sh"
+   label    "Scan NS_REGION_CODE (0)"
+   
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_1.sh"
+   label    "Scan HARMAN internal (1)"   
+   
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_2.sh"
+   label    "Scan HARMAN internal (2)"  
+   
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_3.sh"
+   label    "Scan HARMAN internal (3)"  
+   
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_4.sh"
+   label    "Scan HARMAN internal (4)"  
+   
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_5.sh"
+   label    "Scan HARMAN internal (5)"  
+   
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_6.sh"
+   label    "Scan HARMAN internal (6)"  
+   
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_7.sh"
+   label    "Scan HARMAN internal (7)"  
+   
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_8.sh"
+   label    "Scan HARMAN internal (8)"  
+   
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_9.sh"
+   label    "Scan HARMAN internal (9)"  
+   
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_10.sh"
+   label    "Scan HARMAN internal (10)"  
+   
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_11.sh"
+   label    "Scan HARMAN internal (11)"  
+   
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_12.sh"
+   label    "Scan HARMAN internal (12)"  
+   
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_1501.sh"
+   label    "Scan online (1501)"  
+   
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_1510.sh"
+   label    "Scan sse (1510)"  
+   
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_1511.sh"
+   label    "Scan ARC (1511)"  
+   
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_1512.sh"
+   label    "Scan ARC (1512)"  
+   
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_1513.sh"
+   label    "Scan Esoposprovider (1513)"  
+   
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_1514.sh"
+   label    "Scan Scale DTCP (1514)"  
+   
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_2002.sh"
+   label    "Scan mobilityhorizon (2002)"  
+   
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_26411208.sh"
+   label    "Scan NS_HMI_DAB (26411208)"  
+    
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_27263191.sh"
+   label    "Scan NS_HMI_CAR (27263191)"  
+    
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_27853016.sh"
+   label    "Scan NS_HMI_AUDIO (27853016)"  
+    
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_28180695.sh"
+   label    "Scan DIAG_COD (28180695)"  
+    
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_28442848.sh"
+   label    "Scan DIAG_ANP (28442848)"  
+    
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_29425895.sh"
+   label    "Scan NS_HMI_ENS (29425895)"  
+       
+    
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_29688031.sh"
+   label    "Scan NS_HMI_IRC (29688031)"  
+       
+    
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_30867691.sh"
+   label    "Scan speech-service (30867691)"  
+       
+    
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_29425895.sh"
+   label    "Scan NS_HMI_ENS (29425895)"  
+       
+    
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_32702714.sh"
+   label    "Scan NS_HMI_PWR (32702714)"  
+       
+    
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_46661922.sh"
+   label    "Scan NS_HMI_TUNER_AMFM (46661922)"  
+       
+    
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_46924065.sh"
+   label    "Scan IDENTIFIKATION (46924065)"  
+    
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_52166966.sh"
+   label    "Scan UP AND DOWNLOAD (52166966)"  
+       
+    
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_98190593.sh"
+   label    "Scan NS_HMI_SDARS (98190593)"  
+       
+    
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_678364556.sh"
+   label    "Scan ENGNS, AMI type etc. (678364556)"  
+  
   
 #############################################
 
@@ -669,6 +830,11 @@ keyValue
     
 ####################################################################
 screen  History MQBCoding
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "v2.1B - Added persistence scanner."
+    poll     0
 
 keyValue
     value    String sys 0x00000000 0
