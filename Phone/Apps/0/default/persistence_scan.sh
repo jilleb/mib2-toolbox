@@ -53,6 +53,7 @@ else
     MAXSCAN=100000000;
     fi
 
+echo "Scanning partition $PARTITION"
 
 if [ "$2" != "" ]; then
     ADDRESS=$2;
@@ -81,39 +82,56 @@ fi
 while [ $ADDRESS -le $MAXSCAN ]
 do
   #echo "-----------------"
-  echo "Scanning $PARTITION $ADDRESS"
+  echo "Scanning $PARTITION:$ADDRESS"
     
   #first check if ths address even exists or causes a time-out.
     PERSISTENCEDATA="$(on -f mmx on -f mmx /net/mmx/mnt/app/eso/bin/dumb_persistence_reader $PARTITION $ADDRESS 2>&1)"  
     if [[ "$PERSISTENCEDATA" == *"PERS_STATUS_TIMEOUT"* ]] ; then
-      echo $PARTITION $ADDRESS >> $DUMPFOLDER/persistence.txt
-      echo "TIMEOUT" >> $DUMPFOLDER/persistence.txt
-      echo "Timeout, skipping address" 
-      echo "" >> $DUMPFOLDER/persistence.txt
+      if echo $PARTITION $ADDRESS >> $DUMPFOLDER/persistence.txt ; then
+        echo "TIMEOUT" >> $DUMPFOLDER/persistence.txt
+        echo "Timeout, skipping address" 
+        echo "" >> $DUMPFOLDER/persistence.txt
+      else 
+        echo "Scan cancelled"
+        exit 1
+      fi
     elif [[ "$PERSISTENCEDATA" == *" PERS_STATUS_TYPE_MISMATCH"* ]] ; then
       echo "Type mismatch, trying integer"
       PERSISTENCEDATAI="$(on -f mmx on -f mmx /net/mmx/mnt/app/eso/bin/dumb_persistence_reader $PARTITION $ADDRESS -t int 2>&1)"
         if [[ "$PERSISTENCEDATAI" == *"PERS_STATUS_TYPE_MISMATCH"* ]] ; then
           echo "Type mismatch, trying string"
           PERSISTENCEDATAS="$(on -f mmx on -f mmx /net/mmx/mnt/app/eso/bin/dumb_persistence_reader $PARTITION $ADDRESS -t string 2>&1)"
-          echo $PARTITION $ADDRESS "- string" >> $DUMPFOLDER/persistence.txt
-          echo $PERSISTENCEDATAS >> $DUMPFOLDER/persistence.txt
-          echo "" >> $DUMPFOLDER/persistence.txt
-          echo Data found: $PERSISTENCEDATAS
+          if echo $PARTITION $ADDRESS "- string" >> $DUMPFOLDER/persistence.txt ; then
+            echo $PERSISTENCEDATAS >> $DUMPFOLDER/persistence.txt
+            echo "" >> $DUMPFOLDER/persistence.txt
+            echo Data found: $PERSISTENCEDATAS
+          else         
+            echo "!Scan cancelled"
+            exit 1
+          fi
         elif [[ "$PERSISTENCEDATAI" != *"ERROR"* ]] ; then
-          echo $PARTITION $ADDRESS "- integer" >> $DUMPFOLDER/persistence.txt
-          echo $PERSISTENCEDATAI >> $DUMPFOLDER/persistence.txt
-          echo "" >> $DUMPFOLDER/persistence.txt
-          echo Data found: $PERSISTENCEDATAI
+          if echo $PARTITION $ADDRESS "- integer" >> $DUMPFOLDER/persistence.txt ; then
+            echo $PERSISTENCEDATAI >> $DUMPFOLDER/persistence.txt
+            echo "" >> $DUMPFOLDER/persistence.txt
+            echo Data found: $PERSISTENCEDATAI
+          else         
+            echo "!Scan cancelled"
+            exit 1
+          fi         
         fi 
     elif [[ "$PERSISTENCEDATA" == *"PERS_STATUS_DOES_NOT_EXIST"* ]] ; then
           :
           #do nothing
     else 
-          echo $PARTITION $ADDRESS "- blob" >> $DUMPFOLDER/persistence.txt
-          echo $PERSISTENCEDATA >> $DUMPFOLDER/persistence.txt
-          echo "" >> $DUMPFOLDER/persistence.txt
-          echo Data found: $PERSISTENCEDATA
+      if echo $PARTITION $ADDRESS "- blob" >> $DUMPFOLDER/persistence.txt ; then
+        echo $PERSISTENCEDATA >> $DUMPFOLDER/persistence.txt
+        echo "" >> $DUMPFOLDER/persistence.txt
+        echo Data found: $PERSISTENCEDATA
+      else 
+        echo "!Scan cancelled"
+        exit 1
+      fi
+
     fi
     
    
@@ -125,7 +143,11 @@ do
   #only write the ID to the text once every 100 times, to speed up.
   if (( $ADDRESS % 100 == 0 ))
   then
-    echo $ADDRESS > $DUMPFOLDER/id.txt
+    if echo $ADDRESS > $DUMPFOLDER/id.txt; then
+    echo "writing to id.txt to save scan session"
+    else 
+      exit 1
+    fi
   fi
   
 done

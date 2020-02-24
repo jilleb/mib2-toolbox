@@ -2,7 +2,7 @@
 #
 # Custom Green Engineering Menu screen
 # Author:       Jille
-# Version:      2.0B
+# Version:      2.1B
 # Disclaimer:   THIS SCREEN WILL VOID YOUR WARRANTY
 #
 ####################################################################
@@ -495,6 +495,114 @@ script
    value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_12.sh"
    label    "Scan HARMAN internal (12)"  
    
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_13.sh"
+   label    "Scan HARMAN internal (13)"  
+    
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_14.sh"
+   label    "Scan HARMAN internal (14)"  
+   
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_15.sh"
+   label    "Scan HARMAN internal (15)"  
+   
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_16.sh"
+   label    "Scan HARMAN internal (16)"  
+    
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_17.sh"
+   label    "Scan HARMAN internal (17)"  
+   
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_18.sh"
+   label    "Scan HARMAN internal (18)"  
+  
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_19.sh"
+   label    "Scan HARMAN internal (19)"  
+   
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_20.sh"
+   label    "Scan HARMAN internal (20)"  
+    
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_21.sh"
+   label    "Scan HARMAN internal (21)"  
+  
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_22.sh"
+   label    "Scan HARMAN internal (22)"  
+    
+   
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_23.sh"
+   label    "Scan HARMAN internal (23)"  
+   
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_24.sh"
+   label    "Scan HARMAN internal (24)"  
+   
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_25.sh"
+   label    "Scan HARMAN internal (25)"  
+   
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_26.sh"
+   label    "Scan HARMAN internal (26)"  
+    
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_27.sh"
+   label    "Scan HARMAN internal (27)"  
+   
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_28.sh"
+   label    "Scan HARMAN internal (28)"  
+    
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_29.sh"
+   label    "Scan HARMAN internal (29)"  
+
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_30.sh"
+   label    "Scan HARMAN internal (30)" 
+
+
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_31.sh"
+   label    "Scan HARMAN internal (31)" 
+    
+
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_32.sh"
+   label    "Scan HARMAN internal (32)" 
+    
+
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_33.sh"
+   label    "Scan HARMAN internal (33)" 
+    
+
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_34.sh"
+   label    "Scan HARMAN internal (34)" 
+    
+
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_35.sh"
+   label    "Scan HARMAN internal (35)" 
+    
+
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_36.sh"
+   label    "Scan HARMAN internal (36)" 
+    
+
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_37.sh"
+   label    "Scan HARMAN internal (37)" 
+    
 script
    value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_1501.sh"
    label    "Scan online (1501)"  
