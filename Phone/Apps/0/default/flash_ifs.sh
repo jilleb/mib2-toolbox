@@ -38,8 +38,8 @@ if test -f "$SDPATH"; then
     echo "1"
     sleep 1
     echo "Flashing will now start." 
-    flash unlock
-    flashmib -a 0x00540000 -d -f /net/mmx/fs/sda0/
+    flashunlock
+    flashmib -a 0x00540000 -d -f /net/mmx/fs/sda0/Advanced/IFS/ifsroot.ifs
     flashlock
     sleep 1
     echo "Done"

@@ -436,12 +436,37 @@ screen  scanning Pro
   
 keyValue
     value    String sys 0x00000000 0
-    label    "Scanning for cool stuff in persistence"
+    label    "Brute force scan for data in various persistence partitions"
+    poll     0    
+
+keyValue
+    value    String sys 0x00000000 0
+    label    ""
     poll     0    
     
 script
    value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan.sh"
-   label    "Perform a persistence scan. (SD-card needed)"
+   label    "Continue a previously started scan session. (id and partition files on SD needed)"
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "Brute force scan for data in various persistence partitions"
+    poll     0    
+keyValue
+    value    String sys 0x00000000 0
+    label    "The following scripts will all start scanning a specific partition, starting at address 0"
+    poll     0        
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "Cancel at any time by unplugging the SD-card."
+    poll     0        
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "---------------------------------------------"
+    poll     0        
+   
    
 script
    value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_0.sh"
@@ -699,6 +724,14 @@ script
    value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_678364556.sh"
    label    "Scan ENGNS, AMI type etc. (678364556)"  
   
+  script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_1209.sh"
+   label    "Scan unknown NAV. (1209)"    
+
+   
+  script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_29688038.sh"
+   label    "Scan unknown NAV. (29688038)"   
   
 #############################################
 
