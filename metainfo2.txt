@@ -15,10 +15,10 @@ region4 = "Japan"
 region5 = "China"
 region6 = "Taiwan"
 variant = "FM?-*-*-*-*"
-release = "MQB Coding Toolbox V2"
+release = "MQB Coding Toolbox V2.2"
 UserSWDL = "true"
 skipMetaCRC = "true"
-MetafileChecksum = "376cbb07432d91c03591f706f26eabe6b54c776f"
+MetafileChecksum = "f8928abef85fd09c62727d36c5753d9c6a7c340c"
 skipFileCopyCrc = "true"
 
 [PersonalPOI]
@@ -57,8 +57,8 @@ UpdateOnlyExisting = "false"
 
 [PersonalPOI\PayLoad\0\default\File]
 CheckSumSize = "524288"
-CheckSum = "13757279E8A0A061002500ACC1BEF3D111A6589D"
-FileSize = "31367 "
+CheckSum = "9C4F764DBE81ADA1FE604E9D16E237E4211D31D2"
+FileSize = "35338"
 Version = "2181"
 Source = "payload.sh"
 Destination = "/net/mmx/mnt/app/eso/hmi/engdefs/mqbcoding.esd"

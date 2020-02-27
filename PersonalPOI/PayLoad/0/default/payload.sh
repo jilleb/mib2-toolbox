@@ -2,7 +2,7 @@
 #
 # Custom Green Engineering Menu screen
 # Author:       Jille
-# Version:      2.1B
+# Version:      2.2B
 # Disclaimer:   THIS SCREEN WILL VOID YOUR WARRANTY
 #
 ####################################################################
@@ -10,7 +10,7 @@ screen   MQBCoding Main
 
 keyValue
     value    String sys 0x00000000 0
-    label    "MQB CODING - MIB Toolbox v2.1B"
+    label    "MQB CODING - MIB Toolbox v2.2B"
     poll     0
     
 keyValue
@@ -288,6 +288,85 @@ keyValue
 script
    value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/install_esd.sh"
    label    "Install green-menu screen files"   
+   
+####################################################################
+   
+screen Navigation Customization
+
+choice
+	value per 0x01c500e6 17
+	label "cluster_frames_debug"
+	poll 0
+    
+choice
+	value per 0x01c500e6 20
+	label "set_calibration_to_car_default"
+	poll 0
+    
+choice
+	value per 0x01c500e6 42
+	label "UNKNOWN toggle 42"
+	poll 0
+
+choice
+	value per 0x01c500e6 57
+	label "show frame rate"
+	poll 0
+    
+choice
+	value per 0x01c500e6 58
+	label "crosshair movement usage"
+	poll 0
+
+choice
+	value per 0x01c500e6 97
+	label "UNKNOWN toggle 97"
+	poll 0
+	
+choice
+	value per 0x01c500e6 271
+	label "UNKNOWN toggle 271"
+	poll 0
+
+choice
+	value per 0x01c500e6 300
+	label "acoustic speed warning"
+	poll 0
+
+choice
+	value per 0x01c500e6 301
+	label "UNKNOWN toggle 301"
+	poll 0
+    
+choice
+	value per 0x01c500e6 302
+	label "UNKNOWN toggle 302"
+	poll 0
+    
+choice
+	value per 0x01c500e6 303
+	label "UNKNOWN toggle 303"
+	poll 0
+    
+choice
+	value per 0x01c500e6 304
+	label "UNKNOWN toggle 304"
+	poll 0
+
+choice
+	value per 0x01c500e6 310
+	label "traffic patterns"
+	poll 0
+	
+choice
+	value per 0x01c500e6 350
+	label "Use GPS time as fallback"
+	poll 0
+	
+choice
+	value per 0x01c500e6 360
+	label "additional map cursor"
+	poll 0
 
 ####################################################################
 screen  Pro MQBCoding
@@ -411,28 +490,85 @@ keyValue
     
 keyValue
     value    String sys 0x00000000 0
-    label    "It currently only supports changing the car graphic in the car Status screen."
+    label    "Use at your own risk, no backups are made!"
     poll     0    
 
 BIOSCtrl
-       	value           int per 0 0x501848ff
-       	label           "Byte 18 - startup screen"
-       	entry		"not set" 0
-        entry		"Hybrid/FR" 1
-        entry		"GTD/SC" 2
-        entry		"GTI/ST" 3
-        entry		"Bluemotion/FR-line" 4
-        entry		"e-Golf/XPerience" 5
-        entry		"R-Line" 6
-        entry		"R" 7
-        entry		"Alltrack" 8
-        entry		"GTE" 9
-        entry		"Family" 0c
-        entry		"Beats Audio" 10
-        poll            1000
+        value       int per 0 0x5018000F
+        label       "BYTE 0 - Brand"
+        entry	    "no Brand" 0
+        entry	    "Audi" 1
+        entry	    "VW" 2
+        entry	    "Skoda" 3
+        entry	    "Seat" 4
+        entry	    "Bentley" 5
+        entry	    "VW-NFZ" 6
+        entry	    "Porsche" 7
+        poll	    1000    
+        
+slider
+    value       per 0 0x5018040F
+	label       "BYTE 1 - Car Class"
+	limits		absolute 0 9
+    poll        1000
+    
+slider
+	value       per 0 0x501804F0
+	label       "BYTE 1 - Car Generation"
+	limits		absolute 0 9
+	poll        1000
+    
+slider
+	value       per 0 0x5018080F
+	label       "BYTE 2 - Car Derivate"
+	limits		absolute 0 9
+	poll        1000
+
+slider
+	value       per 0 0x501808F0
+	label       "BYTE 2 - Car Derivate Supplement "
+	limits		absolute 0 9
+	poll        1000
+    
+	BIOSCtrl
+        value       int per 0 0x50180CFF
+        label       "BYTE 3 - Country Navigation"
+        entry	    "keine" 0
+        entry	    "EU" 1
+        entry	    "NAR" 2
+        entry	    "MSA" 3
+        entry	    "Korea" 4
+        entry	    "China" 5
+        entry	    "Japan" 6
+        entry	    "AsiaPacific" 7
+        entry	    "Australia" 8
+        entry	    "South Africa" 9
+        entry	    "NEAST" 10
+        entry	    "NMAfrica" 11
+        entry	    "MEAST" 12
+        entry	    "CentralAsia" 13
+        entry	    "India" 14
+        entry	    "Israel" 15
+        entry	    "Taiwan" 16
+        entry	    "MSA 2 (Chile)" 17
+        entry	    "China 2" 18
+        entry	    "China 3" 19
+        poll        1000
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "More will be added soon..."
+    poll     0   
+
+####################################################################
+screen  Persistence Pro
+
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/dump_persistence.sh"
+   label    "Dump persistence"
 
 ####################################################################  
-screen  scanning Pro
+screen  scan Persistence
   
 keyValue
     value    String sys 0x00000000 0
@@ -448,10 +584,6 @@ script
    value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan.sh"
    label    "Continue a previously started scan session. (id and partition files on SD needed)"
 
-keyValue
-    value    String sys 0x00000000 0
-    label    "Brute force scan for data in various persistence partitions"
-    poll     0    
 keyValue
     value    String sys 0x00000000 0
     label    "The following scripts will all start scanning a specific partition, starting at address 0"
@@ -474,7 +606,7 @@ script
    
 script
    value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_1.sh"
-   label    "Scan HARMAN internal (1)"   
+   label    "Scan HARMAN internal (1 AM/FM)"   
    
 script
    value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_2.sh"
@@ -506,7 +638,7 @@ script
    
 script
    value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_9.sh"
-   label    "Scan HARMAN internal (9)"  
+   label    "Scan HARMAN internal (9 Datasets, Adaptations, Identification)"  
    
 script
    value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_10.sh"
@@ -514,15 +646,15 @@ script
    
 script
    value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_11.sh"
-   label    "Scan HARMAN internal (11)"  
+   label    "Scan HARMAN internal (11 Audio)"  
    
 script
    value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_12.sh"
-   label    "Scan HARMAN internal (12)"  
+   label    "Scan HARMAN internal (12 SDARS)"  
    
 script
    value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_13.sh"
-   label    "Scan HARMAN internal (13)"  
+   label    "Scan HARMAN internal (13 MOST)"  
     
 script
    value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_14.sh"
@@ -530,7 +662,7 @@ script
    
 script
    value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_15.sh"
-   label    "Scan HARMAN internal (15)"  
+   label    "Scan HARMAN internal (15 Pictureserver)"  
    
 script
    value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_16.sh"
@@ -538,7 +670,7 @@ script
     
 script
    value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_17.sh"
-   label    "Scan HARMAN internal (17)"  
+   label    "Scan HARMAN internal (17 DAB)"  
    
 script
    value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_18.sh"
@@ -546,7 +678,7 @@ script
   
 script
    value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_19.sh"
-   label    "Scan HARMAN internal (19)"  
+   label    "Scan HARMAN internal (19 GN Log)"  
    
 script
    value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_20.sh"
@@ -571,15 +703,15 @@ script
    
 script
    value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_25.sh"
-   label    "Scan HARMAN internal (25)"  
+   label    "Scan HARMAN internal (25 TV)"  
    
 script
    value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_26.sh"
-   label    "Scan HARMAN internal (26)"  
+   label    "Scan HARMAN internal (26 Unified Stations Tuner)"  
     
 script
    value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_27.sh"
-   label    "Scan HARMAN internal (27)"  
+   label    "Scan HARMAN internal (27 Japan Tuner)"  
    
 script
    value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_28.sh"
@@ -591,12 +723,12 @@ script
 
 script
    value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_30.sh"
-   label    "Scan HARMAN internal (30)" 
+   label    "Scan HARMAN internal (30 Unit info)" 
 
 
 script
    value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_31.sh"
-   label    "Scan HARMAN internal (31)" 
+   label    "Scan HARMAN internal (31 Tuner)" 
     
 
 script
@@ -732,6 +864,39 @@ script
   script
    value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_29688038.sh"
    label    "Scan unknown NAV. (29688038)"   
+   
+     script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_28836065.sh"
+   label    "Scan Connectivity. (28836065)"   
+   
+     script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_1304.sh"
+   label    "Scan Smartphone integration. (1304)"   
+   
+     script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_2001.sh"
+   label    "Scan Smartphone integration. (2001)"   
+  
+
+     script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_1301.sh"
+   label    "Scan Media. (1301)"    
+
+     script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_1517.sh"
+   label    "Scan Operator Name. (1517)"  
+
+     script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_262.sh"
+   label    "Scan Resource info. (262)"    
+
+     script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_8765.sh"
+   label    "Scan DVD hardware info. (8765)"     
+
+     script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_6789.sh"
+   label    "Scan Tegra hardware info. (6789)"        
   
 #############################################
 
@@ -762,6 +927,10 @@ script
 script
    value    sys 1 0x0100 "/scripts/deleteBrowserCache.sh"
    label    "Delete browser cache"
+   
+script
+   value    sys 1 0x0100 "/scripts/Persistence_Delete.sh"
+   label    "Delete persistence"
 
 script
    value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/privacy_shadow.sh"
@@ -971,6 +1140,11 @@ keyValue
     
 ####################################################################
 screen  History MQBCoding
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "v2.2B - Added long coding modifications"
+    poll     0
 
 keyValue
     value    String sys 0x00000000 0

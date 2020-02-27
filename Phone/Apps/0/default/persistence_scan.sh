@@ -42,7 +42,7 @@ mount -uw $VOLUME
 
 sleep .5
 echo Creating Dump folder on $VOLUME
-DUMPFOLDER=$VOLUME/DUMP/$VERSION/$FAZIT/
+DUMPFOLDER=$VOLUME/DUMP/$VERSION/$FAZIT/Persistence/
 mkdir -p $DUMPFOLDER
 
 IDFILE=$DUMPFOLDER/id.txt
