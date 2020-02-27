@@ -47,6 +47,7 @@ mkdir -p $DUMPFOLDER
 
 IDFILE=$DUMPFOLDER/id.txt
 PARTITIONFILE=$DUMPFOLDER/partition.txt
+NOW=$(date)
 
 if [ "$3" != "" ]; then
     MAXSCAN=$3;
@@ -106,7 +107,7 @@ do
           echo "Type mismatch, trying string"
           PERSISTENCEDATAS="$(on -f mmx on -f mmx /net/mmx/mnt/app/eso/bin/dumb_persistence_reader $PARTITION $ADDRESS -t string 2>&1)"
           if echo $PARTITION";"$ADDRESS";string;"$PERSISTENCEDATAS >> $DUMPFOLDER/persistence.txt ; then
-            echo "----DATA FOUND!----"
+            echo "DATA FOUND:"
             echo $PERSISTENCEDATAS
           else         
             echo "!Scan cancelled"
@@ -114,7 +115,7 @@ do
           fi
         elif [[ "$PERSISTENCEDATAI" != *"ERROR"* ]] ; then
           if echo $PARTITION";"$ADDRESS";integer;"$PERSISTENCEDATAI >> $DUMPFOLDER/persistence.txt ; then
-            echo "----DATA FOUND!----"
+            echo "DATA FOUND:"
             echo $PERSISTENCEDATAI
           else         
             echo "!Scan cancelled"
@@ -126,9 +127,10 @@ do
           #do nothing
     else 
       if echo $PARTITION";"$ADDRESS";blob;"$PERSISTENCEDATA >> $DUMPFOLDER/persistence.txt ; then
-        echo "----DATA FOUND!----"
+        echo "DATA FOUND:"
         echo $PERSISTENCEDATA
-      else 
+      else
+        echo ""
         echo "!Scan cancelled"
         exit 1
       fi
@@ -138,24 +140,28 @@ do
    
 
 
-#increase the address with 1  
-  ADDRESS=$(( $ADDRESS + 1 ))
   
   #only write the ID to the text once every 100 times, to speed up.
   if (( $ADDRESS % 100 == 0 ))
   then
     if echo $ADDRESS > $IDFILE; then
     echo "writing to id.txt to save scan session"
+    echo "Scanned $PARTITION until $ADDRESS at $NOW" > $DUMPFOLDER/scanlog.txt
     else 
+        echo ""
+        echo "!Scan cancelled"
       exit 1
     fi
   fi
+  
+  #increase the address with 1  
+    ADDRESS=$(( $ADDRESS + 1 ))
   
 done
 
 
 # Make readonly again
 mount -ur $VOLUME
-echo Done
+echo "Persistence scan done"
 
 exit 0
