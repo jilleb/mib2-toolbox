@@ -43,13 +43,13 @@ mount -uw $VOLUME
 sleep .5
 
 #Make backup folder
-DUMPFOLDER=$VOLUME/Dump/$VERSION/$FAZIT/
+DUMPFOLDER=$VOLUME/Dump/$VERSION/$FAZIT/$TOPIC
 
 echo Dump-folder: $DUMPFOLDER
 
 echo Dumping, please wait. This can take a while.
 
-mkdir -p $VOLUME/Dump/$VERSION/$FAZIT/$TOPIC
+mkdir -p $DUMPFOLDER
 
 
 echo Copying files

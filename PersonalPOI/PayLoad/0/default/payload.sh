@@ -2,7 +2,7 @@
 #
 # Custom Green Engineering Menu screen
 # Author:       Jille
-# Version:      2.2B
+# Version:      2.4B
 # Disclaimer:   THIS SCREEN WILL VOID YOUR WARRANTY
 #
 ####################################################################
@@ -10,7 +10,7 @@ screen   MQBCoding Main
 
 keyValue
     value    String sys 0x00000000 0
-    label    "MQB CODING - MIB Toolbox v2.2B"
+    label    "MQB CODING - MIB Toolbox v2.4B"
     poll     0
     
 keyValue
@@ -304,11 +304,6 @@ choice
 	poll 0
     
 choice
-	value per 0x01c500e6 42
-	label "UNKNOWN toggle 42"
-	poll 0
-
-choice
 	value per 0x01c500e6 57
 	label "show frame rate"
 	poll 0
@@ -317,42 +312,18 @@ choice
 	value per 0x01c500e6 58
 	label "crosshair movement usage"
 	poll 0
-
-choice
-	value per 0x01c500e6 97
-	label "UNKNOWN toggle 97"
-	poll 0
+     
 	
 choice
 	value per 0x01c500e6 271
-	label "UNKNOWN toggle 271"
+	label "RESET NAVIGATION"
 	poll 0
 
 choice
 	value per 0x01c500e6 300
 	label "acoustic speed warning"
 	poll 0
-
-choice
-	value per 0x01c500e6 301
-	label "UNKNOWN toggle 301"
-	poll 0
     
-choice
-	value per 0x01c500e6 302
-	label "UNKNOWN toggle 302"
-	poll 0
-    
-choice
-	value per 0x01c500e6 303
-	label "UNKNOWN toggle 303"
-	poll 0
-    
-choice
-	value per 0x01c500e6 304
-	label "UNKNOWN toggle 304"
-	poll 0
-
 choice
 	value per 0x01c500e6 310
 	label "traffic patterns"
@@ -367,6 +338,7 @@ choice
 	value per 0x01c500e6 360
 	label "additional map cursor"
 	poll 0
+
 
 ####################################################################
 screen  Pro MQBCoding
@@ -485,7 +457,7 @@ screen  coding Pro
 
 keyValue
     value    String sys 0x00000000 0
-    label    "This is a try-out screen to test coding features."
+    label    "This screen allows you to change the long coding of module 5F."
     poll     0    
     
 keyValue
@@ -493,9 +465,16 @@ keyValue
     label    "Use at your own risk, no backups are made!"
     poll     0    
 
+#####   byte 0  #####
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "---------------[byte 0]---------------"
+    poll     0 
+    
 BIOSCtrl
         value       int per 0 0x5018000F
-        label       "BYTE 0 - Brand"
+        label       "Brand"
         entry	    "no Brand" 0
         entry	    "Audi" 1
         entry	    "VW" 2
@@ -505,35 +484,52 @@ BIOSCtrl
         entry	    "VW-NFZ" 6
         entry	    "Porsche" 7
         poll	    1000    
-        
+
+#####   byte 1  #####
+keyValue
+    value    String sys 0x00000000 0
+    label    "---------------[byte 1]---------------"
+    poll     0
+    
 slider
     value       per 0 0x5018040F
-	label       "BYTE 1 - Car Class"
+	label       "Car Class"
 	limits		absolute 0 9
     poll        1000
     
 slider
 	value       per 0 0x501804F0
-	label       "BYTE 1 - Car Generation"
+	label       "Car Generation"
 	limits		absolute 0 9
 	poll        1000
-    
+
+#####   byte 2  #####
+keyValue
+    value    String sys 0x00000000 0
+    label    "---------------[byte 2]---------------"
+    poll     0    
 slider
 	value       per 0 0x5018080F
-	label       "BYTE 2 - Car Derivate"
+	label       "Car Derivate"
 	limits		absolute 0 9
 	poll        1000
 
 slider
 	value       per 0 0x501808F0
-	label       "BYTE 2 - Car Derivate Supplement "
+	label       "Car Derivate Supplement "
 	limits		absolute 0 9
 	poll        1000
+
+#####   byte 3  #####
+keyValue
+    value    String sys 0x00000000 0
+    label    "---------------[byte 3]---------------"
+    poll     0   
     
 	BIOSCtrl
         value       int per 0 0x50180CFF
-        label       "BYTE 3 - Country Navigation"
-        entry	    "keine" 0
+        label       "Country Navigation"
+        entry	    "None" 0
         entry	    "EU" 1
         entry	    "NAR" 2
         entry	    "MSA" 3
@@ -554,351 +550,799 @@ slider
         entry	    "China 2" 18
         entry	    "China 3" 19
         poll        1000
+        
+######   byte 4  #####
 
 keyValue
     value    String sys 0x00000000 0
-    label    "More will be added soon..."
+    label    "---------------[byte 4]---------------"
+    poll     0
+    
+choice
+value per 0 0x50181001
+label "Channel 1 HT"
+poll        1000	
+    
+choice
+value per 0 0x50181002
+label "Channel 1 TT"
+poll        1000	
+    
+choice
+value per 0 0x50181004
+label "Channel 2 HT"
+poll        1000	
+    
+choice
+value per 0 0x50181008
+label "Channel 2 TT"
+poll        1000	
+    
+choice
+value per 0 0x50181010
+label "Channel 3 HT"
+poll        1000	
+    
+choice
+value per 0 0x50181020
+label "Channel 3 TT"
+poll        1000	
+    
+choice
+value per 0 0x50181040
+label "Channel 4 HT"
+poll        1000	
+    
+choice
+value per 0 0x50181080
+label "Channel 4 TT"
+poll        1000	
+    
+
+######   byte 5  #####
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "---------------[byte 5]---------------"
+    poll     0
+    
+choice
+value per 0 0x50181401 
+label "Channel 5 HT"
+poll        1000	
+    
+choice
+value per 0 0x50181402
+label "Channel 5 TT"
+poll        1000	
+    
+choice
+value per 0 0x50181404
+label "Channel 6 HT"
+poll        1000	
+    
+choice
+value per 0 0x50181408
+label "Channel 6 TT"
+poll        1000	
+    
+choice
+value per 0 0x50181410
+label "Channel 7 HT"
+poll        1000	
+    
+choice
+value per 0 0x50181420
+label "Channel 7 TT"
+poll        1000	
+    
+choice
+value per 0 0x50181440
+label "Channel 8 HT"
+poll        1000	
+    
+choice
+value per 0 0x50181480
+label "Channel 8 TT"
+
+######   byte 6  #####
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "---------------[byte 6]---------------"
+    poll     0
+    
+choice
+value per 0 0x50181801  
+label "Channel 9 HT"
+poll        1000	
+    
+choice
+value per 0 0x50181802
+label "Channel 9 TT" 
+poll        1000	
+    
+choice
+value per 0 0x50181804
+label "Channel 10 HT" 
+poll        1000	
+    
+choice
+value per 0 0x50181808
+label "Channel 10 TT"
+poll        1000	
+    
+choice
+value per 0 0x50181810
+label "Channel 11 HT" 
+poll        1000	
+    
+choice
+value per 0 0x50181820
+label "Channel 11 TT"
+poll        1000	
+    
+choice
+value per 0 0x50181840
+label "Channel 12 HT"
+poll        1000	
+    
+choice
+value per 0 0x50181880
+label "Channel 12 TT"     
+poll        1000	
+######   byte 7  #####
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "---------------[byte 7]---------------"
+    poll     0
+   
+choice
+value per 0 0x50181c01
+label "Channel 13 HT"
+poll        1000	
+    
+choice
+value per 0 0x50181c02
+label "Channel 13 TT"
+poll        1000	
+    
+choice
+value per 0 0x50181c04
+label "Channel 14 HT"
+poll        1000	
+    
+choice
+value per 0 0x50181c08
+label "Channel 14 TT"
+poll        1000	
+    
+choice
+value per 0 0x50181c10
+label "Channel 15 HT"
+poll        1000	
+    
+choice
+value per 0 0x50181c20
+label "Channel 15 TT"
+poll        1000	
+    
+choice
+value per 0 0x50181c40
+label "Channel 16 HT"
+poll        1000	
+    
+choice
+value per 0 0x50181c80
+label "Channel 16 TT"        
+poll        1000	
+    
+######   byte 8  #####
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "---------------[byte 8]---------------"
+    poll     0
+
+choice
+    value    per 0 0x50182001
+    label   "Microphone 1"
+    poll        1000	
+    
+choice
+    value    per 0 0x50182002
+    label   "Microphone 2"
+	poll        1000	
+
+choice
+    value    per 0 0x50182004
+    label "Headphones Output 1"
+	poll        1000	
+    
+choice    
+    value    per 0 0x50182008
+    label "Headphones Output 2"
+	poll        1000	
+    
+choice    
+    value    per 0 0x50182010
+    label "AUX IN"
+	poll        1000	
+    
+choice    
+    value    per 0 0x50182020
+    label "AMI/MDI interface"
+	poll        1000	
+    
+choice    
+    value    per 0 0x50182040
+    label "VDA-NF IN (TEL IN)"
+	poll        1000	
+    
+choice    
+    value    per 0 0x50182080
+    label "Wake Up Over ECL" 
+	poll        1000	
+    
+######   byte 9  #####
+keyValue
+    value    String sys 0x00000000 0
+    label    "---------------[byte 9]---------------"
+    poll     0      
+    
+BIOSCtrl
+        value       int per 0 0x5018240F
+        label       "Bandsettings FM"
+        entry	    "no setting" 0
+	entry	    "EU (RdW)" 1
+	entry	    "NAR" 2
+	entry	    "JP" 3
+	entry	    "KOR" 4
+	entry	    "China" 5
+	poll	    1000
+
+BIOSCtrl
+        value       int per 0 0x501824F0
+        label       "Bandsettings AM"
+        entry	    "no setting" 0
+	entry	    "EU (RdW)" 1
+	entry	    "NAR" 2
+	entry	    "JP" 3
+	entry	    "EU" 4
+	entry	    "AUS" 5
+	poll	    1000    
+
+
+######   byte 10  #####
+keyValue
+    value    String sys 0x00000000 0
+    label    "---------------[byte 10]--------------"
+    poll     0
+
+BIOSCtrl
+    value       int per 0 0x5018280F
+    label       "Bandsettings DAB Band 1"
+    entry	    "OFF" 0
+	entry	    "EU Band III -N" 1
+	entry	    "EU Band III" 2
+	entry	    "CANADA L-Band" 3
+	entry	    "KOREA Band III" 4
+	entry	    "CHINA Band III" 5
+	entry	    "Download Table 1" 6
+	entry	    "NEW ZEALAND Band III" 7
+	poll	    1000
+
+BIOSCtrl
+    value       int per 0 0x501828F0
+    label       "Bandsettings DAB Band 2"
+    entry	    "OFF" 0
+	entry	    "L-Band" 1
+	entry	    "Download Table 2" 2
+	poll	    1000
+ 
+######   byte 11  #####
+keyValue
+    value    String sys 0x00000000 0
+    label    "---------------[byte 11]--------------"
+    poll     0
+
+BIOSCtrl
+    value       int per 0 1343761663
+    label       "Amplifier"
+    entry	    "no assign" 0
+	entry	    "intern" 1
+	entry	    "external MOST" 2
+	entry	    "reserved" 3		
+    entry	    "external BAP" 4
+    entry	    "internal Individual" 5
+    entry	    "external BOOSTER" 6
+	entry	    "external BAP with presets" 7
+	poll        1000    
+    
+######   byte 12  #####
+keyValue
+    value    String sys 0x00000000 0
+    label    "---------------[byte 12]--------------"
+    poll     0    
+    
+    
+choice    
+    value    per 0 0x50183001
+    label "FM Antenna" 
+	poll        1000	
+    
+BIOSCtrl
+    value       int per 0 0x5018300E
+    label       "HD FM Antenna Mode"
+    entry	    "AM FM ANT" 0
+	entry	    "Switching" 1
+	entry	    "FM ANT" 2
+	entry	    "MRC" 3		
+    entry	    "Testmode" 4	
+	poll        1000  
+    
+######   byte 13  #####
+keyValue
+    value    String sys 0x00000000 0
+    label    "---------------[byte 13]--------------"
+    poll     0       
+    
+choice
+        value       per 0 0x50183401
+        label       "RDS"
+        poll       1000					
+
+BIOSCtrl
+        value       int per 0 0x50183402
+        label       "AF"
+        entry	    "persistent" 0
+        entry	    "temporary" 1
+        poll        1000	
+        
+choice
+        value       per 0 0x50183404
+        label       "HD radio coding"
+        poll       1000		
+ 
+choice
+        value       per 0 0x50183408
+        label       "Radiotext+"
+        poll	    1000
+
+choice
+        value       per 0 0x50183410
+        label       "PI ignore"
+        poll	    1000    
+    
+    
+BIOSCtrl
+        value       int per 0 0x50183460
+        label       "BWS"
+        entry       "no BWS" 0
+        entry	    "restricted" 1
+        entry	    "unrestricted" 2
+        entry       "rest/unrest" 3
+        poll        1000	    
+    
+choice
+        value       per 0 0x50183480
+        label       "DAB alarm"
+        poll	    1000
+
+
+######   byte 14  #####
+keyValue
+    value    String sys 0x00000000 0
+    label    "---------------[byte 14]--------------"
+    poll     0           
+ 
+choice
+        value       per 0 0x50183801
+        label       "FM PTY31 off/on"
+	poll	    1000
+
+choice
+        value       per 0 0x50183802
+        label       "AM sperre off/on"
+	poll	    1000
+    
+choice
+        value       per 0 0x50183804
+        label       "HD radio coding AM"
+	poll	    1000    
+    
+choice
+        value       per 0 0x50183808
+        label       "Multiple entry switch"
+	poll	    1000  
+    
+choice
+        value       per 0 0x50183810
+        label       "RDS deactivation"
+	poll	    1000  
+
+choice
+        value       per 0 0x50183820
+        label       "AF deactivation"
+	poll	    1000  
+
+
+######   byte 15  #####
+keyValue
+    value    String sys 0x00000000 0
+    label    "---------------[byte 15]--------------"
+    poll     0  
+
+choice
+       	value           per 0 0x50183C01
+       	label           "Baseplate"
+        poll            1000
+
+choice
+       	value           per 0 0x50183C02
+       	label           "Ant. Baseplate"
+        poll            1000
+
+choice
+       	value           per 0 0x50183C04
+       	label           "Force Cradle"
+        poll            1000
+
+choice
+       	value           per 0 0x50183C08
+       	label           "Handy in Cradle"
+        poll            1000
+
+choice
+       	value           per 0 0x50183C10
+       	label           "Telefon Modul"
+        poll            1000
+        
+    choice
+        value        per 0 0x50183C20
+        label        "Wireless Charger"      
+        poll	    1000
+
+
+######   byte 16  #####
+keyValue
+    value    String sys 0x00000000 0
+    label    "---------------[byte 16]--------------"
+    poll     0  
+
+
+choice
+       	value           per 0 0x50184001
+       	label           "BT available"
+        poll            1000
+
+choice
+       	value           per 0 0x50184002
+       	label           "BT Multimedia"
+        poll            1000
+
+choice
+       	value           per 0 0x50184004
+       	label           "BT phone"
+        poll            1000
+
+choice
+       	value           per 0 0x50184008
+       	label           "BT audio"
+        poll            1000
+
+BIOSCtrl
+        value       int per 0 0x50184030
+        label       "BT visibility"
+        entry       "off" 0
+        entry	    "auto" 1
+        entry	    "on" 2
+        entry       "limited" 3
+	poll        1000
+
+choice
+       	value           per 0 0x50184040
+       	label           "BT headphones"
+        poll            1000	
+    
+choice
+       	value           per 0 0x50184080
+       	label           "legal RVC"
+        poll            1000	   
+
+
+######   byte 17  #####
+keyValue
+    value    String sys 0x00000000 0
+    label    "---------------[byte 17]--------------"
+    poll     0  
+
+
+BIOSCtrl
+        value	    int per 0 0x501844FF
+        label 	    "Skin"
+        entry	    "no Skin" 0
+        entry	    "Skin 1" 1
+        entry	    "Skin 2" 2
+        entry	    "Skin 3" 3
+        entry	    "Skin 4" 4
+        entry	    "Skin 5" 5
+        poll	    1000
+ 
+ ######   byte 18  #####
+
+ keyValue
+    value    String sys 0x00000000 0
+    label    "---------------[byte 18]--------------"
+    poll     0  
+    
+    
+    slider
+    value       per 0 0x501848ff
+	label       "Screenings"
+	limits		absolute 0 255
+    poll        1000   
+    
+    
+ 
+ ######   byte 19  #####
+
+ keyValue
+    value    String sys 0x00000000 0
+    label    "---------------[byte 19]--------------"
+    poll     0  
+
+BIOSCtrl
+       	value           int per 0 0x50184C01
+       	label           "Boardbook"
+       	entry		"not displayed" 0
+	entry		"displayed" 1
+        poll            1000
+
+BIOSCtrl
+       	value           int per 0 0x50184C02
+       	label           "Suspension arm"
+       	entry		"links" 0
+	entry		"rechts" 1
+        poll            1000
+
+BIOSCtrl
+       	value           int per 0 0x50184C0C
+       	label           "Kombi Track"
+       	entry		"n/a" 0
+	entry		"long" 1
+        entry           "short" 2
+        entry           "reserved" 3
+        poll            1000
+
+BIOSCtrl
+       	value           int per 0 0x50184C10
+       	label           "RVC"
+       	entry		"not active" 0
+	entry		"active" 1
+        poll            1000
+
+BIOSCtrl
+       	value           int per 0 0x50184C20
+       	label           "MOST"
+       	entry		"off" 0
+	entry		"on" 1
+        poll            1000
+
+BIOSCtrl
+       	value           int per 0 0x50184CC0
+       	label           "USB"
+       	entry		"off" 0
+	entry		"charge" 1
+	entry		"full" 2
+	entry		"ipod" 3
+        poll            1000        
+ 
+ ######   byte 20  #####
+
+ keyValue
+    value    String sys 0x00000000 0
+    label    "---------------[byte 20]--------------"
     poll     0   
 
+    choice
+        value        per 0 0x50185001
+        label        "Display 1"
+        poll        1000 
+
+    choice
+        value        per 0 0x50185002
+        label        "Display 2"
+        poll        1000 
+
+    choice
+        value        per 0 0x50185004
+        label        "Display 3"
+        poll        1000 
+
+    choice
+        value        per 0 0x50185008
+        label        "Display 4"
+        poll        1000         
+ 
+    choice
+        value        per 0 0x50185010
+        label        "Dashboard Audio Slide"
+        poll        1000 
+
+    choice
+        value        per 0 0x50185020
+        label        "Dashboard Phone Slide"
+        poll        1000 
+
+    choice
+        value        per 0 0x50185040
+        label        "Dashboard Nav Slide"
+        poll        1000 
+
+ 
+BIOSCtrl
+        value    int per 0 0x50185080
+        label    "Dashboard Communication"
+        entry    "BAP" 0
+        entry    "DDP" 1
+        poll     1000 
+        
+        
+ ######   byte 21  #####
+
+ keyValue
+    value    String sys 0x00000000 0
+    label    "---------------[byte 21]--------------"
+    poll     0           
+
+ choice
+        value per 0 0x50185401
+        label "VIWI"
+                poll     1000 
+
+ choice
+        value per 0 0x50185410
+        label "Scrolling"  
+                poll     1000 
+
+
+ choice
+        value per 0 0x50185420
+        label "Messaging via MAP"    
+                poll     1000 
+
+
+choice
+        value per 0 0x50185440
+        label "Pagewise scrolling" 
+                poll     1000 
+
+
+choice
+        value per 0 0x50185480
+        label "GPS Antenna Availability"  
+                poll     1000 
+   
+ 
+######   byte 22  #####
+keyValue
+    value    String sys 0x00000000 0
+    label    "---------------[byte 22]--------------"
+    poll     0
+
+choice    
+        value           per 0 0x50185801 
+        label           "Dashboard Graphic Variant" 
+        poll             1000  
+            
+choice              
+        value           per 0 0x50185802 
+        label           "Dashboard Text Replace"
+        poll            1000  
+choice
+       	value           per 0 0x50185804
+       	label           "SDS"
+        poll            1000    
+        
+choice
+       	value           per 0 0x50185808
+       	label           "OnlineFunctions"
+        poll            1000        
+
+choice
+    value per 0 0x50185810
+    label "Touch Screen Remote"
+    poll            1000        
+
+choice 
+    value per 0 0x50185820 
+    label "Keypad Rear Keys"
+    poll            1000        
+
+
+######   byte 23  #####
+keyValue
+    value    String sys 0x00000000 0
+    label    "---------------[byte 23]--------------"
+    poll     0 
+
+choice 
+    value per 0 0x50185c01    
+    label "Speller"
+    poll            1000    
+    
+choice 
+    value per 0 0x50185c02 
+    label "Initial Disclaimer"
+    poll            1000    
+    
+choice 
+    value per 0 0x50185c04     
+    label "Legal Disclaimer"
+    poll            1000    
+    
+choice 
+    value per 0 0x50185c08  
+    label "Display Turnout Speed"    
+    poll            1000       
+    
+######   byte 24  #####
+keyValue
+    value    String sys 0x00000000 0
+    label    "---------------[byte 24]--------------"
+    poll     0
+
+choice 
+    value per 0 0x50186001	
+    label "Emergency Call"
+        poll            1000        
+
+choice     
+    value per 0 0x50186002	
+    label "SDS"
+        poll            1000        
+
+choice     
+    value per 0 0x50186004	
+    label "Navigation"
+        poll            1000        
+
+choice     
+    value per 0 0x50186008	
+    label "WLAN"
+        poll            1000        
+
+choice    
+    value per 0 0x50186010	
+    label "Import media"
+        poll            1000        
+
+choice     
+    value per 0 0x50186020	
+    label "Ripping"
+        poll            1000        
+
+choice     
+    value per 0 0x50186040	
+    label "VZA"
+        poll            1000        
+
+choice     
+    value per 0 0x50186080	
+    label "PSD"
+    poll            1000        
+    
+
 ####################################################################
-screen  Persistence Pro
+screen  Persistence Export
 
 script
    value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/dump_persistence.sh"
    label    "Dump persistence"
 
 ####################################################################  
-screen  scan Persistence
-  
-keyValue
-    value    String sys 0x00000000 0
-    label    "Brute force scan for data in various persistence partitions"
-    poll     0    
-
-keyValue
-    value    String sys 0x00000000 0
-    label    ""
-    poll     0    
-    
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan.sh"
-   label    "Continue a previously started scan session. (id and partition files on SD needed)"
-
-keyValue
-    value    String sys 0x00000000 0
-    label    "The following scripts will all start scanning a specific partition, starting at address 0"
-    poll     0        
-
-keyValue
-    value    String sys 0x00000000 0
-    label    "Cancel at any time by unplugging the SD-card."
-    poll     0        
-
-keyValue
-    value    String sys 0x00000000 0
-    label    "---------------------------------------------"
-    poll     0        
-   
-   
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_0.sh"
-   label    "Scan NS_REGION_CODE (0)"
-   
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_1.sh"
-   label    "Scan HARMAN internal (1 AM/FM)"   
-   
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_2.sh"
-   label    "Scan HARMAN internal (2)"  
-   
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_3.sh"
-   label    "Scan HARMAN internal (3)"  
-   
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_4.sh"
-   label    "Scan HARMAN internal (4)"  
-   
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_5.sh"
-   label    "Scan HARMAN internal (5)"  
-   
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_6.sh"
-   label    "Scan HARMAN internal (6)"  
-   
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_7.sh"
-   label    "Scan HARMAN internal (7)"  
-   
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_8.sh"
-   label    "Scan HARMAN internal (8)"  
-   
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_9.sh"
-   label    "Scan HARMAN internal (9 Datasets, Adaptations, Identification)"  
-   
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_10.sh"
-   label    "Scan HARMAN internal (10)"  
-   
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_11.sh"
-   label    "Scan HARMAN internal (11 Audio)"  
-   
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_12.sh"
-   label    "Scan HARMAN internal (12 SDARS)"  
-   
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_13.sh"
-   label    "Scan HARMAN internal (13 MOST)"  
-    
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_14.sh"
-   label    "Scan HARMAN internal (14)"  
-   
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_15.sh"
-   label    "Scan HARMAN internal (15 Pictureserver)"  
-   
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_16.sh"
-   label    "Scan HARMAN internal (16)"  
-    
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_17.sh"
-   label    "Scan HARMAN internal (17 DAB)"  
-   
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_18.sh"
-   label    "Scan HARMAN internal (18)"  
-  
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_19.sh"
-   label    "Scan HARMAN internal (19 GN Log)"  
-   
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_20.sh"
-   label    "Scan HARMAN internal (20)"  
-    
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_21.sh"
-   label    "Scan HARMAN internal (21)"  
-  
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_22.sh"
-   label    "Scan HARMAN internal (22)"  
-    
-   
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_23.sh"
-   label    "Scan HARMAN internal (23)"  
-   
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_24.sh"
-   label    "Scan HARMAN internal (24)"  
-   
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_25.sh"
-   label    "Scan HARMAN internal (25 TV)"  
-   
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_26.sh"
-   label    "Scan HARMAN internal (26 Unified Stations Tuner)"  
-    
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_27.sh"
-   label    "Scan HARMAN internal (27 Japan Tuner)"  
-   
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_28.sh"
-   label    "Scan HARMAN internal (28)"  
-    
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_29.sh"
-   label    "Scan HARMAN internal (29)"  
-
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_30.sh"
-   label    "Scan HARMAN internal (30 Unit info)" 
-
-
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_31.sh"
-   label    "Scan HARMAN internal (31 Tuner)" 
-    
-
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_32.sh"
-   label    "Scan HARMAN internal (32)" 
-    
-
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_33.sh"
-   label    "Scan HARMAN internal (33)" 
-    
-
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_34.sh"
-   label    "Scan HARMAN internal (34)" 
-    
-
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_35.sh"
-   label    "Scan HARMAN internal (35)" 
-    
-
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_36.sh"
-   label    "Scan HARMAN internal (36)" 
-    
-
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_37.sh"
-   label    "Scan HARMAN internal (37)" 
-    
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_1501.sh"
-   label    "Scan online (1501)"  
-   
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_1510.sh"
-   label    "Scan sse (1510)"  
-   
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_1511.sh"
-   label    "Scan ARC (1511)"  
-   
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_1512.sh"
-   label    "Scan ARC (1512)"  
-   
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_1513.sh"
-   label    "Scan Esoposprovider (1513)"  
-   
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_1514.sh"
-   label    "Scan Scale DTCP (1514)"  
-   
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_2002.sh"
-   label    "Scan mobilityhorizon (2002)"  
-   
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_26411208.sh"
-   label    "Scan NS_HMI_DAB (26411208)"  
-    
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_27263191.sh"
-   label    "Scan NS_HMI_CAR (27263191)"  
-    
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_27853016.sh"
-   label    "Scan NS_HMI_AUDIO (27853016)"  
-    
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_28180695.sh"
-   label    "Scan DIAG_COD (28180695)"  
-    
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_28442848.sh"
-   label    "Scan DIAG_ANP (28442848)"  
-    
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_29425895.sh"
-   label    "Scan NS_HMI_ENS (29425895)"  
-       
-    
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_29688031.sh"
-   label    "Scan NS_HMI_IRC (29688031)"  
-       
-    
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_30867691.sh"
-   label    "Scan speech-service (30867691)"  
-       
-    
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_29425895.sh"
-   label    "Scan NS_HMI_ENS (29425895)"  
-       
-    
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_32702714.sh"
-   label    "Scan NS_HMI_PWR (32702714)"  
-       
-    
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_46661922.sh"
-   label    "Scan NS_HMI_TUNER_AMFM (46661922)"  
-       
-    
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_46924065.sh"
-   label    "Scan IDENTIFIKATION (46924065)"  
-    
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_52166966.sh"
-   label    "Scan UP AND DOWNLOAD (52166966)"  
-       
-    
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_98190593.sh"
-   label    "Scan NS_HMI_SDARS (98190593)"  
-       
-    
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_678364556.sh"
-   label    "Scan ENGNS, AMI type etc. (678364556)"  
-  
-  script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_1209.sh"
-   label    "Scan unknown NAV. (1209)"    
-
-   
-  script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_29688038.sh"
-   label    "Scan unknown NAV. (29688038)"   
-   
-     script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_28836065.sh"
-   label    "Scan Connectivity. (28836065)"   
-   
-     script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_1304.sh"
-   label    "Scan Smartphone integration. (1304)"   
-   
-     script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_2001.sh"
-   label    "Scan Smartphone integration. (2001)"   
-  
-
-     script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_1301.sh"
-   label    "Scan Media. (1301)"    
-
-     script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_1517.sh"
-   label    "Scan Operator Name. (1517)"  
-
-     script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_262.sh"
-   label    "Scan Resource info. (262)"    
-
-     script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_8765.sh"
-   label    "Scan DVD hardware info. (8765)"     
-
-     script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/persistence_scan_6789.sh"
-   label    "Scan Tegra hardware info. (6789)"        
-  
-#############################################
 
 screen  privacy  MQBCoding
 
@@ -935,11 +1379,1572 @@ script
 script
    value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/privacy_shadow.sh"
    label    "Replace shadow file with shadow.txt from the Advanced/Shadowfile/ folder on the SD-card"    
+   
+button
+    value    per 1304 52 "execute_factory_settings"
+    label    "Smartphone integration factory settings"
+   
+   
+button
+      value             per 9 6 "00"
+      label             "Reset Datasets to Factory Defaults (FFS)"
+      
+button
+      value             per 9 7 "00"
+      label             "Reset Adaptations to Factory Defaults (FFS)"
+      
+button
+      value             per 9 8 "00"
+      label             "Reset Identifications to Factory Defaults (FFS)"
   
    
 #############################################
 
-screen  VariantInfo  Pro
+screen  adaptation  Pro
+#############################################
+screen CarFunctionsListBAP adaptation
+
+BIOSCtrl
+   value int per 28442848 408
+   label "Adaptive cruise control (ACC): "
+   entry	"not coded" 0
+   entry "coded" 1
+   
+BIOSCtrl
+   value int per 28442848 400
+   label "Air condition (master): "
+   entry	"not coded" 0
+   entry	"coded" 1   
+  
+BIOSCtrl
+   value int per 28442848 402
+   label "Air condition (slave1): "
+   entry	"not coded" 0
+   entry	"coded" 1   
+  
+BIOSCtrl
+   value int per 28442848 442
+   label "Air condition (slave2): "
+   entry	"not coded" 0
+   entry	"coded" 1   
+  
+BIOSCtrl
+   value int per 28442848 410
+   label "Air suspension: "
+   entry	"not coded" 0
+   entry	"coded" 1   
+   
+BIOSCtrl
+   value int per 28442848 404
+   label "Auxiliary heater: "
+   entry	"not coded" 0
+   entry	"coded" 1   
+
+BIOSCtrl		
+	value	int per 28442848 476
+	label	"BatteryCtrl: "
+	entry	"not coded" 0
+	entry	"coded" 1	
+
+BIOSCtrl		
+	value	int per 28442848 466
+	label	"BC with Efficiency (BCmE): "
+	entry	"not coded" 0
+	entry	"coded" 1	
+BIOSCtrl		
+	value	int per 28442848 472
+	label	"Brake: "
+	entry	"not coded" 0
+	entry	"coded" 1
+BIOSCtrl
+   value int per 28442848 452
+   label "Braking way reduction (AWV): "
+   entry	"not coded" 0
+   entry	"coded" 1   
+BIOSCtrl
+   value int per 28442848 424
+   label "Central lock system (ZV): "
+   entry	"not coded" 0
+   entry	"coded" 1     
+BIOSCtrl
+   value int per 28442848 436
+   label "Central units master (ZEM): "
+   entry	"not coded" 0
+   entry	"coded" 1   
+BIOSCtrl
+   value int per 28442848 444
+   label "Charisma: "
+   entry	"not coded" 0
+   entry	"coded" 1   
+BIOSCtrl
+   value int per 28442848 432
+   label "Clock: "
+   entry	"not coded" 0
+   entry	"coded" 1   
+   
+BIOSCtrl
+   value    int per 28442848 440
+   label    "Compass: "
+   entry	"not coded" 0
+   entry	"coded" 1   
+
+BIOSCtrl
+   value int per 0 0x50201403
+   label "DisplayConfig: "
+   entry	"not coded" 0
+   entry	"coded" 1   
+BIOSCtrl
+   value int per 0 0x5008CC03
+   label "eCALL: "
+   entry	"not coded" 0
+   entry	"coded" 1   
+BIOSCtrl
+   value int per 0 0x5008F003
+   label "EfficiencyAssist(PEA): "
+   entry	"not coded" 0
+   entry	"coded" 1 
+BIOSCtrl
+   value int per 0 0x5008DC03
+   label "ENI: "
+   entry	"not coded" 0
+   entry	"coded" 1    
+BIOSCtrl
+   value int per 28442848 416
+   label "Exterior light: "
+   entry	"not coded" 0
+   entry	"coded" 1   
+BIOSCtrl
+   value int per 28442848 406
+   label "Headup display (HUD): "
+   entry	"not coded" 0
+   entry	"coded" 1  
+BIOSCtrl
+   value int per 28442848 454
+   label "Hybrid: "
+   entry	"not coded" 0
+   entry	"coded" 1   
+BIOSCtrl
+   value int per 28442848 414
+   label "Interior light: "
+   entry	"not coded" 0
+   entry	"coded" 1   
+BIOSCtrl
+   value int per 28442848 450
+   label "Lane change assist (SWA): "
+   entry	"not coded" 0
+   entry	"coded" 1   
+BIOSCtrl
+   value int per 28442848 448
+   label "Lane departure warning (HCA): "
+   entry	"not coded" 0
+   entry	"coded" 1   
+BIOSCtrl		
+	value	int per 28442848 470
+	label	"MFL joker key: "
+   entry	"not coded" 0
+   entry	"coded" 1	
+BIOSCtrl
+   value	int per 28442848 426
+   label	"Mirror: "
+   entry	"not coded" 0
+   entry	"coded" 1   
+BIOSCtrl
+   value int per 28442848 446
+   label "Night vision: "
+   entry	"not coded" 0
+   entry	"coded" 1  
+BIOSCtrl		
+	value	int per 28442848 428
+	label	"On-board computer (BCMFA): "
+   entry	"not coded" 0
+   entry	"coded" 1	
+BIOSCtrl
+   value	int per 28442848 418
+   label	"Parking system (PDC/OPS): "
+   entry	"not coded" 0
+   entry	"coded" 1   
+BIOSCtrl
+   value	int per 28442848 420
+   label	"Parking system (VPS): "
+   entry	"not coded" 0
+   entry	"coded" 1  
+BIOSCtrl
+   value	int per 0 1342760963
+   label	"Pedestrian Assist: "
+   entry	"not coded" 0
+   entry	"coded" 1  
+BIOSCtrl
+   value	int per 28442848 458
+   label	"Rev. seat-belt tensionier (RGS): "
+   entry	"not coded" 0
+   entry	"coded" 1   
+BIOSCtrl
+   value int per 28442848 482
+   label "Range Data (RD): "
+   entry	"not coded" 0
+   entry	"coded" 1   
+BIOSCtrl
+   value	int per 28442848 430
+   label	"Seat memory (master): "
+   entry	"not coded" 0
+   entry	"coded" 1   
+BIOSCtrl
+   value	int per 0 1342761987
+   label	"Seatpneumatic: "
+   entry	"not coded" 0
+   entry	"coded" 1   
+BIOSCtrl
+   value    int per 28442848 460
+   label    "Seat configuration (slave): "
+   entry	"not coded" 0
+   entry	"coded" 1   
+BIOSCtrl
+   value	int per 28442848 434
+   label	"Service interval (SIA): "
+   entry	"not coded" 0
+   entry	"coded" 1   
+BIOSCtrl		
+	value	int per 28442848 456
+	label	"Sideview camera: "
+   entry	"not coded" 0
+   entry	"coded" 1  
+
+BIOSCtrl
+   value int per 0 0x50201003
+   label "SoundControl: "
+   entry	"not coded" 0
+   entry	"coded" 1   
+
+BIOSCtrl
+   value int per 0 0x50200003
+   label "Spoiler: "
+   entry	"not coded" 0
+   entry	"coded" 1   
+
+BIOSCtrl		
+	value	int per 28442848 474
+	label	"StartStopReasons: "
+	entry	"not coded" 0
+	entry	"coded" 1	
+BIOSCtrl		
+	value	int per 28442848 478
+	label	"Tilt Angle Disp (TAD): "
+	entry	"not coded" 0
+	entry	"coded" 1
+BIOSCtrl
+   value	int per 28442848 480
+   label	"Trailer Assistant (ARA): "
+   entry	"not coded" 0
+   entry	"coded" 1   									
+BIOSCtrl
+   value	int per 28442848 462
+   label	"Traffic sign detection (TSD): "
+   entry	"not coded" 0
+   entry	"coded" 1   
+BIOSCtrl
+   value	int per 28442848 412
+   label	"Tyre pressure control (RDK): "
+   entry	"not coded" 0
+   entry	"coded" 1   
+BIOSCtrl
+   value    int per 28442848 438
+   label    "UGDO / Homelink: "
+   entry	"not coded" 0
+   entry	"coded" 1   
+BIOSCtrl		
+	value	int per 28442848 464
+	label	"Weariness recognition (MKE): "
+   entry	"not coded" 0
+   entry	"coded" 1	
+BIOSCtrl
+   value	int per 28442848 422
+   label	"Wiper: "
+   entry	"not coded" 0
+   entry	"coded" 1   
+
+#############################################
+screen CarFunctionsListCAN adaptation
+            
+BIOSCtrl
+   value    int per 0 1343769616
+   label    "RVC as RVC_Low: "
+   entry	"not coded" 0
+   entry	"coded" 1        
+   
+choice
+       	value           per 28442848 521
+       	label           "Display OPS in Kombi"
+        poll            1000   
+#############################################
+screen CarDeviceBusAssignment adaptation
+
+# BAP based features:
+	
+BIOSCtrl
+      value       int per 28442848 409
+      label       "Adaptive Cruise Control (ACC):"
+	entry			"CAN Comfort" 0
+	entry			"CAN Antrieb" 1
+	entry			"CAN Infotainment" 2
+	entry			"CAN Extended" 3
+	entry			"CAN Fahrwerk" 4
+	entry			"CAN Hybrid" 31
+	entry			"CAN MIB" 32
+	entry			"CAN Kombi/Dashbrd" 33			
+	entry			"Flexray" 5
+	entry			"Clamp15" 6	
+	entry			"CLST1 TUEREN" 7
+	entry			"CLST2 ANHAENGER" 8
+	entry			"CLST3 NIGHTVISION" 9
+	entry			"CLST4 SITZ" 10
+	entry			"CLST5 KLAPPEN" 11
+	entry			"CLST6 INFOTAINMENT" 12
+	entry			"CLST7 SUB_INFOTAIN" 13
+	entry			"CLST8 ANZEIGE" 14
+	entry			"CLST9 LADEN" 15		
+	entry			"not available" 63
+
+BIOSCtrl
+      value       int per 28442848 401
+      label       "Air condition (master): "
+	entry			"CAN Comfort" 0
+	entry			"CAN Antrieb" 1
+	entry			"CAN Infotainment" 2
+	entry			"CAN Extended" 3
+	entry			"CAN Fahrwerk" 4
+	entry			"CAN Hybrid" 31
+	entry			"CAN MIB" 32
+	entry			"CAN Kombi/Dashbrd" 33			
+	entry			"Flexray" 5
+	entry			"Clamp15" 6	
+	entry			"CLST1 TUEREN" 7
+	entry			"CLST2 ANHAENGER" 8
+	entry			"CLST3 NIGHTVISION" 9
+	entry			"CLST4 SITZ" 10
+	entry			"CLST5 KLAPPEN" 11
+	entry			"CLST6 INFOTAINMENT" 12
+	entry			"CLST7 SUB_INFOTAIN" 13
+	entry			"CLST8 ANZEIGE" 14
+	entry			"CLST9 LADEN" 15		
+	entry			"not available" 63
+
+BIOSCtrl
+      value       int per 28442848 403
+      label       "Air condition (slave1): "
+	entry			"CAN Comfort" 0
+	entry			"CAN Antrieb" 1
+	entry			"CAN Infotainment" 2
+	entry			"CAN Extended" 3
+	entry			"CAN Fahrwerk" 4
+	entry			"CAN Hybrid" 31
+	entry			"CAN MIB" 32
+	entry			"CAN Kombi/Dashbrd" 33			
+	entry			"Flexray" 5
+	entry			"Clamp15" 6	
+	entry			"CLST1 TUEREN" 7
+	entry			"CLST2 ANHAENGER" 8
+	entry			"CLST3 NIGHTVISION" 9
+	entry			"CLST4 SITZ" 10
+	entry			"CLST5 KLAPPEN" 11
+	entry			"CLST6 INFOTAINMENT" 12
+	entry			"CLST7 SUB_INFOTAIN" 13
+	entry			"CLST8 ANZEIGE" 14
+	entry			"CLST9 LADEN" 15		
+	entry			"not available" 63
+
+BIOSCtrl
+      value       int per 28442848 443
+      label       "Air condition (slave2): "
+	entry			"CAN Comfort" 0
+	entry			"CAN Antrieb" 1
+	entry			"CAN Infotainment" 2
+	entry			"CAN Extended" 3
+	entry			"CAN Fahrwerk" 4
+	entry			"CAN Hybrid" 31
+	entry			"CAN MIB" 32
+	entry			"CAN Kombi/Dashbrd" 33			
+	entry			"Flexray" 5
+	entry			"Clamp15" 6	
+	entry			"CLST1 TUEREN" 7
+	entry			"CLST2 ANHAENGER" 8
+	entry			"CLST3 NIGHTVISION" 9
+	entry			"CLST4 SITZ" 10
+	entry			"CLST5 KLAPPEN" 11
+	entry			"CLST6 INFOTAINMENT" 12
+	entry			"CLST7 SUB_INFOTAIN" 13
+	entry			"CLST8 ANZEIGE" 14
+	entry			"CLST9 LADEN" 15		
+	entry			"not available" 63
+
+BIOSCtrl
+      value       int per 28442848 411
+      label       "Air suspension: "
+	entry			"CAN Comfort" 0
+	entry			"CAN Antrieb" 1
+	entry			"CAN Infotainment" 2
+	entry			"CAN Extended" 3
+	entry			"CAN Fahrwerk" 4
+	entry			"CAN Hybrid" 31
+	entry			"CAN MIB" 32
+	entry			"CAN Kombi/Dashbrd" 33			
+	entry			"Flexray" 5
+	entry			"Clamp15" 6	
+	entry			"CLST1 TUEREN" 7
+	entry			"CLST2 ANHAENGER" 8
+	entry			"CLST3 NIGHTVISION" 9
+	entry			"CLST4 SITZ" 10
+	entry			"CLST5 KLAPPEN" 11
+	entry			"CLST6 INFOTAINMENT" 12
+	entry			"CLST7 SUB_INFOTAIN" 13
+	entry			"CLST8 ANZEIGE" 14
+	entry			"CLST9 LADEN" 15		
+	entry			"not available" 63
+
+BIOSCtrl
+      value       int per 28442848 405
+      label       "Auxiliary heater: "
+	entry			"CAN Comfort" 0
+	entry			"CAN Antrieb" 1
+	entry			"CAN Infotainment" 2
+	entry			"CAN Extended" 3
+	entry			"CAN Fahrwerk" 4
+	entry			"CAN Hybrid" 31
+	entry			"CAN MIB" 32
+	entry			"CAN Kombi/Dashbrd" 33			
+	entry			"Flexray" 5
+	entry			"Clamp15" 6	
+	entry			"CLST1 TUEREN" 7
+	entry			"CLST2 ANHAENGER" 8
+	entry			"CLST3 NIGHTVISION" 9
+	entry			"CLST4 SITZ" 10
+	entry			"CLST5 KLAPPEN" 11
+	entry			"CLST6 INFOTAINMENT" 12
+	entry			"CLST7 SUB_INFOTAIN" 13
+	entry			"CLST8 ANZEIGE" 14
+	entry			"CLST9 LADEN" 15		
+	entry			"not available" 63
+
+BIOSCtrl
+      value       int per 28442848 477
+      label       "BatteryCtrl: "
+	entry			"CAN Comfort" 0
+	entry			"CAN Antrieb" 1
+	entry			"CAN Infotainment" 2
+	entry			"CAN Extended" 3
+	entry			"CAN Fahrwerk" 4
+	entry			"CAN Hybrid" 31
+	entry			"CAN MIB" 32
+	entry			"CAN Kombi/Dashbrd" 33			
+	entry			"Flexray" 5
+	entry			"Clamp15" 6	
+	entry			"CLST1 TUEREN" 7
+	entry			"CLST2 ANHAENGER" 8
+	entry			"CLST3 NIGHTVISION" 9
+	entry			"CLST4 SITZ" 10
+	entry			"CLST5 KLAPPEN" 11
+	entry			"CLST6 INFOTAINMENT" 12
+	entry			"CLST7 SUB_INFOTAIN" 13
+	entry			"CLST8 ANZEIGE" 14
+	entry			"CLST9 LADEN" 15		
+	entry			"not available" 63
+
+BIOSCtrl
+      value       int per 28442848 467
+      label       "BC with Efficiency (BCmE): "
+	entry			"CAN Comfort" 0
+	entry			"CAN Antrieb" 1
+	entry			"CAN Infotainment" 2
+	entry			"CAN Extended" 3
+	entry			"CAN Fahrwerk" 4
+	entry			"CAN Hybrid" 31
+	entry			"CAN MIB" 32
+	entry			"CAN Kombi/Dashbrd" 33			
+	entry			"Flexray" 5
+	entry			"Clamp15" 6	
+	entry			"CLST1 TUEREN" 7
+	entry			"CLST2 ANHAENGER" 8
+	entry			"CLST3 NIGHTVISION" 9
+	entry			"CLST4 SITZ" 10
+	entry			"CLST5 KLAPPEN" 11
+	entry			"CLST6 INFOTAINMENT" 12
+	entry			"CLST7 SUB_INFOTAIN" 13
+	entry			"CLST8 ANZEIGE" 14
+	entry			"CLST9 LADEN" 15		
+	entry			"not available" 63
+		
+BIOSCtrl
+      value       int per 28442848 473
+      label       "Brake: "
+	entry			"CAN Comfort" 0
+	entry			"CAN Antrieb" 1
+	entry			"CAN Infotainment" 2
+	entry			"CAN Extended" 3
+	entry			"CAN Fahrwerk" 4
+	entry			"CAN Hybrid" 31
+	entry			"CAN MIB" 32
+	entry			"CAN Kombi/Dashbrd" 33			
+	entry			"Flexray" 5
+	entry			"Clamp15" 6	
+	entry			"CLST1 TUEREN" 7
+	entry			"CLST2 ANHAENGER" 8
+	entry			"CLST3 NIGHTVISION" 9
+	entry			"CLST4 SITZ" 10
+	entry			"CLST5 KLAPPEN" 11
+	entry			"CLST6 INFOTAINMENT" 12
+	entry			"CLST7 SUB_INFOTAIN" 13
+	entry			"CLST8 ANZEIGE" 14
+	entry			"CLST9 LADEN" 15		
+	entry			"not available" 63
+		
+BIOSCtrl
+      value       int per 28442848 453
+      label       "Braking way reduction (AWV): "
+	entry			"CAN Comfort" 0
+	entry			"CAN Antrieb" 1
+	entry			"CAN Infotainment" 2
+	entry			"CAN Extended" 3
+	entry			"CAN Fahrwerk" 4
+	entry			"CAN Hybrid" 31
+	entry			"CAN MIB" 32
+	entry			"CAN Kombi/Dashbrd" 33			
+	entry			"Flexray" 5
+	entry			"Clamp15" 6	
+	entry			"CLST1 TUEREN" 7
+	entry			"CLST2 ANHAENGER" 8
+	entry			"CLST3 NIGHTVISION" 9
+	entry			"CLST4 SITZ" 10
+	entry			"CLST5 KLAPPEN" 11
+	entry			"CLST6 INFOTAINMENT" 12
+	entry			"CLST7 SUB_INFOTAIN" 13
+	entry			"CLST8 ANZEIGE" 14
+	entry			"CLST9 LADEN" 15		
+	entry			"not available" 63
+
+BIOSCtrl
+      value       int per 28442848 425
+      label       "Central lock system (ZV): "
+	entry			"CAN Comfort" 0
+	entry			"CAN Antrieb" 1
+	entry			"CAN Infotainment" 2
+	entry			"CAN Extended" 3
+	entry			"CAN Fahrwerk" 4
+	entry			"CAN Hybrid" 31
+	entry			"CAN MIB" 32
+	entry			"CAN Kombi/Dashbrd" 33			
+	entry			"Flexray" 5
+	entry			"Clamp15" 6	
+	entry			"CLST1 TUEREN" 7
+	entry			"CLST2 ANHAENGER" 8
+	entry			"CLST3 NIGHTVISION" 9
+	entry			"CLST4 SITZ" 10
+	entry			"CLST5 KLAPPEN" 11
+	entry			"CLST6 INFOTAINMENT" 12
+	entry			"CLST7 SUB_INFOTAIN" 13
+	entry			"CLST8 ANZEIGE" 14
+	entry			"CLST9 LADEN" 15		
+	entry			"not available" 63
+
+BIOSCtrl
+      value       int per 28442848 445
+      label       "Charisma: "
+	entry			"CAN Comfort" 0
+	entry			"CAN Antrieb" 1
+	entry			"CAN Infotainment" 2
+	entry			"CAN Extended" 3
+	entry			"CAN Fahrwerk" 4
+	entry			"CAN Hybrid" 31
+	entry			"CAN MIB" 32
+	entry			"CAN Kombi/Dashbrd" 33			
+	entry			"Flexray" 5
+	entry			"Clamp15" 6	
+	entry			"CLST1 TUEREN" 7
+	entry			"CLST2 ANHAENGER" 8
+	entry			"CLST3 NIGHTVISION" 9
+	entry			"CLST4 SITZ" 10
+	entry			"CLST5 KLAPPEN" 11
+	entry			"CLST6 INFOTAINMENT" 12
+	entry			"CLST7 SUB_INFOTAIN" 13
+	entry			"CLST8 ANZEIGE" 14
+	entry			"CLST9 LADEN" 15		
+	entry			"not available" 63
+
+BIOSCtrl
+      value       int per 28442848 433
+      label       "Clock: "
+	entry			"CAN Comfort" 0
+	entry			"CAN Antrieb" 1
+	entry			"CAN Infotainment" 2
+	entry			"CAN Extended" 3
+	entry			"CAN Fahrwerk" 4
+	entry			"CAN Hybrid" 31
+	entry			"CAN MIB" 32
+	entry			"CAN Kombi/Dashbrd" 33			
+	entry			"Flexray" 5
+	entry			"Clamp15" 6	
+	entry			"CLST1 TUEREN" 7
+	entry			"CLST2 ANHAENGER" 8
+	entry			"CLST3 NIGHTVISION" 9
+	entry			"CLST4 SITZ" 10
+	entry			"CLST5 KLAPPEN" 11
+	entry			"CLST6 INFOTAINMENT" 12
+	entry			"CLST7 SUB_INFOTAIN" 13
+	entry			"CLST8 ANZEIGE" 14
+	entry			"CLST9 LADEN" 15		
+	entry			"not available" 63
+
+BIOSCtrl
+      value       int per 0 0x502014FC
+      label       "DisplayConfig: "
+	entry			"CAN Comfort" 0
+	entry			"CAN Antrieb" 1
+	entry			"CAN Infotainment" 2
+	entry			"CAN Extended" 3
+	entry			"CAN Fahrwerk" 4
+	entry			"CAN Hybrid" 31
+	entry			"CAN MIB" 32
+	entry			"CAN Kombi/Dashbrd" 33			
+	entry			"Flexray" 5
+	entry			"Clamp15" 6	
+	entry			"CLST1 TUEREN" 7
+	entry			"CLST2 ANHAENGER" 8
+	entry			"CLST3 NIGHTVISION" 9
+	entry			"CLST4 SITZ" 10
+	entry			"CLST5 KLAPPEN" 11
+	entry			"CLST6 INFOTAINMENT" 12
+	entry			"CLST7 SUB_INFOTAIN" 13
+	entry			"CLST8 ANZEIGE" 14
+	entry			"CLST9 LADEN" 15		
+	entry			"not available" 63
+
+BIOSCtrl
+      value       int per 0 0x5008CCFC 
+      label       "eCALL: "
+	entry			"CAN Comfort" 0
+	entry			"CAN Antrieb" 1
+	entry			"CAN Infotainment" 2
+	entry			"CAN Extended" 3
+	entry			"CAN Fahrwerk" 4
+	entry			"CAN Hybrid" 31
+	entry			"CAN MIB" 32
+	entry			"CAN Kombi/Dashbrd" 33			
+	entry			"Flexray" 5
+	entry			"Clamp15" 6	
+	entry			"CLST1 TUEREN" 7
+	entry			"CLST2 ANHAENGER" 8
+	entry			"CLST3 NIGHTVISION" 9
+	entry			"CLST4 SITZ" 10
+	entry			"CLST5 KLAPPEN" 11
+	entry			"CLST6 INFOTAINMENT" 12
+	entry			"CLST7 SUB_INFOTAIN" 13
+	entry			"CLST8 ANZEIGE" 14
+	entry			"CLST9 LADEN" 15		
+	entry			"not available" 63
+
+BIOSCtrl
+      value       int per 0 0x5008F0FC 
+      label       "EfficiencyAssist(PEA): "
+	entry			"CAN Comfort" 0
+	entry			"CAN Antrieb" 1
+	entry			"CAN Infotainment" 2
+	entry			"CAN Extended" 3
+	entry			"CAN Fahrwerk" 4
+	entry			"CAN Hybrid" 31
+	entry			"CAN MIB" 32
+	entry			"CAN Kombi/Dashbrd" 33			
+	entry			"Flexray" 5
+	entry			"Clamp15" 6	
+	entry			"CLST1 TUEREN" 7
+	entry			"CLST2 ANHAENGER" 8
+	entry			"CLST3 NIGHTVISION" 9
+	entry			"CLST4 SITZ" 10
+	entry			"CLST5 KLAPPEN" 11
+	entry			"CLST6 INFOTAINMENT" 12
+	entry			"CLST7 SUB_INFOTAIN" 13
+	entry			"CLST8 ANZEIGE" 14
+	entry			"CLST9 LADEN" 15		
+	entry			"not available" 63
+
+BIOSCtrl
+      value       int per 0 0x5008DCFC 
+      label       "ENI: "
+	entry			"CAN Comfort" 0
+	entry			"CAN Antrieb" 1
+	entry			"CAN Infotainment" 2
+	entry			"CAN Extended" 3
+	entry			"CAN Fahrwerk" 4
+	entry			"CAN Hybrid" 31
+	entry			"CAN MIB" 32
+	entry			"CAN Kombi/Dashbrd" 33			
+	entry			"Flexray" 5
+	entry			"Clamp15" 6	
+	entry			"CLST1 TUEREN" 7
+	entry			"CLST2 ANHAENGER" 8
+	entry			"CLST3 NIGHTVISION" 9
+	entry			"CLST4 SITZ" 10
+	entry			"CLST5 KLAPPEN" 11
+	entry			"CLST6 INFOTAINMENT" 12
+	entry			"CLST7 SUB_INFOTAIN" 13
+	entry			"CLST8 ANZEIGE" 14
+	entry			"CLST9 LADEN" 15		
+	entry			"not available" 63
+		
+	BIOSCtrl
+      value       int per 28442848 417 
+      label       "Exterior light: "
+	entry			"CAN Comfort" 0
+	entry			"CAN Antrieb" 1
+	entry			"CAN Infotainment" 2
+	entry			"CAN Extended" 3
+	entry			"CAN Fahrwerk" 4
+	entry			"CAN Hybrid" 31
+	entry			"CAN MIB" 32
+	entry			"CAN Kombi/Dashbrd" 33			
+	entry			"Flexray" 5
+	entry			"Clamp15" 6	
+	entry			"CLST1 TUEREN" 7
+	entry			"CLST2 ANHAENGER" 8
+	entry			"CLST3 NIGHTVISION" 9
+	entry			"CLST4 SITZ" 10
+	entry			"CLST5 KLAPPEN" 11
+	entry			"CLST6 INFOTAINMENT" 12
+	entry			"CLST7 SUB_INFOTAIN" 13
+	entry			"CLST8 ANZEIGE" 14
+	entry			"CLST9 LADEN" 15		
+	entry			"not available" 63
+
+BIOSCtrl
+     value       int per 28442848 407
+     label       "Headup display (HUD): "
+	entry			"CAN Comfort" 0
+	entry			"CAN Antrieb" 1
+	entry			"CAN Infotainment" 2
+	entry			"CAN Extended" 3
+	entry			"CAN Fahrwerk" 4
+	entry			"CAN Hybrid" 31
+	entry			"CAN MIB" 32
+	entry			"CAN Kombi/Dashbrd" 33			
+	entry			"Flexray" 5
+	entry			"Clamp15" 6	
+	entry			"CLST1 TUEREN" 7
+	entry			"CLST2 ANHAENGER" 8
+	entry			"CLST3 NIGHTVISION" 9
+	entry			"CLST4 SITZ" 10
+	entry			"CLST5 KLAPPEN" 11
+	entry			"CLST6 INFOTAINMENT" 12
+	entry			"CLST7 SUB_INFOTAIN" 13
+	entry			"CLST8 ANZEIGE" 14
+	entry			"CLST9 LADEN" 15		
+	entry			"not available" 63
+
+BIOSCtrl
+     value       int per 28442848 455
+     label       "Hybrid: "
+	entry			"CAN Comfort" 0
+	entry			"CAN Antrieb" 1
+	entry			"CAN Infotainment" 2
+	entry			"CAN Extended" 3
+	entry			"CAN Fahrwerk" 4
+	entry			"CAN Hybrid" 31
+	entry			"CAN MIB" 32
+	entry			"CAN Kombi/Dashbrd" 33			
+	entry			"Flexray" 5
+	entry			"Clamp15" 6	
+	entry			"CLST1 TUEREN" 7
+	entry			"CLST2 ANHAENGER" 8
+	entry			"CLST3 NIGHTVISION" 9
+	entry			"CLST4 SITZ" 10
+	entry			"CLST5 KLAPPEN" 11
+	entry			"CLST6 INFOTAINMENT" 12
+	entry			"CLST7 SUB_INFOTAIN" 13
+	entry			"CLST8 ANZEIGE" 14
+	entry			"CLST9 LADEN" 15		
+	entry			"not available" 63
+
+BIOSCtrl
+      value       int per 28442848 415
+      label       "Interior light: "
+	entry			"CAN Comfort" 0
+	entry			"CAN Antrieb" 1
+	entry			"CAN Infotainment" 2
+	entry			"CAN Extended" 3
+	entry			"CAN Fahrwerk" 4
+	entry			"CAN Hybrid" 31
+	entry			"CAN MIB" 32
+	entry			"CAN Kombi/Dashbrd" 33			
+	entry			"Flexray" 5
+	entry			"Clamp15" 6	
+	entry			"CLST1 TUEREN" 7
+	entry			"CLST2 ANHAENGER" 8
+	entry			"CLST3 NIGHTVISION" 9
+	entry			"CLST4 SITZ" 10
+	entry			"CLST5 KLAPPEN" 11
+	entry			"CLST6 INFOTAINMENT" 12
+	entry			"CLST7 SUB_INFOTAIN" 13
+	entry			"CLST8 ANZEIGE" 14
+	entry			"CLST9 LADEN" 15		
+	entry			"not available" 63
+
+BIOSCtrl
+      value       int per 28442848 451
+      label       "Lane change assist (SWA): "
+	entry			"CAN Comfort" 0
+	entry			"CAN Antrieb" 1
+	entry			"CAN Infotainment" 2
+	entry			"CAN Extended" 3
+	entry			"CAN Fahrwerk" 4
+	entry			"CAN Hybrid" 31
+	entry			"CAN MIB" 32
+	entry			"CAN Kombi/Dashbrd" 33			
+	entry			"Flexray" 5
+	entry			"Clamp15" 6	
+	entry			"CLST1 TUEREN" 7
+	entry			"CLST2 ANHAENGER" 8
+	entry			"CLST3 NIGHTVISION" 9
+	entry			"CLST4 SITZ" 10
+	entry			"CLST5 KLAPPEN" 11
+	entry			"CLST6 INFOTAINMENT" 12
+	entry			"CLST7 SUB_INFOTAIN" 13
+	entry			"CLST8 ANZEIGE" 14
+	entry			"CLST9 LADEN" 15		
+	entry			"not available" 63
+	
+BIOSCtrl
+      value       int per 28442848 449
+      label       "Lane departure warning (HCA): "
+	entry			"CAN Comfort" 0
+	entry			"CAN Antrieb" 1
+	entry			"CAN Infotainment" 2
+	entry			"CAN Extended" 3
+	entry			"CAN Fahrwerk" 4
+	entry			"CAN Hybrid" 31
+	entry			"CAN MIB" 32
+	entry			"CAN Kombi/Dashbrd" 33			
+	entry			"Flexray" 5
+	entry			"Clamp15" 6	
+	entry			"CLST1 TUEREN" 7
+	entry			"CLST2 ANHAENGER" 8
+	entry			"CLST3 NIGHTVISION" 9
+	entry			"CLST4 SITZ" 10
+	entry			"CLST5 KLAPPEN" 11
+	entry			"CLST6 INFOTAINMENT" 12
+	entry			"CLST7 SUB_INFOTAIN" 13
+	entry			"CLST8 ANZEIGE" 14
+	entry			"CLST9 LADEN" 15		
+	entry			"not available" 63
+
+BIOSCtrl
+      value       int per 28442848 427
+      label       "Mirror: "
+	entry			"CAN Comfort" 0
+	entry			"CAN Antrieb" 1
+	entry			"CAN Infotainment" 2
+	entry			"CAN Extended" 3
+	entry			"CAN Fahrwerk" 4
+	entry			"CAN Hybrid" 31
+	entry			"CAN MIB" 32
+	entry			"CAN Kombi/Dashbrd" 33			
+	entry			"Flexray" 5
+	entry			"Clamp15" 6	
+	entry			"CLST1 TUEREN" 7
+	entry			"CLST2 ANHAENGER" 8
+	entry			"CLST3 NIGHTVISION" 9
+	entry			"CLST4 SITZ" 10
+	entry			"CLST5 KLAPPEN" 11
+	entry			"CLST6 INFOTAINMENT" 12
+	entry			"CLST7 SUB_INFOTAIN" 13
+	entry			"CLST8 ANZEIGE" 14
+	entry			"CLST9 LADEN" 15		
+	entry			"not available" 63
+
+BIOSCtrl
+     value       int per 28442848 447
+     label       "Nightvision: "
+	entry			"CAN Comfort" 0
+	entry			"CAN Antrieb" 1
+	entry			"CAN Infotainment" 2
+	entry			"CAN Extended" 3
+	entry			"CAN Fahrwerk" 4
+	entry			"CAN Hybrid" 31
+	entry			"CAN MIB" 32
+	entry			"CAN Kombi/Dashbrd" 33			
+	entry			"Flexray" 5
+	entry			"Clamp15" 6	
+	entry			"CLST1 TUEREN" 7
+	entry			"CLST2 ANHAENGER" 8
+	entry			"CLST3 NIGHTVISION" 9
+	entry			"CLST4 SITZ" 10
+	entry			"CLST5 KLAPPEN" 11
+	entry			"CLST6 INFOTAINMENT" 12
+	entry			"CLST7 SUB_INFOTAIN" 13
+	entry			"CLST8 ANZEIGE" 14
+	entry			"CLST9 LADEN" 15		
+	entry			"not available" 63
+
+BIOSCtrl
+      value       int per 28442848 429
+      label       "On-board Computer (BCMFA): "
+	entry			"CAN Comfort" 0
+	entry			"CAN Antrieb" 1
+	entry			"CAN Infotainment" 2
+	entry			"CAN Extended" 3
+	entry			"CAN Fahrwerk" 4
+	entry			"CAN Hybrid" 31
+	entry			"CAN MIB" 32
+	entry			"CAN Kombi/Dashbrd" 33			
+	entry			"Flexray" 5
+	entry			"Clamp15" 6	
+	entry			"CLST1 TUEREN" 7
+	entry			"CLST2 ANHAENGER" 8
+	entry			"CLST3 NIGHTVISION" 9
+	entry			"CLST4 SITZ" 10
+	entry			"CLST5 KLAPPEN" 11
+	entry			"CLST6 INFOTAINMENT" 12
+	entry			"CLST7 SUB_INFOTAIN" 13
+	entry			"CLST8 ANZEIGE" 14
+	entry			"CLST9 LADEN" 15		
+	entry			"not available" 63
+		
+BIOSCtrl
+      value       int per 28442848 419
+      label       "Parking system (PDC/OPS): "
+	entry			"CAN Comfort" 0
+	entry			"CAN Antrieb" 1
+	entry			"CAN Infotainment" 2
+	entry			"CAN Extended" 3
+	entry			"CAN Fahrwerk" 4
+	entry			"CAN Hybrid" 31
+	entry			"CAN MIB" 32
+	entry			"CAN Kombi/Dashbrd" 33			
+	entry			"Flexray" 5
+	entry			"Clamp15" 6	
+	entry			"CLST1 TUEREN" 7
+	entry			"CLST2 ANHAENGER" 8
+	entry			"CLST3 NIGHTVISION" 9
+	entry			"CLST4 SITZ" 10
+	entry			"CLST5 KLAPPEN" 11
+	entry			"CLST6 INFOTAINMENT" 12
+	entry			"CLST7 SUB_INFOTAIN" 13
+	entry			"CLST8 ANZEIGE" 14
+	entry			"CLST9 LADEN" 15		
+	entry			"not available" 63
+
+BIOSCtrl
+      value       int per 28442848 421
+      label       "Parking system (VPS): "
+	entry			"CAN Comfort" 0
+	entry			"CAN Antrieb" 1
+	entry			"CAN Infotainment" 2
+	entry			"CAN Extended" 3
+	entry			"CAN Fahrwerk" 4
+	entry			"CAN Hybrid" 31
+	entry			"CAN MIB" 32
+	entry			"CAN Kombi/Dashbrd" 33			
+	entry			"Flexray" 5
+	entry			"Clamp15" 6	
+	entry			"CLST1 TUEREN" 7
+	entry			"CLST2 ANHAENGER" 8
+	entry			"CLST3 NIGHTVISION" 9
+	entry			"CLST4 SITZ" 10
+	entry			"CLST5 KLAPPEN" 11
+	entry			"CLST6 INFOTAINMENT" 12
+	entry			"CLST7 SUB_INFOTAIN" 13
+	entry			"CLST8 ANZEIGE" 14
+	entry			"CLST9 LADEN" 15		
+	entry			"not available" 63
+
+BIOSCtrl
+      value       int per 0 1342761212
+      label       "Pedestrian Assist: "
+	entry			"CAN Comfort" 0
+	entry			"CAN Antrieb" 1
+	entry			"CAN Infotainment" 2
+	entry			"CAN Extended" 3
+	entry			"CAN Fahrwerk" 4
+	entry			"CAN Hybrid" 31
+	entry			"CAN MIB" 32
+	entry			"CAN Kombi/Dashbrd" 33			
+	entry			"Flexray" 5
+	entry			"Clamp15" 6	
+	entry			"CLST1 TUEREN" 7
+	entry			"CLST2 ANHAENGER" 8
+	entry			"CLST3 NIGHTVISION" 9
+	entry			"CLST4 SITZ" 10
+	entry			"CLST5 KLAPPEN" 11
+	entry			"CLST6 INFOTAINMENT" 12
+	entry			"CLST7 SUB_INFOTAIN" 13
+	entry			"CLST8 ANZEIGE" 14
+	entry			"CLST9 LADEN" 15		
+	entry			"not available" 63
+
+BIOSCtrl
+      value       int per 28442848 459
+      label       "Rev. seat-belt tensionier (RGS): "
+	entry			"CAN Comfort" 0
+	entry			"CAN Antrieb" 1
+	entry			"CAN Infotainment" 2
+	entry			"CAN Extended" 3
+	entry			"CAN Fahrwerk" 4
+	entry			"CAN Hybrid" 31
+	entry			"CAN MIB" 32
+	entry			"CAN Kombi/Dashbrd" 33			
+	entry			"Flexray" 5
+	entry			"Clamp15" 6	
+	entry			"CLST1 TUEREN" 7
+	entry			"CLST2 ANHAENGER" 8
+	entry			"CLST3 NIGHTVISION" 9
+	entry			"CLST4 SITZ" 10
+	entry			"CLST5 KLAPPEN" 11
+	entry			"CLST6 INFOTAINMENT" 12
+	entry			"CLST7 SUB_INFOTAIN" 13
+	entry			"CLST8 ANZEIGE" 14
+	entry			"CLST9 LADEN" 15		
+	entry			"not available" 63
+
+BIOSCtrl
+      value       int per 28442848 483
+      label       "Range Data (RD): "
+	entry			"CAN Comfort" 0
+	entry			"CAN Antrieb" 1
+	entry			"CAN Infotainment" 2
+	entry			"CAN Extended" 3
+	entry			"CAN Fahrwerk" 4
+	entry			"CAN Hybrid" 31
+	entry			"CAN MIB" 32
+	entry			"CAN Kombi/Dashbrd" 33			
+	entry			"Flexray" 5
+	entry			"Clamp15" 6	
+	entry			"CLST1 TUEREN" 7
+	entry			"CLST2 ANHAENGER" 8
+	entry			"CLST3 NIGHTVISION" 9
+	entry			"CLST4 SITZ" 10
+	entry			"CLST5 KLAPPEN" 11
+	entry			"CLST6 INFOTAINMENT" 12
+	entry			"CLST7 SUB_INFOTAIN" 13
+	entry			"CLST8 ANZEIGE" 14
+	entry			"CLST9 LADEN" 15		
+	entry			"not available" 63
+
+BIOSCtrl
+      value       int per 28442848 431
+      label       "Seat memory master: "
+	entry			"CAN Comfort" 0
+	entry			"CAN Antrieb" 1
+	entry			"CAN Infotainment" 2
+	entry			"CAN Extended" 3
+	entry			"CAN Fahrwerk" 4
+	entry			"CAN Hybrid" 31
+	entry			"CAN MIB" 32
+	entry			"CAN Kombi/Dashbrd" 33			
+	entry			"Flexray" 5
+	entry			"Clamp15" 6	
+	entry			"CLST1 TUEREN" 7
+	entry			"CLST2 ANHAENGER" 8
+	entry			"CLST3 NIGHTVISION" 9
+	entry			"CLST4 SITZ" 10
+	entry			"CLST5 KLAPPEN" 11
+	entry			"CLST6 INFOTAINMENT" 12
+	entry			"CLST7 SUB_INFOTAIN" 13
+	entry			"CLST8 ANZEIGE" 14
+	entry			"CLST9 LADEN" 15		
+	entry			"not available" 63
+
+BIOSCtrl
+      value       int per 0 1342762236
+      label       "Seatpneumatic: "
+	entry			"CAN Comfort" 0
+	entry			"CAN Antrieb" 1
+	entry			"CAN Infotainment" 2
+	entry			"CAN Extended" 3
+	entry			"CAN Fahrwerk" 4
+	entry			"CAN Hybrid" 31
+	entry			"CAN MIB" 32
+	entry			"CAN Kombi/Dashbrd" 33			
+	entry			"Flexray" 5
+	entry			"Clamp15" 6	
+	entry			"CLST1 TUEREN" 7
+	entry			"CLST2 ANHAENGER" 8
+	entry			"CLST3 NIGHTVISION" 9
+	entry			"CLST4 SITZ" 10
+	entry			"CLST5 KLAPPEN" 11
+	entry			"CLST6 INFOTAINMENT" 12
+	entry			"CLST7 SUB_INFOTAIN" 13
+	entry			"CLST8 ANZEIGE" 14
+	entry			"CLST9 LADEN" 15		
+	entry			"not available" 63
+
+BIOSCtrl
+      value       int per 28442848 435
+      label       "Service interval (SIA): "
+	entry			"CAN Comfort" 0
+	entry			"CAN Antrieb" 1
+	entry			"CAN Infotainment" 2
+	entry			"CAN Extended" 3
+	entry			"CAN Fahrwerk" 4
+	entry			"CAN Hybrid" 31
+	entry			"CAN MIB" 32
+	entry			"CAN Kombi/Dashbrd" 33			
+	entry			"Flexray" 5
+	entry			"Clamp15" 6	
+	entry			"CLST1 TUEREN" 7
+	entry			"CLST2 ANHAENGER" 8
+	entry			"CLST3 NIGHTVISION" 9
+	entry			"CLST4 SITZ" 10
+	entry			"CLST5 KLAPPEN" 11
+	entry			"CLST6 INFOTAINMENT" 12
+	entry			"CLST7 SUB_INFOTAIN" 13
+	entry			"CLST8 ANZEIGE" 14
+	entry			"CLST9 LADEN" 15		
+	entry			"not available" 63
+
+BIOSCtrl
+      value       int per 0 0x502010FC
+      label       "SoundControl: "
+	entry			"CAN Comfort" 0
+	entry			"CAN Antrieb" 1
+	entry			"CAN Infotainment" 2
+	entry			"CAN Extended" 3
+	entry			"CAN Fahrwerk" 4
+	entry			"CAN Hybrid" 31
+	entry			"CAN MIB" 32
+	entry			"CAN Kombi/Dashbrd" 33			
+	entry			"Flexray" 5
+	entry			"Clamp15" 6	
+	entry			"CLST1 TUEREN" 7
+	entry			"CLST2 ANHAENGER" 8
+	entry			"CLST3 NIGHTVISION" 9
+	entry			"CLST4 SITZ" 10
+	entry			"CLST5 KLAPPEN" 11
+	entry			"CLST6 INFOTAINMENT" 12
+	entry			"CLST7 SUB_INFOTAIN" 13
+	entry			"CLST8 ANZEIGE" 14
+	entry			"CLST9 LADEN" 15		
+	entry			"not available" 63
+
+BIOSCtrl
+      value       int per 0 0x502000FC
+      label       "Spoiler: "
+	entry			"CAN Comfort" 0
+	entry			"CAN Antrieb" 1
+	entry			"CAN Infotainment" 2
+	entry			"CAN Extended" 3
+	entry			"CAN Fahrwerk" 4
+	entry			"CAN Hybrid" 31
+	entry			"CAN MIB" 32
+	entry			"CAN Kombi/Dashbrd" 33			
+	entry			"Flexray" 5
+	entry			"Clamp15" 6	
+	entry			"CLST1 TUEREN" 7
+	entry			"CLST2 ANHAENGER" 8
+	entry			"CLST3 NIGHTVISION" 9
+	entry			"CLST4 SITZ" 10
+	entry			"CLST5 KLAPPEN" 11
+	entry			"CLST6 INFOTAINMENT" 12
+	entry			"CLST7 SUB_INFOTAIN" 13
+	entry			"CLST8 ANZEIGE" 14
+	entry			"CLST9 LADEN" 15		
+	entry			"not available" 63
+
+BIOSCtrl
+      value       int per 28442848 475
+      label       "StartStopReasons: "
+	entry			"CAN Comfort" 0
+	entry			"CAN Antrieb" 1
+	entry			"CAN Infotainment" 2
+	entry			"CAN Extended" 3
+	entry			"CAN Fahrwerk" 4
+	entry			"CAN Hybrid" 31
+	entry			"CAN MIB" 32
+	entry			"CAN Kombi/Dashbrd" 33			
+	entry			"Flexray" 5
+	entry			"Clamp15" 6	
+	entry			"CLST1 TUEREN" 7
+	entry			"CLST2 ANHAENGER" 8
+	entry			"CLST3 NIGHTVISION" 9
+	entry			"CLST4 SITZ" 10
+	entry			"CLST5 KLAPPEN" 11
+	entry			"CLST6 INFOTAINMENT" 12
+	entry			"CLST7 SUB_INFOTAIN" 13
+	entry			"CLST8 ANZEIGE" 14
+	entry			"CLST9 LADEN" 15		
+	entry			"not available" 63
+
+BIOSCtrl
+      value       int per 28442848 479
+      label       "Tilt Angle Disp (TAD): "
+	entry			"CAN Comfort" 0
+	entry			"CAN Antrieb" 1
+	entry			"CAN Infotainment" 2
+	entry			"CAN Extended" 3
+	entry			"CAN Fahrwerk" 4
+	entry			"CAN Hybrid" 31
+	entry			"CAN MIB" 32
+	entry			"CAN Kombi/Dashbrd" 33			
+	entry			"Flexray" 5
+	entry			"Clamp15" 6	
+	entry			"CLST1 TUEREN" 7
+	entry			"CLST2 ANHAENGER" 8
+	entry			"CLST3 NIGHTVISION" 9
+	entry			"CLST4 SITZ" 10
+	entry			"CLST5 KLAPPEN" 11
+	entry			"CLST6 INFOTAINMENT" 12
+	entry			"CLST7 SUB_INFOTAIN" 13
+	entry			"CLST8 ANZEIGE" 14
+	entry			"CLST9 LADEN" 15		
+	entry			"not available" 63
+
+BIOSCtrl
+      value       int per 28442848 481
+      label       "Trailer Assistant (ARA): "
+	entry			"CAN Comfort" 0
+	entry			"CAN Antrieb" 1
+	entry			"CAN Infotainment" 2
+	entry			"CAN Extended" 3
+	entry			"CAN Fahrwerk" 4
+	entry			"CAN Hybrid" 31
+	entry			"CAN MIB" 32
+	entry			"CAN Kombi/Dashbrd" 33			
+	entry			"Flexray" 5
+	entry			"Clamp15" 6	
+	entry			"CLST1 TUEREN" 7
+	entry			"CLST2 ANHAENGER" 8
+	entry			"CLST3 NIGHTVISION" 9
+	entry			"CLST4 SITZ" 10
+	entry			"CLST5 KLAPPEN" 11
+	entry			"CLST6 INFOTAINMENT" 12
+	entry			"CLST7 SUB_INFOTAIN" 13
+	entry			"CLST8 ANZEIGE" 14
+	entry			"CLST9 LADEN" 15		
+	entry			"not available" 63
+
+
+BIOSCtrl
+      value       int per 28442848 463
+      label       "Traffic sign detection (TSD): "
+	entry			"CAN Comfort" 0
+	entry			"CAN Antrieb" 1
+	entry			"CAN Infotainment" 2
+	entry			"CAN Extended" 3
+	entry			"CAN Fahrwerk" 4
+	entry			"CAN Hybrid" 31
+	entry			"CAN MIB" 32
+	entry			"CAN Kombi/Dashbrd" 33			
+	entry			"Flexray" 5
+	entry			"Clamp15" 6	
+	entry			"CLST1 TUEREN" 7
+	entry			"CLST2 ANHAENGER" 8
+	entry			"CLST3 NIGHTVISION" 9
+	entry			"CLST4 SITZ" 10
+	entry			"CLST5 KLAPPEN" 11
+	entry			"CLST6 INFOTAINMENT" 12
+	entry			"CLST7 SUB_INFOTAIN" 13
+	entry			"CLST8 ANZEIGE" 14
+	entry			"CLST9 LADEN" 15		
+	entry			"not available" 63
+
+BIOSCtrl
+      value       int per 28442848 413
+      label       "Tyre pressure control (RDK): "
+	entry			"CAN Comfort" 0
+	entry			"CAN Antrieb" 1
+	entry			"CAN Infotainment" 2
+	entry			"CAN Extended" 3
+	entry			"CAN Fahrwerk" 4
+	entry			"CAN Hybrid" 31
+	entry			"CAN MIB" 32
+	entry			"CAN Kombi/Dashbrd" 33			
+	entry			"Flexray" 5
+	entry			"Clamp15" 6	
+	entry			"CLST1 TUEREN" 7
+	entry			"CLST2 ANHAENGER" 8
+	entry			"CLST3 NIGHTVISION" 9
+	entry			"CLST4 SITZ" 10
+	entry			"CLST5 KLAPPEN" 11
+	entry			"CLST6 INFOTAINMENT" 12
+	entry			"CLST7 SUB_INFOTAIN" 13
+	entry			"CLST8 ANZEIGE" 14
+	entry			"CLST9 LADEN" 15		
+	entry			"not available" 63
+
+BIOSCtrl
+      value       int per 28442848 439
+      label       "UGDO / Homelink:"
+	entry			"CAN Comfort" 0
+	entry			"CAN Antrieb" 1
+	entry			"CAN Infotainment" 2
+	entry			"CAN Extended" 3
+	entry			"CAN Fahrwerk" 4
+	entry			"CAN Hybrid" 31
+	entry			"CAN MIB" 32
+	entry			"CAN Kombi/Dashbrd" 33			
+	entry			"Flexray" 5
+	entry			"Clamp15" 6	
+	entry			"CLST1 TUEREN" 7
+	entry			"CLST2 ANHAENGER" 8
+	entry			"CLST3 NIGHTVISION" 9
+	entry			"CLST4 SITZ" 10
+	entry			"CLST5 KLAPPEN" 11
+	entry			"CLST6 INFOTAINMENT" 12
+	entry			"CLST7 SUB_INFOTAIN" 13
+	entry			"CLST8 ANZEIGE" 14
+	entry			"CLST9 LADEN" 15		
+	entry			"not available" 63
+
+BIOSCtrl
+      value       int per 28442848 437
+      label       "Unit master (ZEM): "
+	entry			"CAN Comfort" 0
+	entry			"CAN Antrieb" 1
+	entry			"CAN Infotainment" 2
+	entry			"CAN Extended" 3
+	entry			"CAN Fahrwerk" 4
+	entry			"CAN Hybrid" 31
+	entry			"CAN MIB" 32
+	entry			"CAN Kombi/Dashbrd" 33			
+	entry			"Flexray" 5
+	entry			"Clamp15" 6	
+	entry			"CLST1 TUEREN" 7
+	entry			"CLST2 ANHAENGER" 8
+	entry			"CLST3 NIGHTVISION" 9
+	entry			"CLST4 SITZ" 10
+	entry			"CLST5 KLAPPEN" 11
+	entry			"CLST6 INFOTAINMENT" 12
+	entry			"CLST7 SUB_INFOTAIN" 13
+	entry			"CLST8 ANZEIGE" 14
+	entry			"CLST9 LADEN" 15		
+	entry			"not available" 63
+
+BIOSCtrl
+      value       int per 28442848 465
+      label       "Weariness recognition (MKE): "
+	entry			"CAN Comfort" 0
+	entry			"CAN Antrieb" 1
+	entry			"CAN Infotainment" 2
+	entry			"CAN Extended" 3
+	entry			"CAN Fahrwerk" 4
+	entry			"CAN Hybrid" 31
+	entry			"CAN MIB" 32
+	entry			"CAN Kombi/Dashbrd" 33			
+	entry			"Flexray" 5
+	entry			"Clamp15" 6	
+	entry			"CLST1 TUEREN" 7
+	entry			"CLST2 ANHAENGER" 8
+	entry			"CLST3 NIGHTVISION" 9
+	entry			"CLST4 SITZ" 10
+	entry			"CLST5 KLAPPEN" 11
+	entry			"CLST6 INFOTAINMENT" 12
+	entry			"CLST7 SUB_INFOTAIN" 13
+	entry			"CLST8 ANZEIGE" 14
+	entry			"CLST9 LADEN" 15		
+	entry			"not available" 63
+
+BIOSCtrl
+      value       int per 28442848 423
+      label       "Wiper: "
+	entry			"CAN Comfort" 0
+	entry			"CAN Antrieb" 1
+	entry			"CAN Infotainment" 2
+	entry			"CAN Extended" 3
+	entry			"CAN Fahrwerk" 4
+	entry			"CAN Hybrid" 31
+	entry			"CAN MIB" 32
+	entry			"CAN Kombi/Dashbrd" 33			
+	entry			"Flexray" 5
+	entry			"Clamp15" 6	
+	entry			"CLST1 TUEREN" 7
+	entry			"CLST2 ANHAENGER" 8
+	entry			"CLST3 NIGHTVISION" 9
+	entry			"CLST4 SITZ" 10
+	entry			"CLST5 KLAPPEN" 11
+	entry			"CLST6 INFOTAINMENT" 12
+	entry			"CLST7 SUB_INFOTAIN" 13
+	entry			"CLST8 ANZEIGE" 14
+	entry			"CLST9 LADEN" 15		
+	entry			"not available" 63
+    
+#######################################################
+screen RCC adaptation
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "Various RCC-specific adaptations. "
+    poll     0  
+
+button
+      value             per 0x01b200e0 530 "FF"
+      label             "Reset SDARS Prescript Activation to Defaults (0xFF)"
+
+slider
+    value       per 28442848 501
+	 label       "Testmode video"
+	 limits		absolute 0 256
+    poll        1000
+
+choice
+    value       per 28442848 502
+    label       "optical wakeup off/on"
+	poll	     1000
+
+BIOSCtrl
+    value       int per 28442848 503
+    label       "summertime algo."
+    entry	    "none" 0
+	  entry	    "manual" 1
+	  entry	    "MESZ" 2
+    entry	    "USA" 3
+    entry	    "NavDB/automatic" 4
+	poll        1000
+
+BIOSCtrl
+    value       int per 28442848 504
+    label       "Multimedia Data"
+    entry	    "rip off imp off" 0
+	entry	    "rip off imp on" 1
+	entry	    "rip on imp off" 2
+    entry	    "rip on imp on" 3
+	poll        1000
+
+BIOSCtrl
+    value       int per 28442848 505
+    label       "Emergency call priv."
+    entry	    "off" 0
+	entry	    "on" 1
+	entry	    "user defined" 255
+	poll        1000
+    
+slider
+    value       per 28442848 506
+	label        "nr. of retries emergency call"
+	limits		absolute 0 256
+    poll        1000
+
+slider
+    value       per 28442848 507
+	label       "basic vol. speech"
+	limits		absolute 0 128
+    poll        1000
+
+slider
+    value       per 28442848 508
+	label       "basic vol. phone"
+	limits		absolute 0 128
+    poll        1000
+    
+slider
+    value       per 28442848 509
+	label       "micro sensitivity"
+	limits		absolute 0 21
+    poll        1000
+
+choice
+    value       per 28442848 510
+    label       "Telefon off/on"
+	poll	    1000
+        
+choice
+    value       per 28442848 511
+    label       "Tel. dataservices off/on"
+	poll	    1000
+        
+choice
+    value       per 28442848 512
+    label       "BT off/on"
+	poll	    1000
+        
+choice
+    value       per 28442848 513
+    label       "BT Sniff off/on"
+	poll	    1000
+        
+choice
+    value       per 28442848 514
+    label       "WLAN off/on"
+	poll	    1000
+
+slider
+    value       per 28442848 515
+	label       "Regionalcodes DVD"
+	limits		absolute 0 8
+    poll        1000
+
+slider
+    value       per 28442848 516
+	label       "Regionalcodes Blueray"
+	limits		absolute 0 3
+    poll        1000
+
+slider
+    value       per 28442848 517
+	label       "R. Codes DVD Counter"
+	limits		absolute 0 5
+    poll        1000
+    
+slider
+    value       per 28442848 518
+	label       "R. Codes Blueray Counter"
+	limits		absolute 0 5
+    poll       1000
+    
+slider
+    value       per 28442848 520
+	label       "Set PayTMC (coarse)"
+	limits		absolute 0 65535 200
+    poll        1000
+
+slider
+    value       per 28442848 531
+	label       "Set PayTMC (fine)"
+	limits		absolute 0 65535
+    poll        1000
+
+choice
+    value       per 28442848 522
+    label       "RVC Video off(FBAS)/on(LVDS)"
+	poll	    1000
+	
+BIOSCtrl
+    value       int per 28442848 523
+    label       "PSD protocol version"
+    entry       "PSD_1.5" 0
+    entry       "PSD_1.4" 1
+    poll        1000
+
+slider 
+   value       per 28442848 524
+	label       "AM Q-Level offset"
+	limits		absolute -31 31
+   poll        1000
+
+slider 
+   value       per 28442848 525
+	label       "FM Q-Level offset"
+	limits		absolute -31 31
+   poll        1000
+
+slider 
+   value       per 28442848 526
+	label       "HF stereo low thresh.(dBuV)"
+	limits		absolute 20 60
+   poll        1000
+
+slider 
+   value       per 28442848 527
+	label       "NF max stereo chan. sep.(dB)"
+	limits		absolute 0 60
+   poll        1000
+
+slider 
+   value       per 28442848 528
+	label       "Mono/stereo hyst.(msec)"
+	limits		absolute 0 20000 100
+   poll        1000
+
+choice
+    value       per 28442848 529
+    label       "TV Tuner Availability"
+	  poll	    1000
+      
+#############################################
+screen  VariantInfo  adaptation
 
 keyValue
     value    String sys 0x00000000 0
@@ -959,10 +2964,44 @@ keyValue
 keyValue
     value   String per 0x286f058c 13
     label   "Diagnosis Variant"
+    
+    
+BIOSCtrl
+			value	int per 0x286f058c 3
+            label	"Main Unit"
+             entry	"Front MU" 1
+             entry	"Rear MU" 2	
+             entry	"ExBox MU" 3
+             entry	"Front MU MIB2" 4
+             entry	"Rear MU MIB2" 5	
+
+BIOSCtrl		
+	value	int per 0x286f058c 14
+	label	"Keypanel Type"
+	entry	"DEFAULT_TYPE" 0
+   entry	"MIBCAN_MIB1" 1             
+
+BIOSCtrl				
+			value	int per 0x286f058c 4
+			label	"Type"
+                entry	"High" 1
+                entry	"Entry" 2	
+                entry	"Standard" 3
+                entry	"Premium" 4	 
+    
+BIOSCtrl		
+	value	int per 0x286f058c 11
+	label	"Topology"
+    entry	"MQB" 1
+    entry	"MQBTT" 2	
+    entry	"MLB" 3
+    entry	"MLBEVO" 4	
+    entry	"MLBPO" 5
+    entry       "MSS" 6
  
 BIOSCtrl        
     value   int per 0x286f058c 4
-    label   "Variant::Type"
+    label   "Type"
     entry   "High" 1
     entry   "Entry" 2   
     entry   "Standard" 3
@@ -970,7 +3009,7 @@ BIOSCtrl
    
  BIOSCtrl       
     value   int per 0x286f058c 9
-    label   "Variant::Region"
+    label   "Region"
     entry   "Europe/ROW" 1
     entry   "Europe" 2  
     entry   "NAR" 3
@@ -983,7 +3022,7 @@ BIOSCtrl
    
   BIOSCtrl      
     value   int per 0x286f058c 10
-    label   "Variant::Brand"
+    label   "Brand"
     entry   "Volkswagen" 1
     entry   "Audi" 2    
     entry   "Skoda" 3
@@ -994,31 +3033,1138 @@ BIOSCtrl
   
 choice
     value   per 0x286f058c 5
-    label   "Variant::Feature Tel"
+    label   "Feature Tel"
 
 choice
     value   per 0x286f058c 6
-    label   "Variant::Feature Navi"
+    label   "Feature Navi"
    
 choice
     value   per 0x286f058c 7
-    label   "Variant::Feature DAB"
+    label   "Feature DAB"
     
 choice
     value   per 0x286f058c 8
-    label   "Variant::Feature Sirius"
+    label   "Feature Sirius"
  
 choice
     value   per 0x286f058c 17
-    label   "Variant::Feature LTE"  
+    label   "Feature LTE"  
 
 choice
     value   per 0x286f058c 18
-    label   "Variant::Feature 2D Nav"   
+    label   "Feature 2D Nav"   
 
 choice
     value   per 0x286f058c 19
-    label   "Variant::Feature MMI Radio"   
+    label   "Feature MMI Radio"   
+
+ keyValue
+    value    String sys 0x00000000 0
+    label    "----"
+    poll     0
+
+choice
+    value           per 0x286f058c 15
+    label           "ICAN Msg Activation"
+
+
+choice
+    value           per 0x286f058c 16
+    label           "MIBCAN Msg Activation"
+
+###################################################
+screen HMIFunctionBlockingTable adaptation
+
+    bitselect
+        value per 0x0 0xC0020091
+        label "TUNER_0"
+        range 0.0 0.0
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "TUNER_1"
+        range 0.1 0.1
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "TUNER_2"
+        range 0.2 0.2
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "TUNER_3"
+        range 0.3 0.3
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "TUNER_4"
+        range 0.4 0.4
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "TUNER_5"
+        range 0.5 0.5
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "TUNER_6"
+        range 0.6 0.6
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "TUNER_7"
+        range 0.7 0.7
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "TUNER_8"
+        range 1.0 1.0
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "TUNER_9"
+        range 1.1 1.1
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "TUNER_10"
+        range 1.2 1.2
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "TUNER_11"
+        range 1.3 1.3
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "TUNER_12"
+        range 1.4 1.4
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "TUNER_13"
+        range 1.5 1.5
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "TUNER_14"
+        range 1.6 1.6
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "TUNER_15"
+        range 1.7 1.7
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "MEDIA_0"
+        range 2.0 2.0
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "MEDIA_1"
+        range 2.1 2.1
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "MEDIA_2"
+        range 2.2 2.2
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "MEDIA_3"
+        range 2.3 2.3
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "MEDIA_4"
+        range 2.4 2.4
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "MEDIA_5"
+        range 2.5 2.5
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "MEDIA_6"
+        range 2.6 2.6
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "MEDIA_7"
+        range 2.7 2.7
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "MEDIA_8"
+        range 3.0 3.0
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "MEDIA_9"
+        range 3.1 3.1
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "MEDIA_10"
+        range 3.2 3.2
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "MEDIA_11"
+        range 3.3 3.3
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "MEDIA_12"
+        range 3.4 3.4
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "MEDIA_13"
+        range 3.5 3.5
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "MEDIA_14"
+        range 3.6 3.6
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "MEDIA_15"
+        range 3.7 3.7
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "MEDIA_16"
+        range 4.0 4.0
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "MEDIA_17"
+        range 4.1 4.1
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "MEDIA_18"
+        range 4.2 4.2
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "MEDIA_19"
+        range 4.3 4.3
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "MEDIA_20"
+        range 4.4 4.4
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "MEDIA_21"
+        range 4.5 4.5
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "MEDIA_22"
+        range 4.6 4.6
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "MEDIA_23"
+        range 4.7 4.7
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "PHONE_0"
+        range 5.0 5.0
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "PHONE_1"
+        range 5.1 5.1
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "PHONE_2"
+        range 5.2 5.2
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "PHONE_3"
+        range 5.3 5.3
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "PHONE_4"
+        range 5.4 5.4
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "PHONE_5"
+        range 5.5 5.5
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "PHONE_6"
+        range 5.6 5.6
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "PHONE_7"
+        range 5.7 5.7
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "PHONE_8"
+        range 6.0 6.0
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "PHONE_9"
+        range 6.1 6.1
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "PHONE_10"
+        range 6.2 6.2
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "PHONE_11"
+        range 6.3 6.3
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "PHONE_12"
+        range 6.4 6.4
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "PHONE_13"
+        range 6.5 6.5
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "PHONE_14"
+        range 6.6 6.6
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "PHONE_15"
+        range 6.7 6.7
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "NAV_0"
+        range 7.0 7.0
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "NAV_1"
+        range 7.1 7.1
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "NAV_2"
+        range 7.2 7.2
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "NAV_3"
+        range 7.3 7.3
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "NAV_4"
+        range 7.4 7.4
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "NAV_5"
+        range 7.5 7.5
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "NAV_6"
+        range 7.6 7.6
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "NAV_7"
+        range 7.7 7.7
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "NAV_8"
+        range 8.0 8.0
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "NAV_9"
+        range 8.1 8.1
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "NAV_10"
+        range 8.2 8.2
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "NAV_11"
+        range 8.3 8.3
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "NAV_12"
+        range 8.4 8.4
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "NAV_13"
+        range 8.5 8.5
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "NAV_14"
+        range 8.6 8.6
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "NAV_15"
+        range 8.7 8.7
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "NAV_16"
+        range 9.0 9.0
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "NAV_17"
+        range 9.1 9.1
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "NAV_18"
+        range 9.2 9.2
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "NAV_19"
+        range 9.3 9.3
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "NAV_20"
+        range 9.4 9.4
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "NAV_21"
+        range 9.5 9.5
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "NAV_22"
+        range 9.6 9.6
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "NAV_23"
+        range 9.7 9.7
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "NAV_24"
+        range 10.0 10.0
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "NAV_25"
+        range 10.1 10.1
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "NAV_26"
+        range 10.2 10.2
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "NAV_27"
+        range 10.3 10.3
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "NAV_28"
+        range 10.4 10.4
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "NAV_29"
+        range 10.5 10.5
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "NAV_30"
+        range 10.6 10.6
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "NAV_31"
+        range 10.7 10.7
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "NAV_32"
+        range 11.0 11.0
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "NAV_33"
+        range 11.1 11.1
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "NAV_34"
+        range 11.2 11.2
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "NAV_35"
+        range 11.3 11.3
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "NAV_36"
+        range 11.4 11.4
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "NAV_37"
+        range 11.5 11.5
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "NAV_38"
+        range 11.6 11.6
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "NAV_39"
+        range 11.7 11.7
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "CAR_0"
+        range 12.0 12.0
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "CAR_1"
+        range 12.1 12.1
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "CAR_2"
+        range 12.2 12.2
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "CAR_3"
+        range 12.3 12.3
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "CAR_4"
+        range 12.4 12.4
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "CAR_5"
+        range 12.5 12.5
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "Car_6"
+        range 12.6 12.6
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "Car_7"
+        range 12.7 12.7
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "Car_8"
+        range 13.0 13.0
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "Car_9"
+        range 13.1 13.1
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "Car_10"
+        range 13.2 13.2
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "Car_11"
+        range 13.3 13.3
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "Car_12"
+        range 13.4 13.4
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "Car_13"
+        range 13.5 13.5
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "Car_14"
+        range 13.6 13.6
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "Car_15"
+        range 13.7 13.7
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "Car_16"
+        range 14.0 14.0
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "Car_17"
+        range 14.1 14.1
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "Car_18"
+        range 14.2 14.2
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "Car_19"
+        range 14.3 14.3
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "Car_20"
+        range 14.4 14.4
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "Car_21"
+        range 14.5 14.5
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "Car_22"
+        range 14.6 14.6
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "Car_23"
+        range 14.7 14.7
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "MISC_0"
+        range 15.0 15.0
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "MISC_1"
+        range 15.1 15.1
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "MISC_2"
+        range 15.2 15.2
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "MISC_3"
+        range 15.3 15.3
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "MISC_4"
+        range 15.4 15.4
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "MISC_5"
+        range 15.5 15.5
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "MISC_6"
+        range 15.6 15.6
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "MISC_7"
+        range 15.7 15.7
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "MISC_8"
+        range 16.0 16.0
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "MISC_9"
+        range 16.1 16.1
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "MISC_10"
+        range 16.2 16.2
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "MISC_11"
+        range 16.3 16.3
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "MISC_12"
+        range 16.4 16.4
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "MISC_13"
+        range 16.5 16.5
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "MISC_14"
+        range 16.6 16.6
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "MISC_15"
+        range 16.7 16.7
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "MISC_16"
+        range 17.0 17.0
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "MISC_17"
+        range 17.1 17.1
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "MISC_18"
+        range 17.2 17.2
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "MISC_19"
+        range 17.3 17.3
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "MISC_20"
+        range 17.4 17.4
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "MISC_21"
+        range 17.5 17.5
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "MISC_22"
+        range 17.6 17.6
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "MISC_23"
+        range 17.7 17.7
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "MISC_24"
+        range 18.0 18.0
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "MISC_25"
+        range 18.1 18.1
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "MISC_26"
+        range 18.2 18.2
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "MISC_27"
+        range 18.3 18.3
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "MISC_28"
+        range 18.4 18.4
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "MISC_29"
+        range 18.5 18.5
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "MISC_30"
+        range 18.6 18.6
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "MISC_31"
+        range 18.7 18.7
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "MISC_32"
+        range 19.0 19.0
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "MISC_33"
+        range 19.1 19.1
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "MISC_34"
+        range 19.2 19.2
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "MISC_35"
+        range 19.3 19.3
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "MISC_36"
+        range 19.4 19.4
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "MISC_37"
+        range 19.5 19.5
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "MISC_38"
+        range 19.6 19.6
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "MISC_39"
+        range 19.7 19.7
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "MISC_40"
+        range 20.0 20.0
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "MISC_41"
+        range 20.1 20.1
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "MISC_42"
+        range 20.2 20.2
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "MISC_43"
+        range 20.3 20.3
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "MISC_44"
+        range 20.4 20.4
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "MISC_45"
+        range 20.5 20.5
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "MISC_46"
+        range 20.6 20.6
+        entry "not blocked" 0
+        entry "blocked" 1
+    bitselect
+        value per 0x0 0xC0020091
+        label "MISC_47"
+        range 20.7 20.7
+        entry "not blocked" 0
+        entry "blocked" 1
+        
+#############################################
+screen WLAN adaptation
+
+choice
+    value           per 0x01b800e1 41
+    label           "WLAN activation"
+    poll            1000
+
+
+# Password configuration #########################################
+
+# Set simple password
+button
+    value           per 0x01b800e1 38 1
+    label           "Set simple password"
+    poll            0
+
+keyValue
+    value           String per 0x01b800e1 39
+    label           "Current password"
+    poll            1000
+
+
+# Channel configuration ##########################################
+
+slider
+    value           per 0x3F57B91D 3
+    label           "Channel (0 = auto)"
+    limits          absolute 0 11
+    poll            0
+
+
+# TX power configuration ##########################################
+
+slider
+    value           per 0x3F57B91D 4
+    label           "TX power level [dBm]"
+    limits          absolute 0 20
+    poll            0
+
+# Enable ED-MAC feature
+choice
+    value           per 0x3F57B91D 5
+    label           "Enable ED-MAC feature"
+    poll            1000
+
+
+# WLAN configuration #############################################
+
+# Current WLAN settings table 1
+table
+    content         per 0x01b800e1 40
+    label           "WLAN information"
+    poll            2000
+    maxrows         1
+    orientation     vertical
+    columns ( "SSID" String 25 ) ( "MAC" String 30 ) ( "IP" String 20 )
+
+# Current WLAN settings table 2
+table
+    content         per 0x01b800e1 42
+    label           "WLAN parameters"
+    poll            2000
+    maxrows         1
+    orientation     vertical
+    columns ( "Channel" int 5 ) ( "SSID broadcast" int 5 ) ( "NetMode" int 5 ) ( "EncryptMode" int 5 ) ( "SecurityMode" int 5 )
+
+
+# WLAN devices ###################################################
+
+# Current connection table
+table
+    content         per 0x01b800e1 43
+    label           "Connected devices table"
+    poll            2000
+    maxrows         8
+    orientation     horizontal
+    columns ( "MAC" String 210 ) ( "IPAddr" String 180 ) ( "Name" String 300 )
+
+
 
 
 ####################################################################
@@ -1047,6 +4193,122 @@ keyValue
 script
    value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/find_password.sh"
    label    "Find the root passwords."
+
+
+####################################################################   
+screen  Updates  Pro
+    
+choice
+        value           per 30 1966081
+        label           "User Defined / Custom SWDL"
+        
+choice
+        value           per 30 1966082
+        label           "Ignore Region and Variant"
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "DON'T TRIGGER EMERGENCY UNLESS YOU'RE 100% SURE"
+    poll     0
+
+button
+      value             per 30 1966085 ""
+      label             "Trigger Emergency Update"
+
+####################################################################   
+screen  Info  Pro
+
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "Screen information:"
+    poll     0
+
+keyValue
+    value   String per 0x6 0x00060002
+    label   "ABT SW version number"
+
+keyValue
+    value   String per 0x6 0x00060003
+    label   "ABT HW version number"
+
+keyValue
+    value   String per 0x6 0x00060004
+    label   "ABT spare part number"
+
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "Temperatures:"
+    poll     0
+    
+keyValue
+        value                   int per 8765 3
+        label                   "DVD temp"
+        poll                    2000
+
+keyValue
+        value                   int per 8765 4
+        label                   "DVD min temp"
+        poll                    2000
+        
+keyValue
+        value                   int per 8765 5
+        label                   "DVD max temp"
+        poll                    2000
+        
+keyValue
+        value                   int per 6789 3
+        label                   "Tegra temp"
+        poll                    2000
+        
+keyValue
+        value                   int per 6789 1
+        label                   "Tegra min temp"
+        poll                    2000
+        
+keyValue
+        value                   int per 6789 2
+        label                   "Tegra max temp"
+        poll                    2000
+        
+keyValue
+        value                   int per 0x01b800e1 22
+        label                   "NAD temp"
+        poll                    1000
+        
+keyValue
+        value                   int per 0x01b800e1 100
+        label                   "NAD min temp"
+        poll                    1000
+        
+keyValue
+        value                   int per 0x01b800e1 101
+        label                   "NAD max temp"
+        poll                    1000
+        
+keyValue
+        value                   int per 0x yy
+        label                   "Amp. temp"
+        poll                    1000
+
+keyValue
+        value                   int per 0x yy
+        label                   "RCC temp"
+        poll                    1000        
+        
+keyValue
+    value			String per 0x01c500e6 401
+	label			"Gyro temperature"
+	poll			1000 
+    
+    keyValue
+    value			int per 0x4B9 102
+	label			"Nav sensor temperature"
+	poll			1000 
+	
+    
+
          
 
 ####################################################################
@@ -1140,6 +4402,16 @@ keyValue
     
 ####################################################################
 screen  History MQBCoding
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "v2.4B - Added a lot of adaptation screens"
+    poll     0
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "v2.3B - Added more long coding and some experimental stuff"
+    poll     0
 
 keyValue
     value    String sys 0x00000000 0

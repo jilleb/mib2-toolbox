@@ -1,0 +1,1 @@
+/eso/bin/PhoneCustomer/default/persistence_scan.sh 29229279 0 10000

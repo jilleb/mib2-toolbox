@@ -97,7 +97,7 @@ do
       if echo $PARTITION";"$ADDRESS";TIMEOUT" >> $DUMPFOLDER/persistence.txt ; then
         echo "Timeout, skipping address" 
       else 
-        echo "Scan cancelled"
+        echo "SD-card unplugged. Scan cancelled"
         exit 1
       fi
     elif [[ "$PERSISTENCEDATA" == *" PERS_STATUS_TYPE_MISMATCH"* ]] ; then
@@ -109,18 +109,19 @@ do
           if echo $PARTITION";"$ADDRESS";string;"$PERSISTENCEDATAS >> $DUMPFOLDER/persistence.txt ; then
             echo "DATA FOUND:"
             echo $PERSISTENCEDATAS
-          else         
-            echo "!Scan cancelled"
+          else
+            echo "SD-card unplugged. Scan cancelled"
             exit 1
           fi
         elif [[ "$PERSISTENCEDATAI" != *"ERROR"* ]] ; then
           if echo $PARTITION";"$ADDRESS";integer;"$PERSISTENCEDATAI >> $DUMPFOLDER/persistence.txt ; then
             echo "DATA FOUND:"
             echo $PERSISTENCEDATAI
-          else         
-            echo "!Scan cancelled"
+          else
+            echo ""
+            echo "SD-card unplugged. Scan cancelled"
             exit 1
-          fi         
+          fi
         fi 
     elif [[ "$PERSISTENCEDATA" == *"PERS_STATUS_DOES_NOT_EXIST"* ]] ; then
           :
@@ -131,32 +132,27 @@ do
         echo $PERSISTENCEDATA
       else
         echo ""
-        echo "!Scan cancelled"
+        echo "SD-card unplugged. Scan cancelled"
         exit 1
       fi
 
     fi
-    
-   
 
-
-  
   #only write the ID to the text once every 100 times, to speed up.
   if (( $ADDRESS % 100 == 0 ))
   then
     if echo $ADDRESS > $IDFILE; then
-    echo "writing to id.txt to save scan session"
-    echo "Scanned $PARTITION until $ADDRESS at $NOW" > $DUMPFOLDER/scanlog.txt
+    echo "Saving scan-session to $IDFILE"
+    echo "Scanned $PARTITION until $ADDRESS" >> $DUMPFOLDER/scanlog.txt
     else 
         echo ""
-        echo "!Scan cancelled"
+        echo "SD-card unplugged. Scan cancelled"
       exit 1
     fi
   fi
-  
+
   #increase the address with 1  
     ADDRESS=$(( $ADDRESS + 1 ))
-  
 done
 
 

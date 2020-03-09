@@ -1,0 +1,1 @@
+/eso/bin/PhoneCustomer/default/persistence_scan.sh STATIONLOGO 0 10000
