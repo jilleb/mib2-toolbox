@@ -2,7 +2,7 @@
 #
 # Custom Green Engineering Menu screen
 # Author:       Jille
-# Version:      2.4B
+# Version:      2.5B
 # Disclaimer:   THIS SCREEN WILL VOID YOUR WARRANTY
 #
 ####################################################################
@@ -10,14 +10,9 @@ screen   MQBCoding Main
 
 keyValue
     value    String sys 0x00000000 0
-    label    "MQB CODING - MIB Toolbox v2.4B"
+    label    "[MQB CODING - MIB Toolbox v2.5B]"
     poll     0
     
-keyValue
-    value    String sys 0x00000000 0
-    label    ""
-    poll     0
-
 keyValue
     value    String sys 0x00000000 0
     label    "Warning: this screen has the potential to break your unit and void your warranty. Be careful."
@@ -44,6 +39,42 @@ keyValue
 script
    value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/dump_all.sh"
    label    "Dump skins, startup screens, android auto config, ringtones to SD-card"
+   
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/dump_fec.sh"
+   label    "Dump FEC container"   
+   
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/dump_ifs.sh"
+   label    "Dump IFS-root"   
+   
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/dump_shadow.sh"
+   label    "Dump shadow file"
+
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/dump_eeprom.sh"
+   label    "Dump EEPROM"
+   
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/dump_hosts.sh"
+   label    "Dump hosts file"
+   
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/dump_gem.sh"
+   label    "Dump GEM.jar"
+   
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/dump_lsdjxe.sh"
+   label    "Dump LSD.jxe"
+   
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/dump_storage.sh"
+   label    "Dump storage1.raw and storage2.raw "
+   
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/dump_persistence.sh"
+   label    "Dump persistence"
 
 ####################################################################
 screen  Customization MQBCoding 
@@ -338,71 +369,9 @@ choice
 	value per 0x01c500e6 360
 	label "additional map cursor"
 	poll 0
-
-
-####################################################################
-screen  Pro MQBCoding
-
-keyValue
-    value    String sys 0x00000000 0
-    label    "This screen is for professionals only. It can seriously damage your MIB-unit."
-    poll     0   
-
-keyValue
-    value    String sys 0x00000000 0
-    label    "MQB-coding does not condone illegal use of any of these features."
-    poll     0   
-
-keyValue
-    value    String sys 0x00000000 0
-    label    "The PRO-features are merely meant for investigation of and improvements to the unit."
-    poll     0   
-
-####################################################################
-screen  export Pro
-
-
-keyValue
-    value    String sys 0x00000000 0
-    label    "Make sure there is an SD-card in slot 1"
-    poll     0    
     
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/dump_fec.sh"
-   label    "Dump FEC container"   
-   
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/dump_ifs.sh"
-   label    "Dump IFS-root"   
-   
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/dump_shadow.sh"
-   label    "Dump shadow file"
-
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/dump_eeprom.sh"
-   label    "Dump EEPROM"
-   
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/dump_hosts.sh"
-   label    "Dump hosts file"
-   
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/dump_gem.sh"
-   label    "Dump GEM.jar"
-   
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/dump_lsdjxe.sh"
-   label    "Dump LSD.jxe"
-   
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/dump_storage.sh"
-   label    "Dump storage1.raw and storage2.raw "
-   
-
-        
 ####################################################################
-screen  import Pro
+screen Advanced Customization
 
 keyValue
     value   String per 30 1966083
@@ -450,10 +419,9 @@ script
 script
    value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/flash_ifs.sh"
    label    "Flash ifsroot.ifs from sda0/Advanced/IFS"
-  
 
 ####################################################################
-screen  coding Pro
+screen  Coding Customization
 
 keyValue
     value    String sys 0x00000000 0
@@ -1335,12 +1303,7 @@ choice
     poll            1000        
     
 
-####################################################################
-screen  Persistence Export
 
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/dump_persistence.sh"
-   label    "Dump persistence"
 
 ####################################################################  
 
@@ -1400,9 +1363,9 @@ button
    
 #############################################
 
-screen  adaptation  Pro
+screen  Adaptations  Customization
 #############################################
-screen CarFunctionsListBAP adaptation
+screen "CarFunctionsList_BAP" adaptations
 
 BIOSCtrl
    value int per 28442848 408
@@ -1663,7 +1626,7 @@ BIOSCtrl
    entry	"coded" 1   
 
 #############################################
-screen CarFunctionsListCAN adaptation
+screen "CarFunctionsList_CAN" adaptations
             
 BIOSCtrl
    value    int per 0 1343769616
@@ -1676,7 +1639,7 @@ choice
        	label           "Display OPS in Kombi"
         poll            1000   
 #############################################
-screen CarDeviceBusAssignment adaptation
+screen CarDeviceBusAssignment adaptations
 
 # BAP based features:
 	
@@ -2762,7 +2725,7 @@ BIOSCtrl
 	entry			"not available" 63
     
 #######################################################
-screen RCC adaptation
+screen RCC adaptations
 
 keyValue
     value    String sys 0x00000000 0
@@ -2944,7 +2907,7 @@ choice
 	  poll	    1000
       
 #############################################
-screen  VariantInfo  adaptation
+screen  VariantInfo  adaptations
 
 keyValue
     value    String sys 0x00000000 0
@@ -3074,7 +3037,7 @@ choice
     label           "MIBCAN Msg Activation"
 
 ###################################################
-screen HMIFunctionBlockingTable adaptation
+screen "HMI_FunctionBlockingTable" adaptations
 
     bitselect
         value per 0x0 0xC0020091
@@ -4086,7 +4049,7 @@ screen HMIFunctionBlockingTable adaptation
         entry "blocked" 1
         
 #############################################
-screen WLAN adaptation
+screen WLAN adaptations
 
 choice
     value           per 0x01b800e1 41
@@ -4165,38 +4128,8 @@ table
     columns ( "MAC" String 210 ) ( "IPAddr" String 180 ) ( "Name" String 300 )
 
 
-
-
-####################################################################
-screen  password Pro
-
-keyValue
-    value    String sys 0x00000000 0
-    label    "This feature will find the root passwords for MMX and RCC"
-    poll     0
-
-keyValue
-    value    String sys 0x00000000 0
-    label    "Update passwords.csv in the Advanced folder on your SD in slot 1"
-    poll     0
-
-keyValue
-    value    String sys 0x00000000 0
-    label    "with your own passwords."
-    poll     0
-
-keyValue
-    value    String sys 0x00000000 0
-    label    ""
-    poll     0
-    
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/find_password.sh"
-   label    "Find the root passwords."
-
-
 ####################################################################   
-screen  Updates  Pro
+screen  Updates Customization
     
 choice
         value           per 30 1966081
@@ -4216,7 +4149,7 @@ button
       label             "Trigger Emergency Update"
 
 ####################################################################   
-screen  Info  Pro
+screen  "MIB_Information"  MQBCoding
 
 
 keyValue
@@ -4286,16 +4219,7 @@ keyValue
         value                   int per 0x01b800e1 101
         label                   "NAD max temp"
         poll                    1000
-        
-keyValue
-        value                   int per 0x yy
-        label                   "Amp. temp"
-        poll                    1000
-
-keyValue
-        value                   int per 0x yy
-        label                   "RCC temp"
-        poll                    1000        
+              
         
 keyValue
     value			String per 0x01c500e6 401
@@ -4306,8 +4230,35 @@ keyValue
     value			int per 0x4B9 102
 	label			"Nav sensor temperature"
 	poll			1000 
-	
     
+####################################################################
+screen  password "MIB_Information"
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "This feature will find the root passwords for MMX and RCC"
+    poll     0
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "Update passwords.csv in the Advanced folder on your SD in slot 1"
+    poll     0
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "with your own passwords."
+    poll     0
+
+keyValue
+    value    String sys 0x00000000 0
+    label    ""
+    poll     0
+    
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/find_password.sh"
+   label    "Find the root passwords."
+
+	
 
          
 
@@ -4402,6 +4353,11 @@ keyValue
     
 ####################################################################
 screen  History MQBCoding
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "v2.5B - Revised menu structure"
+    poll     0
 
 keyValue
     value    String sys 0x00000000 0

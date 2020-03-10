@@ -6,7 +6,7 @@ It's never our intention to harm any person, car or brand. Use the tools wisely,
 
 Note2: This is **not** a universal Jailbreak-like solution for all your needs and firmware versions.
 
-Note3: If you're a business who tries to make a profit off of this:  Don't be an asshole: Don't charge money for this. This project is done in my own time, out of love for the community. I've risked bricking my own hardware while testing, and invested a lot of time in the research. Instead of making money, why not support this project with your knowledge or a [small donation](https://paypal.me/chillout1?locale.x=nl_NL). 
+Note3: If you're a business who tries to make a profit off of this:  Don't be an asshole: Don't charge money for this. This project is done in my own time, out of love for the community. I've risked bricking my own hardware while testing, and invested a lot of time in the research. Instead of making money, why not support this project with your knowledge or a [small donation](https://paypal.me/chillout1). 
 
 # Requirements
 - Read the entire readme
@@ -58,7 +58,49 @@ Note3: If you're a business who tries to make a profit off of this:  Don't be an
 - You're now done.
 - Enjoy!
 
+# Green menu screen overview:
+
+```
+MQBCoding
+|
++---Dump                                # dump various data to SD-card
+|   
++---Customization                       # customisation features        
+|   +---Skin                            # Skin graphics import
+|   +---AndroidAuto                     # Android Auto custom apps patch
+|   +---Startup                         # Startup graphics import
+|   +---Sounds                          # Sounds import (experimental)
+|   +---Various                         # Various tweaks
+|   +---GreenMenu                       # Import new green menu screens and scripts
+|   +---Navigation                      # Navigation tweaks
+|   +---Advanced                        # Import shadow file, FECs and such
+|   +---Updates                         # Custom SWDL modes and emergency
+|   +---Coding                          # Long coding editor
+|   \---Adaptations                     # Adaptation channels
+|       +---CarFunctionsList_BAP
+|       +---CarFunctionsList_CAN
+|       +---CarDeviceBusAssignment
+|       +---RCC
+|       +---VariantInfo
+|       +---HMI_FunctionBlockingTable
+|       +---WLAN
+|      
++---privacy                             # Privacy features
+|
++---MIB_Information                     # Information about the unit
+|   \---password                        # Password finder
+|
++---Disclaimer                          # Some wise words
+|
++---Funstuff                            # Doesn't need explaining
+|   \---FamousQoutes                    
+|    
+\---History                             # Version history of the toolbox
+```
+
 # How to use the new screens
+
+Most screens have a description inside, or show information when running a script. It's always wise to have an SD-card in slot 1.
 
 ## dump
 This screen lets you dump skin-files(images.mcf files), Android Auto configuration files (gal.json) and Startup screens (.canim files). Make sure an SD-card with enough space is inserted in one of the slots. Dumps will be placed in a folder specific for your unit (FAZIT) and firmware version.
@@ -117,23 +159,7 @@ This script can extract images.cff files, container files for navigation icons a
 If you run into any issues, consult the [F.A.Q.](https://github.com/jilleb/mib2-toolbox/blob/master/FAQ.md).
 
 ## Supported firmware versions
-This toolbox probably doesn't work on all available firmware versions. IOC version can be an issue too and can cause fatal metadata/release info errors upon installing. I'm currently investigating this issue (issue #1).
-
-
-| Brand         | Version       | Works?|
-| ------------- |:-------------:| -----:|
-| VW | 0343 | Yes |
-| VW | 1161 | Yes |
-| VW | 1367 | Yes |
-| Seat | 1219 | Yes |
-| Seat | 1409 | Yes |
-| Skoda | 1240 | [Metainfo error](https://github.com/jilleb/mib2-toolbox/issues/4) |
-| Skoda | 1382 | Yes |
-| Skoda | 1440 | Yes |
-| Audi | 1362 | No, reason currently unkown |
-
-
-Please report whether or not the toolkit works with your version, so I can add new info to this page.
+This toolbox probably doesn't work on all available firmware versions. IOC version can be an issue too and can cause fatal metadata/release info errors upon installing. I'm currently investigating this issue (issue #1)
 
 
 # Disclaimer:
