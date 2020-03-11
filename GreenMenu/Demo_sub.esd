@@ -1,0 +1,22 @@
+screen DemoSubmenu Demo
+
+keyValue
+	value String sys 0x0000 0
+	label "Here we are... It can render all iso-8859-1 characters: ö°éµ~ß"
+	poll 0
+	
+keyValue
+	value String sys 0x0000 0
+	label "The following is just text - not real data..."
+	poll 0
+	
+keyValue
+	value String sys 0x0000 0
+	label "Filesystem                               Size        Used       Avail    Use%  Mounted on"
+	poll 0
+	
+keyValue
+	value String sys 0x0000 0
+	label "/dev/emmc0t177.4            100M      8.0M      192M       5%  /mnt/temp"
+#	       /dev/sda0t11            15507456  10604544   4902912      69%  /fs/sda0/
+	poll 0

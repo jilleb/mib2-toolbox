@@ -1,0 +1,100 @@
+#demonstrates the functions of the GEM
+screen Demo GSS
+
+keyValue
+	value String sys 0x0000 0
+	label "==There are demo controls below=="
+	poll 0
+
+script
+	value sys 1 0x0100 "/scripts/showprocesses.sh"
+	label "Show processes"
+	
+choice
+	value per 0x666 1
+	label "A checkbox"
+
+button
+	value per 0x666 2 "Button 1 was pressed last"
+	label "Press me"
+	
+button
+	value per 0x666 2 "Button 2 was pressed last"
+	label "Press me"
+	
+keyValue
+	value String per 0x666 2
+	label "Button state"
+	poll 100
+	
+BIOSCtrl
+	value int per 0x666 3
+	label "The GEM is"
+	entry cool 1
+	entry ugly 2
+	entry "A nice utility" 3
+	entry "green" 4
+	poll 300
+	
+config
+	label "Writes multiple values"
+	value int per 0x666 4 4711
+	value int per 0x666 5 0xcafebabe
+	value String per 0x666 6 "A value to persist"
+	#for the slider below
+	value int per 0x666 8 -10
+	value int per 0x666 9 10
+	value int per 0x666 10 1
+	
+slider
+	label "A nice slider"
+	value per 0x666 4
+	limits absolute 4701 4721 2
+	poll 200
+	
+slider
+	label "dynamic range slider"
+	value per 0x666 7
+	limits keys 8 9 10
+	
+keyValue
+	value int per 0x666 4
+	label "The 'nice slider' value converted"
+	format 0.01 "#.00"
+	poll 500
+
+trCallback
+	value trc 1 0x100 "/grengme/sampleCallback"
+	argument data int per 0x666 7
+	argument absolute "Hello World"
+	label "Trigger sample trace callback"
+	
+slider
+	label "gets/sets value from HMI"
+	value sys 0x2 1
+	limits absolute 10 20 1
+	poll 500
+	
+config
+	value int sys 0x2 2 10
+	label "Sets something in HMI"
+
+keyValue
+	value String sys 0x0000 0
+	label "==Advanced features=="
+	poll 0
+	
+numericList
+	content per 0x666 11
+	label "demo list"
+	poll 0
+	row "Here could be a value"
+	row "And another one"
+
+table
+	content per 0x666 12
+	label "demo table"
+	poll 0
+	maxrows 3
+	orientation horizontal
+	columns ( "A string" String 120 ) ( "An int" int 80 ) ( "Another value" int 200 )

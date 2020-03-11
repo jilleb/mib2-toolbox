@@ -4315,7 +4315,9 @@ screen  Funstuff MQBCoding
 script
    value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/fun_timemachine.sh"
    label    "Time-machine"
-
+   
+slideshow
+  label "Slideshow"
     
     
 ####################################################################
