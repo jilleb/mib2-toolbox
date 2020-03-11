@@ -35,7 +35,7 @@ Note3: If you're a business who tries to make a profit off of this:  Don't be an
 - There will be an additional menu called "mqbcoding". When you see this, the installation was succesful.
 - Go to mqbcoding, and you will see the following:
 
-![The MQB Coding toolbox menu](https://i.imgur.com/yJ0ZvKb.png)
+![The MQB Coding toolbox menu](https://i.imgur.com/mLHXCmT.png)
 
 - Run the "Get new scripts and files from SD-card (slot1)" script, and additional files will be installed.
 - You're now done.
