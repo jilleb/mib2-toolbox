@@ -1,13 +1,12 @@
 ---
 name: Feature request
-about: Suggest an idea for this project
+about: Suggest an idea for this project. Don't ask for firmware or unlocking of SWaP
+  features.
 title: "[REQUEST] "
 labels: ''
 assignees: ''
 
 ---
-
-Note: Don't ask for firmware or unlocking of SWaP features!
 
 **Is your feature request related to a problem? Please describe.**
 A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
