@@ -1,5 +1,5 @@
 #demonstrates the functions of the GEM
-screen Demo GSS
+screen Demo Main
 
 keyValue
 	value String sys 0x0000 0
@@ -36,15 +36,15 @@ BIOSCtrl
 	entry "green" 4
 	poll 300
 	
-config
-	label "Writes multiple values"
-	value int per 0x666 4 4711
-	value int per 0x666 5 0xcafebabe
-	value String per 0x666 6 "A value to persist"
-	#for the slider below
-	value int per 0x666 8 -10
-	value int per 0x666 9 10
-	value int per 0x666 10 1
+#config
+#	label "Writes multiple values"
+#	value int per 0x666 4 4711
+#	value int per 0x666 5 0xcafebabe
+#	value String per 0x666 6 "A value to persist"
+#	#for the slider below
+#	value int per 0x666 8 -10
+#	value int per 0x666 9 10
+#	value int per 0x666 10 1
 	
 slider
 	label "A nice slider"

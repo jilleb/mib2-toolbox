@@ -2,7 +2,7 @@
 #
 # Custom Green Engineering Menu screen
 # Author:       Jille
-# Version:      2.5B
+# Version:      2.7B
 # Disclaimer:   THIS SCREEN WILL VOID YOUR WARRANTY
 #
 ####################################################################
@@ -10,7 +10,7 @@ screen   MQBCoding Main
 
 keyValue
     value    String sys 0x00000000 0
-    label    "[MQB CODING - MIB Toolbox v2.5B]"
+    label    "[MQB CODING - MIB Toolbox v2.7B]"
     poll     0
     
 keyValue
@@ -26,6 +26,9 @@ keyValue
 script
    value    sys 1 0x0100 "/scripts/copy_phone_customer.sh"
    label    "Get new scripts and files from SD-card (slot1) "
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/update_toolbox.sh"
+   label    "Update toolbox with a new mqbcoding.esd and scripts"
     
 
 ####################################################################
@@ -287,6 +290,23 @@ script
 script
    value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/install_rsdb.sh"
    label    "Install new Radio Station DB"
+
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/nosslcheck.sh"
+   label    "Disable Online service SSL checks"
+
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/removenosslcheck.sh"
+   label    "Re-enable online service SSL checks"
+   
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/setDataOverDLink.sh"
+   label    "Data over D-link"
+
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/showOnlineRouterStatus.sh"
+   label    "Check online data status"
+   
 
 ####################################################################   
 screen   GreenMenu Customization
@@ -2725,7 +2745,7 @@ BIOSCtrl
 	entry			"not available" 63
     
 #######################################################
-screen RCC adaptations
+screen RccAdaptations adaptations
 
 keyValue
     value    String sys 0x00000000 0
@@ -2962,13 +2982,6 @@ BIOSCtrl
     entry	"MLBPO" 5
     entry       "MSS" 6
  
-BIOSCtrl        
-    value   int per 0x286f058c 4
-    label   "Type"
-    entry   "High" 1
-    entry   "Entry" 2   
-    entry   "Standard" 3
-    entry   "Premium" 4
    
  BIOSCtrl       
     value   int per 0x286f058c 9
@@ -3035,6 +3048,241 @@ choice
 choice
     value           per 0x286f058c 16
     label           "MIBCAN Msg Activation"
+    
+###################################################
+screen "MenuFunctions" adaptations
+
+#############################################
+#
+#  Inofficial, must be finalised from MMX/HMI !
+# 
+# $Id: //Audi_MIB/Public/TCFG/Release/MIB2CLU8/Development/tcfg/mib/common/arm/default/engdefs/CarZMenuOperation.esd#1 $
+# $Date: 2016/10/05 $ 
+#############################################
+
+#######################################################
+#
+# SCREEN Test fuer CAR
+#
+#######################################################
+screen CarMenuOperation mqbcoding
+# the values are from 0 to 31 because there are 5 bits information that can be coded
+
+button
+      value             per 0 1 ""
+      label             "Flush persistence cache to FFS"
+
+slider
+   value    per 28442848 200
+   label    "Adaptive cruise control (ACC): "
+   limits	absolute 0 31
+slider
+   value    per 28442848 208
+   label    "Air condition: "
+   limits	absolute 0 31
+slider
+   value    per 28442848 221
+   label    "Air suspension: "
+   limits	absolute 0 31
+slider
+   value    per 28442848 231
+   label    "Attention ident: "
+   limits	absolute 0 31
+slider
+   value    per 28442848 243
+   label    "Auxiliary clima: "
+   limits	absolute 0 31
+slider
+   value    per 28442848 209
+   label    "Auxiliary heater: "
+   limits	absolute 0 31
+slider
+   value    per 28442848 236
+   label    "BC with Efficiency (BCmE): "  
+   limits	absolute 0 31
+slider
+   value    per 28442848 238
+   label    "Brake: " 
+   limits	absolute 0 31
+slider
+   value    per 28442848 203
+   label    "Braking way reduction (AWV): "
+   limits	absolute 0 31
+slider
+   value    per 28442848 215
+   label    "Central lock system (ZV): "
+   limits	absolute 0 31
+slider
+   value    per 28442848 223
+   label    "Central units master (ZEM): "
+   limits	absolute 0 31
+slider
+   value    per 28442848 217
+   label    "Charisma: "
+   limits	absolute 0 31
+slider
+   value    per 28442848 220
+   label    "Clock: "
+   limits	absolute 0 31
+slider
+   value    per 28442848 216
+   label    "Compass: "
+   limits	absolute 0 31
+slider
+   value    per 28442848 234
+   label    "DrivingSchool/Fahrschulmodus: "
+   limits	absolute 0 31
+slider
+   value    per 28442848 247
+   label    "eCALL: "
+   limits	absolute 0 31 
+slider
+   value    per 28442848 251
+   label    "Eco Rating (ThinkBlue): "
+   limits	absolute 0 31   
+slider
+   value    per 28442848 252
+   label    "Efficiency Assist(PEA): "
+   limits	absolute 0 31     
+slider
+   value    per 28442848 248
+   label    "ENI: "
+   limits	absolute 0 31   
+slider
+   value    per 28442848 206
+   label    "Exterior light: "
+   limits	absolute 0 31
+slider
+   value    per 28442848 222
+   label    "Headup display: "
+   limits	absolute 0 31
+slider
+   value    per 28442848 224
+   label    "Hybrid: "
+   limits	absolute 0 31
+slider
+   value    per 28442848 201
+   label    "Interior light: "
+   limits	absolute 0 31
+slider
+   value    per 28442848 205
+   label    "Lane change assist (SWA): "
+   limits	absolute 0 31
+slider
+   value    per 28442848 204
+   label    "Lane departure warning (HCA): "
+   limits	absolute 0 31
+slider
+   value    per 28442848 229
+   label    "MFL joker key: "
+   limits	absolute 0 31
+slider
+   value    per 28442848 233
+   label    "Mirror: "  
+   limits	absolute 0 31
+slider
+   value    per 28442848 226
+   label    "Night vision: "
+   limits	absolute 0 31
+slider
+   value    per 28442848 218
+   label    "Oil level gauge: "
+   limits	absolute 0 31
+slider
+   value    per 28442848 210
+   label    "On-board computer (BCMFA): "
+   limits	absolute 0 31
+slider
+   value    per 28442848 202
+   label    "Parking system: "
+   limits	absolute 0 31
+slider
+   value    per 28442848 244
+   label    "Pedestrian Assist: "
+   limits	absolute 0 31
+slider
+   value    per 28442848 232
+   label    "Programmed key (Ang. Schl.): "
+   limits	absolute 0 31
+slider
+   value    per 28442848 228
+   label    "Rev. seat-belt tensionier (RGS): "
+   limits	absolute 0 31
+slider
+   value    per 28442848 250
+   label    "SCR (adBlue): "
+   limits	absolute 0 31
+slider
+   value    per 28442848 214
+   label    "Seat memory: "
+   limits	absolute 0 31
+slider
+   value    per 28442848 245
+   label    "Seatpneumatic: "
+   limits	absolute 0 31
+slider
+   value    per 28442848 213
+   label    "Service interval (SIA) : "
+   limits	absolute 0 31
+slider
+   value    per 28442848 227
+   label    "Sideview camera: "
+   limits	absolute 0 31
+slider
+   value    per 28442848 249
+   label    "Sport HMI: " 
+   limits	absolute 0 31
+slider
+   value    per 28442848 239
+   label    "StartStopReasons: " 
+   limits	absolute 0 31
+slider
+   value    per 28442848 241
+   label    "Tilt Angle Display (TAD): "
+   limits	absolute 0 31
+slider
+   value    per 28442848 230
+   label    "Traffic sign detection (TSD): "
+   limits	absolute 0 31
+slider
+   value    per 28442848 242
+   label    "Trailer Assist (ARA): "
+   limits	absolute 0 31
+slider
+   value    per 28442848 211
+   label    "Tyre pressure control (RDK): "
+   limits	absolute 0 31
+slider
+   value    per 28442848 225
+   label    "Univ. garage door opener: "
+   limits	absolute 0 31
+slider
+   value    per 28442848 237
+   label    "User Eco Rating: "
+   limits	absolute 0 31
+slider
+   value    per 28442848 219
+   label    "Vehicle ident (VIN): "
+   limits	absolute 0 31
+slider
+   value    per 28442848 235
+   label    "Weariness recognition (MKE): "  
+   limits	absolute 0 31
+slider
+   value    per 28442848 207
+   label    "Window: "
+   limits	absolute 0 31
+slider
+   value    per 28442848 212
+   label    "Wiper: "
+   limits	absolute 0 31
+slider
+   value    per 28442848 240
+   label    "Battery Control: "
+   limits	absolute 0 31
+
+               
+
 
 ###################################################
 screen "HMI_FunctionBlockingTable" adaptations
@@ -4139,6 +4387,14 @@ choice
         value           per 30 1966082
         label           "Ignore Region and Variant"
 
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/skipMostPopup.sh"
+   label    "Set flag to skip the MOST popup error during SWDL."
+
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/removeskipMostPopup.sh"
+   label    "Remove skipMostPopup flag"
+
 keyValue
     value    String sys 0x00000000 0
     label    "DON'T TRIGGER EMERGENCY UNLESS YOU'RE 100% SURE"
@@ -4355,6 +4611,16 @@ keyValue
     
 ####################################################################
 screen  History MQBCoding
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "v2.7B - Added Menu features and update script"
+    poll     0
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "v2.6B - Added Online services SSL disable feature"
+    poll     0
 
 keyValue
     value    String sys 0x00000000 0
