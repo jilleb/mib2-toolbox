@@ -1,5 +1,5 @@
 #!/bin/sh
-export SKINNAME=skin1
+export SKINNAME=skin6
 export TOPIC=Skinfiles
 export MIBPATH=/eso/hmi/lsd/Resources/$SKINNAME/ambienceColorMap.res
 export SDPATH=/$TOPIC/$SKINNAME/ambienceColorMap.res

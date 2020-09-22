@@ -2,7 +2,7 @@
 #
 # Custom Green Engineering Menu screen
 # Author:       Jille
-# Version:      2.7B
+# Version:      3.0A
 # Disclaimer:   THIS SCREEN WILL VOID YOUR WARRANTY
 #
 ####################################################################
@@ -10,7 +10,7 @@ screen   MQBCoding Main
 
 keyValue
     value    String sys 0x00000000 0
-    label    "[MQB CODING - MIB Toolbox v2.7B]"
+    label    "[MQB CODING - MIB Toolbox v3.0A]"
     poll     0
     
 keyValue
@@ -270,6 +270,10 @@ keyValue
     value    String sys 0x00000000 0
     label    "Various tweaks:"
     poll     0  
+
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/import_gracenote.sh"
+   label    "Import new Gracenote database" 
     
 script
    value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/patch_googleearth.sh"
@@ -343,6 +347,10 @@ script
 ####################################################################
    
 screen Navigation Customization
+
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/import_mapstyles.sh"
+   label    "Install mapstyles from SD (will copy all files from /navigation/app/resources/)"   
 
 choice
 	value per 0x01c500e6 17
@@ -4611,6 +4619,26 @@ keyValue
     
 ####################################################################
 screen  History MQBCoding
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "v3.1A - Undo MIB1 merge"
+    poll     0
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "v3.0A - Mapstyles and Gracenote dump and import"
+    poll     0
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "v2.9A - Test improvement copy_files script"
+    poll     0
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "v2.8A - Test merge with MIB1 toolbox"
+    poll     0
 
 keyValue
     value    String sys 0x00000000 0

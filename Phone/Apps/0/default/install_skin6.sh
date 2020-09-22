@@ -1,9 +1,9 @@
 #!/bin/sh
-export SKINNAME=skin1
+export SKINNAME=skin6
 export TOPIC=Skinfiles
-export MIBPATH=/eso/hmi/lsd/Resources/$SKINNAME/ambienceColorMap.res
-export SDPATH=/$TOPIC/$SKINNAME/ambienceColorMap.res
-export DESCRIPTION="This script will install colormaps for $SKINNAME"
+export MIBPATH=/eso/hmi/lsd/Resources/$SKINNAME/images.mcf
+export SDPATH=/$TOPIC/$SKINNAME/images.mcf
+export DESCRIPTION="This script will install $SKINNAME"
 export TYPE="file"
 
 
