@@ -2,7 +2,7 @@
 #
 # Custom Green Engineering Menu screen
 # Author:       Jille
-# Version:      3.0A
+# Version:      3.1A
 # Disclaimer:   THIS SCREEN WILL VOID YOUR WARRANTY
 #
 ####################################################################
@@ -235,10 +235,6 @@ script
    value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/install_forcedcanim.sh"
    label    "Force replacing of start menu. No coding needed."  
 
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/recover_forcedcanim.sh"
-   label    "Recover the forced splashscreen install if something failed."  
-
 ####################################################################   
 screen  Sounds Customization 
 
@@ -273,6 +269,10 @@ keyValue
     value    String sys 0x00000000 0
     label    "Various tweaks:"
     poll     0  
+
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/set_VIM.sh"
+   label    "Set Video in Motion" 
 
 script
    value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/import_gracenote.sh"
@@ -4619,6 +4619,16 @@ keyValue
     
 ####################################################################
 screen  History MQBCoding
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "v3.3A - Testing VIM settings"
+    poll     0
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "v3.2A - Major Script overhaul"
+    poll     0
 
 keyValue
     value    String sys 0x00000000 0

@@ -1,6 +1,6 @@
 #!/bin/sh
 
-SDPATH=/net/mmx/fs/sda0/Custom/IFS/ifs-root.ifs
+SDPATH=/Custom/IFS/ifs-root.ifs
 
 export PATH=.:/proc/boot:/bin:/usr/bin:/usr/sbin:/sbin:/mnt/app/media/gracenote/bin:/mnt/app/armle/bin:/mnt/app/armle/sbin:/mnt/app/armle/usr/bin:/mnt/app/armle/usr/sbin
 export LD_LIBRARY_PATH=/lib:/mnt/app/root/lib-target:/eso/lib:/mnt/app/usr/lib:/mnt/app/armle/lib:/mnt/app/armle/lib/dll:/mnt/app/armle/usr/lib
@@ -8,7 +8,20 @@ export LD_LIBRARY_PATH=/lib:/mnt/app/root/lib-target:/eso/lib:/mnt/app/usr/lib:/
 # we do not want VW-HMI specific libecpp
 unset LD_PRELOAD
 
-if test -f "$SDPATH"; then    
+echo $DESCRIPTION
+
+
+. /eso/bin/PhoneCustomer/default/util_info.sh
+
+. /eso/bin/PhoneCustomer/default/util_mountsd.sh
+if [[ -z "$VOLUME" ]] 
+then
+	echo "No SD-card found, quitting"
+	exit 0
+fi
+
+
+if test -f "$VOLUME/$SDPATH"; then    
     echo "The unit will now start flashing."
     echo "Do NOT power down the unit while flashing."
     echo "Do NOT remove the SD-card from the slot."

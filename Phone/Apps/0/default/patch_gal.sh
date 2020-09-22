@@ -7,7 +7,7 @@ export SDPATH=/$TOPIC/gal.json
 
 
 echo $DESCRIPTION
-#include script to show and set unit info to variables $FAZIT and $VERSION
+
 . /eso/bin/PhoneCustomer/default/util_info.sh
 
 export BACKUPFOLDER=$VOLUME/Backup/$VERSION/$FAZIT/$TOPIC/

@@ -1,9 +1,9 @@
 #!/bin/sh
-export SKINNAME=skin6
-export TOPIC=Skinfiles
-export MIBPATH=/eso/hmi/lsd/Resources/$SKINNAME/ambienceColorMap.res
-export SDPATH=/$TOPIC/$SKINNAME/ambienceColorMap.res
-export DESCRIPTION="This script will install colormaps for $SKINNAME"
+
+export TOPIC=Splashscreen
+export MIBPATH=/eso/hmi/splashscreen/*.canim
+export SDPATH=/$TOPIC/*.canim
+export DESCRIPTION="This script will copy custom canim files from Splashscreen folder on your SD to the unit."
 export TYPE="file"
 
 
@@ -20,11 +20,10 @@ then
 fi
 
 #Make backup folder
-export BACKUPFOLDER=$VOLUME/Backup/$VERSION/$FAZIT/$TOPIC/$SKINNAME
+export BACKUPFOLDER=$VOLUME/Backup/$VERSION/$FAZIT/$TOPIC/
 
 #include script to make backup
 . /eso/bin/PhoneCustomer/default/util_backup.sh
-
 
 # include script tocopy file(s)
 # remount everything as read-only again

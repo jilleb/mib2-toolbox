@@ -6,7 +6,7 @@ DESCRIPTION="This script will remove all update logs from your SWDL menu"
 
 LOGPATH=/net/rcc/mnt/efs-persist/SWDL/Log/
 
-#include script to show and set unit info to variables $FAZIT and $VERSION
+
 . /eso/bin/PhoneCustomer/default/util_info.sh
 
 #Make app volume writable

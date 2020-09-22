@@ -7,9 +7,8 @@ VOLUME=/fs/sda0
 FILENAME=shadow
 ORIGINAL=/net/mmx/mnt/system/etc/
 echo $DESCRIPTION
-#include script to show and set unit info to variables $FAZIT and $VERSION
+
 . /eso/bin/PhoneCustomer/default/util_info.sh
-#include script to mount the sd-card and set variable $VOLUME as the SD-location
 . /eso/bin/PhoneCustomer/default/util_mountsd.sh
 if [[ -z "$VOLUME" ]] 
 then

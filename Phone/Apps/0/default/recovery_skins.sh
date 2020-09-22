@@ -8,7 +8,7 @@
 TOPIC=Skinfiles
 DESCRIPTION="This script will recover the backupped skinfiles and ambienceColorMaps"
 
-#include script to show and set unit info to variables $FAZIT and $VERSION
+
 . /eso/bin/PhoneCustomer/default/util_info.sh
 
 #Make app volume writable
