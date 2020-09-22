@@ -1,6 +1,6 @@
 #!/bin/sh
 
-SDPATH=/net/mmx/fs/sda0/Advanced/IFS/ifs-root.ifs
+SDPATH=/net/mmx/fs/sda0/Custom/IFS/ifs-root.ifs
 
 export PATH=.:/proc/boot:/bin:/usr/bin:/usr/sbin:/sbin:/mnt/app/media/gracenote/bin:/mnt/app/armle/bin:/mnt/app/armle/sbin:/mnt/app/armle/usr/bin:/mnt/app/armle/usr/sbin
 export LD_LIBRARY_PATH=/lib:/mnt/app/root/lib-target:/eso/lib:/mnt/app/usr/lib:/mnt/app/armle/lib:/mnt/app/armle/lib/dll:/mnt/app/armle/usr/lib
@@ -42,12 +42,12 @@ if test -f "$SDPATH"; then
     sleep 1
     echo "Flashing will now start." 
     on -f rcc flashunlock
-    on -f rcc flashmib -a 0x00540000 -d -f /net/mmx/fs/sda0/Advanced/IFS/ifs-root.ifs
+    on -f rcc flashmib -a 0x00540000 -d -f /net/mmx/fs/sda0/Custom/IFS/ifs-root.ifs
     on -f rcc flashlock
     sleep 1
     echo "Done"
 else
-    echo "ifs-root.ifs not found at sda0/Advanced/IFS/"
+    echo "ifs-root.ifs not found at sda0/Custom/IFS/"
     exit 0
 fi
 

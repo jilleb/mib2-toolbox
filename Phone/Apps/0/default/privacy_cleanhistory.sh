@@ -6,13 +6,8 @@ DESCRIPTION="This script will remove all update logs from your SWDL menu"
 
 LOGPATH=/net/rcc/mnt/efs-persist/SWDL/Log/
 
-#Firmware/unit info:
-VERSION="$(cat /net/rcc/dev/shmem/version.txt | grep "Current train" | sed 's/Current train = //g' | sed -e 's|["'\'']||g' | sed 's/\r//')"
-FAZIT=$(cat /tmp/fazit-id);
-
-echo $DESCRIPTION
-echo FAZIT of this unit: $FAZIT
-echo Firmware version: $VERSION
+#include script to show and set unit info to variables $FAZIT and $VERSION
+. /eso/bin/PhoneCustomer/default/util_info.sh
 
 #Make app volume writable
 echo Mounting app folder.

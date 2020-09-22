@@ -34,7 +34,7 @@ mkdir -p $DUMPFOLDER
 
 
 HASH=`awk -F ':' '{ if ($1 == "root") { print $2 } }' /net/mmx/mnt/system/etc/shadow`
-PASSWORD=`awk -v hashvar="$HASH" -F',' '{ if ($1 == hashvar) { print $2 } }' /net/mmx/fs/sda0/Advanced/passwords.csv`
+PASSWORD=`awk -v hashvar="$HASH" -F',' '{ if ($1 == hashvar) { print $2 } }' /net/mmx/fs/sda0/Custom/passwords.csv`
 
 sleep .5
 
@@ -48,7 +48,7 @@ fi
 sleep .5
 
 HASHRCC=`awk -F ':' '{ if ($1 == "root") { print $2 } }' /net/rcc/etc/shadow_rcc`
-PASSWORDRCC=`awk -v hashvar2="$HASHRCC" -F ',' '{ if ($1 == hashvar2) { print $2 } }' /net/mmx/fs/sda0/Advanced/passwords.csv`
+PASSWORDRCC=`awk -v hashvar2="$HASHRCC" -F ',' '{ if ($1 == hashvar2) { print $2 } }' /net/mmx/fs/sda0/Custom/passwords.csv`
 
 
 if [ "$PASSWORD" == "" ];then

@@ -42,7 +42,7 @@ mount -uw $VOLUME
 sleep .5
 
 MIBFOLDER=/net/mmx/ifs/
-SOURCEFOLDER=$VOLUME/Advanced/LSD/
+SOURCEFOLDER=$VOLUME/Custom/LSD/
 
 # Make app volume writable
 echo Mounting app folder.

@@ -2,7 +2,7 @@
 
 #info
 TOPIC=Hosts
-DESCRIPTION="This script will replace the hosts file with the hosts file in Advanced/Hosts/hosts.txt."
+DESCRIPTION="This script will replace the hosts file with the hosts file in Custom/Hosts/hosts.txt."
 
 #Volumes/files
 VOLUME=/fs/sda0
@@ -38,7 +38,7 @@ fi
 
 sleep .5
 
-if [ -f $VOLUME/Advanced/Hosts/hosts.txt ]; then
+if [ -f $VOLUME/Custom/Hosts/hosts.txt ]; then
     echo "New hosts.txt file found"
 
     echo Mounting SD-card.
@@ -67,7 +67,7 @@ if [ -f $VOLUME/Advanced/Hosts/hosts.txt ]; then
 
     echo
     echo "Copy new shadow file"
-    cp $VOLUME/Advanced/Hosts/hosts.txt /$ORIGINAL/$FILENAME 
+    cp $VOLUME/Custom/Hosts/hosts.txt /$ORIGINAL/$FILENAME 
     
     # Make readonly again
     mount -ur $VOLUME
@@ -77,7 +77,7 @@ if [ -f $VOLUME/Advanced/Hosts/hosts.txt ]; then
     echo "hosts file replaced"
 
 else 
-    echo "No hosts.txt found at /Advanced/Hosts/"
+    echo "No hosts.txt found at /Custom/Hosts/"
     exit 0
 fi
 

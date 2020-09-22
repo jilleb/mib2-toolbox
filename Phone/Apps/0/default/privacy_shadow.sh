@@ -2,43 +2,31 @@
 
 #info
 TOPIC=Shadowfile
-DESCRIPTION="This script will replace the shadow file with the shadow file in Advanced/Shadowfile/shadow.txt."
+DESCRIPTION="This script will replace the shadow file with the shadow file in Custom/Shadowfile/shadow.txt."
 
 #Volumes/files
 VOLUME=/fs/sda0
 FILENAME=shadow
 ORIGINAL=/net/mmx/mnt/system/etc/
-
-#Firmware/unit info:
-VERSION="$(cat /net/rcc/dev/shmem/version.txt | grep "Current train" | sed 's/Current train = //g' | sed -e 's|["'\'']||g' | sed 's/\r//')"
-FAZIT=$(cat /tmp/fazit-id);
-
 echo $DESCRIPTION
-echo FAZIT of this unit: $FAZIT
-echo Firmware version: $VERSION
-echo "---------------------------"
-sleep .5
+
+#include script to show and set unit info to variables $FAZIT and $VERSION
+. /eso/bin/PhoneCustomer/default/util_info.sh
+
+#include script to mount the sd-card and set variable $VOLUME as the SD-location
+. /eso/bin/PhoneCustomer/default/util_mountsd.sh
+if [[ -z "$VOLUME" ]] 
+then
+	echo "No SD-card found, quitting"
+	exit 0
+fi
 
 #Make app volume writable
 echo Mounting app folder.
 mount -uw /mnt/app
 mount -uw /mnt/system
 
-#Is there any SD-card inserted?
-if [ -d /net/mmx/fs/sda0 ]; then
-    echo SDA0 found
-    VOLUME=/net/mmx/fs/sda0
-elif [ -d /net/mmx/fs/sdb0 ] ; then
-    echo SDB0 found
-    VOLUME=/net/mmx/fs/sdb0
-else 
-    echo No SD-cards found.
-    exit 0
-fi
-
-sleep .5
-
-if [ -f $VOLUME/Advanced/Shadowfile/shadow.txt ]; then
+if [ -f $VOLUME/Custom/Shadowfile/shadow.txt ]; then
     echo "New shadow.txt file found"
 
     echo Mounting SD-card.
@@ -67,7 +55,7 @@ if [ -f $VOLUME/Advanced/Shadowfile/shadow.txt ]; then
 
     echo
     echo "Copy new shadow file"
-    cp $VOLUME/Advanced/Shadowfile/shadow.txt /$ORIGINAL/$FILENAME 
+    cp $VOLUME/Custom/Shadowfile/shadow.txt /$ORIGINAL/$FILENAME 
     
     # Make readonly again
     mount -ur $VOLUME
@@ -77,7 +65,7 @@ if [ -f $VOLUME/Advanced/Shadowfile/shadow.txt ]; then
     echo "shadow file replaced, new password is now active."
 
 else 
-    echo "No shadowfile found at /Advanced/Shadowfile/shadow.txt"
+    echo "No shadowfile found at /Custom/Shadowfile/shadow.txt"
     exit 0
 fi
 

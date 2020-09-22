@@ -308,7 +308,7 @@ script
    label    "Data over SIM"
 
 script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/showOnlineRouterStatus.sh"
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/util_showOnlineRouterStatus.sh"
    label    "Check online data status"
    
 
