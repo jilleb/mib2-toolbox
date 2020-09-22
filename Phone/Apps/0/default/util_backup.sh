@@ -10,6 +10,7 @@ then
 else
 	echo "No backup found, making backup folder"
 	mkdir -p $BACKUPFOLDER
+	touch $BACKUPFOLDER/DONT_TOUCH_ANYTHING_HERE
     if [[ "$TYPE" == "folder" ]]
     then
 		echo "Copying folders recursively to backup folder on SD-card."

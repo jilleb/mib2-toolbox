@@ -3,52 +3,28 @@
 TOPIC=Password
 DESCRIPTION="This script will find your root password"
 
-#Firmware/unit info:
-VERSION="$(cat /net/rcc/dev/shmem/version.txt | grep "Current train" | sed 's/Current train = //g' | sed -e 's|["'\'']||g' | sed 's/\r//')"
-FAZIT=$(cat /tmp/fazit-id);
-
 echo $DESCRIPTION
-echo FAZIT of this unit: $FAZIT
-echo Firmware version: $VERSION
-echo ""
-echo ""
+#include script to show and set unit info to variables $FAZIT and $VERSION
+. /eso/bin/PhoneCustomer/default/util_info.sh
 
-
-sleep .5
-
-echo "Looking for SD-card in slot 0"
-sleep .5
-
-#Is there any SD-card inserted?
-if [ -d /net/mmx/fs/sda0 ]; then
-    echo SDA0 found
-    VOLUME=/net/mmx/fs/sda0
-else 
-    echo No SD-cards found.
-    exit 0
+#include script to mount the sd-card and set variable $VOLUME as the SD-location
+. /eso/bin/PhoneCustomer/default/util_mountsd.sh
+if [[ -z "$VOLUME" ]] 
+then
+	echo "No SD-card found, quitting"
+	exit 0
 fi
-
-sleep .5
 
 echo "Looking for passwords.csv on SD-card"
 sleep .5
-
-if [ ! -f /net/mmx/fs/sda0/Advanced/passwords.csv ]
+if [ ! -f /$VOLUME/passwords.csv ]
 then
+
     echo "Passwords.csv not found."
     echo "Can't look for passwords if this file is not available."
     exit 0
 fi
 
-
-sleep .5
-
-echo Mounting SD-card, in case any unknown hashes are found..
-mount -uw $VOLUME
-echo ""
-
-
-sleep .5
 
 #Make backup folder
 DUMPFOLDER="$VOLUME/Dump/$VERSION/$FAZIT/Hashes"

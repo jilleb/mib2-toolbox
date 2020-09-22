@@ -142,7 +142,17 @@ script
 script
    value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/install_skin5_ambient.sh"
    label    "Install new ambient colors for Skin5 from /Skinfiles/Skin5/ on SD"
-    
+
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/install_skin6.sh"
+   label    "Install new graphics for Skin5 from /Skinfiles/Skin5/ on SD"   
+
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/install_skin6_ambient.sh"
+   label    "Install new ambient colors for Skin5 from /Skinfiles/Skin5/ on SD"
+     
+
+ 
 script
    value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/recovery_skins.sh"
    label    "Recovery script to recover all skins and ambienceColorMaps from backup"   
@@ -168,9 +178,6 @@ script
    value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/patch_gal.sh"
    label    "Install Android Auto custom applications patch."
    
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/recovery_aapatch.sh"
-   label    "Recovery script for Android Auto patch (use in case of troubles after installing AA-patch" 
 
 ####################################################################
 screen  Startup Customization 
@@ -209,10 +216,6 @@ script
    value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/install_canim.sh"
    label    "Install startup screens (also makes a backup)"
    
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/recovery_canim.sh"
-   label    "Recover the backup of the original startup screens"  
-
 keyValue
     value    String sys 0x00000000 0
     label    ""
@@ -279,33 +282,30 @@ script
    value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/patch_googleearth.sh"
    label    "Activate 3D terrain/buildings in Carnet Google Earth"  
    
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/recovery_googleearth.sh"
-   label    "Recover backupped Carnet Google Earth configuration"
    
 script
    value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/patch_menumode.sh"
    label    "Activate User-switchable MenuMode"
    
 script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/recovery_menumode.sh"
-   label    "Deactivate User-switchable MenuMode"
-   
-script
    value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/install_rsdb.sh"
    label    "Install new Radio Station DB"
 
 script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/nosslcheck.sh"
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/set_nosslcheck.sh"
    label    "Disable Online service SSL checks"
 
 script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/removenosslcheck.sh"
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/unset_nosslcheck.sh"
    label    "Re-enable online service SSL checks"
    
 script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/setDataOverDLink.sh"
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/set_DataOverDLink.sh"
    label    "Data over D-link"
+   
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/set_DataOverSIM.sh"
+   label    "Data over SIM"
 
 script
    value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/showOnlineRouterStatus.sh"
@@ -4396,11 +4396,11 @@ choice
         label           "Ignore Region and Variant"
 
 script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/skipMostPopup.sh"
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/set_skipMostPopup.sh"
    label    "Set flag to skip the MOST popup error during SWDL."
 
 script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/removeskipMostPopup.sh"
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/unset_skipMostPopup.sh"
    label    "Remove skipMostPopup flag"
 
 keyValue

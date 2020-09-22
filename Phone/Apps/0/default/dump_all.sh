@@ -6,37 +6,24 @@
 
 #info
 DESCRIPTION="This script will dump skins, startup screens and android auto configuration"
-
-#Firmware/unit info:
-VERSION="$(cat /net/rcc/dev/shmem/version.txt | grep "Current train" | sed 's/Current train = //g' | sed -e 's|["'\'']||g' | sed 's/\r//')"
-FAZIT=$(cat /tmp/fazit-id);
-
 echo $DESCRIPTION
-echo FAZIT of this unit: $FAZIT
-echo Firmware version: $VERSION
-echo "---------------------------"
-sleep .5
 
+#include script to show and set unit info to variables $FAZIT and $VERSION
+. /eso/bin/PhoneCustomer/default/util_info.sh
+
+
+
+#include script to mount the sd-card and set variable $VOLUME as the SD-location
+. /eso/bin/PhoneCustomer/default/util_mountsd.sh
+if [[ -z "$VOLUME" ]] 
+then
+	echo "No SD-card found, quitting"
+	exit 0
+fi
 #Make app volume writable
+
 echo Mounting app folder.
 mount -uw /mnt/app
-
-#Is there any SD-card inserted?
-if [ -d /net/mmx/fs/sda0 ]; then
-    echo SDA0 found
-    VOLUME=/net/mmx/fs/sda0
-elif [ -d /net/mmx/fs/sdb0 ] ; then
-    echo SDB0 found
-    VOLUME=/net/mmx/fs/sdb0
-else 
-    echo No SD-cards found.
-    exit 0
-fi
-
-sleep .5
-
-echo Mounting SD-card.
-mount -uw $VOLUME
 
 sleep .5
 
@@ -71,16 +58,20 @@ mkdir -p $DUMPPATH/Sounds/Systemsounds/
 mkdir -p $DUMPPATH/Sounds/Ringtones/
 mkdir -p $DUMPPATH/Sounds/TTS-audio/
 mkdir -p $DUMPPATH/Radiostations/
+mkdir -p $DUMPPATH/Gracenote/
+mkdir -p $DUMPPATH/Mapstyles/ 
 echo Dumping System sounds
 cp /net/rcc/mnt/efs-system/opt/audio/tones/*.* $DUMPPATH/Sounds/Systemsounds/
 echo Dumping Telephone ringtones 
 cp /net/mmx/mnt/app/hb/ringtones/*.* $DUMPPATH/Sounds/Ringtones/
-echo Dump TTS-audio alerts
+echo Dumping TTS-audio alerts
 cp /net/mmx/ifs/tts-audio/*.* $DUMPPATH/Sounds/TTS-audio/
-echo Dump Radio Station DB
+echo Dumping Radio Station DB
 cp /net/mmx/mnt/boardbook/RSDB/VW_STL_DB.sqlite $DUMPPATH/Radiostations/
-
-
+echo Dumping Gracenote DB
+cp -R /net/mmx/mnt/gracenotedb/ $DUMPPATH/Gracenote/
+echo Dumping Mapstyles
+cp -R /net/mmx/mnt/app/navigation/resources/app/ $DUMPPATH/Mapstyles/	
 # Make readonly again
 mount -ur $VOLUME
 
