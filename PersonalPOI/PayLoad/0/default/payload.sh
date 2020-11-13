@@ -2,7 +2,7 @@
 #
 # Custom Green Engineering Menu screen
 # Author:       Jille
-# Version:      3.1A
+# Version:      3.4A
 # Disclaimer:   THIS SCREEN WILL VOID YOUR WARRANTY
 #
 ####################################################################
@@ -10,7 +10,7 @@ screen   MQBCoding Main
 
 keyValue
     value    String sys 0x00000000 0
-    label    "[MQB CODING - MIB Toolbox v3.0A]"
+    label    "[MQB CODING - MIB Toolbox v3.4A]"
     poll     0
     
 keyValue
@@ -3057,23 +3057,12 @@ choice
     value           per 0x286f058c 16
     label           "MIBCAN Msg Activation"
     
-###################################################
-screen "MenuFunctions" adaptations
-
-#############################################
-#
-#  Inofficial, must be finalised from MMX/HMI !
-# 
-# $Id: //Audi_MIB/Public/TCFG/Release/MIB2CLU8/Development/tcfg/mib/common/arm/default/engdefs/CarZMenuOperation.esd#1 $
-# $Date: 2016/10/05 $ 
-#############################################
-
 #######################################################
 #
 # SCREEN Test fuer CAR
 #
 #######################################################
-screen CarMenuOperation mqbcoding
+screen CarMenuOperation adaptations
 # the values are from 0 to 31 because there are 5 bits information that can be coded
 
 button
@@ -4411,6 +4400,33 @@ keyValue
 button
       value             per 30 1966085 ""
       label             "Trigger Emergency Update"
+####################################################################   
+screen  Display Customization
+
+
+script
+   value    sys 1 0x0100 "/scripts/activateDisplayManagerSplitscreen.sh"
+   label    "Splitscreen mode on (makes the screen pretty hard to read! "
+
+
+script
+   value    sys 1 0x0100 "/scripts/deactivateDisplayManagerSplitscreen.sh"
+   label    "Splitscreen mode off "
+   
+script
+   value    sys 1 0x0100 "/scripts/enableDisplayMgrDebugMode.sh"
+   label    "Debug mode "
+
+
+script
+   value    sys 1 0x0100 "/scripts/disableDisplayMgrDebugMode.sh"
+   label    "Debug mode "
+   
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/info_displaymanager.sh"
+   label    "Show displaymanager info"
+      
+ 
 
 ####################################################################   
 screen  "MIB_Information"  MQBCoding
@@ -4619,6 +4635,11 @@ keyValue
     
 ####################################################################
 screen  History MQBCoding
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "v3.4A - Display manager stuff"
+    poll     0
 
 keyValue
     value    String sys 0x00000000 0
