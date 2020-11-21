@@ -15,7 +15,7 @@ export IPL_CONFIG_DIR=/etc/eso/production
 #Make dump folder
 DUMPFOLDER="$VOLUME/Dump/$VERSION/$FAZIT/$TOPIC"
 echo Dump-folder: $DUMPFOLDER
-echo Dumping, please wait. This can take a while.ø
+echo Dumping, please wait. This can take a while.
 mkdir -p $VOLUME/Dump/$VERSION/$FAZIT/$TOPIC
 /eso/bin/apps/dmdt gc > $DUMPFOLDER/gc.txt
 

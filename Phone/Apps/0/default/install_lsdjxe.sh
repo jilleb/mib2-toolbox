@@ -5,8 +5,8 @@
 ########################
 
 #info
-TOPIC=LSD
-DESCRIPTION="This script will copy custom  lsd.jxe from SD to your unit."
+export TOPIC=LSD
+export DESCRIPTION="This script will copy custom  lsd.jxe from SD to your unit."
 
 echo $DESCRIPTION
 
