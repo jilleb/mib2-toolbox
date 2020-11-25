@@ -5,44 +5,27 @@
 ########################
 
 #info
-TOPIC=LSD
-DESCRIPTION="This script will copy custom  lsd.jxe from SD to your unit."
-
-#Firmware/unit info:
-VERSION="$(cat /net/rcc/dev/shmem/version.txt | grep "Current train" | sed 's/Current train = //g' | sed -e 's|["'\'']||g' | sed 's/\r//')"
-FAZIT=$(cat /tmp/fazit-id);
+export TOPIC=LSD
+export DESCRIPTION="This script will copy custom  lsd.jxe from SD to your unit."
 
 echo $DESCRIPTION
-echo FAZIT of this unit: $FAZIT
-echo Firmware version: $VERSION
-echo "---------------------------"
-sleep .5
+
+
+. /eso/bin/PhoneCustomer/default/util_info.sh
+
+. /eso/bin/PhoneCustomer/default/util_mountsd.sh
+if [[ -z "$VOLUME" ]] 
+then
+	echo "No SD-card found, quitting"
+	exit 0
+fi
 
 #Make app volume writable
 echo Mounting app folder.
 mount -uw /mnt/app
 
-#Is there any SD-card inserted?
-if [ -d /net/mmx/fs/sda0 ]; then
-    echo SDA0 found
-    VOLUME=/net/mmx/fs/sda0
-elif [ -d /net/mmx/fs/sdb0 ] ; then
-    echo SDB0 found
-    VOLUME=/net/mmx/fs/sdb0
-else 
-    echo No SD-cards found.
-    exit 0
-fi
-
-sleep .5
-
-echo Mounting SD-card.
-mount -uw $VOLUME
-
-sleep .5
-
 MIBFOLDER=/net/mmx/ifs/
-SOURCEFOLDER=$VOLUME/Advanced/LSD/
+SOURCEFOLDER=$VOLUME/Custom/LSD/
 
 # Make app volume writable
 echo Mounting app folder.

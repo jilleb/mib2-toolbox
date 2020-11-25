@@ -4,33 +4,17 @@
 TOPIC=IFS
 DESCRIPTION="This script will dump the ifs-root."
 
-#Firmware/unit info:
-VERSION="$(cat /net/rcc/dev/shmem/version.txt | grep "Current train" | sed 's/Current train = //g' | sed -e 's|["'\'']||g' | sed 's/\r//')"
-FAZIT=$(cat /tmp/fazit-id);
-
 echo $DESCRIPTION
-echo FAZIT of this unit: $FAZIT
-echo Firmware version: $VERSION
-echo "---------------------------"
-sleep .5
 
 
-#Is there any SD-card inserted?
-if [ -d /net/mmx/fs/sda0 ]; then
-    echo SDA0 found
-    VOLUME=/net/mmx/fs/sda0
-elif [ -d /net/mmx/fs/sdb0 ] ; then
-    echo SDB0 found
-    VOLUME=/net/mmx/fs/sdb0
-else 
-    echo No SD-cards found.
-    exit 0
+. /eso/bin/PhoneCustomer/default/util_info.sh
+
+. /eso/bin/PhoneCustomer/default/util_mountsd.sh
+if [[ -z "$VOLUME" ]] 
+then
+	echo "No SD-card found, quitting"
+	exit 0
 fi
-
-sleep .5
-
-echo Mounting SD-card.
-mount -uw $VOLUME
 
 sleep .5
 

@@ -1,61 +1,38 @@
 #!/bin/sh
-#info
-TOPIC=GoogleEarth
-DESCRIPTION="This script will patch Google Earth (CarNet service) files to enable 3d terrain and buildings"
+export TOPIC=GoogleEarth
+export MIBPATH=/gemib/
+export SDPATH=/$TOPIC/gemib/
+export DESCRIPTION="This script will patch Google Earth (CarNet service) files to enable 3d terrain and buildings"
+export TYPE="folder"
 
-#Firmware/unit info:
-VERSION="$(cat /net/rcc/dev/shmem/version.txt | grep "Current train" | sed 's/Current train = //g' | sed -e 's|["'\'']||g' | sed 's/\r//')"
-FAZIT=$(cat /tmp/fazit-id);
 
 echo $DESCRIPTION
-echo FAZIT of this unit: $FAZIT
-echo Firmware version: $VERSION
 
-#Make app volume writable
-echo Mounting app folder.
-mount -uw /mnt/app
-mount -uw /mnt/system
 
-#Is there any SD-card inserted?
-if [ -d /net/mmx/fs/sda0 ]; then
-    echo SDA0 found
-    VOLUME=/net/mmx/fs/sda0
-elif [ -d /net/mmx/fs/sdb0 ] ; then
-    echo SDB0 found
-    VOLUME=/net/mmx/fs/sdb0
-else 
-    echo No SD-cards found.
-    exit 0
+. /eso/bin/PhoneCustomer/default/util_info.sh
+
+. /eso/bin/PhoneCustomer/default/util_mountsd.sh
+if [[ -z "$VOLUME" ]] 
+then
+	echo "No SD-card found, quitting"
+	exit 0
 fi
 
-sleep .5
-
-echo Mounting SD-card.
-mount -uw $VOLUME
-
-sleep .5
-
 #Make backup folder
-BACKUPFOLDER=$VOLUME/Backup/$VERSION/$FAZIT/$TOPIC
+export BACKUPFOLDER=$VOLUME/Backup/$VERSION/$FAZIT/$TOPIC/
 
+#include script to make backup
+. /eso/bin/PhoneCustomer/default/util_backup.sh
 
-echo Making backup folders on SD-card.
-mkdir -p $BACKUPFOLDER
-touch $BACKUPFOLDER/DONT_TOUCH_ANYTHING_HERE
-sleep .5
-echo Copying gemib.cfg to backup folder on SD-card.
-cp /gemib/gemib.cfg $BACKUPFOLDER/gemib.cfg
-sleep .5
-
-echo Copying drivers.ini to backup folder on SD-card.
-cp /gemib/drivers.ini $BACKUPFOLDER/drivers.ini
-sleep .5
  
 #Only start patching when a backup is there
 if [ -d $BACKUPFOLDER ]; then
     echo Backup copied to $BACKUP
     echo "Start patching"
-   
+	mount -uw /mnt/app
+	mount -uw $VOLUME
+	mount -uw /mnt/system
+	
     echo "Patching gemib.cfg"
     sed -i 's/#MIBEARTH_USE_3DBUILDINGS=no/MIBEARTH_USE_3DBUILDINGS=yes/g' /gemib/gemib.cfg
     sleep .5

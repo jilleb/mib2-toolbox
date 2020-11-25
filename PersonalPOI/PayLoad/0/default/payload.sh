@@ -2,7 +2,7 @@
 #
 # Custom Green Engineering Menu screen
 # Author:       Jille
-# Version:      2.7B
+# Version:      3.5A
 # Disclaimer:   THIS SCREEN WILL VOID YOUR WARRANTY
 #
 ####################################################################
@@ -10,7 +10,7 @@ screen   MQBCoding Main
 
 keyValue
     value    String sys 0x00000000 0
-    label    "[MQB CODING - MIB Toolbox v2.7B]"
+    label    "[MQB CODING - MIB Toolbox v3.5A]"
     poll     0
     
 keyValue
@@ -82,1305 +82,6 @@ script
 ####################################################################
 screen  Customization MQBCoding 
 ####################################################################
-screen  Skin Customization 
-
-keyValue
-    value    String sys 0x00000000 0
-    label    "This screen can be used to replace skin-graphics of the MIB."
-    poll     0  
-
-keyValue
-    value    String sys 0x00000000 0
-    label    "Skin images.mcf-files and ambienceColorMap.res go into the Skinfiles folder on SD-card in slot 1"
-    poll     0  
-
-keyValue
-    value    String sys 0x00000000 0
-    label    "Reboot after installing a new skin or ambienceColorMap."
-    poll     0      
-    
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/install_skin0.sh"
-   label    "Install new graphics for Skin0 from /Skinfiles/Skin0/ on SD"
-
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/install_skin1.sh"
-   label    "Install new graphics for Skin1 from /Skinfiles/Skin1/ on SD"
-   
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/install_skin1_ambient.sh"
-   label    "Install new ambient colors for Skin1 from /Skinfiles/Skin1/ on SD"
-
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/install_skin2.sh"
-   label    "Install new graphics for Skin2 from /Skinfiles/Skin2/ on SD"
-   
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/install_skin2_ambient.sh"
-   label    "Install new ambient colors for Skin2 from /Skinfiles/Skin2/ on SD"
-
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/install_skin3.sh"
-   label    "Install new graphics for Skin3 from /Skinfiles/Skin3/ on SD"
-   
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/install_skin3_ambient.sh"
-   label    "Install new ambient colors for Skin3 from /Skinfiles/Skin3/ on SD"
-
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/install_skin4.sh"
-   label    "Install new graphics for Skin4 from /Skinfiles/Skin4/ on SD"
-   
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/install_skin4_ambient.sh"
-   label    "Install new ambient colors for Skin4 from /Skinfiles/Skin4/ on SD"
-
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/install_skin5.sh"
-   label    "Install new graphics for Skin5 from /Skinfiles/Skin5/ on SD"   
-
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/install_skin5_ambient.sh"
-   label    "Install new ambient colors for Skin5 from /Skinfiles/Skin5/ on SD"
-    
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/recovery_skins.sh"
-   label    "Recovery script to recover all skins and ambienceColorMaps from backup"   
-   
-script
-	value sys 1 0x0100 "/scripts/performePersReset.sh"
-	label "Reboot"
-
-####################################################################
-screen  AndroidAuto Customization
-
-keyValue
-    value    String sys 0x00000000 0
-    label    "This script will patch your gal.json file to allow third party apps."
-    poll     0    
-
-keyValue
-    value    String sys 0x00000000 0
-    label    "Make sure you have an SD-card in slot 1 or 2 to allow a backup to be made."
-    poll     0    
-
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/patch_gal.sh"
-   label    "Install Android Auto custom applications patch."
-   
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/recovery_aapatch.sh"
-   label    "Recovery script for Android Auto patch (use in case of troubles after installing AA-patch" 
-
-####################################################################
-screen  Startup Customization 
-
-keyValue
-    value    String sys 0x00000000 0
-    label    "This screen can be used to replace startup-graphics of the MIB."
-    poll     0  
-
-keyValue
-    value    String sys 0x00000000 0
-    label    "Startup-screen canim-files go into the Splashscreen folder on SD-card in slot 1"
-    poll     0    
-
-keyValue
-    value    String sys 0x00000000 0
-    label    "Use the filenames of the dump as a guideline. If you don't use the right filename, it will fail."
-    poll     0    
-    
-keyValue
-    value    String sys 0x00000000 0
-    label    "After installing a new startup screen, change coding of module 5F, byte 18."
-    poll     0
-    
-keyValue
-    value    String sys 0x00000000 0
-    label    "Set the value to a different screening, reboot, and set it back to the original value."
-    poll     0    
-    
-keyValue
-    value    String sys 0x00000000 0
-    label    "This will force the system to re-read the startup-screen files."
-    poll     0   
-    
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/install_canim.sh"
-   label    "Install startup screens (also makes a backup)"
-   
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/recovery_canim.sh"
-   label    "Recover the backup of the original startup screens"  
-
-keyValue
-    value    String sys 0x00000000 0
-    label    ""
-    poll     0  
-
-keyValue
-    value    String sys 0x00000000 0
-    label    "Use the following if you don't have the tools to change coding"
-    poll     0  
-    
-keyValue
-    value    String sys 0x00000000 0
-    label    "Put your custom splash.canim in the Splashscreen folder on SD-card"
-    poll     0  
-
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/install_forcedcanim.sh"
-   label    "Force replacing of start menu. No coding needed."  
-
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/recover_forcedcanim.sh"
-   label    "Recover the forced splashscreen install if something failed."  
-
-####################################################################   
-screen  Sounds Customization 
-
-keyValue
-    value    String sys 0x00000000 0
-    label    "This screen can be used to replace ringtones and sounds of the MIB."
-    poll     0  
-
-keyValue
-    value    String sys 0x00000000 0
-    label    "Wav-files go into the Ringtones-folder on SD-card in slot 1"
-    poll     0  
-
-keyValue
-    value    String sys 0x00000000 0
-    label    "Reboot after installing new files."
-    poll     0      
-
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/install_ringtones.sh"
-   label    "Install new ringtones from /Ringtones/ on SD"
-   
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/install_systemsounds.sh"
-   label    "Install new system sounds from /Systemsounds/ on SD"
-
-####################################################################
-
-screen  Various Customization 
-
-keyValue
-    value    String sys 0x00000000 0
-    label    "Various tweaks:"
-    poll     0  
-    
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/patch_googleearth.sh"
-   label    "Activate 3D terrain/buildings in Carnet Google Earth"  
-   
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/recovery_googleearth.sh"
-   label    "Recover backupped Carnet Google Earth configuration"
-   
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/patch_menumode.sh"
-   label    "Activate User-switchable MenuMode"
-   
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/recovery_menumode.sh"
-   label    "Deactivate User-switchable MenuMode"
-   
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/install_rsdb.sh"
-   label    "Install new Radio Station DB"
-
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/nosslcheck.sh"
-   label    "Disable Online service SSL checks"
-
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/removenosslcheck.sh"
-   label    "Re-enable online service SSL checks"
-   
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/setDataOverDLink.sh"
-   label    "Data over D-link"
-
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/showOnlineRouterStatus.sh"
-   label    "Check online data status"
-   
-
-####################################################################   
-screen   GreenMenu Customization
-
-keyValue
-    value    String sys 0x00000000 0
-    label    "Instructions: Put new .esd files into the GreenMenu folder on your SD-card."
-    poll     0    
-
-keyValue
-    value    String sys 0x00000000 0
-    label    "If you added any new scripts in your custom green menu screen,"
-    poll     0    
-
-keyValue
-    value    String sys 0x00000000 0
-    label    "make sure you install them with the Get new scripts and files function."
-    poll     0   
-
-keyValue
-    value    String sys 0x00000000 0
-    label    "In your ESD-files, point to scripts at /eso/bin/PhoneCustomer/default/"
-    poll     0   
-       
-keyValue
-    value    String sys 0x00000000 0
-    label    ""
-    poll     0   
-        
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/install_esd.sh"
-   label    "Install green-menu screen files"   
-   
-####################################################################
-   
-screen Navigation Customization
-
-choice
-	value per 0x01c500e6 17
-	label "cluster_frames_debug"
-	poll 0
-    
-choice
-	value per 0x01c500e6 20
-	label "set_calibration_to_car_default"
-	poll 0
-    
-choice
-	value per 0x01c500e6 57
-	label "show frame rate"
-	poll 0
-    
-choice
-	value per 0x01c500e6 58
-	label "crosshair movement usage"
-	poll 0
-     
-	
-choice
-	value per 0x01c500e6 271
-	label "RESET NAVIGATION"
-	poll 0
-
-choice
-	value per 0x01c500e6 300
-	label "acoustic speed warning"
-	poll 0
-    
-choice
-	value per 0x01c500e6 310
-	label "traffic patterns"
-	poll 0
-	
-choice
-	value per 0x01c500e6 350
-	label "Use GPS time as fallback"
-	poll 0
-	
-choice
-	value per 0x01c500e6 360
-	label "additional map cursor"
-	poll 0
-    
-####################################################################
-screen Advanced Customization
-
-keyValue
-    value   String per 30 1966083
-    label   "MU Version"
-
-keyValue
-    value   String per 30 1966084
-    label   "Train Info"
-    
-keyValue
-    value    String sys 0x00000000 0
-    label    "WARNING: This screen WILL void your warranty"
-    poll     0    
-
-keyValue
-    value    String sys 0x00000000 0
-    label    "And it can and will seriously ruin your day if you don't know what you're doing."
-    poll     0    
-    
-keyValue
-    value    String sys 0x00000000 0
-    label    "Be sure to only flash if you're sure you're flashing the right file."
-    poll     0    
-    
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/copy_fec.sh"
-   label    "Import FecContainer.fec from sda0/Advanced/FEC"
-   
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/copy_gem.sh"
-   label    "Import GEM.jar from sda0/Advanced/GEM"
-   
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/install_lsdjxe.sh"
-   label    "Import LSD.jxe"
-   
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/privacy_shadow.sh"
-   label    "Import shadow file"
-   
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/import_hosts.sh"
-   label    "Import hosts file"
-  
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/flash_ifs.sh"
-   label    "Flash ifsroot.ifs from sda0/Advanced/IFS"
-
-####################################################################
-screen  Coding Customization
-
-keyValue
-    value    String sys 0x00000000 0
-    label    "This screen allows you to change the long coding of module 5F."
-    poll     0    
-    
-keyValue
-    value    String sys 0x00000000 0
-    label    "Use at your own risk, no backups are made!"
-    poll     0    
-
-#####   byte 0  #####
-
-keyValue
-    value    String sys 0x00000000 0
-    label    "---------------[byte 0]---------------"
-    poll     0 
-    
-BIOSCtrl
-        value       int per 0 0x5018000F
-        label       "Brand"
-        entry	    "no Brand" 0
-        entry	    "Audi" 1
-        entry	    "VW" 2
-        entry	    "Skoda" 3
-        entry	    "Seat" 4
-        entry	    "Bentley" 5
-        entry	    "VW-NFZ" 6
-        entry	    "Porsche" 7
-        poll	    1000    
-
-#####   byte 1  #####
-keyValue
-    value    String sys 0x00000000 0
-    label    "---------------[byte 1]---------------"
-    poll     0
-    
-slider
-    value       per 0 0x5018040F
-	label       "Car Class"
-	limits		absolute 0 9
-    poll        1000
-    
-slider
-	value       per 0 0x501804F0
-	label       "Car Generation"
-	limits		absolute 0 9
-	poll        1000
-
-#####   byte 2  #####
-keyValue
-    value    String sys 0x00000000 0
-    label    "---------------[byte 2]---------------"
-    poll     0    
-slider
-	value       per 0 0x5018080F
-	label       "Car Derivate"
-	limits		absolute 0 9
-	poll        1000
-
-slider
-	value       per 0 0x501808F0
-	label       "Car Derivate Supplement "
-	limits		absolute 0 9
-	poll        1000
-
-#####   byte 3  #####
-keyValue
-    value    String sys 0x00000000 0
-    label    "---------------[byte 3]---------------"
-    poll     0   
-    
-	BIOSCtrl
-        value       int per 0 0x50180CFF
-        label       "Country Navigation"
-        entry	    "None" 0
-        entry	    "EU" 1
-        entry	    "NAR" 2
-        entry	    "MSA" 3
-        entry	    "Korea" 4
-        entry	    "China" 5
-        entry	    "Japan" 6
-        entry	    "AsiaPacific" 7
-        entry	    "Australia" 8
-        entry	    "South Africa" 9
-        entry	    "NEAST" 10
-        entry	    "NMAfrica" 11
-        entry	    "MEAST" 12
-        entry	    "CentralAsia" 13
-        entry	    "India" 14
-        entry	    "Israel" 15
-        entry	    "Taiwan" 16
-        entry	    "MSA 2 (Chile)" 17
-        entry	    "China 2" 18
-        entry	    "China 3" 19
-        poll        1000
-        
-######   byte 4  #####
-
-keyValue
-    value    String sys 0x00000000 0
-    label    "---------------[byte 4]---------------"
-    poll     0
-    
-choice
-value per 0 0x50181001
-label "Channel 1 HT"
-poll        1000	
-    
-choice
-value per 0 0x50181002
-label "Channel 1 TT"
-poll        1000	
-    
-choice
-value per 0 0x50181004
-label "Channel 2 HT"
-poll        1000	
-    
-choice
-value per 0 0x50181008
-label "Channel 2 TT"
-poll        1000	
-    
-choice
-value per 0 0x50181010
-label "Channel 3 HT"
-poll        1000	
-    
-choice
-value per 0 0x50181020
-label "Channel 3 TT"
-poll        1000	
-    
-choice
-value per 0 0x50181040
-label "Channel 4 HT"
-poll        1000	
-    
-choice
-value per 0 0x50181080
-label "Channel 4 TT"
-poll        1000	
-    
-
-######   byte 5  #####
-
-keyValue
-    value    String sys 0x00000000 0
-    label    "---------------[byte 5]---------------"
-    poll     0
-    
-choice
-value per 0 0x50181401 
-label "Channel 5 HT"
-poll        1000	
-    
-choice
-value per 0 0x50181402
-label "Channel 5 TT"
-poll        1000	
-    
-choice
-value per 0 0x50181404
-label "Channel 6 HT"
-poll        1000	
-    
-choice
-value per 0 0x50181408
-label "Channel 6 TT"
-poll        1000	
-    
-choice
-value per 0 0x50181410
-label "Channel 7 HT"
-poll        1000	
-    
-choice
-value per 0 0x50181420
-label "Channel 7 TT"
-poll        1000	
-    
-choice
-value per 0 0x50181440
-label "Channel 8 HT"
-poll        1000	
-    
-choice
-value per 0 0x50181480
-label "Channel 8 TT"
-
-######   byte 6  #####
-
-keyValue
-    value    String sys 0x00000000 0
-    label    "---------------[byte 6]---------------"
-    poll     0
-    
-choice
-value per 0 0x50181801  
-label "Channel 9 HT"
-poll        1000	
-    
-choice
-value per 0 0x50181802
-label "Channel 9 TT" 
-poll        1000	
-    
-choice
-value per 0 0x50181804
-label "Channel 10 HT" 
-poll        1000	
-    
-choice
-value per 0 0x50181808
-label "Channel 10 TT"
-poll        1000	
-    
-choice
-value per 0 0x50181810
-label "Channel 11 HT" 
-poll        1000	
-    
-choice
-value per 0 0x50181820
-label "Channel 11 TT"
-poll        1000	
-    
-choice
-value per 0 0x50181840
-label "Channel 12 HT"
-poll        1000	
-    
-choice
-value per 0 0x50181880
-label "Channel 12 TT"     
-poll        1000	
-######   byte 7  #####
-
-keyValue
-    value    String sys 0x00000000 0
-    label    "---------------[byte 7]---------------"
-    poll     0
-   
-choice
-value per 0 0x50181c01
-label "Channel 13 HT"
-poll        1000	
-    
-choice
-value per 0 0x50181c02
-label "Channel 13 TT"
-poll        1000	
-    
-choice
-value per 0 0x50181c04
-label "Channel 14 HT"
-poll        1000	
-    
-choice
-value per 0 0x50181c08
-label "Channel 14 TT"
-poll        1000	
-    
-choice
-value per 0 0x50181c10
-label "Channel 15 HT"
-poll        1000	
-    
-choice
-value per 0 0x50181c20
-label "Channel 15 TT"
-poll        1000	
-    
-choice
-value per 0 0x50181c40
-label "Channel 16 HT"
-poll        1000	
-    
-choice
-value per 0 0x50181c80
-label "Channel 16 TT"        
-poll        1000	
-    
-######   byte 8  #####
-
-keyValue
-    value    String sys 0x00000000 0
-    label    "---------------[byte 8]---------------"
-    poll     0
-
-choice
-    value    per 0 0x50182001
-    label   "Microphone 1"
-    poll        1000	
-    
-choice
-    value    per 0 0x50182002
-    label   "Microphone 2"
-	poll        1000	
-
-choice
-    value    per 0 0x50182004
-    label "Headphones Output 1"
-	poll        1000	
-    
-choice    
-    value    per 0 0x50182008
-    label "Headphones Output 2"
-	poll        1000	
-    
-choice    
-    value    per 0 0x50182010
-    label "AUX IN"
-	poll        1000	
-    
-choice    
-    value    per 0 0x50182020
-    label "AMI/MDI interface"
-	poll        1000	
-    
-choice    
-    value    per 0 0x50182040
-    label "VDA-NF IN (TEL IN)"
-	poll        1000	
-    
-choice    
-    value    per 0 0x50182080
-    label "Wake Up Over ECL" 
-	poll        1000	
-    
-######   byte 9  #####
-keyValue
-    value    String sys 0x00000000 0
-    label    "---------------[byte 9]---------------"
-    poll     0      
-    
-BIOSCtrl
-        value       int per 0 0x5018240F
-        label       "Bandsettings FM"
-        entry	    "no setting" 0
-	entry	    "EU (RdW)" 1
-	entry	    "NAR" 2
-	entry	    "JP" 3
-	entry	    "KOR" 4
-	entry	    "China" 5
-	poll	    1000
-
-BIOSCtrl
-        value       int per 0 0x501824F0
-        label       "Bandsettings AM"
-        entry	    "no setting" 0
-	entry	    "EU (RdW)" 1
-	entry	    "NAR" 2
-	entry	    "JP" 3
-	entry	    "EU" 4
-	entry	    "AUS" 5
-	poll	    1000    
-
-
-######   byte 10  #####
-keyValue
-    value    String sys 0x00000000 0
-    label    "---------------[byte 10]--------------"
-    poll     0
-
-BIOSCtrl
-    value       int per 0 0x5018280F
-    label       "Bandsettings DAB Band 1"
-    entry	    "OFF" 0
-	entry	    "EU Band III -N" 1
-	entry	    "EU Band III" 2
-	entry	    "CANADA L-Band" 3
-	entry	    "KOREA Band III" 4
-	entry	    "CHINA Band III" 5
-	entry	    "Download Table 1" 6
-	entry	    "NEW ZEALAND Band III" 7
-	poll	    1000
-
-BIOSCtrl
-    value       int per 0 0x501828F0
-    label       "Bandsettings DAB Band 2"
-    entry	    "OFF" 0
-	entry	    "L-Band" 1
-	entry	    "Download Table 2" 2
-	poll	    1000
- 
-######   byte 11  #####
-keyValue
-    value    String sys 0x00000000 0
-    label    "---------------[byte 11]--------------"
-    poll     0
-
-BIOSCtrl
-    value       int per 0 1343761663
-    label       "Amplifier"
-    entry	    "no assign" 0
-	entry	    "intern" 1
-	entry	    "external MOST" 2
-	entry	    "reserved" 3		
-    entry	    "external BAP" 4
-    entry	    "internal Individual" 5
-    entry	    "external BOOSTER" 6
-	entry	    "external BAP with presets" 7
-	poll        1000    
-    
-######   byte 12  #####
-keyValue
-    value    String sys 0x00000000 0
-    label    "---------------[byte 12]--------------"
-    poll     0    
-    
-    
-choice    
-    value    per 0 0x50183001
-    label "FM Antenna" 
-	poll        1000	
-    
-BIOSCtrl
-    value       int per 0 0x5018300E
-    label       "HD FM Antenna Mode"
-    entry	    "AM FM ANT" 0
-	entry	    "Switching" 1
-	entry	    "FM ANT" 2
-	entry	    "MRC" 3		
-    entry	    "Testmode" 4	
-	poll        1000  
-    
-######   byte 13  #####
-keyValue
-    value    String sys 0x00000000 0
-    label    "---------------[byte 13]--------------"
-    poll     0       
-    
-choice
-        value       per 0 0x50183401
-        label       "RDS"
-        poll       1000					
-
-BIOSCtrl
-        value       int per 0 0x50183402
-        label       "AF"
-        entry	    "persistent" 0
-        entry	    "temporary" 1
-        poll        1000	
-        
-choice
-        value       per 0 0x50183404
-        label       "HD radio coding"
-        poll       1000		
- 
-choice
-        value       per 0 0x50183408
-        label       "Radiotext+"
-        poll	    1000
-
-choice
-        value       per 0 0x50183410
-        label       "PI ignore"
-        poll	    1000    
-    
-    
-BIOSCtrl
-        value       int per 0 0x50183460
-        label       "BWS"
-        entry       "no BWS" 0
-        entry	    "restricted" 1
-        entry	    "unrestricted" 2
-        entry       "rest/unrest" 3
-        poll        1000	    
-    
-choice
-        value       per 0 0x50183480
-        label       "DAB alarm"
-        poll	    1000
-
-
-######   byte 14  #####
-keyValue
-    value    String sys 0x00000000 0
-    label    "---------------[byte 14]--------------"
-    poll     0           
- 
-choice
-        value       per 0 0x50183801
-        label       "FM PTY31 off/on"
-	poll	    1000
-
-choice
-        value       per 0 0x50183802
-        label       "AM sperre off/on"
-	poll	    1000
-    
-choice
-        value       per 0 0x50183804
-        label       "HD radio coding AM"
-	poll	    1000    
-    
-choice
-        value       per 0 0x50183808
-        label       "Multiple entry switch"
-	poll	    1000  
-    
-choice
-        value       per 0 0x50183810
-        label       "RDS deactivation"
-	poll	    1000  
-
-choice
-        value       per 0 0x50183820
-        label       "AF deactivation"
-	poll	    1000  
-
-
-######   byte 15  #####
-keyValue
-    value    String sys 0x00000000 0
-    label    "---------------[byte 15]--------------"
-    poll     0  
-
-choice
-       	value           per 0 0x50183C01
-       	label           "Baseplate"
-        poll            1000
-
-choice
-       	value           per 0 0x50183C02
-       	label           "Ant. Baseplate"
-        poll            1000
-
-choice
-       	value           per 0 0x50183C04
-       	label           "Force Cradle"
-        poll            1000
-
-choice
-       	value           per 0 0x50183C08
-       	label           "Handy in Cradle"
-        poll            1000
-
-choice
-       	value           per 0 0x50183C10
-       	label           "Telefon Modul"
-        poll            1000
-        
-    choice
-        value        per 0 0x50183C20
-        label        "Wireless Charger"      
-        poll	    1000
-
-
-######   byte 16  #####
-keyValue
-    value    String sys 0x00000000 0
-    label    "---------------[byte 16]--------------"
-    poll     0  
-
-
-choice
-       	value           per 0 0x50184001
-       	label           "BT available"
-        poll            1000
-
-choice
-       	value           per 0 0x50184002
-       	label           "BT Multimedia"
-        poll            1000
-
-choice
-       	value           per 0 0x50184004
-       	label           "BT phone"
-        poll            1000
-
-choice
-       	value           per 0 0x50184008
-       	label           "BT audio"
-        poll            1000
-
-BIOSCtrl
-        value       int per 0 0x50184030
-        label       "BT visibility"
-        entry       "off" 0
-        entry	    "auto" 1
-        entry	    "on" 2
-        entry       "limited" 3
-	poll        1000
-
-choice
-       	value           per 0 0x50184040
-       	label           "BT headphones"
-        poll            1000	
-    
-choice
-       	value           per 0 0x50184080
-       	label           "legal RVC"
-        poll            1000	   
-
-
-######   byte 17  #####
-keyValue
-    value    String sys 0x00000000 0
-    label    "---------------[byte 17]--------------"
-    poll     0  
-
-
-BIOSCtrl
-        value	    int per 0 0x501844FF
-        label 	    "Skin"
-        entry	    "no Skin" 0
-        entry	    "Skin 1" 1
-        entry	    "Skin 2" 2
-        entry	    "Skin 3" 3
-        entry	    "Skin 4" 4
-        entry	    "Skin 5" 5
-        poll	    1000
- 
- ######   byte 18  #####
-
- keyValue
-    value    String sys 0x00000000 0
-    label    "---------------[byte 18]--------------"
-    poll     0  
-    
-    
-    slider
-    value       per 0 0x501848ff
-	label       "Screenings"
-	limits		absolute 0 255
-    poll        1000   
-    
-    
- 
- ######   byte 19  #####
-
- keyValue
-    value    String sys 0x00000000 0
-    label    "---------------[byte 19]--------------"
-    poll     0  
-
-BIOSCtrl
-       	value           int per 0 0x50184C01
-       	label           "Boardbook"
-       	entry		"not displayed" 0
-	entry		"displayed" 1
-        poll            1000
-
-BIOSCtrl
-       	value           int per 0 0x50184C02
-       	label           "Suspension arm"
-       	entry		"links" 0
-	entry		"rechts" 1
-        poll            1000
-
-BIOSCtrl
-       	value           int per 0 0x50184C0C
-       	label           "Kombi Track"
-       	entry		"n/a" 0
-	entry		"long" 1
-        entry           "short" 2
-        entry           "reserved" 3
-        poll            1000
-
-BIOSCtrl
-       	value           int per 0 0x50184C10
-       	label           "RVC"
-       	entry		"not active" 0
-	entry		"active" 1
-        poll            1000
-
-BIOSCtrl
-       	value           int per 0 0x50184C20
-       	label           "MOST"
-       	entry		"off" 0
-	entry		"on" 1
-        poll            1000
-
-BIOSCtrl
-       	value           int per 0 0x50184CC0
-       	label           "USB"
-       	entry		"off" 0
-	entry		"charge" 1
-	entry		"full" 2
-	entry		"ipod" 3
-        poll            1000        
- 
- ######   byte 20  #####
-
- keyValue
-    value    String sys 0x00000000 0
-    label    "---------------[byte 20]--------------"
-    poll     0   
-
-    choice
-        value        per 0 0x50185001
-        label        "Display 1"
-        poll        1000 
-
-    choice
-        value        per 0 0x50185002
-        label        "Display 2"
-        poll        1000 
-
-    choice
-        value        per 0 0x50185004
-        label        "Display 3"
-        poll        1000 
-
-    choice
-        value        per 0 0x50185008
-        label        "Display 4"
-        poll        1000         
- 
-    choice
-        value        per 0 0x50185010
-        label        "Dashboard Audio Slide"
-        poll        1000 
-
-    choice
-        value        per 0 0x50185020
-        label        "Dashboard Phone Slide"
-        poll        1000 
-
-    choice
-        value        per 0 0x50185040
-        label        "Dashboard Nav Slide"
-        poll        1000 
-
- 
-BIOSCtrl
-        value    int per 0 0x50185080
-        label    "Dashboard Communication"
-        entry    "BAP" 0
-        entry    "DDP" 1
-        poll     1000 
-        
-        
- ######   byte 21  #####
-
- keyValue
-    value    String sys 0x00000000 0
-    label    "---------------[byte 21]--------------"
-    poll     0           
-
- choice
-        value per 0 0x50185401
-        label "VIWI"
-                poll     1000 
-
- choice
-        value per 0 0x50185410
-        label "Scrolling"  
-                poll     1000 
-
-
- choice
-        value per 0 0x50185420
-        label "Messaging via MAP"    
-                poll     1000 
-
-
-choice
-        value per 0 0x50185440
-        label "Pagewise scrolling" 
-                poll     1000 
-
-
-choice
-        value per 0 0x50185480
-        label "GPS Antenna Availability"  
-                poll     1000 
-   
- 
-######   byte 22  #####
-keyValue
-    value    String sys 0x00000000 0
-    label    "---------------[byte 22]--------------"
-    poll     0
-
-choice    
-        value           per 0 0x50185801 
-        label           "Dashboard Graphic Variant" 
-        poll             1000  
-            
-choice              
-        value           per 0 0x50185802 
-        label           "Dashboard Text Replace"
-        poll            1000  
-choice
-       	value           per 0 0x50185804
-       	label           "SDS"
-        poll            1000    
-        
-choice
-       	value           per 0 0x50185808
-       	label           "OnlineFunctions"
-        poll            1000        
-
-choice
-    value per 0 0x50185810
-    label "Touch Screen Remote"
-    poll            1000        
-
-choice 
-    value per 0 0x50185820 
-    label "Keypad Rear Keys"
-    poll            1000        
-
-
-######   byte 23  #####
-keyValue
-    value    String sys 0x00000000 0
-    label    "---------------[byte 23]--------------"
-    poll     0 
-
-choice 
-    value per 0 0x50185c01    
-    label "Speller"
-    poll            1000    
-    
-choice 
-    value per 0 0x50185c02 
-    label "Initial Disclaimer"
-    poll            1000    
-    
-choice 
-    value per 0 0x50185c04     
-    label "Legal Disclaimer"
-    poll            1000    
-    
-choice 
-    value per 0 0x50185c08  
-    label "Display Turnout Speed"    
-    poll            1000       
-    
-######   byte 24  #####
-keyValue
-    value    String sys 0x00000000 0
-    label    "---------------[byte 24]--------------"
-    poll     0
-
-choice 
-    value per 0 0x50186001	
-    label "Emergency Call"
-        poll            1000        
-
-choice     
-    value per 0 0x50186002	
-    label "SDS"
-        poll            1000        
-
-choice     
-    value per 0 0x50186004	
-    label "Navigation"
-        poll            1000        
-
-choice     
-    value per 0 0x50186008	
-    label "WLAN"
-        poll            1000        
-
-choice    
-    value per 0 0x50186010	
-    label "Import media"
-        poll            1000        
-
-choice     
-    value per 0 0x50186020	
-    label "Ripping"
-        poll            1000        
-
-choice     
-    value per 0 0x50186040	
-    label "VZA"
-        poll            1000        
-
-choice     
-    value per 0 0x50186080	
-    label "PSD"
-    poll            1000        
-    
-
-
-
-####################################################################  
-
-screen  privacy  MQBCoding
-
-keyValue
-    value    String sys 0x00000000 0
-    label    "This screen allows you to clean specific information from your unit."
-    poll     0
-    
-keyValue
-    value    String sys 0x00000000 0
-    label    "Note: there is no undelete."
-    poll     0
-
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/privacy_cleanhistory.sh"
-   label    "Clean software version update history"    
-
-script
-   value    sys 1 0x0100 "/scripts/archiveCorefiles.sh"
-   label    "Archive core dumps and logs"
-   
-script
-   value    sys 1 0x0100 "/scripts/deleteCorefiles.sh"
-   label    "Delete core dumps and logs"
-   
-script
-   value    sys 1 0x0100 "/scripts/deleteBrowserCache.sh"
-   label    "Delete browser cache"
-   
-script
-   value    sys 1 0x0100 "/scripts/Persistence_Delete.sh"
-   label    "Delete persistence"
-
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/privacy_shadow.sh"
-   label    "Replace shadow file with shadow.txt from the Advanced/Shadowfile/ folder on the SD-card"    
-   
-button
-    value    per 1304 52 "execute_factory_settings"
-    label    "Smartphone integration factory settings"
-   
-   
-button
-      value             per 9 6 "00"
-      label             "Reset Datasets to Factory Defaults (FFS)"
-      
-button
-      value             per 9 7 "00"
-      label             "Reset Adaptations to Factory Defaults (FFS)"
-      
-button
-      value             per 9 8 "00"
-      label             "Reset Identifications to Factory Defaults (FFS)"
-  
-   
 #############################################
 
 screen  Adaptations  Customization
@@ -2743,329 +1444,8 @@ BIOSCtrl
 	entry			"CLST8 ANZEIGE" 14
 	entry			"CLST9 LADEN" 15		
 	entry			"not available" 63
-    
 #######################################################
-screen RccAdaptations adaptations
-
-keyValue
-    value    String sys 0x00000000 0
-    label    "Various RCC-specific adaptations. "
-    poll     0  
-
-button
-      value             per 0x01b200e0 530 "FF"
-      label             "Reset SDARS Prescript Activation to Defaults (0xFF)"
-
-slider
-    value       per 28442848 501
-	 label       "Testmode video"
-	 limits		absolute 0 256
-    poll        1000
-
-choice
-    value       per 28442848 502
-    label       "optical wakeup off/on"
-	poll	     1000
-
-BIOSCtrl
-    value       int per 28442848 503
-    label       "summertime algo."
-    entry	    "none" 0
-	  entry	    "manual" 1
-	  entry	    "MESZ" 2
-    entry	    "USA" 3
-    entry	    "NavDB/automatic" 4
-	poll        1000
-
-BIOSCtrl
-    value       int per 28442848 504
-    label       "Multimedia Data"
-    entry	    "rip off imp off" 0
-	entry	    "rip off imp on" 1
-	entry	    "rip on imp off" 2
-    entry	    "rip on imp on" 3
-	poll        1000
-
-BIOSCtrl
-    value       int per 28442848 505
-    label       "Emergency call priv."
-    entry	    "off" 0
-	entry	    "on" 1
-	entry	    "user defined" 255
-	poll        1000
-    
-slider
-    value       per 28442848 506
-	label        "nr. of retries emergency call"
-	limits		absolute 0 256
-    poll        1000
-
-slider
-    value       per 28442848 507
-	label       "basic vol. speech"
-	limits		absolute 0 128
-    poll        1000
-
-slider
-    value       per 28442848 508
-	label       "basic vol. phone"
-	limits		absolute 0 128
-    poll        1000
-    
-slider
-    value       per 28442848 509
-	label       "micro sensitivity"
-	limits		absolute 0 21
-    poll        1000
-
-choice
-    value       per 28442848 510
-    label       "Telefon off/on"
-	poll	    1000
-        
-choice
-    value       per 28442848 511
-    label       "Tel. dataservices off/on"
-	poll	    1000
-        
-choice
-    value       per 28442848 512
-    label       "BT off/on"
-	poll	    1000
-        
-choice
-    value       per 28442848 513
-    label       "BT Sniff off/on"
-	poll	    1000
-        
-choice
-    value       per 28442848 514
-    label       "WLAN off/on"
-	poll	    1000
-
-slider
-    value       per 28442848 515
-	label       "Regionalcodes DVD"
-	limits		absolute 0 8
-    poll        1000
-
-slider
-    value       per 28442848 516
-	label       "Regionalcodes Blueray"
-	limits		absolute 0 3
-    poll        1000
-
-slider
-    value       per 28442848 517
-	label       "R. Codes DVD Counter"
-	limits		absolute 0 5
-    poll        1000
-    
-slider
-    value       per 28442848 518
-	label       "R. Codes Blueray Counter"
-	limits		absolute 0 5
-    poll       1000
-    
-slider
-    value       per 28442848 520
-	label       "Set PayTMC (coarse)"
-	limits		absolute 0 65535 200
-    poll        1000
-
-slider
-    value       per 28442848 531
-	label       "Set PayTMC (fine)"
-	limits		absolute 0 65535
-    poll        1000
-
-choice
-    value       per 28442848 522
-    label       "RVC Video off(FBAS)/on(LVDS)"
-	poll	    1000
-	
-BIOSCtrl
-    value       int per 28442848 523
-    label       "PSD protocol version"
-    entry       "PSD_1.5" 0
-    entry       "PSD_1.4" 1
-    poll        1000
-
-slider 
-   value       per 28442848 524
-	label       "AM Q-Level offset"
-	limits		absolute -31 31
-   poll        1000
-
-slider 
-   value       per 28442848 525
-	label       "FM Q-Level offset"
-	limits		absolute -31 31
-   poll        1000
-
-slider 
-   value       per 28442848 526
-	label       "HF stereo low thresh.(dBuV)"
-	limits		absolute 20 60
-   poll        1000
-
-slider 
-   value       per 28442848 527
-	label       "NF max stereo chan. sep.(dB)"
-	limits		absolute 0 60
-   poll        1000
-
-slider 
-   value       per 28442848 528
-	label       "Mono/stereo hyst.(msec)"
-	limits		absolute 0 20000 100
-   poll        1000
-
-choice
-    value       per 28442848 529
-    label       "TV Tuner Availability"
-	  poll	    1000
-      
-#############################################
-screen  VariantInfo  adaptations
-
-keyValue
-    value    String sys 0x00000000 0
-    label    "This screen is meant to display and/or change variant info. "
-    poll     0  
-    
-keyValue
-    value    String sys 0x00000000 0
-    label    "It can render your unit useless if you dont know what you're doing."
-    poll     0  
-
- 
-keyValue
-    value   String per 0x286f058c 12
-    label   "Variant Info"
-    
-keyValue
-    value   String per 0x286f058c 13
-    label   "Diagnosis Variant"
-    
-    
-BIOSCtrl
-			value	int per 0x286f058c 3
-            label	"Main Unit"
-             entry	"Front MU" 1
-             entry	"Rear MU" 2	
-             entry	"ExBox MU" 3
-             entry	"Front MU MIB2" 4
-             entry	"Rear MU MIB2" 5	
-
-BIOSCtrl		
-	value	int per 0x286f058c 14
-	label	"Keypanel Type"
-	entry	"DEFAULT_TYPE" 0
-   entry	"MIBCAN_MIB1" 1             
-
-BIOSCtrl				
-			value	int per 0x286f058c 4
-			label	"Type"
-                entry	"High" 1
-                entry	"Entry" 2	
-                entry	"Standard" 3
-                entry	"Premium" 4	 
-    
-BIOSCtrl		
-	value	int per 0x286f058c 11
-	label	"Topology"
-    entry	"MQB" 1
-    entry	"MQBTT" 2	
-    entry	"MLB" 3
-    entry	"MLBEVO" 4	
-    entry	"MLBPO" 5
-    entry       "MSS" 6
- 
-   
- BIOSCtrl       
-    value   int per 0x286f058c 9
-    label   "Region"
-    entry   "Europe/ROW" 1
-    entry   "Europe" 2  
-    entry   "NAR" 3
-    entry   "ROW" 4 
-    entry   "China" 5
-    entry   "Japan" 6   
-    entry   "Korea" 7
-    entry   "Asia" 8
-    entry   "Taiwan" 9
-   
-  BIOSCtrl      
-    value   int per 0x286f058c 10
-    label   "Brand"
-    entry   "Volkswagen" 1
-    entry   "Audi" 2    
-    entry   "Skoda" 3
-    entry   "Seat" 4    
-    entry   "Porsche" 5
-    entry   "Bentley" 6 
-    entry   "Lamborghini" 7
-  
-choice
-    value   per 0x286f058c 5
-    label   "Feature Tel"
-
-choice
-    value   per 0x286f058c 6
-    label   "Feature Navi"
-   
-choice
-    value   per 0x286f058c 7
-    label   "Feature DAB"
-    
-choice
-    value   per 0x286f058c 8
-    label   "Feature Sirius"
- 
-choice
-    value   per 0x286f058c 17
-    label   "Feature LTE"  
-
-choice
-    value   per 0x286f058c 18
-    label   "Feature 2D Nav"   
-
-choice
-    value   per 0x286f058c 19
-    label   "Feature MMI Radio"   
-
- keyValue
-    value    String sys 0x00000000 0
-    label    "----"
-    poll     0
-
-choice
-    value           per 0x286f058c 15
-    label           "ICAN Msg Activation"
-
-
-choice
-    value           per 0x286f058c 16
-    label           "MIBCAN Msg Activation"
-    
-###################################################
-screen "MenuFunctions" adaptations
-
-#############################################
-#
-#  Inofficial, must be finalised from MMX/HMI !
-# 
-# $Id: //Audi_MIB/Public/TCFG/Release/MIB2CLU8/Development/tcfg/mib/common/arm/default/engdefs/CarZMenuOperation.esd#1 $
-# $Date: 2016/10/05 $ 
-#############################################
-
-#######################################################
-#
-# SCREEN Test fuer CAR
-#
-#######################################################
-screen CarMenuOperation mqbcoding
+screen CarMenuOperation adaptations
 # the values are from 0 to 31 because there are 5 bits information that can be coded
 
 button
@@ -3280,9 +1660,6 @@ slider
    value    per 28442848 240
    label    "Battery Control: "
    limits	absolute 0 31
-
-               
-
 
 ###################################################
 screen "HMI_FunctionBlockingTable" adaptations
@@ -4294,8 +2671,1684 @@ screen "HMI_FunctionBlockingTable" adaptations
         label "MISC_47"
         range 20.7 20.7
         entry "not blocked" 0
-        entry "blocked" 1
+        entry "blocked" 1                   
+#######################################################
+screen RccAdaptations adaptations
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "Various RCC-specific adaptations. "
+    poll     0  
+
+button
+      value             per 0x01b200e0 530 "FF"
+      label             "Reset SDARS Prescript Activation to Defaults (0xFF)"
+
+slider
+    value       per 28442848 501
+	 label       "Testmode video"
+	 limits		absolute 0 256
+    poll        1000
+
+choice
+    value       per 28442848 502
+    label       "optical wakeup off/on"
+	poll	     1000
+
+BIOSCtrl
+    value       int per 28442848 503
+    label       "summertime algo."
+    entry	    "none" 0
+	  entry	    "manual" 1
+	  entry	    "MESZ" 2
+    entry	    "USA" 3
+    entry	    "NavDB/automatic" 4
+	poll        1000
+
+BIOSCtrl
+    value       int per 28442848 504
+    label       "Multimedia Data"
+    entry	    "rip off imp off" 0
+	entry	    "rip off imp on" 1
+	entry	    "rip on imp off" 2
+    entry	    "rip on imp on" 3
+	poll        1000
+
+BIOSCtrl
+    value       int per 28442848 505
+    label       "Emergency call priv."
+    entry	    "off" 0
+	entry	    "on" 1
+	entry	    "user defined" 255
+	poll        1000
+    
+slider
+    value       per 28442848 506
+	label        "nr. of retries emergency call"
+	limits		absolute 0 256
+    poll        1000
+
+slider
+    value       per 28442848 507
+	label       "basic vol. speech"
+	limits		absolute 0 128
+    poll        1000
+
+slider
+    value       per 28442848 508
+	label       "basic vol. phone"
+	limits		absolute 0 128
+    poll        1000
+    
+slider
+    value       per 28442848 509
+	label       "micro sensitivity"
+	limits		absolute 0 21
+    poll        1000
+
+choice
+    value       per 28442848 510
+    label       "Telefon off/on"
+	poll	    1000
         
+choice
+    value       per 28442848 511
+    label       "Tel. dataservices off/on"
+	poll	    1000
+        
+choice
+    value       per 28442848 512
+    label       "BT off/on"
+	poll	    1000
+        
+choice
+    value       per 28442848 513
+    label       "BT Sniff off/on"
+	poll	    1000
+        
+choice
+    value       per 28442848 514
+    label       "WLAN off/on"
+	poll	    1000
+
+slider
+    value       per 28442848 515
+	label       "Regionalcodes DVD"
+	limits		absolute 0 8
+    poll        1000
+
+slider
+    value       per 28442848 516
+	label       "Regionalcodes Blueray"
+	limits		absolute 0 3
+    poll        1000
+
+slider
+    value       per 28442848 517
+	label       "R. Codes DVD Counter"
+	limits		absolute 0 5
+    poll        1000
+    
+slider
+    value       per 28442848 518
+	label       "R. Codes Blueray Counter"
+	limits		absolute 0 5
+    poll       1000
+    
+slider
+    value       per 28442848 520
+	label       "Set PayTMC (coarse)"
+	limits		absolute 0 65535 200
+    poll        1000
+
+slider
+    value       per 28442848 531
+	label       "Set PayTMC (fine)"
+	limits		absolute 0 65535
+    poll        1000
+
+choice
+    value       per 28442848 522
+    label       "RVC Video off(FBAS)/on(LVDS)"
+	poll	    1000
+	
+BIOSCtrl
+    value       int per 28442848 523
+    label       "PSD protocol version"
+    entry       "PSD_1.5" 0
+    entry       "PSD_1.4" 1
+    poll        1000
+
+slider 
+   value       per 28442848 524
+	label       "AM Q-Level offset"
+	limits		absolute -31 31
+   poll        1000
+
+slider 
+   value       per 28442848 525
+	label       "FM Q-Level offset"
+	limits		absolute -31 31
+   poll        1000
+
+slider 
+   value       per 28442848 526
+	label       "HF stereo low thresh.(dBuV)"
+	limits		absolute 20 60
+   poll        1000
+
+slider 
+   value       per 28442848 527
+	label       "NF max stereo chan. sep.(dB)"
+	limits		absolute 0 60
+   poll        1000
+
+slider 
+   value       per 28442848 528
+	label       "Mono/stereo hyst.(msec)"
+	limits		absolute 0 20000 100
+   poll        1000
+
+choice
+    value       per 28442848 529
+    label       "TV Tuner Availability"
+	  poll	    1000
+      
+#############################################
+screen  VariantInfo  adaptations
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "This screen is meant to display and/or change variant info. "
+    poll     0  
+    
+keyValue
+    value    String sys 0x00000000 0
+    label    "It can render your unit useless if you dont know what you're doing."
+    poll     0  
+
+ 
+keyValue
+    value   String per 0x286f058c 12
+    label   "Variant Info"
+    
+keyValue
+    value   String per 0x286f058c 13
+    label   "Diagnosis Variant"
+    
+    
+BIOSCtrl
+			value	int per 0x286f058c 3
+            label	"Main Unit"
+             entry	"Front MU" 1
+             entry	"Rear MU" 2	
+             entry	"ExBox MU" 3
+             entry	"Front MU MIB2" 4
+             entry	"Rear MU MIB2" 5	
+
+BIOSCtrl		
+	value	int per 0x286f058c 14
+	label	"Keypanel Type"
+	entry	"DEFAULT_TYPE" 0
+   entry	"MIBCAN_MIB1" 1             
+
+BIOSCtrl				
+			value	int per 0x286f058c 4
+			label	"Type"
+                entry	"High" 1
+                entry	"Entry" 2	
+                entry	"Standard" 3
+                entry	"Premium" 4	 
+    
+BIOSCtrl		
+	value	int per 0x286f058c 11
+	label	"Topology"
+    entry	"MQB" 1
+    entry	"MQBTT" 2	
+    entry	"MLB" 3
+    entry	"MLBEVO" 4	
+    entry	"MLBPO" 5
+    entry       "MSS" 6
+ 
+   
+ BIOSCtrl       
+    value   int per 0x286f058c 9
+    label   "Region"
+    entry   "Europe/ROW" 1
+    entry   "Europe" 2  
+    entry   "NAR" 3
+    entry   "ROW" 4 
+    entry   "China" 5
+    entry   "Japan" 6   
+    entry   "Korea" 7
+    entry   "Asia" 8
+    entry   "Taiwan" 9
+   
+  BIOSCtrl      
+    value   int per 0x286f058c 10
+    label   "Brand"
+    entry   "Volkswagen" 1
+    entry   "Audi" 2    
+    entry   "Skoda" 3
+    entry   "Seat" 4    
+    entry   "Porsche" 5
+    entry   "Bentley" 6 
+    entry   "Lamborghini" 7
+  
+choice
+    value   per 0x286f058c 5
+    label   "Feature Tel"
+
+choice
+    value   per 0x286f058c 6
+    label   "Feature Navi"
+   
+choice
+    value   per 0x286f058c 7
+    label   "Feature DAB"
+    
+choice
+    value   per 0x286f058c 8
+    label   "Feature Sirius"
+ 
+choice
+    value   per 0x286f058c 17
+    label   "Feature LTE"  
+
+choice
+    value   per 0x286f058c 18
+    label   "Feature 2D Nav"   
+
+choice
+    value   per 0x286f058c 19
+    label   "Feature MMI Radio"   
+
+ keyValue
+    value    String sys 0x00000000 0
+    label    "----"
+    poll     0
+
+choice
+    value           per 0x286f058c 15
+    label           "ICAN Msg Activation"
+
+
+choice
+    value           per 0x286f058c 16
+    label           "MIBCAN Msg Activation"
+    
+
+
+
+
+ 
+
+
+####################################################################
+screen Advanced Customization
+
+keyValue
+    value   String per 30 1966083
+    label   "MU Version"
+
+keyValue
+    value   String per 30 1966084
+    label   "Train Info"
+    
+keyValue
+    value    String sys 0x00000000 0
+    label    "WARNING: This screen WILL void your warranty"
+    poll     0    
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "And it can and will seriously ruin your day if you don't know what you're doing."
+    poll     0    
+    
+keyValue
+    value    String sys 0x00000000 0
+    label    "Be sure to only flash if you're sure you're flashing the right file."
+    poll     0    
+    
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/copy_fec.sh"
+   label    "Import FecContainer.fec from sda0/Advanced/FEC"
+   
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/copy_gem.sh"
+   label    "Import GEM.jar from sda0/Advanced/GEM"
+   
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/install_lsdjxe.sh"
+   label    "Import LSD.jxe"
+   
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/privacy_shadow.sh"
+   label    "Import shadow file"
+   
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/import_hosts.sh"
+   label    "Import hosts file"
+  
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/flash_ifs.sh"
+   label    "Flash ifsroot.ifs from sda0/Advanced/IFS"
+   
+####################################################################
+screen  AndroidAuto Customization
+####################################################################
+keyValue
+    value    String sys 0x00000000 0
+    label    "This script will patch your gal.json file to allow third party apps."
+    poll     0    
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "Make sure you have an SD-card in slot 1 or 2 to allow a backup to be made."
+    poll     0    
+
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/patch_gal.sh"
+   label    "Install Android Auto custom applications patch."
+   
+   
+
+####################################################################
+screen  Coding Customization
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "This screen allows you to change the long coding of module 5F."
+    poll     0    
+    
+keyValue
+    value    String sys 0x00000000 0
+    label    "Use at your own risk, no backups are made!"
+    poll     0    
+	
+keyValue
+    value    String sys 0x00000000 0
+    label    "Reboot after setting the coding by pressing the button:"
+    poll     0    
+	
+script
+   value    sys 1 0x0100 "/scripts/performePersReset.sh"
+   label    "Reboot unit"
+
+#####   byte 0  #####
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "---------------[byte 0]---------------"
+    poll     0 
+    
+BIOSCtrl
+        value       int per 0 0x5018000F
+        label       "Brand"
+        entry	    "no Brand" 0
+        entry	    "Audi" 1
+        entry	    "VW" 2
+        entry	    "Skoda" 3
+        entry	    "Seat" 4
+        entry	    "Bentley" 5
+        entry	    "VW-NFZ" 6
+        entry	    "Porsche" 7
+        poll	    1000    
+
+#####   byte 1  #####
+keyValue
+    value    String sys 0x00000000 0
+    label    "---------------[byte 1]---------------"
+    poll     0
+    
+slider
+    value       per 0 0x5018040F
+	label       "Car Class"
+	limits		absolute 0 9
+    poll        1000
+    
+slider
+	value       per 0 0x501804F0
+	label       "Car Generation"
+	limits		absolute 0 9
+	poll        1000
+
+#####   byte 2  #####
+keyValue
+    value    String sys 0x00000000 0
+    label    "---------------[byte 2]---------------"
+    poll     0    
+slider
+	value       per 0 0x5018080F
+	label       "Car Derivate"
+	limits		absolute 0 9
+	poll        1000
+
+slider
+	value       per 0 0x501808F0
+	label       "Car Derivate Supplement "
+	limits		absolute 0 9
+	poll        1000
+
+#####   byte 3  #####
+keyValue
+    value    String sys 0x00000000 0
+    label    "---------------[byte 3]---------------"
+    poll     0   
+    
+	BIOSCtrl
+        value       int per 0 0x50180CFF
+        label       "Country Navigation"
+        entry	    "None" 0
+        entry	    "EU" 1
+        entry	    "NAR" 2
+        entry	    "MSA" 3
+        entry	    "Korea" 4
+        entry	    "China" 5
+        entry	    "Japan" 6
+        entry	    "AsiaPacific" 7
+        entry	    "Australia" 8
+        entry	    "South Africa" 9
+        entry	    "NEAST" 10
+        entry	    "NMAfrica" 11
+        entry	    "MEAST" 12
+        entry	    "CentralAsia" 13
+        entry	    "India" 14
+        entry	    "Israel" 15
+        entry	    "Taiwan" 16
+        entry	    "MSA 2 (Chile)" 17
+        entry	    "China 2" 18
+        entry	    "China 3" 19
+        poll        1000
+        
+######   byte 4  #####
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "---------------[byte 4]---------------"
+    poll     0
+    
+choice
+value per 0 0x50181001
+label "Channel 1 HT"
+poll        1000	
+    
+choice
+value per 0 0x50181002
+label "Channel 1 TT"
+poll        1000	
+    
+choice
+value per 0 0x50181004
+label "Channel 2 HT"
+poll        1000	
+    
+choice
+value per 0 0x50181008
+label "Channel 2 TT"
+poll        1000	
+    
+choice
+value per 0 0x50181010
+label "Channel 3 HT"
+poll        1000	
+    
+choice
+value per 0 0x50181020
+label "Channel 3 TT"
+poll        1000	
+    
+choice
+value per 0 0x50181040
+label "Channel 4 HT"
+poll        1000	
+    
+choice
+value per 0 0x50181080
+label "Channel 4 TT"
+poll        1000	
+    
+
+######   byte 5  #####
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "---------------[byte 5]---------------"
+    poll     0
+    
+choice
+value per 0 0x50181401 
+label "Channel 5 HT"
+poll        1000	
+    
+choice
+value per 0 0x50181402
+label "Channel 5 TT"
+poll        1000	
+    
+choice
+value per 0 0x50181404
+label "Channel 6 HT"
+poll        1000	
+    
+choice
+value per 0 0x50181408
+label "Channel 6 TT"
+poll        1000	
+    
+choice
+value per 0 0x50181410
+label "Channel 7 HT"
+poll        1000	
+    
+choice
+value per 0 0x50181420
+label "Channel 7 TT"
+poll        1000	
+    
+choice
+value per 0 0x50181440
+label "Channel 8 HT"
+poll        1000	
+    
+choice
+value per 0 0x50181480
+label "Channel 8 TT"
+
+######   byte 6  #####
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "---------------[byte 6]---------------"
+    poll     0
+    
+choice
+value per 0 0x50181801  
+label "Channel 9 HT"
+poll        1000	
+    
+choice
+value per 0 0x50181802
+label "Channel 9 TT" 
+poll        1000	
+    
+choice
+value per 0 0x50181804
+label "Channel 10 HT" 
+poll        1000	
+    
+choice
+value per 0 0x50181808
+label "Channel 10 TT"
+poll        1000	
+    
+choice
+value per 0 0x50181810
+label "Channel 11 HT" 
+poll        1000	
+    
+choice
+value per 0 0x50181820
+label "Channel 11 TT"
+poll        1000	
+    
+choice
+value per 0 0x50181840
+label "Channel 12 HT"
+poll        1000	
+    
+choice
+value per 0 0x50181880
+label "Channel 12 TT"     
+poll        1000	
+######   byte 7  #####
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "---------------[byte 7]---------------"
+    poll     0
+   
+choice
+value per 0 0x50181c01
+label "Channel 13 HT"
+poll        1000	
+    
+choice
+value per 0 0x50181c02
+label "Channel 13 TT"
+poll        1000	
+    
+choice
+value per 0 0x50181c04
+label "Channel 14 HT"
+poll        1000	
+    
+choice
+value per 0 0x50181c08
+label "Channel 14 TT"
+poll        1000	
+    
+choice
+value per 0 0x50181c10
+label "Channel 15 HT"
+poll        1000	
+    
+choice
+value per 0 0x50181c20
+label "Channel 15 TT"
+poll        1000	
+    
+choice
+value per 0 0x50181c40
+label "Channel 16 HT"
+poll        1000	
+    
+choice
+value per 0 0x50181c80
+label "Channel 16 TT"        
+poll        1000	
+    
+######   byte 8  #####
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "---------------[byte 8]---------------"
+    poll     0
+
+choice
+    value    per 0 0x50182001
+    label   "Microphone 1"
+    poll        1000	
+    
+choice
+    value    per 0 0x50182002
+    label   "Microphone 2"
+	poll        1000	
+
+choice
+    value    per 0 0x50182004
+    label "Headphones Output 1"
+	poll        1000	
+    
+choice    
+    value    per 0 0x50182008
+    label "Headphones Output 2"
+	poll        1000	
+    
+choice    
+    value    per 0 0x50182010
+    label "AUX IN"
+	poll        1000	
+    
+choice    
+    value    per 0 0x50182020
+    label "AMI/MDI interface"
+	poll        1000	
+    
+choice    
+    value    per 0 0x50182040
+    label "VDA-NF IN (TEL IN)"
+	poll        1000	
+    
+choice    
+    value    per 0 0x50182080
+    label "Wake Up Over ECL" 
+	poll        1000	
+    
+######   byte 9  #####
+keyValue
+    value    String sys 0x00000000 0
+    label    "---------------[byte 9]---------------"
+    poll     0      
+    
+BIOSCtrl
+        value       int per 0 0x5018240F
+        label       "Bandsettings FM"
+        entry	    "no setting" 0
+	entry	    "EU (RdW)" 1
+	entry	    "NAR" 2
+	entry	    "JP" 3
+	entry	    "KOR" 4
+	entry	    "China" 5
+	poll	    1000
+
+BIOSCtrl
+        value       int per 0 0x501824F0
+        label       "Bandsettings AM"
+        entry	    "no setting" 0
+	entry	    "EU (RdW)" 1
+	entry	    "NAR" 2
+	entry	    "JP" 3
+	entry	    "EU" 4
+	entry	    "AUS" 5
+	poll	    1000    
+
+
+######   byte 10  #####
+keyValue
+    value    String sys 0x00000000 0
+    label    "---------------[byte 10]--------------"
+    poll     0
+
+BIOSCtrl
+    value       int per 0 0x5018280F
+    label       "Bandsettings DAB Band 1"
+    entry	    "OFF" 0
+	entry	    "EU Band III -N" 1
+	entry	    "EU Band III" 2
+	entry	    "CANADA L-Band" 3
+	entry	    "KOREA Band III" 4
+	entry	    "CHINA Band III" 5
+	entry	    "Download Table 1" 6
+	entry	    "NEW ZEALAND Band III" 7
+	poll	    1000
+
+BIOSCtrl
+    value       int per 0 0x501828F0
+    label       "Bandsettings DAB Band 2"
+    entry	    "OFF" 0
+	entry	    "L-Band" 1
+	entry	    "Download Table 2" 2
+	poll	    1000
+ 
+######   byte 11  #####
+keyValue
+    value    String sys 0x00000000 0
+    label    "---------------[byte 11]--------------"
+    poll     0
+
+BIOSCtrl
+    value       int per 0 1343761663
+    label       "Amplifier"
+    entry	    "no assign" 0
+	entry	    "intern" 1
+	entry	    "external MOST" 2
+	entry	    "reserved" 3		
+    entry	    "external BAP" 4
+    entry	    "internal Individual" 5
+    entry	    "external BOOSTER" 6
+	entry	    "external BAP with presets" 7
+	poll        1000    
+    
+######   byte 12  #####
+keyValue
+    value    String sys 0x00000000 0
+    label    "---------------[byte 12]--------------"
+    poll     0    
+    
+    
+choice    
+    value    per 0 0x50183001
+    label "FM Antenna" 
+	poll        1000	
+    
+BIOSCtrl
+    value       int per 0 0x5018300E
+    label       "HD FM Antenna Mode"
+    entry	    "AM FM ANT" 0
+	entry	    "Switching" 1
+	entry	    "FM ANT" 2
+	entry	    "MRC" 3		
+    entry	    "Testmode" 4	
+	poll        1000  
+    
+######   byte 13  #####
+keyValue
+    value    String sys 0x00000000 0
+    label    "---------------[byte 13]--------------"
+    poll     0       
+    
+choice
+        value       per 0 0x50183401
+        label       "RDS"
+        poll       1000					
+
+BIOSCtrl
+        value       int per 0 0x50183402
+        label       "AF"
+        entry	    "persistent" 0
+        entry	    "temporary" 1
+        poll        1000	
+        
+choice
+        value       per 0 0x50183404
+        label       "HD radio coding"
+        poll       1000		
+ 
+choice
+        value       per 0 0x50183408
+        label       "Radiotext+"
+        poll	    1000
+
+choice
+        value       per 0 0x50183410
+        label       "PI ignore"
+        poll	    1000    
+    
+    
+BIOSCtrl
+        value       int per 0 0x50183460
+        label       "BWS"
+        entry       "no BWS" 0
+        entry	    "restricted" 1
+        entry	    "unrestricted" 2
+        entry       "rest/unrest" 3
+        poll        1000	    
+    
+choice
+        value       per 0 0x50183480
+        label       "DAB alarm"
+        poll	    1000
+
+
+######   byte 14  #####
+keyValue
+    value    String sys 0x00000000 0
+    label    "---------------[byte 14]--------------"
+    poll     0           
+ 
+choice
+        value       per 0 0x50183801
+        label       "FM PTY31 off/on"
+	poll	    1000
+
+choice
+        value       per 0 0x50183802
+        label       "AM sperre off/on"
+	poll	    1000
+    
+choice
+        value       per 0 0x50183804
+        label       "HD radio coding AM"
+	poll	    1000    
+    
+choice
+        value       per 0 0x50183808
+        label       "Multiple entry switch"
+	poll	    1000  
+    
+choice
+        value       per 0 0x50183810
+        label       "RDS deactivation"
+	poll	    1000  
+
+choice
+        value       per 0 0x50183820
+        label       "AF deactivation"
+	poll	    1000  
+
+
+######   byte 15  #####
+keyValue
+    value    String sys 0x00000000 0
+    label    "---------------[byte 15]--------------"
+    poll     0  
+
+choice
+       	value           per 0 0x50183C01
+       	label           "Baseplate"
+        poll            1000
+
+choice
+       	value           per 0 0x50183C02
+       	label           "Ant. Baseplate"
+        poll            1000
+
+choice
+       	value           per 0 0x50183C04
+       	label           "Force Cradle"
+        poll            1000
+
+choice
+       	value           per 0 0x50183C08
+       	label           "Handy in Cradle"
+        poll            1000
+
+choice
+       	value           per 0 0x50183C10
+       	label           "Telefon Modul"
+        poll            1000
+        
+    choice
+        value        per 0 0x50183C20
+        label        "Wireless Charger"      
+        poll	    1000
+
+
+######   byte 16  #####
+keyValue
+    value    String sys 0x00000000 0
+    label    "---------------[byte 16]--------------"
+    poll     0  
+
+
+choice
+       	value           per 0 0x50184001
+       	label           "BT available"
+        poll            1000
+
+choice
+       	value           per 0 0x50184002
+       	label           "BT Multimedia"
+        poll            1000
+
+choice
+       	value           per 0 0x50184004
+       	label           "BT phone"
+        poll            1000
+
+choice
+       	value           per 0 0x50184008
+       	label           "BT audio"
+        poll            1000
+
+BIOSCtrl
+        value       int per 0 0x50184030
+        label       "BT visibility"
+        entry       "off" 0
+        entry	    "auto" 1
+        entry	    "on" 2
+        entry       "limited" 3
+	poll        1000
+
+choice
+       	value           per 0 0x50184040
+       	label           "BT headphones"
+        poll            1000	
+    
+choice
+       	value           per 0 0x50184080
+       	label           "legal RVC"
+        poll            1000	   
+
+
+######   byte 17  #####
+keyValue
+    value    String sys 0x00000000 0
+    label    "---------------[byte 17]--------------"
+    poll     0  
+
+
+BIOSCtrl
+        value	    int per 0 0x501844FF
+        label 	    "Skin"
+        entry	    "no Skin" 0
+        entry	    "Skin 1" 1
+        entry	    "Skin 2" 2
+        entry	    "Skin 3" 3
+        entry	    "Skin 4" 4
+        entry	    "Skin 5" 5
+        poll	    1000
+ 
+ ######   byte 18  #####
+
+ keyValue
+    value    String sys 0x00000000 0
+    label    "---------------[byte 18]--------------"
+    poll     0  
+    
+    
+    slider
+    value       per 0 0x501848ff
+	label       "Screenings"
+	limits		absolute 0 255
+    poll        1000   
+    
+    
+ 
+ ######   byte 19  #####
+
+ keyValue
+    value    String sys 0x00000000 0
+    label    "---------------[byte 19]--------------"
+    poll     0  
+
+BIOSCtrl
+       	value           int per 0 0x50184C01
+       	label           "Boardbook"
+       	entry		"not displayed" 0
+	entry		"displayed" 1
+        poll            1000
+
+BIOSCtrl
+       	value           int per 0 0x50184C02
+       	label           "Suspension arm"
+       	entry		"links" 0
+	entry		"rechts" 1
+        poll            1000
+
+BIOSCtrl
+       	value           int per 0 0x50184C0C
+       	label           "Kombi Track"
+       	entry		"n/a" 0
+	entry		"long" 1
+        entry           "short" 2
+        entry           "reserved" 3
+        poll            1000
+
+BIOSCtrl
+       	value           int per 0 0x50184C10
+       	label           "RVC"
+       	entry		"not active" 0
+	entry		"active" 1
+        poll            1000
+
+BIOSCtrl
+       	value           int per 0 0x50184C20
+       	label           "MOST"
+       	entry		"off" 0
+	entry		"on" 1
+        poll            1000
+
+BIOSCtrl
+       	value           int per 0 0x50184CC0
+       	label           "USB"
+       	entry		"off" 0
+	entry		"charge" 1
+	entry		"full" 2
+	entry		"ipod" 3
+        poll            1000        
+ 
+ ######   byte 20  #####
+
+ keyValue
+    value    String sys 0x00000000 0
+    label    "---------------[byte 20]--------------"
+    poll     0   
+
+    choice
+        value        per 0 0x50185001
+        label        "Display 1"
+        poll        1000 
+
+    choice
+        value        per 0 0x50185002
+        label        "Display 2"
+        poll        1000 
+
+    choice
+        value        per 0 0x50185004
+        label        "Display 3"
+        poll        1000 
+
+    choice
+        value        per 0 0x50185008
+        label        "Display 4"
+        poll        1000         
+ 
+    choice
+        value        per 0 0x50185010
+        label        "Dashboard Audio Slide"
+        poll        1000 
+
+    choice
+        value        per 0 0x50185020
+        label        "Dashboard Phone Slide"
+        poll        1000 
+
+    choice
+        value        per 0 0x50185040
+        label        "Dashboard Nav Slide"
+        poll        1000 
+
+ 
+BIOSCtrl
+        value    int per 0 0x50185080
+        label    "Dashboard Communication"
+        entry    "BAP" 0
+        entry    "DDP" 1
+        poll     1000 
+        
+        
+ ######   byte 21  #####
+
+ keyValue
+    value    String sys 0x00000000 0
+    label    "---------------[byte 21]--------------"
+    poll     0           
+
+ choice
+        value per 0 0x50185401
+        label "VIWI"
+                poll     1000 
+
+ choice
+        value per 0 0x50185410
+        label "Scrolling"  
+                poll     1000 
+
+
+ choice
+        value per 0 0x50185420
+        label "Messaging via MAP"    
+                poll     1000 
+
+
+choice
+        value per 0 0x50185440
+        label "Pagewise scrolling" 
+                poll     1000 
+
+
+choice
+        value per 0 0x50185480
+        label "GPS Antenna Availability"  
+                poll     1000 
+   
+ 
+######   byte 22  #####
+keyValue
+    value    String sys 0x00000000 0
+    label    "---------------[byte 22]--------------"
+    poll     0
+
+choice    
+        value           per 0 0x50185801 
+        label           "Dashboard Graphic Variant" 
+        poll             1000  
+            
+choice              
+        value           per 0 0x50185802 
+        label           "Dashboard Text Replace"
+        poll            1000  
+choice
+       	value           per 0 0x50185804
+       	label           "SDS"
+        poll            1000    
+        
+choice
+       	value           per 0 0x50185808
+       	label           "OnlineFunctions"
+        poll            1000        
+
+choice
+    value per 0 0x50185810
+    label "Touch Screen Remote"
+    poll            1000        
+
+choice 
+    value per 0 0x50185820 
+    label "Keypad Rear Keys"
+    poll            1000        
+
+
+######   byte 23  #####
+keyValue
+    value    String sys 0x00000000 0
+    label    "---------------[byte 23]--------------"
+    poll     0 
+
+choice 
+    value per 0 0x50185c01    
+    label "Speller"
+    poll            1000    
+    
+choice 
+    value per 0 0x50185c02 
+    label "Initial Disclaimer"
+    poll            1000    
+    
+choice 
+    value per 0 0x50185c04     
+    label "Legal Disclaimer"
+    poll            1000    
+    
+choice 
+    value per 0 0x50185c08  
+    label "Display Turnout Speed"    
+    poll            1000       
+    
+######   byte 24  #####
+keyValue
+    value    String sys 0x00000000 0
+    label    "---------------[byte 24]--------------"
+    poll     0
+
+choice 
+    value per 0 0x50186001	
+    label "Emergency Call"
+        poll            1000        
+
+choice     
+    value per 0 0x50186002	
+    label "SDS"
+        poll            1000        
+
+choice     
+    value per 0 0x50186004	
+    label "Navigation"
+        poll            1000        
+
+choice     
+    value per 0 0x50186008	
+    label "WLAN"
+        poll            1000        
+
+choice    
+    value per 0 0x50186010	
+    label "Import media"
+        poll            1000        
+
+choice     
+    value per 0 0x50186020	
+    label "Ripping"
+        poll            1000        
+
+choice     
+    value per 0 0x50186040	
+    label "VZA"
+        poll            1000        
+
+choice     
+    value per 0 0x50186080	
+    label "PSD"
+    poll            1000        
+    
+
+
+
+####################################################################  
+
+screen  privacy  MQBCoding
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "This screen allows you to clean specific information from your unit."
+    poll     0
+    
+keyValue
+    value    String sys 0x00000000 0
+    label    "Note: there is no undelete."
+    poll     0
+
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/privacy_cleanhistory.sh"
+   label    "Clean software version update history"    
+
+script
+   value    sys 1 0x0100 "/scripts/archiveCorefiles.sh"
+   label    "Archive core dumps and logs"
+   
+script
+   value    sys 1 0x0100 "/scripts/deleteCorefiles.sh"
+   label    "Delete core dumps and logs"
+   
+script
+   value    sys 1 0x0100 "/scripts/deleteBrowserCache.sh"
+   label    "Delete browser cache"
+   
+script
+   value    sys 1 0x0100 "/scripts/Persistence_Delete.sh"
+   label    "Delete persistence"
+
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/privacy_shadow.sh"
+   label    "Replace shadow file with shadow.txt from the Advanced/Shadowfile/ folder on the SD-card"    
+   
+button
+    value    per 1304 52 "execute_factory_settings"
+    label    "Smartphone integration factory settings"
+   
+   
+button
+      value             per 9 6 "00"
+      label             "Reset Datasets to Factory Defaults (FFS)"
+      
+button
+      value             per 9 7 "00"
+      label             "Reset Adaptations to Factory Defaults (FFS)"
+      
+button
+      value             per 9 8 "00"
+      label             "Reset Identifications to Factory Defaults (FFS)"
+
+####################################################################   
+screen  Display Customization
+
+script
+   value    sys 1 0x0100 "/scripts/activateDisplayManagerSplitscreen.sh"
+   label    "Splitscreen mode on (makes the screen pretty hard to read! "
+
+
+script
+   value    sys 1 0x0100 "/scripts/deactivateDisplayManagerSplitscreen.sh"
+   label    "Splitscreen mode off "
+     
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/info_displaymanager.sh"
+   label    "Show displaymanager info"
+
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/set_VIM.sh"
+   label    "Force set Video in Motion" 
+
+script
+   value    sys 1 0x0100 "/scripts/performePersReset.sh"
+   label    "Reboot unit"
+
+####################################################################   
+screen   GreenMenu Customization
+####################################################################
+keyValue
+    value    String sys 0x00000000 0
+    label    "Instructions: Put new .esd files into the GreenMenu folder on your SD-card."
+    poll     0    
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "If you added any new scripts in your custom green menu screen,"
+    poll     0    
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "make sure you install them with the Get new scripts and files function."
+    poll     0   
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "In your ESD-files, point to scripts at /eso/bin/PhoneCustomer/default/"
+    poll     0   
+       
+keyValue
+    value    String sys 0x00000000 0
+    label    ""
+    poll     0   
+        
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/install_esd.sh"
+   label    "Install green-menu screen files"   
+   
+#################################################################### 
+screen Navigation Customization
+####################################################################
+
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/import_mapstyles.sh"
+   label    "Install mapstyles from SD (will copy all files from /navigation/app/resources/)"   
+
+choice
+	value per 0x01c500e6 17
+	label "cluster_frames_debug"
+	poll 0
+    
+choice
+	value per 0x01c500e6 20
+	label "set_calibration_to_car_default"
+	poll 0
+    
+choice
+	value per 0x01c500e6 57
+	label "show frame rate"
+	poll 0
+    
+choice
+	value per 0x01c500e6 58
+	label "crosshair movement usage"
+	poll 0
+     
+	
+choice
+	value per 0x01c500e6 271
+	label "RESET NAVIGATION"
+	poll 0
+
+choice
+	value per 0x01c500e6 300
+	label "acoustic speed warning"
+	poll 0
+    
+choice
+	value per 0x01c500e6 310
+	label "traffic patterns"
+	poll 0
+	
+choice
+	value per 0x01c500e6 350
+	label "Use GPS time as fallback"
+	poll 0
+	
+choice
+	value per 0x01c500e6 360
+	label "additional map cursor"
+	poll 0
+    
+
+####################################################################   
+screen  Skin Customization 
+####################################################################
+keyValue
+    value    String sys 0x00000000 0
+    label    "This screen can be used to replace skin-graphics of the MIB."
+    poll     0  
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "Skin images.mcf-files and ambienceColorMap.res go into the Skinfiles folder on SD-card in slot 1"
+    poll     0  
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "Reboot after installing a new skin or ambienceColorMap."
+    poll     0      
+    
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/install_skin0.sh"
+   label    "Install new graphics for Skin0 from /Skinfiles/Skin0/ on SD"
+
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/install_skin1.sh"
+   label    "Install new graphics for Skin1 from /Skinfiles/Skin1/ on SD"
+   
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/install_skin1_ambient.sh"
+   label    "Install new ambient colors for Skin1 from /Skinfiles/Skin1/ on SD"
+
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/install_skin2.sh"
+   label    "Install new graphics for Skin2 from /Skinfiles/Skin2/ on SD"
+   
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/install_skin2_ambient.sh"
+   label    "Install new ambient colors for Skin2 from /Skinfiles/Skin2/ on SD"
+
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/install_skin3.sh"
+   label    "Install new graphics for Skin3 from /Skinfiles/Skin3/ on SD"
+   
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/install_skin3_ambient.sh"
+   label    "Install new ambient colors for Skin3 from /Skinfiles/Skin3/ on SD"
+
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/install_skin4.sh"
+   label    "Install new graphics for Skin4 from /Skinfiles/Skin4/ on SD"
+   
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/install_skin4_ambient.sh"
+   label    "Install new ambient colors for Skin4 from /Skinfiles/Skin4/ on SD"
+
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/install_skin5.sh"
+   label    "Install new graphics for Skin5 from /Skinfiles/Skin5/ on SD"   
+
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/install_skin5_ambient.sh"
+   label    "Install new ambient colors for Skin5 from /Skinfiles/Skin5/ on SD"
+
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/install_skin6.sh"
+   label    "Install new graphics for Skin5 from /Skinfiles/Skin5/ on SD"   
+
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/install_skin6_ambient.sh"
+   label    "Install new ambient colors for Skin5 from /Skinfiles/Skin5/ on SD"
+     
+
+ 
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/recovery_skins.sh"
+   label    "Recovery script to recover all skins and ambienceColorMaps from backup"   
+   
+script
+	value sys 1 0x0100 "/scripts/performePersReset.sh"
+	label "Reboot"
+	
+####################################################################   
+screen  Sounds Customization 
+####################################################################
+keyValue
+    value    String sys 0x00000000 0
+    label    "This screen can be used to replace ringtones and sounds of the MIB."
+    poll     0  
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "Wav-files go into the Ringtones-folder on SD-card in slot 1"
+    poll     0  
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "Reboot after installing new files."
+    poll     0      
+
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/install_ringtones.sh"
+   label    "Install new ringtones from /Ringtones/ on SD"
+   
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/install_systemsounds.sh"
+   label    "Install new system sounds from /Systemsounds/ on SD"
+####################################################################
+screen  Startup Customization 
+####################################################################
+keyValue
+    value    String sys 0x00000000 0
+    label    "This screen can be used to replace startup-graphics of the MIB."
+    poll     0  
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "Startup-screen canim-files go into the Splashscreen folder on SD-card in slot 1"
+    poll     0    
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "Use the filenames of the dump as a guideline. If you don't use the right filename, it will fail."
+    poll     0    
+    
+keyValue
+    value    String sys 0x00000000 0
+    label    "After installing a new startup screen, change coding of module 5F, byte 18."
+    poll     0
+    
+keyValue
+    value    String sys 0x00000000 0
+    label    "Set the value to a different screening, reboot, and set it back to the original value."
+    poll     0    
+    
+keyValue
+    value    String sys 0x00000000 0
+    label    "This will force the system to re-read the startup-screen files."
+    poll     0   
+    
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/install_canim.sh"
+   label    "Install startup screens (also makes a backup)"
+   
+keyValue
+    value    String sys 0x00000000 0
+    label    ""
+    poll     0  
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "Use the following if you don't have the tools to change coding"
+    poll     0  
+    
+keyValue
+    value    String sys 0x00000000 0
+    label    "Put your custom splash.canim in the Splashscreen folder on SD-card"
+    poll     0  
+
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/install_forcedcanim.sh"
+   label    "Force replacing of start menu. No coding needed."  
+
+####################################################################   
+screen  Updates Customization
+    
+choice
+        value           per 30 1966081
+        label           "User Defined / Custom SWDL"
+        
+choice
+        value           per 30 1966082
+        label           "Ignore Region and Variant"
+
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/set_skipMostPopup.sh"
+   label    "Set flag to skip the MOST popup error during SWDL."
+
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/unset_skipMostPopup.sh"
+   label    "Remove skipMostPopup flag"
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "DON'T TRIGGER EMERGENCY UNLESS YOU'RE 100% SURE"
+    poll     0
+
+button
+      value             per 30 1966085 ""
+      label             "Trigger Emergency Update"
+
+
+####################################################################
+screen  Various Customization 
+####################################################################
+keyValue
+    value    String sys 0x00000000 0
+    label    "Various tweaks:"
+    poll     0  
+
+
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/import_gracenote.sh"
+   label    "Import new Gracenote database" 
+    
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/patch_googleearth.sh"
+   label    "Activate 3D terrain/buildings in Carnet Google Earth"  
+   
+   
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/patch_menumode.sh"
+   label    "Activate User-switchable MenuMode"
+   
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/install_rsdb.sh"
+   label    "Install new Radio Station DB"
+
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/set_nosslcheck.sh"
+   label    "Disable Online service SSL checks"
+
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/unset_nosslcheck.sh"
+   label    "Re-enable online service SSL checks"
+   
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/set_DataOverDLink.sh"
+   label    "Data over D-link"
+   
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/set_DataOverSIM.sh"
+   label    "Data over SIM"
+
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/util_showOnlineRouterStatus.sh"
+   label    "Check online data status"
+   
 #############################################
 screen WLAN adaptations
 
@@ -4375,35 +4428,7 @@ table
     orientation     horizontal
     columns ( "MAC" String 210 ) ( "IPAddr" String 180 ) ( "Name" String 300 )
 
-
-####################################################################   
-screen  Updates Customization
-    
-choice
-        value           per 30 1966081
-        label           "User Defined / Custom SWDL"
-        
-choice
-        value           per 30 1966082
-        label           "Ignore Region and Variant"
-
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/skipMostPopup.sh"
-   label    "Set flag to skip the MOST popup error during SWDL."
-
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/removeskipMostPopup.sh"
-   label    "Remove skipMostPopup flag"
-
-keyValue
-    value    String sys 0x00000000 0
-    label    "DON'T TRIGGER EMERGENCY UNLESS YOU'RE 100% SURE"
-    poll     0
-
-button
-      value             per 30 1966085 ""
-      label             "Trigger Emergency Update"
-
+ 
 ####################################################################   
 screen  "MIB_Information"  MQBCoding
 
@@ -4611,6 +4636,46 @@ keyValue
     
 ####################################################################
 screen  History MQBCoding
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "v3.5A - Improved VIM and coding"
+    poll     0
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "v3.4A - Display manager stuff"
+    poll     0
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "v3.3A - Testing VIM settings"
+    poll     0
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "v3.2A - Major Script overhaul"
+    poll     0
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "v3.1A - Undo MIB1 merge"
+    poll     0
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "v3.0A - Mapstyles and Gracenote dump and import"
+    poll     0
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "v2.9A - Test improvement copy_files script"
+    poll     0
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "v2.8A - Test merge with MIB1 toolbox"
+    poll     0
 
 keyValue
     value    String sys 0x00000000 0

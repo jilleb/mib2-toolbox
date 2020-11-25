@@ -1,61 +1,31 @@
 #!/bin/sh
-TOPIC=Systemsounds
+export TOPIC=Systemsounds
+export MIBPATH=/net/rcc/mnt/efs-system/opt/audio/tones/*.*
+export SDPATH=/$TOPIC/
+export DESCRIPTION="This script will install Systemsounds"
+export TYPE="file"
 
-#info
-DESCRIPTION="This script will install Systemsounds"
-
-#Firmware/unit info:
-VERSION="$(cat /net/rcc/dev/shmem/version.txt | grep "Current train" | sed 's/Current train = //g' | sed -e 's|["'\'']||g' | sed 's/\r//')"
-FAZIT=$(cat /tmp/fazit-id);
-
-echo "---------------------------"
 echo $DESCRIPTION
-echo FAZIT of this unit: $FAZIT
-echo Firmware version: $VERSION
-echo "---------------------------"
-echo ""
-sleep .5
 
-#Is there any SD-card inserted?
-if [ -d /net/mmx/fs/sda0 ]; then
-    echo SDA0 found
-    VOLUME=/net/mmx/fs/sda0
-elif [ -d /net/mmx/fs/sdb0 ] ; then
-    echo SDB0 found
-    VOLUME=/net/mmx/fs/sdb0
-else 
-    echo No SD-cards found.
-    exit 0
+
+. /eso/bin/PhoneCustomer/default/util_info.sh
+
+#include script to mount the sd-card and set variable $VOLUME as the SD-location
+. /eso/bin/PhoneCustomer/default/util_mountsd.sh
+if [[ -z "$VOLUME" ]] 
+then
+	echo "No SD-card found, quitting"
+	exit 0
 fi
 
-sleep .5
+#include script to make backup
+. /eso/bin/PhoneCustomer/default/util_backup.sh
 
-echo Mounting SD-card.
-mount -uw $VOLUME
 
-sleep .5
+# include script tocopy file(s)
+# remount everything as read-only again
+. /eso/bin/PhoneCustomer/default/util_copy.sh
 
-#Make backup folder
-BACKUPFOLDER=$VOLUME/Backup/$VERSION/$FAZIT/$TOPIC/
 
-# Make app volume writable
-echo Mounting app folder.
-mount -uw /mnt/app
-
-echo Making backup folders on SD-card.
-mkdir -p $BACKUPFOLDER
-
-echo Copying file to backup folder on SD-card.
-cp /net/rcc/mnt/efs-system/opt/audio/tones/*.* $BACKUPFOLDER
-
-echo Copying modified files from SD folder to MIB.
-cp /$VOLUME/$TOPIC/*.* /net/rcc/mnt/efs-system/opt/audio/tones/
-# Make readonly again
-mount -ur /mnt/app
-mount -ur $VOLUME
-
-echo Done. 
-echo "Please restart the unit to apply the new audio"
-echo "Backups are placed at $BACKUPFOLDER"
-
+echo "Done. Now restart the unit."
 exit 0
