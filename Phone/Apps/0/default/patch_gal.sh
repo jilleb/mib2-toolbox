@@ -17,7 +17,7 @@ echo $DESCRIPTION
 export BACKUPFOLDER=$VOLUME/Backup/$VERSION/$FAZIT/$TOPIC/
 
 #include script to make backup
-. /eso/bin/PhoneCustomer/default/	.sh
+. /eso/bin/PhoneCustomer/default/util_backup.sh
 
 sleep .5
 
@@ -26,12 +26,6 @@ mount -uw $VOLUME
 
 sleep .5
 
-#Make backup folder
-export BACKUPFOLDER=$VOLUME/Backup/$VERSION/$FAZIT/$TOPIC
-
-#include script to make backup
-. /eso/bin/PhoneCustomer/default/util_backup.sh
- 
 #Only start patching when a backup is there
 if [ -d $BACKUPFOLDER ]; then
     echo Backup copied to $BACKUP
