@@ -4,16 +4,20 @@ export TOPIC=AndroidAuto
 export DESCRIPTION="This script will backup and patch AA config files."
 export MIBPATH=/etc/eso/production/gal.json
 export SDPATH=/$TOPIC/gal.json
+export ORIGINAL=/etc/eso/production/
+export FILENAME=gal.json
+export SDPATH=/$TOPIC/gal.json
 
 
 echo $DESCRIPTION
 
 . /eso/bin/PhoneCustomer/default/util_info.sh
+. /eso/bin/PhoneCustomer/default/util_mountsd.sh
 
 export BACKUPFOLDER=$VOLUME/Backup/$VERSION/$FAZIT/$TOPIC/
 
 #include script to make backup
-. /eso/bin/PhoneCustomer/default/util_backup.sh
+. /eso/bin/PhoneCustomer/default/	.sh
 
 sleep .5
 
@@ -23,7 +27,7 @@ mount -uw $VOLUME
 sleep .5
 
 #Make backup folder
-BACKUPFOLDER=$VOLUME/Backup/$VERSION/$FAZIT/$TOPIC
+export BACKUPFOLDER=$VOLUME/Backup/$VERSION/$FAZIT/$TOPIC
 
 #include script to make backup
 . /eso/bin/PhoneCustomer/default/util_backup.sh
