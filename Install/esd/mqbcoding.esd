@@ -71,6 +71,14 @@ script
    value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/dump_persistence.sh"
    label    "Dump persistence"
 
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/dump_online.sh"
+   label    "Dump online"
+   
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/dump_bundles.sh"
+   label    "Dump bundles"
+
 ####################################################################
 screen  Customization MQBCoding 
 ####################################################################
@@ -3004,27 +3012,31 @@ keyValue
     
 script
    value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/copy_fec.sh"
-   label    "Import FecContainer.fec from sda0/Advanced/FEC"
+   label    "Import FecContainer.fec from sda0/Custom/FEC"
    
 script
    value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/copy_gem.sh"
-   label    "Import GEM.jar from sda0/Advanced/GEM"
+   label    "Import GEM.jar from sda0/Custom/GEM"
    
 script
    value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/install_lsdjxe.sh"
-   label    "Import LSD.jxe"
+   label    "Import LSD.jxe from sda0/Custom/LSD"
    
 script
    value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/privacy_shadow.sh"
-   label    "Import shadow file"
+   label    "Import shadow file from sda0/Custom/Shadowfile"
    
 script
    value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/import_hosts.sh"
-   label    "Import hosts file"
+   label    "Import hosts file from sda0/Custom/Hosts"
   
 script
    value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/flash_ifs.sh"
-   label    "Flash ifsroot.ifs from sda0/Advanced/IFS"
+   label    "Flash ifsroot.ifs from sda0/Custom/IFS"
+
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/install_online.sh"
+   label    "Import online files from sda0/Custom/Online"
    
 ####################################################################
 screen  AndroidAuto Customization
@@ -4048,7 +4060,7 @@ keyValue
         
 script
    value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/install_esd.sh"
-   label    "Install green-menu screen files"   
+   label    "Install green-menu screen files from sda0/Custom/GreenMenu"   
    
 #################################################################### 
 screen Navigation Customization
@@ -4628,6 +4640,11 @@ keyValue
     
 ####################################################################
 screen  History MQBCoding
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "v4.0A - Major rehaul in installation, bugfixing and dev stuff"
+    poll     0
 
 keyValue
     value    String sys 0x00000000 0

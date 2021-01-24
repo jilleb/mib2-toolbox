@@ -4,11 +4,11 @@
 mount -uw /mnt/app
 
 echo "Copying scripts from sda0"
-cp -r /fs/sda0/Phone/Apps/0/default /eso/bin/PhoneCustomer 
+cp -r /fs/sda0/Install/scripts /eso/bin/PhoneCustomer/default 
 chmod a+rwx /eso/bin/PhoneCustomer/*
 
 echo "Copying payload to mqbcoding.esd"
-cp /fs/sda0/PersonalPOI/PayLoad/0/default/payload.sh /eso/hmi/engdefs/mqbcoding.esd
+cp /fs/sda0/Install/esd/mqbcoding.esd /eso/hmi/engdefs/mqbcoding.esd
 
 # Make readonly again
 mount -ur /mnt/app
