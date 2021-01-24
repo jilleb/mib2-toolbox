@@ -2,7 +2,7 @@
 #
 # Custom Green Engineering Menu screen
 # Author:       Jille
-# Version:      3.5A
+# Version:      4.0A
 # Disclaimer:   THIS SCREEN WILL VOID YOUR WARRANTY
 #
 ####################################################################
@@ -10,22 +10,14 @@ screen   MQBCoding Main
 
 keyValue
     value    String sys 0x00000000 0
-    label    "[MQB CODING - MIB Toolbox v3.5A]"
+    label    "[MQB CODING - MIB Toolbox v4.0A]"
     poll     0
     
 keyValue
     value    String sys 0x00000000 0
     label    "Warning: this screen has the potential to break your unit and void your warranty. Be careful."
     poll     0
-    
-keyValue
-    value    String sys 0x00000000 0
-    label    "IMPORTANT: Run this script first to install additional scripts:"
-    poll     0    
-    
-script
-   value    sys 1 0x0100 "/scripts/copy_phone_customer.sh"
-   label    "Get new scripts and files from SD-card (slot1) "
+
 script
    value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/update_toolbox.sh"
    label    "Update toolbox with a new mqbcoding.esd and scripts"

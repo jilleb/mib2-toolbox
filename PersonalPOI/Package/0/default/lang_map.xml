@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LanguageCodeToFileMappings>
-  <Mapping langCode="default" file="strings_de-DE.xml" />
-  <Mapping langCode="de-DE" file="strings_de-DE.xml" />
-</LanguageCodeToFileMappings>

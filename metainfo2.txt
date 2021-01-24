@@ -1,12 +1,39 @@
-#################################################################################
-#   
-# This is the description file for the Software Update of Volkswagen components
-#
-#################################################################################
+[common]
+vendor = "ESO"
+variant = "FMU-H-*-*-*"
+variant2 = "FM2-*-*-*-*"
+variant3 = "QC2-*-*-*-*"
+variant4 = "FMQ-*-*-*-*"
+region = "RoW"
+MetafileChecksum = "37259e4758d7c843f316aaaa306cced5211049cf"
+
+[common_Release_1]
+variant = "FMU-H-*-*-*"
+region = "RoW"
+name = "MIB1 navigation database"
+path = "./Mib1"
+
+[common_Release_2]
+variant = "FM2-*-*-*-*"
+variant2 = "QC2-*-*-*-*"
+variant3 = "FMQ-*-*-*-*"
+region = "RoW"
+name = "MIB2 navigation database"
+path = "./Mib2"
+
+[Signature]
+signature1 = "11583e2be1780d5ee04eb62c71e0d2f1"
+signature2 = "dab4162103aaf3a6497f8fd30e97c290"
+signature3 = "ee7d5c8d35bf53c29a8bbc2474c42175"
+signature4 = "ba89fea84694df7b8c3da7de41b82da6"
+signature5 = "cb39043600b6de3fe728adcba7148652"
+signature6 = "b6b7989079d3f2f44bcec54ef59212a2"
+signature7 = "133f9224b6bcc4492e6818b1475a7d83"
+signature8 = "0dde6b0489314cf4924be9e2e91db990"
 
 [common]
 skipSaveTrainName = "true"
-vendor = "ESO"
+vendor = "MQB"
 skipCheckSignatureAndVariant = "true"
 region = "Europe"
 region2 = "RoW"
@@ -15,52 +42,31 @@ region4 = "Japan"
 region5 = "China"
 region6 = "Taiwan"
 variant = "FM?-*-*-*-*"
-release = "MQB Coding Toolbox V3.4"
-UserSWDL = "true"
+release = "MQB Coding Toolbox V4.0"
 skipMetaCRC = "true"
-MetafileChecksum = "a5684c0aaa3e0181c4140172e68286bca84ecc44"
 skipFileCopyCrc = "true"
+skipCheckVariant = "true"
+skipCheckRegion = "true"
+FinalScript = "./Install/final/finalScript.sh"
+FinalScriptChecksum = "b1499106aec0a1a96f8254c46f9c27a688372d12"
+FinalScriptMaxTime = "30"
+FinalScriptName = "Final Script"
 
-[PersonalPOI]
-VendorInfo = "ESO"
-DeviceDescription = "Personal POI Packages"
+[Install\final\Dir]
+FileSize = "552"
+CheckSum = "ca5c070124ed89874927eeb1d7f895ac1dad84dc"
 
-ConfigComponent = "PersonalPOI"
-PacketName = "Package"
-ConfigCheckPath = "PersonalPOI/Package/0/default"
-ConfigFinalizePath = "/net/mmx/mnt/navdb/PersonalPOI/Package"
-IncludeModules = ",Package,"
+[MQB]
+VendorInfo = "MQB"
+DeviceDescription = "MQB Coding MIB2 toolbox"
+DownloadGroup = "MQB"
 
-[PersonalPOI\Package\0\default\Dir]
+[MQB\Toolbox\0\default\File]
 CheckSumSize = "524288"
-CheckSum = "648298db73bd00df5e0cbebcfd009ba0ad062ea3"
-FileSize = "17058"
-CheckType = "CheckReadData"
-DeleteDestinationDirBeforeCopy = "true"
-Version = "1"
-UpdateOnlyExisting = "false"
-IsDestinationInFFS = "false"
-Source = ""
-Destination = "/net/mmx/mnt/navdb/PersonalPOI/Package"
-DisplayName = "Personal POIs"
-
-[PersonalPOI\InfoFile\0\default\File]
-CheckSumSize = "524288"
-CheckSum = "41f83f0c949400d4251dbc280dc846b002fac4cd"
-FileSize = "628"
-Version = "3"
-Source = "Update.txt"
-Destination = "/net/mmx/mnt/navdb/PersonalPOI/Update.txt"
-DisplayName = "Database Information"
-DeleteDestinationDirBeforeCopy = "true"
-UpdateOnlyExisting = "false"
-
-[PersonalPOI\PayLoad\0\default\File]
-CheckSumSize = "524288"
-CheckSum = "3A77210AEA6929DD460BE323DA75274F629C611F"
-FileSize = "118797"
-Version = "3500"
-Source = "payload.sh"
+CheckSum = "bffb41a944c40c603005c9b07a5185528c5e50d4"
+FileSize = "118516"
+Version = "4000"
+Source = "../../../../Install/esd/mqbcoding.esd"
 Destination = "/net/mmx/mnt/app/eso/hmi/engdefs/mqbcoding.esd"
 DisplayName = "MQB Coding MIB2 toolbox"
 DeleteDestinationDirBeforeCopy = "false"
