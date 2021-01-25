@@ -58,7 +58,7 @@ CheckSum = "ca5c070124ed89874927eeb1d7f895ac1dad84dc"
 
 [MQB]
 VendorInfo = "MQB"
-DeviceDescription = "MQB Coding MIB2 toolbox"
+DeviceDescription = "MQB Coding MIB2 Toolbox"
 DownloadGroup = "MQB"
 
 [MQB\Toolbox\0\default\File]
@@ -68,6 +68,6 @@ FileSize = "123922"
 Version = "4000"
 Source = "../../../../Install/esd/mqbcoding.esd"
 Destination = "/net/mmx/mnt/app/eso/hmi/engdefs/mqbcoding.esd"
-DisplayName = "MQB Coding MIB2 toolbox"
+DisplayName = "MQB Coding MIB2 Toolbox"
 DeleteDestinationDirBeforeCopy = "false"
 UpdateOnlyExisting = "false"
