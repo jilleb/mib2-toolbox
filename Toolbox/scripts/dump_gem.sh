@@ -1,12 +1,11 @@
 #!/bin/sh
 
 #info
-TOPIC=Persistence
-DESCRIPTION="This script will dump the persistence database"
+TOPIC=GEM
+DESCRIPTION="This script will dump GEM.jar"
 
 #Volumes/files
-VOLUME=/fs/sda0
-ORIGINAL=/var/fw/persistence.sqlite
+ORIGINAL=/eso/hmi/lsd/jars/GEM.jar
 
 echo $DESCRIPTION
 
@@ -20,6 +19,11 @@ then
 	exit 0
 fi
 
+#Make app volume writable
+echo Mounting app folder.
+mount -uw /mnt/app
+mount -uw /mnt/system
+
 
 #Make backup folder
 DUMPFOLDER=$VOLUME/Dump/$VERSION/$FAZIT/$TOPIC
@@ -32,13 +36,13 @@ mkdir -p $DUMPFOLDER
 
 
 echo Copying files
-cp -R $ORIGINAL $DUMPFOLDER
+cp $ORIGINAL $DUMPFOLDER
 
 sleep 1
 
 # Make readonly again
 mount -ur $VOLUME
 
-echo "Done. Persistence.sqlite dump can be found in the Dump folder on your SD-card"
+echo "Done. GEM dump can be found in the Dump folder on your SD-card"
 
 exit 0

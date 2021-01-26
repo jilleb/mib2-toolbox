@@ -1,11 +1,11 @@
 #!/bin/sh
 
 #info
-TOPIC=FEC
-DESCRIPTION="This script will dump the FEC folder"
+TOPIC=Persistence
+DESCRIPTION="This script will dump the persistence database"
 
 #Volumes/files
-ORIGINAL=/net/rcc/mnt/efs-persist/FEC
+ORIGINAL=/var/fw/persistence.sqlite
 
 echo $DESCRIPTION
 
@@ -18,11 +18,6 @@ then
 	echo "No SD-card found, quitting"
 	exit 0
 fi
-
-#Make app volume writable
-echo Mounting app folder.
-mount -uw /mnt/app
-mount -uw /mnt/system
 
 
 #Make backup folder
@@ -37,20 +32,12 @@ mkdir -p $DUMPFOLDER
 
 echo Copying files
 cp -R $ORIGINAL $DUMPFOLDER
-ls -R $DUMPFOLDER > $DUMPFOLDER/files.txt
 
 sleep 1
 
-echo Listing all files:
-sleep .5
-
-cat $DUMPFOLDER/files.txt
-
-rm $DUMPFOLDER/files.txt
-
 # Make readonly again
-mount -ur /net/mmx/fs/sda0
+mount -ur $VOLUME
 
-echo "Done. FEC dump can be found in the Dump folder on your SD-card"
+echo "Done. Persistence.sqlite dump can be found in the Dump folder on your SD-card"
 
 exit 0

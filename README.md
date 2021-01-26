@@ -22,13 +22,15 @@ Note3: If you're a business who tries to make a profit off of this:  Don't be an
 - Picture editing software, if you want to customize graphics files
 
 # How to install
+- Download all files from the repo. This can be either as a git clone or "Download zip" from github then extract the zip.
 - Put all files and folders on an empty SD-card, preferable >1GB.
 - Put the SD-card in one of the slots of your MIB2-unit. 
 - Make sure there's only 1 SD-card in your unit, otherwise the scripts don't know where to look.
-- Hold the MENU button on your MIB2 and start the software update menu.
+- Hold the MENU button on your MIB2 until the service scrern appears.
+- Select the "Software updates/versions" menu, then hit the "Update" button in top right corner.
 - Select the SD-card and select MQB Coding MIB2 Toolbox.
-- Let the unit run the entire software update. It will reboot several times
-- When it's done, it will ask you to connect a computer and clear the error codes. This is not needed.
+- Let the unit run the entire software update. It will reboot several times before showing a screen listing a lot of modules as N/A. The Toolbox line should be Y. You can then hit the back button in the top right corner. 
+- When it's done, it will ask you to connect a computer and clear the error codes. This is not needed, you can hit the "Cancel" button..
 - The unit will restart one final time and you're back at the main car menu. Installation is now done.
 - Hold the MENU button, and go to TESTMODE. On older versions you can go to the developer menu by holding the MENU button for about 10 seconds.
 - Go to the Green Developer Menu
@@ -37,24 +39,23 @@ Note3: If you're a business who tries to make a profit off of this:  Don't be an
 
 ![The MQB Coding toolbox menu](https://i.imgur.com/mLHXCmT.png)
 
-- Run the "Get new scripts and files from SD-card (slot1)" script, and additional files will be installed.
 - You're now done.
 - Enjoy!
 
 # How to do a manual installation
-- Put the mib2-toolbox on an SD-card and insert it into the MIB-unit
-- Make a connection to the debug console of the unit (either via D-Link Dub-E100 on the USB port, or serial interface on the back of the unit)
+- Put the mib2-toolbox on an SD-card and insert it into the MIB-unit SD1 slot.
+- Make a connection to the debug console of the unit (either via D-Link Dub-E100 or ASIX AX88179 on the USB port, or serial interface on the back of the unit)
 - Log in
-- make the mmx app volume writable: mount -uw /net/mmx/mnt/app/
-- copy mqbcoding.esd to /net/mmx/mnt/app/eso/hmi/engdefs/mqbcoding.esd:
-
-
-```cp /net/mmx/fs/sda0/PersonalPOI/PayLoad/0/default/payload.sh /net/mmx/mnt/app/eso/hmi/engdefs/mqbcoding.esd```
+- make the mmx app volume writable:  
+  * `mount -uw /net/mmx/mnt/app/`
+- install mqbcoding.esd:  
+  * `cp /net/mmx/fs/sda0/Toolbox/GEM/mqbcoding.esd /net/mmx/mnt/app/eso/hmi/engdefs/mqbcoding.esd`
+- install scripts:  
+  * `sh /net/mmx/fs/sda0/Toolbox/final/finalScript.sh`
 
 - Hold the MENU button, and go to TESTMODE. On older versions you can go to the developer menu by holding the MENU button for about 10 seconds.
 - Go to the Green Developer Menu
 - There will be an additional menu called "mqbcoding". When you see this, the installation was succesful.
-- Run the "Get new scripts and files from SD-card (slot1)" script, and additional files will be installed.
 - You're now done.
 - Enjoy!
 

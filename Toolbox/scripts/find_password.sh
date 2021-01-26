@@ -16,10 +16,10 @@ fi
 
 echo "Looking for passwords.csv on SD-card"
 sleep .5
-if [ ! -f /$VOLUME/passwords.csv ]
+if [ ! -f $VOLUME/Custom/passwords.csv ]
 then
 
-    echo "Passwords.csv not found."
+    echo "Custom/Passwords.csv not found."
     echo "Can't look for passwords if this file is not available."
     exit 0
 fi
@@ -33,7 +33,7 @@ mkdir -p $DUMPFOLDER
 
 
 HASH=`awk -F ':' '{ if ($1 == "root") { print $2 } }' /net/mmx/mnt/system/etc/shadow`
-PASSWORD=`awk -v hashvar="$HASH" -F',' '{ if ($1 == hashvar) { print $2 } }' /net/mmx/fs/sda0/Custom/passwords.csv`
+PASSWORD=`awk -v hashvar="$HASH" -F',' '{ if ($1 == hashvar) { print $2 } }' $VOLUME/Custom/passwords.csv`
 
 sleep .5
 
@@ -47,7 +47,7 @@ fi
 sleep .5
 
 HASHRCC=`awk -F ':' '{ if ($1 == "root") { print $2 } }' /net/rcc/etc/shadow_rcc`
-PASSWORDRCC=`awk -v hashvar2="$HASHRCC" -F ',' '{ if ($1 == hashvar2) { print $2 } }' /net/mmx/fs/sda0/Custom/passwords.csv`
+PASSWORDRCC=`awk -v hashvar2="$HASHRCC" -F ',' '{ if ($1 == hashvar2) { print $2 } }' $VOLUME/Custom/passwords.csv`
 
 
 if [ "$PASSWORD" == "" ];then

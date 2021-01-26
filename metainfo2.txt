@@ -33,7 +33,7 @@ signature8 = "0dde6b0489314cf4924be9e2e91db990"
 
 [common]
 skipSaveTrainName = "true"
-vendor = "MQB"
+vendor = "MQB.Coding"
 skipCheckSignatureAndVariant = "true"
 region = "Europe"
 region2 = "RoW"
@@ -47,26 +47,26 @@ skipMetaCRC = "true"
 skipFileCopyCrc = "true"
 skipCheckVariant = "true"
 skipCheckRegion = "true"
-FinalScript = "./Install/final/finalScript.sh"
-FinalScriptChecksum = "b1499106aec0a1a96f8254c46f9c27a688372d12"
+FinalScript = "./Toolbox/final/finalScript.sh"
+FinalScriptChecksum = "984183472c8c6b6f6407a92ec4c65b44a9134434"
 FinalScriptMaxTime = "30"
 FinalScriptName = "Final Script"
 
-[Install\final\Dir]
-FileSize = "552"
-CheckSum = "ca5c070124ed89874927eeb1d7f895ac1dad84dc"
+[Toolbox\final\Dir]
+FileSize = "875"
+CheckSum = "50f82e2f0c256ca37761736427b19c5dd6453a84"
 
-[MQB]
-VendorInfo = "MQB"
+[Toolbox]
+VendorInfo = "MQB.Coding"
 DeviceDescription = "MQB Coding MIB2 Toolbox"
-DownloadGroup = "MQB"
+DownloadGroup = "Toolbox"
 
-[MQB\Toolbox\0\default\File]
+[Toolbox\GEM\0\default\File]
 CheckSumSize = "524288"
 CheckSum = "d651204fb51a60c5e3a7c2d18b133722ee98a00b"
 FileSize = "123922"
 Version = "4000"
-Source = "../../../../Install/esd/mqbcoding.esd"
+Source = "../../mqbcoding.esd"
 Destination = "/net/mmx/mnt/app/eso/hmi/engdefs/mqbcoding.esd"
 DisplayName = "MQB Coding MIB2 Toolbox"
 DeleteDestinationDirBeforeCopy = "false"
