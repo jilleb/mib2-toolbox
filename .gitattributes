@@ -1,0 +1,5 @@
+# Declare files that will always have LF line endings on checkout.
+/metainfo2.txt text eol=crlf
+/Toolbox/GEM/mqbcoding.esd text eol=crlf
+*/hashes.txt text eol=lf
+*.sh text eol=lf
