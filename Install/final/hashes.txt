@@ -1,4 +1,0 @@
-FileName = "finalScript.sh"
-FileSize = "452"
-CheckSum = "b1499106aec0a1a96f8254c46f9c27a688372d12"
-

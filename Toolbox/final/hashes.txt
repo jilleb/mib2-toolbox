@@ -1,0 +1,4 @@
+FileName = "finalScript.sh"
+FileSize = "775"
+CheckSum = "984183472c8c6b6f6407a92ec4c65b44a9134434"
+

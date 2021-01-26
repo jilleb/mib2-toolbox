@@ -55,7 +55,7 @@ if test -f "$VOLUME/$SDPATH"; then
     sleep 1
     echo "Flashing will now start." 
     on -f rcc flashunlock
-    on -f rcc flashmib -a 0x00540000 -d -f /net/mmx/fs/sda0/Custom/IFS/ifs-root.ifs
+    on -f rcc flashmib -a 0x00540000 -d -f $VOLUME/$SDPATH
     on -f rcc flashlock
     sleep 1
     echo "Done"

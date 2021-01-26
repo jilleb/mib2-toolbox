@@ -30,9 +30,9 @@ def file_hash(path):
 
 # Hashed Files
 metainfo = repo / 'metainfo2.txt'
-mqbcoding_esd = repo / 'Install' / 'esd' / 'mqbcoding.esd'
-finalscript = repo / 'Install' / 'final' / 'finalScript.sh'
-finalhash = repo / 'Install' / 'final' / 'hashes.txt'
+mqbcoding_esd = repo / 'Toolbox' / 'GEM' / 'mqbcoding.esd'
+finalscript = repo / 'Toolbox' / 'final' / 'finalScript.sh'
+finalhash = repo / 'Toolbox' / 'final' / 'hashes.txt'
 
 # Generate final hashes.txt
 final_dir_size = 0
@@ -88,12 +88,12 @@ if metainfo_contents_prev != metainfo_contents:
 
 curr_finalhash_hash = file_hash(finalhash)
 metainfo_contents = re.sub(
-    b'(\[Install.*Dir\](\n.*?)+CheckSum = )("\S+?")',
+    b'(\[Toolbox.*Dir\](\n.*?)+CheckSum = )("\S+?")',
     f'\\1"{curr_finalhash_hash}"'.encode(),
     metainfo_contents, re.MULTILINE
 )
 metainfo_contents = re.sub(
-    b'(\[Install.*Dir\](\n.*?)+FileSize = )("\S+?")',
+    b'(\[Toolbox.*Dir\](\n.*?)+FileSize = )("\S+?")',
     f'\\1"{final_dir_size}"'.encode(),
     metainfo_contents, re.MULTILINE
 )

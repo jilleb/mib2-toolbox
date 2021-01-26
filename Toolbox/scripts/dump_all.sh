@@ -38,8 +38,6 @@ mkdir -p $DUMPPATH
 
 echo Dumping, please wait. This can take a while.
 
-mount -uw /net/mmx/fs/sda0
-
 mkdir -p $DUMPPATH/Skinfiles
 echo Dumping skin files
 cp -R /eso/hmi/lsd/Resources $DUMPPATH/Skinfiles/

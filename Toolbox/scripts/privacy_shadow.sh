@@ -5,7 +5,6 @@ TOPIC=Shadowfile
 DESCRIPTION="This script will replace the shadow file with the shadow file in Custom/Shadowfile/shadow.txt."
 
 #Volumes/files
-VOLUME=/fs/sda0
 FILENAME=shadow
 ORIGINAL=/net/mmx/mnt/system/etc/
 echo $DESCRIPTION

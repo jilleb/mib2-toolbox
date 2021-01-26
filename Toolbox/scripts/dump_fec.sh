@@ -1,11 +1,11 @@
 #!/bin/sh
 
 #info
-TOPIC=GEM
-DESCRIPTION="This script will dump GEM.jar"
+TOPIC=FEC
+DESCRIPTION="This script will dump the FEC folder"
 
 #Volumes/files
-ORIGINAL=/eso/hmi/lsd/jars/GEM.jar
+ORIGINAL=/net/rcc/mnt/efs-persist/FEC
 
 echo $DESCRIPTION
 
@@ -36,13 +36,21 @@ mkdir -p $DUMPFOLDER
 
 
 echo Copying files
-cp $ORIGINAL $DUMPFOLDER
+cp -R $ORIGINAL $DUMPFOLDER
+ls -R $DUMPFOLDER > $DUMPFOLDER/files.txt
 
 sleep 1
 
-# Make readonly again
-mount -ur /net/mmx/fs/sda0
+echo Listing all files:
+sleep .5
 
-echo "Done. GEM dump can be found in the Dump folder on your SD-card"
+cat $DUMPFOLDER/files.txt
+
+rm $DUMPFOLDER/files.txt
+
+# Make readonly again
+mount -ur $VOLUME
+
+echo "Done. FEC dump can be found in the Dump folder on your SD-card"
 
 exit 0
