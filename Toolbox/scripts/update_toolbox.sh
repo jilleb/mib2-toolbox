@@ -15,7 +15,7 @@ mkdir -p /eso/bin/PhoneCustomer/default
 cp -r $VOLUME/Toolbox/scripts/* /eso/bin/PhoneCustomer/default
 chmod a+rwx /eso/bin/PhoneCustomer/default
 
-echo "Copying payload to mqbcoding.esd"
+echo "Copying GreenEngineeringMenu from $VOLUME"
 cp $VOLUME/Toolbox/GEM/mqbcoding.esd /eso/hmi/engdefs/mqbcoding.esd
 
 # Make readonly again
