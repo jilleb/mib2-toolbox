@@ -1,12 +1,12 @@
 # MIB2 High toolbox
 The ultimate MIB2-HIGH toolbox for all your MIB2 High customization needs.
 
-Note: this screen has to potential to ruin your MIB2 HIGH unit. The developers are not responsible for any troubles to anyone or anything caused by this toolbox.
+Note: this screen has the potential to ruin your MIB2 HIGH unit. The developers are not responsible for any troubles to anyone or anything caused by this toolbox.
 It's never our intention to harm any person, car or brand. Use the tools wisely, don't be a douche.
 
 Note2: This is **not** a universal Jailbreak-like solution for all your needs and firmware versions.
 
-Note3: If you're a business who tries to make a profit off of this:  Don't be an asshole: Don't charge money for this. This project is done in my own time, out of love for the community. I've risked bricking my own hardware while testing, and invested a lot of time in the research. Instead of making money, why not support this project with your knowledge or a [small donation](https://paypal.me/chillout1). 
+Note3: If you're a business that tries to make a profit off of this:  Don't be an asshole, don't charge money for this. This project is done in our free time, out of love for the community. I've risked bricking my own hardware while testing, and invested a lot of time in the research. Instead of making money, why not support this project with your knowledge or a [small donation](https://paypal.me/chillout1) or become a [Patreon](https://patreon.com/jille). 
 
 # Requirements
 - Read the entire readme
@@ -18,15 +18,15 @@ Note3: If you're a business who tries to make a profit off of this:  Don't be an
 
 ## Optional requirements ##
 - Python 2.7, if you want to extract/compress graphics containers (canim/mcf)
-- Notepad, if you want to make your own green menu files or scripts
+- A text-editor, if you want to make your own green menu files or scripts
 - Picture editing software, if you want to customize graphics files
 
 # How to install
-- Download all files from the repo. This can be either as a git clone or "Download zip" from github then extract the zip.
+- Download all files from the repository. This can be either as a git clone or "Download zip" from github then extract the zip.
 - Put all files and folders on an empty SD-card, preferable >1GB.
 - Put the SD-card in one of the slots of your MIB2-unit. 
 - Make sure there's only 1 SD-card in your unit, otherwise the scripts don't know where to look.
-- Hold the MENU button on your MIB2 until the service scrern appears.
+- Hold the MENU button on your MIB2 until the service screen appears.
 - Select the "Software updates/versions" menu, then hit the "Update" button in top right corner.
 - Select the SD-card and select MQB Coding MIB2 Toolbox.
 - Let the unit run the entire software update. It will reboot several times before showing a screen listing a lot of modules as N/A. The Toolbox line should be Y. You can then hit the back button in the top right corner. 
@@ -106,21 +106,18 @@ Most screens have a description inside, or show information when running a scrip
 ## dump
 This screen lets you dump skin-files(images.mcf files), Android Auto configuration files (gal.json) and Startup screens (.canim files). Make sure an SD-card with enough space is inserted in one of the slots. Dumps will be placed in a folder specific for your unit (FAZIT) and firmware version.
 
-## androidauto
+## customization
+### androidauto
 This screen has 2 buttons:
 - Patch Android Auto to enable custom third party apps. No root is needed on your phone.
 - Recover the original gal.json file in case you didn't like the patch or something is not working right.
 
-## graphics
+### skin
 This screen lets you install new images.mcf for each of the 6 skin-folders, from the SkinFiles folder on your SD-card. Use the dump files as a guideline. Don't install any files that are meant for other firmwares because it **will** mess up your graphics and functionalities of your infotainment unit.
-This screen will also let you recover the skins from backup, and make you have 3D buildings/terrain in Google Earth (CarNet service). It will **not** enable Google Earth for you.
-![3D google maps](https://i.imgur.com/Jv5Tftm.png)
+This screen will also let you recover the skins from backup.
 
 ## greenmenu
 This screen will let you import new .esd files from the GreenMenu folder on your SD-card.
-
-## pro
-This is the pro section that can seriously brick your unit. It allows you to dump some advanced files, as well as flash/replace others. The coding-feature isn't really functional yet but it has the potential to replace OBD11/VCDS ;)
 
 # How to use the tools
 In the Tools folder you will find a couple of tools:
@@ -168,5 +165,5 @@ This toolbox probably doesn't work on all available firmware versions. IOC versi
 
 ## Support this project
 
-You're always welcome to support this project with your knowledge, ideas or a [small donation](https://paypal.me/chillout1) to my Paypal. 
+You're always welcome to support this project with your knowledge, ideas or a [small donation](https://paypal.me/chillout1) to my Paypal or [Patreon](https://patreon.com/jille). 
 
