@@ -1,4 +1,4 @@
 FileName = "finalScript.sh"
 FileSize = "1048"
-CheckSum = "716B89060DA6656C164C7B42E62C120CC80189AF"
+CheckSum = "716b89060da6656c164c7b42e62c120cc80189af"
 

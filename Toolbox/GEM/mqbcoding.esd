@@ -4614,6 +4614,11 @@ screen  History MQBCoding
 
 keyValue
     value    String sys 0x00000000 0
+    label    "v4.1A - Uninstall added"
+    poll     0
+
+keyValue
+    value    String sys 0x00000000 0
     label    "v4.0A - Major rehaul in installation, bugfixing and dev stuff"
     poll     0
 
