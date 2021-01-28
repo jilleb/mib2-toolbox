@@ -11,13 +11,13 @@ export SDPATH=/$TOPIC/gal.json
 
 echo $DESCRIPTION
 
-. /eso/bin/PhoneCustomer/default/util_info.sh
-. /eso/bin/PhoneCustomer/default/util_mountsd.sh
+. /eso/hmi/engdefs/scripts/mqb/util_info.sh
+. /eso/hmi/engdefs/scripts/mqb/util_mountsd.sh
 
 export BACKUPFOLDER=$VOLUME/Backup/$VERSION/$FAZIT/$TOPIC/
 
 #include script to make backup
-. /eso/bin/PhoneCustomer/default/util_backup.sh
+. /eso/hmi/engdefs/scripts/mqb/util_backup.sh
 
 sleep .5
 

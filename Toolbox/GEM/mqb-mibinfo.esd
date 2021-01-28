@@ -1,0 +1,90 @@
+###########################################################################################
+#
+# Custom Green Engineering Menu screen
+# Author:       Jille & Olli
+# Version:      4.1A
+# Disclaimer:   THIS SCREEN WILL VOID YOUR WARRANTY
+#
+###########################################################################################
+#
+# Main -> MQBCoding -> MIB Information
+#
+###########################################################################################
+screen  "MIB_Information"  MQBCoding
+
+keyValue
+    value	String sys 0x00000000 0
+    label   "Screen information:"
+    poll    0
+
+keyValue
+    value   String per 0x6 0x00060002
+    label   "ABT SW version number"
+
+keyValue
+    value   String per 0x6 0x00060003
+    label   "ABT HW version number"
+
+keyValue
+    value   String per 0x6 0x00060004
+    label   "ABT spare part number"
+
+keyValue
+    value   String sys 0x00000000 0
+    label   "Temperatures:"
+    poll    0
+    
+keyValue
+    value	int per 8765 3
+    label   "DVD temp"
+    poll    2000
+
+keyValue
+    value   int per 8765 4
+    label   "DVD min temp"
+    poll    2000
+  
+keyValue
+    value   int per 8765 5
+    label   "DVD max temp"
+    poll    2000
+  
+keyValue
+    value   int per 6789 3
+    label   "Tegra temp"
+    poll    2000
+
+keyValue
+    value   int per 6789 1
+    label   "Tegra min temp"
+    poll    2000
+
+keyValue
+    value   int per 6789 2
+    label   "Tegra max temp"
+    poll    2000
+ 
+keyValue
+    value   int per 0x01b800e1 22
+    label   "NAD temp"
+    poll    1000
+
+keyValue
+    value   int per 0x01b800e1 100
+    label   "NAD min temp"
+    poll    1000
+
+keyValue
+    value   int per 0x01b800e1 101
+    label   "NAD max temp"
+    poll    1000
+
+keyValue
+    value	String per 0x01c500e6 401
+	label	"Gyro temperature"
+	poll	1000 
+    
+keyValue
+    value	int per 0x4B9 102
+	label	"Nav sensor temperature"
+	poll	1000 

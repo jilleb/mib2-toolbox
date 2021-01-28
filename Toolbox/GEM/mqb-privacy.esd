@@ -1,0 +1,68 @@
+###########################################################################################
+#
+# Custom Green Engineering Menu screen
+# Author:       Jille & Olli
+# Version:      4.1A
+# Disclaimer:   THIS SCREEN WILL VOID YOUR WARRANTY
+#
+###########################################################################################
+#
+# Main -> MQBCoding -> Customization -> Privacy
+#
+###########################################################################################
+screen  Privacy  MQBCoding
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "This screen allows you to clean specific information from your unit."
+    poll     0
+    
+keyValue
+    value    String sys 0x00000000 0
+    label    "Note: there is no undelete."
+    poll     0
+	
+keyValue
+    value    String sys 0x00000000 0
+    label    ""
+    poll     0
+
+script
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/privacy_cleanhistory.sh"
+   label    "Clean software version update history"    
+
+script
+   value    sys 1 0x0100 "/scripts/archiveCorefiles.sh"
+   label    "Archive core dumps and logs"
+   
+script
+   value    sys 1 0x0100 "/scripts/deleteCorefiles.sh"
+   label    "Delete core dumps and logs"
+   
+script
+   value    sys 1 0x0100 "/scripts/deleteBrowserCache.sh"
+   label    "Delete browser cache"
+   
+script
+   value    sys 1 0x0100 "/scripts/Persistence_Delete.sh"
+   label    "Delete persistence"
+
+script
+   value	sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/privacy_shadow.sh"
+   label    "Replace shadow file with shadow.txt from the /Custom/Shadowfile/ folder on the SD-card"    
+   
+button
+    value   per 1304 52 "execute_factory_settings"
+    label   "Smartphone integration factory settings"   
+   
+button
+    value	per 9 6 "00"
+    label   "Reset Datasets to Factory Defaults (FFS)"
+
+button
+    value   per 9 7 "00"
+    label   "Reset Adaptations to Factory Defaults (FFS)"
+
+button
+    value   per 9 8 "00"
+    label   "Reset Identifications to Factory Defaults (FFS)"

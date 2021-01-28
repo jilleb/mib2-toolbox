@@ -7,7 +7,7 @@ DESCRIPTION="This script will remove all update logs from your SWDL menu"
 LOGPATH=/net/rcc/mnt/efs-persist/SWDL/Log/
 
 
-. /eso/bin/PhoneCustomer/default/util_info.sh
+. /eso/hmi/engdefs/scripts/mqb/util_info.sh
 
 #Make app volume writable
 echo Mounting app folder.

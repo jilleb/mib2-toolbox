@@ -1,0 +1,188 @@
+###########################################################################################
+#
+# Custom Green Engineering Menu screen
+# Author:       Jille & Olli
+# Version:      4.1A
+# Disclaimer:   THIS SCREEN WILL VOID YOUR WARRANTY
+#
+###########################################################################################
+#
+# Main -> MQBCoding -> History
+#
+###########################################################################################
+screen  History MQBCoding
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "v4.1A - New - factory like install paths, cleanups and uninstall added"
+    poll     0
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "v4.0A - Major rehaul in installation, bugfixing and dev stuff"
+    poll     0
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "v3.5A - Improved VIM and coding"
+    poll     0
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "v3.4A - Display manager stuff"
+    poll     0
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "v3.3A - Testing VIM settings"
+    poll     0
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "v3.2A - Major Script overhaul"
+    poll     0
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "v3.1A - Undo MIB1 merge"
+    poll     0
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "v3.0A - Mapstyles and Gracenote dump and import"
+    poll     0
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "v2.9A - Test improvement copy_files script"
+    poll     0
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "v2.8A - Test merge with MIB1 toolbox"
+    poll     0
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "v2.7B - Added Menu features and update script"
+    poll     0
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "v2.6B - Added Online services SSL disable feature"
+    poll     0
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "v2.5B - Revised menu structure"
+    poll     0
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "v2.4B - Added a lot of adaptation screens"
+    poll     0
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "v2.3B - Added more long coding and some experimental stuff"
+    poll     0
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "v2.2B - Added long coding modifications"
+    poll     0
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "v2.1B - Added persistence scanner."
+    poll     0
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "v2.0B - Dump/Import hosts file and minor fixes."
+    poll     0
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "v1.9B - Added storage.raw dump and ambient color maps dump/import."
+    poll     0
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "v1.8B - Added LSD.jxe and GEM.jar dump and import (pro features)"
+    poll     0
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "v1.7B - Added Ringtones dump and import"
+    poll     0
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "v1.6B - Added Privacy screen and menumode tweak"
+    poll     0
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "v1.5B - Added Variantinfo screen"
+    poll     0
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "v1.4B - Beta release version"
+    poll     0
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "v1.3A - Small bugfixes, added Google Earth patch"
+    poll     0
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "v1.2A - Added brand, version, fazit to dumps"
+    poll     0
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "v1.1A - Improved AA patch, added forced startupscreen-replace"
+    poll     0
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "v1.0A - Alpha test version"
+    poll     0
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "v0.7 - Added menu for PROs"
+    poll     0
+    
+keyValue
+    value    String sys 0x00000000 0
+    label    "v0.6 - Added universal GAL-patcher"
+    poll     0
+    
+keyValue
+    value    String sys 0x00000000 0
+    label    "v0.5 - Splitting graphics menu into skin and startup"
+    poll     0
+    
+keyValue
+    value    String sys 0x00000000 0
+    label    "v0.4 - Adding more structure to menus"
+    poll     0
+    
+keyValue
+    value    String sys 0x00000000 0
+    label    "v0.3 - Testing script-import and launch"
+    poll     0
+    
+keyValue
+    value    String sys 0x00000000 0
+    label    "v0.2 - Added Android Patch"
+    poll     0
+    
+keyValue
+    value    String sys 0x00000000 0
+    label    "v0.1 - Initial version"
+    poll     0 

@@ -1,0 +1,69 @@
+###########################################################################################
+#
+# Custom Green Engineering Menu screen
+# Author:       Jille & Olli
+# Version:      4.1A
+# Disclaimer:   THIS SCREEN WILL VOID YOUR WARRANTY
+#
+###########################################################################################
+#
+# Main -> MQBCoding -> Adaptions -> WLAN
+#
+###########################################################################################
+screen WLAN adaptations
+
+choice
+    value	per 0x01b800e1 41
+    label   "WLAN activation"
+    poll    1000
+
+button
+    value   per 0x01b800e1 38 1
+    label   "Set simple password"
+    poll    0
+
+keyValue
+    value   String per 0x01b800e1 39
+    label   "Current password"
+    poll    1000
+
+slider
+    value   per 0x3F57B91D 3
+    label   "Channel (0 = auto)"
+    limits  absolute 0 11
+    poll    0
+
+slider
+    value   per 0x3F57B91D 4
+    label   "TX power level [dBm]"
+    limits  absolute 0 20
+    poll    0
+
+choice
+    value   per 0x3F57B91D 5
+    label   "Enable ED-MAC feature"
+    poll    1000
+
+table
+    content 	per 0x01b800e1 40
+    label   	"WLAN information"
+    poll      	2000
+    maxrows     1
+    orientation vertical
+    columns ( "SSID" String 25 ) ( "MAC" String 30 ) ( "IP" String 20 )
+
+table
+    content    	per 0x01b800e1 42
+    label       "WLAN parameters"
+    poll        2000
+    maxrows     1
+    orientation vertical
+    columns ( "Channel" int 5 ) ( "SSID broadcast" int 5 ) ( "NetMode" int 5 ) ( "EncryptMode" int 5 ) ( "SecurityMode" int 5 )
+
+table
+    content    	per 0x01b800e1 43
+    label       "Connected devices table"
+    poll        2000
+    maxrows     8
+    orientation horizontal
+    columns ( "MAC" String 210 ) ( "IPAddr" String 180 ) ( "Name" String 300 )

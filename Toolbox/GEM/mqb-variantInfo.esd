@@ -1,0 +1,134 @@
+###########################################################################################
+#
+# Custom Green Engineering Menu screen
+# Author:       Jille & Olli
+# Version:      4.1A
+# Disclaimer:   THIS SCREEN WILL VOID YOUR WARRANTY
+#
+###########################################################################################
+#
+# Main -> MQBCoding -> Customization -> Adaptions -> VariantInfo
+#
+###########################################################################################
+screen  VariantInfo  adaptations
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "This screen is meant to display and/or change variant info."
+    poll     0  
+    
+keyValue
+    value    String sys 0x00000000 0
+    label    "It can render your unit useless if you dont know what you're doing."
+    poll     0  
+
+keyValue
+    value    String sys 0x00000000 0
+    label    ""
+    poll     0  
+ 
+keyValue
+    value   String per 0x286f058c 12
+    label   "Variant Info"
+    
+keyValue
+    value   String per 0x286f058c 13
+    label   "Diagnosis Variant"    
+    
+BIOSCtrl
+	value	int per 0x286f058c 3
+    label	"Main Unit"
+    entry	"Front MU" 1
+    entry	"Rear MU" 2	
+    entry	"ExBox MU" 3
+    entry	"Front MU MIB2" 4
+    entry	"Rear MU MIB2" 5	
+
+BIOSCtrl		
+	value	int per 0x286f058c 14
+	label	"Keypanel Type"
+	entry	"DEFAULT_TYPE" 0
+	entry	"MIBCAN_MIB1" 1             
+
+BIOSCtrl				
+	value	int per 0x286f058c 4
+	label	"Type"
+    entry	"High" 1
+    entry	"Entry" 2	
+    entry	"Standard" 3
+    entry	"Premium" 4	 
+    
+BIOSCtrl		
+	value	int per 0x286f058c 11
+	label	"Topology"
+    entry	"MQB" 1
+    entry	"MQBTT" 2	
+    entry	"MLB" 3
+    entry	"MLBEVO" 4	
+    entry	"MLBPO" 5
+    entry   "MSS" 6
+  
+BIOSCtrl       
+    value   int per 0x286f058c 9
+    label   "Region"
+    entry   "Europe/ROW" 1
+    entry   "Europe" 2  
+    entry   "NAR" 3
+    entry   "ROW" 4 
+    entry   "China" 5
+    entry   "Japan" 6   
+    entry   "Korea" 7
+    entry   "Asia" 8
+    entry   "Taiwan" 9
+   
+BIOSCtrl      
+    value   int per 0x286f058c 10
+    label   "Brand"
+    entry   "Volkswagen" 1
+    entry   "Audi" 2    
+    entry   "Skoda" 3
+    entry   "Seat" 4    
+    entry   "Porsche" 5
+    entry   "Bentley" 6 
+    entry   "Lamborghini" 7
+  
+choice
+    value   per 0x286f058c 5
+    label   "Feature Tel"
+
+choice
+    value   per 0x286f058c 6
+    label   "Feature Navi"
+   
+choice
+    value   per 0x286f058c 7
+    label   "Feature DAB"
+    
+choice
+    value   per 0x286f058c 8
+    label   "Feature Sirius"
+ 
+choice
+    value   per 0x286f058c 17
+    label   "Feature LTE"  
+
+choice
+    value   per 0x286f058c 18
+    label   "Feature 2D Nav"   
+
+choice
+    value   per 0x286f058c 19
+    label   "Feature MMI Radio"   
+
+ keyValue
+    value    String sys 0x00000000 0
+    label    "----"
+    poll     0
+
+choice
+    value    per 0x286f058c 15
+    label    "ICAN Msg Activation"
+
+choice
+    value    per 0x286f058c 16
+    label    "MIBCAN Msg Activation" 

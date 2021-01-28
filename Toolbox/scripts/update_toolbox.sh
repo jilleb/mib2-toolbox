@@ -1,6 +1,6 @@
 #!/bin/sh
 
-. /eso/bin/PhoneCustomer/default/util_mountsd.sh
+. /eso/hmi/engdefs/scripts/mqb/util_mountsd.sh
 if [[ -z "$VOLUME" ]]
 then
 	echo "No SD-card found, quitting"
@@ -11,12 +11,12 @@ fi
 mount -uw /mnt/app
 
 echo "Copying scripts from $VOLUME"
-mkdir -p /eso/bin/PhoneCustomer/default
-cp -r $VOLUME/Toolbox/scripts/* /eso/bin/PhoneCustomer/default
-chmod a+rwx /eso/bin/PhoneCustomer/default
+mkdir -p /eso/hmi/engdefs/scripts/mqb
+cp -r $VOLUME/Toolbox/scripts/* /eso/hmi/engdefs/scripts/mqb
+chmod a+rwx /eso/hmi/engdefs/scripts/mqb
 
 echo "Copying GreenEngineeringMenu from $VOLUME"
-cp $VOLUME/Toolbox/GEM/mqbcoding.esd /eso/hmi/engdefs/mqbcoding.esd
+cp $VOLUME/Toolbox/GEM/*.esd /eso/hmi/engdefs
 
 # Make readonly again
 mount -ur /mnt/app

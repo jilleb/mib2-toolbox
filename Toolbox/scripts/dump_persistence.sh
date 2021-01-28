@@ -10,9 +10,9 @@ ORIGINAL=/var/fw/persistence.sqlite
 echo $DESCRIPTION
 
 
-. /eso/bin/PhoneCustomer/default/util_info.sh
+. /eso/hmi/engdefs/scripts/mqb/util_info.sh
 
-. /eso/bin/PhoneCustomer/default/util_mountsd.sh
+. /eso/hmi/engdefs/scripts/mqb/util_mountsd.sh
 if [[ -z "$VOLUME" ]] 
 then
 	echo "No SD-card found, quitting"

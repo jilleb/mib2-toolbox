@@ -1,0 +1,41 @@
+###########################################################################################
+#
+# Custom Green Engineering Menu screen
+# Author:       Jille & Olli
+# Version:      4.1A
+# Disclaimer:   THIS SCREEN WILL VOID YOUR WARRANTY
+#
+###########################################################################################
+#
+# Main -> MQBCoding -> Uninstall
+#
+###########################################################################################
+screen  Uninstall MQBCoding   
+
+keyValue
+    value   String sys 0x00000000 0
+    label   "This will cleanup old MIB toolbox installations from your device."
+    poll    0 
+	
+script
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/util_clean_old.sh"
+   label    "Start cleanup pre v4.1 installtions"  
+
+keyValue
+    value   String sys 0x00000000 0
+    label   ""
+    poll    0 
+
+keyValue
+    value   String sys 0x00000000 0
+    label   "This will uninstall the MIB toolbox from your device."
+    poll    0 
+	
+keyValue
+    value   String sys 0x00000000 0
+    label   "It will not undo any modifications that you've done."
+    poll    0 
+	
+script
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/util_uninstall.sh"
+   label    "Uninstall the MIB Toolbox"  

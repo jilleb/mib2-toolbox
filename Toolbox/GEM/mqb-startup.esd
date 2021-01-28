@@ -1,0 +1,76 @@
+###########################################################################################
+#
+# Custom Green Engineering Menu screen
+# Author:       Jille & Olli
+# Version:      4.1A
+# Disclaimer:   THIS SCREEN WILL VOID YOUR WARRANTY
+#
+###########################################################################################
+#
+# Main -> MQBCoding -> Customization -> Startup
+#
+###########################################################################################
+screen  Startup Customization 
+
+keyValue
+    value	String sys 0x00000000 0
+    label   "This screen can be used to replace startup-graphics of the MIB."
+    poll    0  
+
+keyValue
+    value   String sys 0x00000000 0
+    label   "Startup-screen canim-files go into the Custom/Splashscreen folder on SD-card."
+    poll    0    
+
+keyValue
+    value   String sys 0x00000000 0
+    label   "Use the filenames of the dump as a guideline. If you don't use the right"
+    poll    0    
+    
+keyValue
+    value   String sys 0x00000000 0
+    label   "filename, it will fail. After installing a new startup screen, change coding"
+    poll    0
+    
+keyValue
+    value   String sys 0x00000000 0
+    label   "of module 5F, byte 18. Set the value to a different screening, reboot, and set"
+    poll    0    
+    
+keyValue
+    value   String sys 0x00000000 0
+    label   "it back to the original value. This will force the system to re-read the"
+    poll    0   
+
+keyValue
+    value   String sys 0x00000000 0
+    label   "startup-screen files."
+    poll    0    
+
+keyValue
+    value   String sys 0x00000000 0
+    label   ""
+    poll    0   
+	
+script
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/install_canim.sh"
+   label    "Install startup screens (also makes a backup)"
+   
+keyValue
+    value   String sys 0x00000000 0
+    label   ""
+    poll    0  
+
+keyValue
+    value   String sys 0x00000000 0
+    label   "Use the following if you don't have the tools to change coding"
+    poll    0  
+    
+keyValue
+    value   String sys 0x00000000 0
+    label   "Put your custom splash.canim in the Custom/Splashscreen folder on SD-card"
+    poll    0  
+
+script
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/install_forcedcanim.sh"
+   label    "Force replacing of start menu. No coding needed."  

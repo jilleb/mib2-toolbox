@@ -1,0 +1,43 @@
+###########################################################################################
+#
+# Custom Green Engineering Menu screen
+# Author:       Jille & Olli
+# Version:      4.1A
+# Disclaimer:   THIS SCREEN WILL VOID YOUR WARRANTY
+#
+###########################################################################################
+#
+# Main -> MQBCoding -> Customization -> Updates
+#
+###########################################################################################
+screen  Updates Customization
+
+choice
+    value	per 30 1966081
+    label   "User Defined / Custom SWDL"
+ 
+choice
+    value   per 30 1966082
+    label   "Ignore Region and Variant"
+
+script
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/set_skipMostPopup.sh"
+   label    "Set flag to skip the MOST popup error during SWDL."
+
+script
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/unset_skipMostPopup.sh"
+   label    "Remove skipMostPopup flag"
+
+keyValue
+    value   String sys 0x00000000 0
+    label   ""
+    poll    0
+
+keyValue
+    value   String sys 0x00000000 0
+    label   "DON'T TRIGGER EMERGENCY UNLESS YOU'RE 100% SURE"
+    poll    0
+
+button
+    value   per 30 1966085 ""
+    label   "Trigger Emergency Update" 

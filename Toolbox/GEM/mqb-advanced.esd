@@ -1,0 +1,69 @@
+###########################################################################################
+#
+# Custom Green Engineering Menu screen
+# Author:       Jille & Olli
+# Version:      4.1A
+# Disclaimer:   THIS SCREEN WILL VOID YOUR WARRANTY
+#
+###########################################################################################
+#
+# Main -> MQBCoding -> Customization -> Advanced
+#
+###########################################################################################
+screen Advanced Customization
+
+keyValue
+    value   String per 30 1966083
+    label   "MU Version"
+
+keyValue
+    value   String per 30 1966084
+    label   "Train Info"
+    
+keyValue
+    value   String sys 0x00000000 0
+    label   "WARNING: This screen WILL void your warranty"
+    poll    0    
+
+keyValue
+	value	String sys 0x00000000 0
+    label   "And it can and will seriously ruin your day if you don't know what you're doing."
+    poll    0    
+    
+keyValue
+    value   String sys 0x00000000 0
+    label   "Be sure to only flash if you're sure you're flashing the right file."
+    poll    0  
+
+keyValue
+    value   String sys 0x00000000 0
+    label   ""
+    poll    0	
+    
+script
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/copy_fec.sh"
+   label    "Import FecContainer.fec from /Custom/FEC"
+   
+script
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/copy_gem.sh"
+   label    "Import GEM.jar from /Custom/GEM"
+   
+script
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/install_lsdjxe.sh"
+   label    "Import LSD.jxe from /Custom/LSD"
+   
+script
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/privacy_shadow.sh"
+   label    "Import shadow file from /Custom/Shadowfile"
+   
+script
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/import_hosts.sh"
+   label    "Import hosts file from /Custom/Hosts"
+  
+script
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/flash_ifs.sh"
+   label    "Flash ifsroot.ifs from /Custom/IFS"
+
+script
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/install_online.sh"
+   label    "Import online files from /Custom/Online"

@@ -1,0 +1,71 @@
+###########################################################################################
+#
+# Custom Green Engineering Menu screen
+# Author:       Jille & Olli
+# Version:      4.1A
+# Disclaimer:   THIS SCREEN WILL VOID YOUR WARRANTY
+#
+###########################################################################################
+#
+# Main -> MQBCoding -> Dump
+#
+###########################################################################################
+screen  Dump MQBCoding
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "Make sure there is a SD-card in slot 1"
+    poll     0   
+
+keyValue
+    value    String sys 0x00000000 0
+    label    ""
+    poll     0  	
+    
+script
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/dump_all.sh"
+   label    "Dump skins, startup screens, android auto config, ringtones to SD-card"
+   
+script
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/dump_fec.sh"
+   label    "Dump FEC container"   
+   
+script
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/dump_ifs.sh"
+   label    "Dump IFS-root"   
+   
+script
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/dump_shadow.sh"
+   label    "Dump shadow file"
+
+script
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/dump_eeprom.sh"
+   label    "Dump EEPROM"
+   
+script
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/dump_hosts.sh"
+   label    "Dump hosts file"
+   
+script
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/dump_gem.sh"
+   label    "Dump GEM.jar"
+   
+script
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/dump_lsdjxe.sh"
+   label    "Dump LSD.jxe"
+   
+script
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/dump_storage.sh"
+   label    "Dump storage1.raw and storage2.raw "
+   
+script
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/dump_persistence.sh"
+   label    "Dump persistence"
+
+script
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/dump_online.sh"
+   label    "Dump online"
+   
+script
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/dump_bundles.sh"
+   label    "Dump bundles"
