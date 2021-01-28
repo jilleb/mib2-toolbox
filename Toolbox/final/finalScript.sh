@@ -29,6 +29,11 @@ on -f mmx /bin/chmod a+rwx /net/mmx/mnt/app/eso/bin/PhoneCustomer/default
 # Make readonly again
 on -f mmx /bin/mount -ur /mnt/app
 
+# Set unit in developer mode
+export LD_LIBRARY_PATH=/mnt/app/root/lib-target:/eso/lib:/mnt/app/usr/lib:/mnt/app/armle/lib:/mnt/app/armle/lib/dll:/mnt/app/armle/usr/lib 
+export IPL_CONFIG_DIR=/etc/eso/production 
+on -f mmx /net/mmx/mnt/app/eso/bin/apps/pc b:0:0xC002000D 1
+
 echo Done.
 touch /tmp/SWDLScript.Result
 

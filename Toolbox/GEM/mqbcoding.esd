@@ -4544,8 +4544,22 @@ script
    label    "Find the root passwords."
 
 	
+####################################################################
+screen  Uninstall MQBCoding    
 
-         
+keyValue
+    value    String sys 0x00000000 0
+    label    "This will uninstall the MIB toolbox from your device."
+    poll     0 
+	
+keyValue
+    value    String sys 0x00000000 0
+    label    "It will not undo any modifications that you've done."
+    poll     0 
+	
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/util_uninstall.sh"
+   label    "Uninstall the MIB Toolbox"       
 
 ####################################################################
 screen   Disclaimer MQBCoding
@@ -4591,52 +4605,9 @@ keyValue
     
 keyValue
     value    String sys 0x00000000 0
-    label    "Copyright MQB-Coding 2019"
+    label    "Copyright MQB-Coding 2021"
     poll     0    
 
-####################################################################
-screen  Funstuff MQBCoding    
-
-script
-   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/fun_timemachine.sh"
-   label    "Time-machine"
-   
-slideshow
-  label "Slideshow"
-    
-    
-####################################################################
-screen  FamousQuotes Funstuff
-    
-keyValue
-    value    String sys 0x00000000 0
-    label    "'We know it and we've patched it already', someone at VW"
-    poll     0
-    
-keyValue
-    value    String sys 0x00000000 0
-    label    "'That's impossible', someone at VW"
-    poll     0
-    
-keyValue
-    value    String sys 0x00000000 0
-    label    "'They say it's not possible, so let's do it', someone at MQB-Coding"
-    poll     0             
-
-keyValue
-    value    String sys 0x00000000 0
-    label    "'Sign here, and we have the right to destroy your computer', some NDA"
-    poll     0    
-
-keyValue
-    value    String sys 0x00000000 0
-    label    "'Let's sell some pre-production cars', someone at VW, probably"
-    poll     0
-    
-keyValue
-    value    String sys 0x00000000 0
-    label    "'MANDA HUEVOS', Meich"
-    poll     0  
     
 ####################################################################
 screen  History MQBCoding
