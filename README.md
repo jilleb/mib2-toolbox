@@ -91,7 +91,9 @@ MQBCoding
 +---MIB_Information                     # Information about the unit
 |   \---password                        # Password finder
 |
-+---Disclaimer                          # Some wise words              
++---Disclaimer                          # Some wise words
+|
++---Uninstall                           # Uninstalls the MIB Toolbox
 |    
 \---History                             # Version history of the toolbox
 ```
