@@ -92,10 +92,7 @@ MQBCoding
 +---MIB_Information                     # Information about the unit
 |   \---password                        # Password finder
 |
-+---Disclaimer                          # Some wise words
-|
-+---Funstuff                            # Doesn't need explaining
-|   \---FamousQoutes                    
++---Disclaimer                          # Some wise words              
 |    
 \---History                             # Version history of the toolbox
 ```
