@@ -22,6 +22,7 @@ Note3: If you're a business that tries to make a profit off of this:  Don't be a
 - Picture editing software, if you want to customize graphics files
 
 # How to install
+- If you've installed a previous version (before V4.0) of the toolbox: clean your SD-card before trying to install.
 - Download all files from the repository. This can be either as a git clone or "Download zip" from github then extract the zip.
 - Put all files and folders on an empty SD-card, preferable >1GB.
 - Put the SD-card in one of the slots of your MIB2-unit. 
