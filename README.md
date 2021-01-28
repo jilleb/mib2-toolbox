@@ -14,7 +14,6 @@ Note3: If you're a business that tries to make a profit off of this:  Don't be a
 - An MIB2 HIGH or MIB2.5 HIGH infotainment unit. It will **not** work on MIB1 or MIB2 Standard units. Discover Media / Compostion Media is not MIB2 HIGH!
 - 1 empty, **FAT32 formatted** SD-card, with enough space. Everything bigger than 1GB is fine
 - Some place to save your backups
-- Developer mode enabled on module 5F (you need VCDS/OBD11/VCP for this!)
 
 ## Optional requirements ##
 - Python 2.7, if you want to extract/compress graphics containers (canim/mcf)
