@@ -28,7 +28,7 @@ echo Dumping, please wait. This can take a while.
 
 mkdir -p $VOLUME/Dump/$VERSION/$FAZIT/$TOPIC
 
-echo Copying shadow file to SD-card.
+echo Copying hosts file to SD-card.
 cp /$ORIGINAL/$FILENAME $DUMPFOLDER/hosts.txt
 
 #show contents
