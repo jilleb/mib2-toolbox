@@ -11,6 +11,7 @@ mount -uw /mnt/app
 
 echo "Deleting mqbcoding.esd"
 rm /mnt/app/eso/hmi/engdefs/mqbcoding.esd
+rm /mnt/app/eso/hmi/engdefs/mqbcoding.esd.*
 
 echo "Deleting MIB Toolbox scripts"
 rm -r /mnt/app/eso/bin/PhoneCustomer/*.sh
