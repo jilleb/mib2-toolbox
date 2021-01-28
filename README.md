@@ -38,7 +38,7 @@ Note3: If you're a business that tries to make a profit off of this:  Don't be a
 - There will be an additional menu called "mqbcoding". When you see this, the installation was succesful.
 - Go to mqbcoding, and you will see the following:
 
-![The MQB Coding toolbox menu](https://i.imgur.com/mLHXCmT.png)
+![The MQB Coding toolbox menu](https://i.imgur.com/wGUZ4xw.png)
 
 - You're now done.
 - Enjoy!
