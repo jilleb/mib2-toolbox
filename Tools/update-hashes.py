@@ -30,7 +30,7 @@ def file_hash(path):
 
 # Hashed Files
 metainfo = repo / 'metainfo2.txt'
-mqbcoding_esd = repo / 'Toolbox' / 'GEM' / 'mqbcoding.esd'
+mqb-main_esd = repo / 'Toolbox' / 'GEM' / 'mqb-main.esd'
 finalscript = repo / 'Toolbox' / 'final' / 'finalScript.sh'
 finalhash = repo / 'Toolbox' / 'final' / 'hashes.txt'
 
@@ -58,21 +58,21 @@ final_dir_size += len(hashes_text)
 metainfo_contents = metainfo.read_bytes().replace(b'\r\n', b'\n')  # Ensure LF line endings
 metainfo_contents_prev = metainfo_contents
 
-mqbcoding_esd_hash = file_hash(mqbcoding_esd)
-mqbcoding_esd_size = os.path.getsize(mqbcoding_esd) 
+mqb-main_esd_hash = file_hash(mqb-main_esd)
+mqb-main_esd_size = os.path.getsize(mqb-main_esd) 
 
 metainfo_contents = re.sub(
     b'(\[MQB.*File\](\n.*?)+CheckSum = )("\S+?")',
-    f'\\1"{mqbcoding_esd_hash}"'.encode(),
+    f'\\1"{mqb-main_esd_hash}"'.encode(),
     metainfo_contents, re.MULTILINE
 )
 metainfo_contents = re.sub(
     b'(\[MQB.*File\](\n.*?)+FileSize = )("\S+?")',
-    f'\\1"{mqbcoding_esd_size}"'.encode(),
+    f'\\1"{mqb-main_esd_size}"'.encode(),
     metainfo_contents, re.MULTILINE
 )
 if metainfo_contents_prev != metainfo_contents:
-    print("metainfo2.txt: Updated Checksum / FileSize for mqbcoding.esd")
+    print("metainfo2.txt: Updated Checksum / FileSize for mqb-main.esd")
     metainfo_contents_prev = metainfo_contents
 
 

@@ -34,7 +34,7 @@ keyValue
 
 script
    value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/update_toolbox.sh"
-   label    "Update toolbox with a new GreenMenus and scripts"
+   label    "Update toolbox with new GreenMenus and scripts"
     
 keyValue
     value    String sys 0x00000000 0
