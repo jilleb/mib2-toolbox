@@ -3,3 +3,5 @@
 /Toolbox/GEM/*.esd text eol=crlf
 */hashes.txt text eol=lf
 *.sh text eol=lf
+*.exe filter=lfs diff=lfs merge=lfs -text
+*.jar filter=lfs diff=lfs merge=lfs -text
