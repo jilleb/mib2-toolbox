@@ -29,4 +29,4 @@ keyValue
 
 script
    value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/patch_gal.sh"
-   label    "Install Android Auto custom applications patch."
+   label    "Install Android Auto custom applications patch"

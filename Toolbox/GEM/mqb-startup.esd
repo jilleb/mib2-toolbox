@@ -83,4 +83,4 @@ keyValue
 
 script
    value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/install_forcedcanim.sh"
-   label    "Force replacing of start menu. No coding needed."  
+   label    "Force replacing of start menu (no coding needed)"  

@@ -15,21 +15,16 @@ screen  Dump MQBCoding
 keyValue
     value    String sys 0x00000000 0
     label    "Make sure there is a SD-card in slot 1"
-    poll     0   
-
-keyValue
-    value    String sys 0x00000000 0
-    label    ""
-    poll     0  	
+    poll     0    	
     
 script
    value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/dump_all.sh"
    label    "Dump everything to SD-card (This will take a while)"
    
 keyValue
-    value    String sys 0x00000000 0
-    label    ""
-    poll     0 
+	value 	String per 1 0x00010003
+    label 	"_____________________________________________________________________________"
+    poll     500
 
 keyValue
     value    String sys 0x00000000 0
@@ -55,9 +50,9 @@ script
    label    "Dump Mapstyles to SD-card"	
 
 keyValue
-    value    String sys 0x00000000 0
-    label    "Standalone dumping scripts:"
-    poll     0  
+	value 	String per 1 0x00010003
+    label 	"_____________________________________________________________________________"
+    poll     500 
 	
 #### Sound dump scripts #####
 keyValue
@@ -78,9 +73,9 @@ script
    label    "Dump TTS-audio alerts to SD-card"	
    
 keyValue
-    value    String sys 0x00000000 0
-    label    "Standalone dumping scripts:"
-    poll     0  
+	value 	String per 1 0x00010003
+    label 	"_____________________________________________________________________________"
+    poll     500 
 	
 #### Database dump scripts #####
 keyValue
@@ -95,7 +90,12 @@ script
 script
    value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/dump_gracenote.sh"
    label    "Dump Gracenote DB  to SD-card"	
-   
+
+keyValue
+	value 	String per 1 0x00010003
+    label 	"_____________________________________________________________________________"
+    poll     500
+	
 #### System dump scripts #####
 keyValue
     value    String sys 0x00000000 0
@@ -130,6 +130,11 @@ script
    value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/dump_shadow.sh"
    label    "Dump Shadow file to SD-card"
 
+keyValue
+	value 	String per 1 0x00010003
+    label 	"_____________________________________________________________________________"
+    poll     500
+	
 #### Development dump scripts (not included in dump all)#####
 keyValue
     value    String sys 0x00000000 0

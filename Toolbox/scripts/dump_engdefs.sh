@@ -27,7 +27,7 @@ sleep 1
 
 echo
 echo "Dumping, this can take a moment. Please be patient."
-cp  $ORIGINAL $DUMPFOLDER/
+cp -R $ORIGINAL $DUMPFOLDER/
 
 # Make readonly again
 mount -ur $VOLUME

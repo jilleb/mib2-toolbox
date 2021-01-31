@@ -19,7 +19,7 @@ keyValue
     
 keyValue
     value    String sys 0x00000000 0
-    label    "Note: there is no undelete."
+    label    "Note: There is no undelete!"
     poll     0
 	
 keyValue
@@ -49,7 +49,7 @@ script
 
 script
    value	sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/privacy_shadow.sh"
-   label    "Replace shadow file with shadow.txt from the /Custom/Shadowfile/ folder on the SD-card"    
+   label    "Replace shadow file with file from the /Custom/Shadowfile/ folder on the SD-card"    
    
 button
     value   per 1304 52 "execute_factory_settings"

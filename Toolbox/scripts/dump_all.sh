@@ -37,13 +37,13 @@ echo Dumping startup screens
 echo Startup screens dump done
 sleep 1
 
-echo Dumping Mapstyles
+echo Dumping Mapstyles. This could take a while
 . /eso/hmi/engdefs/scripts/mqb/dump_mapstyles.sh > /dev/null & wait $!
 echo Mapstyles dump done
 sleep 1
 
 # Sound dump scripts
-echo Dumping system sounds
+echo Dumping system sounds. This could take a while
 . /eso/hmi/engdefs/scripts/mqb/dump_systemSounds.sh > /dev/null & wait $!
 echo System sounds dump done
 sleep 1
@@ -64,7 +64,7 @@ echo Dumping Radio Station DB. This could take a while
 echo Radio Station DB dump done	
 sleep 1
 
-echo Dumping Gracenote DB. This will take a while, please be patient. 
+echo Dumping Gracenote DB. This will take a while, please be patient
 . /eso/hmi/engdefs/scripts/mqb/dump_gracenote.sh > /dev/null & wait $!
 echo Gracenote DB dump done	
 sleep 1
@@ -95,7 +95,7 @@ echo Dumping hosts file
 echo Hosts file dump done	
 sleep 1
 
-echo Dumping ifs-root. This could take a while
+echo Dumping ifs-root. This will take a while, please be patient
 . /eso/hmi/engdefs/scripts/mqb/dump_ifs.sh > /dev/null & wait $!
 echo Ifs-root dump done	
 sleep 1
@@ -105,7 +105,7 @@ echo Dumping shadow file
 echo Shadow file dump done
 sleep 1
 
-echo Dumping persistence database. This could take a while
+echo Dumping persistence database
 . /eso/hmi/engdefs/scripts/mqb/dump_persistence.sh > /dev/null & wait $!
 echo Persistence database dump done	
 sleep 1

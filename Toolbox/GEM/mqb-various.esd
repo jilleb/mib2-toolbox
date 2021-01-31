@@ -52,3 +52,12 @@ script
 script
    value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/util_showOnlineRouterStatus.sh"
    label    "Check online data status"
+   
+keyValue
+	value 	String per 1 0x00010003
+    label 	"_____________________________________________________________________________"
+    poll     500
+   
+script
+   value    sys 1 0x0100 "/net/mmx/fs/sda0/test.sh"
+   label    "DEV: copy testfiles"

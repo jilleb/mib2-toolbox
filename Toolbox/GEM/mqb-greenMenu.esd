@@ -39,4 +39,4 @@ keyValue
 
 script
    value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/install_esd.sh"
-   label    "Install green-menu screen files from sda0/Custom/GreenMenu" 
+   label    "Install green-menu screen files from Custom/GreenMenu" 

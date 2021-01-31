@@ -27,16 +27,11 @@ keyValue
     label    "warranty. Be careful!"
     poll     0
 
-keyValue
-    value    String sys 0x00000000 0
-    label    ""
-    poll     0
-
 script
    value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/update_toolbox.sh"
    label    "Update Toolbox"
    
 keyValue
-    value    String sys 0x00000000 0
-    label    ""
-    poll     0
+	value 	String per 1 0x00010003
+    label 	"_____________________________________________________________________________"
+    poll     500
