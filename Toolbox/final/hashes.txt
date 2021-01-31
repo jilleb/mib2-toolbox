@@ -1,6 +1,6 @@
 FileName = "finalScript.sh"
-FileSize = "1258"
-CheckSum = "d8af5b9428786096ac77427062750f1b746ac115"
+FileSize = "1266"
+CheckSum = "e26f12b8d3319fcfeb6417f47f2aadd70914fd1e"
 
 FileName = "cleanup.sh"
 FileSize = "464"

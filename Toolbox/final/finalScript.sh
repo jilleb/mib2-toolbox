@@ -34,7 +34,7 @@ on -f mmx /bin/cp -r $VOLUME/Toolbox/GEM/*.esd /net/mmx/mnt/app/eso/hmi/engdefs
 on -f mmx /bin/mount -ur /mnt/app
 
 # Cleanup old MQBToolbox installations
-/bin/ksh $VOLUME/final/cleanup.sh > /dev/null 2>&1
+/bin/ksh $VOLUME/Toolbox/final/cleanup.sh > /dev/null 2>&1
 
 # Set unit into developer mode
 export LD_LIBRARY_PATH=/mnt/app/root/lib-target:/eso/lib:/mnt/app/usr/lib:/mnt/app/armle/lib:/mnt/app/armle/lib/dll:/mnt/app/armle/usr/lib 
