@@ -32,17 +32,24 @@ echo Be patient, it will look like nothing is happening.
 sleep 1
 
 echo Copying files
-on -f rcc /net/rcc/usr/apps/modifyE2P r 0 10000 > /$DUMPFOLDER/eepromdump.txt
+on -f rcc /net/rcc/usr/apps/modifyE2P r 0 10000 > $DUMPFOLDER/eepromdump.txt
 echo ""
 echo EEPROM dump is saved to $DUMPFOLDER.
 sleep 1
 
 #show contents
-echo Dump done. Dump will now be listed.
+echo Text dump done, converting to binary...
+
+BINFILE="$DUMPFOLDER/eepromdump.bin"
+# Ensure single-byte output from awk
+export LC_ALL=C
+HEX=$(sed -rn 's/^0x\S+\W+(.*?)$/\1/p' "$DUMPFOLDER/eepromdump.txt" | sed -r 's:\W*(\S\S)\W*:\1;:g'| awk '{printf("%s",toupper($0))}')
+echo "ibase=16;${HEX}" | bc | awk '{printf("%c",$0)}' > "${BINFILE}"
+
+echo "Written: ${BINFILE}"
 echo "-------------------------------------"
 
-cat /$DUMPFOLDER/eepromdump.txt
-sleep .5
+
 
 # Make readonly again
 mount -ur $VOLUME
