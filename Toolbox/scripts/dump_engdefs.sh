@@ -1,11 +1,11 @@
 #!/bin/sh
 
 #info
-TOPIC=Bundles
-DESCRIPTION="This script will dump all files in /eso/bundles/"
+TOPIC=Engdefs
+DESCRIPTION="This script will dump all engdefs folder"
 
 #Volumes/files
-ORIGINAL=/eso/bundles/*.jar
+ORIGINAL=/eso/hmi/engdefs/
 
 echo $DESCRIPTION
 
@@ -32,6 +32,6 @@ cp  $ORIGINAL $DUMPFOLDER/
 # Make readonly again
 mount -ur $VOLUME
 
-echo "Done. Bundles dump can be found in the Dump folder on your SD-card"
+echo "Done. Engdefs dump can be found in the Dump folder on your SD-card"
 
 exit 0

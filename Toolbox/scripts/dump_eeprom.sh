@@ -14,9 +14,7 @@ DESCRIPTION="This script will dump the EEPROM."
 
 echo $DESCRIPTION
 
-
 . /eso/hmi/engdefs/scripts/mqb/util_info.sh
-
 . /eso/hmi/engdefs/scripts/mqb/util_mountsd.sh
 if [[ -z "$VOLUME" ]] 
 then
@@ -24,24 +22,27 @@ then
 	exit 0
 fi
 
-
-#Make backup folder
+#Make dump folder
 DUMPFOLDER="$VOLUME/Dump/$VERSION/$FAZIT/$TOPIC"
 
 echo Dump-folder: $DUMPFOLDER
 mkdir -p $DUMPFOLDER
-
 echo Dumping, please wait. This can take a while.
 echo Be patient, it will look like nothing is happening.
-on -f rcc /net/rcc/usr/apps/modifyE2P r 0 10000 > /$DUMPFOLDER/eepromdump.txt
-echo ""
-echo Dump done. Dump will now be listed.
-echo EEPROM dump is saved to $DUMPFOLDER.
-echo "-------------------------------------"
-
 sleep 1
 
+echo Copying files
+on -f rcc /net/rcc/usr/apps/modifyE2P r 0 10000 > /$DUMPFOLDER/eepromdump.txt
+echo ""
+echo EEPROM dump is saved to $DUMPFOLDER.
+sleep 1
+
+#show contents
+echo Dump done. Dump will now be listed.
+echo "-------------------------------------"
+
 cat /$DUMPFOLDER/eepromdump.txt
+sleep .5
 
 # Make readonly again
 mount -ur $VOLUME

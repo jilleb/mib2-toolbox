@@ -63,7 +63,3 @@ script
 script
    value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/flash_ifs.sh"
    label    "Flash ifsroot.ifs from /Custom/IFS"
-
-script
-   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/install_online.sh"
-   label    "Import online files from /Custom/Online"

@@ -11,18 +11,20 @@ mount -uw /mnt/app
 
 echo "Deleting old mqbcoding.esd pre v4.1"
 rm /mnt/app/eso/hmi/engdefs/mqbcoding.esd
-rm -r /mnt/app/eso/hmi/engdefs/mqbcoding.esd.*
+rm -rv /mnt/app/eso/hmi/engdefs/mqbcoding.esd.*
 
 echo "Deleting Toolbox GreenMenus"
-rm -r /mnt/app/eso/hmi/engdefs/mqb*.esd
-rm -r /mnt/app/eso/hmi/engdefs/mqb*.esd.*
+rm -rv /mnt/app/eso/hmi/engdefs/mqb*.esd
+rm -rv /mnt/app/eso/hmi/engdefs/mqb*.esd.*
 
 echo "Deleting old MIB Toolbox scripts pre v4.1"
-rm -r /mnt/app/eso/bin/PhoneCustomer/*.sh
-rm -r /mnt/app/eso/bin/PhoneCustomer/default/*.sh
+rm -rv /mnt/app/eso/bin/PhoneCustomer/*.sh
+rm -rv /mnt/app/eso/bin/PhoneCustomer/default/*.sh
+rm -rv /mnt/app/eso/bin/PhoneCustomer/scripts
 
 echo "Deleting MIB Toolbox scripts"
-rm -r /mnt/app/eso/hmi/engdefs/scripts/mqb/mqb*.sh
+rm -rv /mnt/app/eso/hmi/engdefs/scripts/mqb/*.sh
+rm -rv /mnt/app/eso/hmi/engdefs/scripts/mqb
 
 mount -ur /mnt/app
 

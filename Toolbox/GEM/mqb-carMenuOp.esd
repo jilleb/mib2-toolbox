@@ -7,10 +7,10 @@
 #
 ###########################################################################################
 #
-# Main -> MQBCoding -> Customization -> Adaptions -> CarMenuOperation
+# Main -> MQBCoding -> Customization -> Adaptation -> CarMenuOperation
 #
 ###########################################################################################
-screen CarMenuOperation adaptations
+screen CarMenuOperation Adaptation
 
 # the values are from 0 to 31 because there are 5 bits information that can be coded
 

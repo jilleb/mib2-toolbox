@@ -1,11 +1,11 @@
 #!/bin/sh
 
 #info
-TOPIC=Bundles
-DESCRIPTION="This script will dump all files in /eso/bundles/"
+TOPIC=Splashscreen
+DESCRIPTION="This script will dump all startup screens"
 
 #Volumes/files
-ORIGINAL=/eso/bundles/*.jar
+ORIGINAL=/eso/hmi/splashscreen/*.*
 
 echo $DESCRIPTION
 
@@ -22,16 +22,16 @@ DUMPFOLDER=$VOLUME/Dump/$VERSION/$FAZIT/$TOPIC
 
 echo Dump-folder: $DUMPFOLDER
 mkdir -p $DUMPFOLDER
-echo "Please wait while the files are dumped"
+echo Dumping, please wait.
 sleep 1
 
 echo
-echo "Dumping, this can take a moment. Please be patient."
+echo Copying splashscreens to SD-card.
 cp  $ORIGINAL $DUMPFOLDER/
 
 # Make readonly again
 mount -ur $VOLUME
 
-echo "Done. Bundles dump can be found in the Dump folder on your SD-card"
+echo "Done. Splashscreen dump can be found in the Dump folder on your SD-card"
 
 exit 0

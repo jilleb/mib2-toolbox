@@ -1,11 +1,11 @@
 #!/bin/sh
 
 #info
-TOPIC=Bundles
-DESCRIPTION="This script will dump all files in /eso/bundles/"
+TOPIC=Mapstyles
+DESCRIPTION="This script will dump Mapstyles"
 
 #Volumes/files
-ORIGINAL=/eso/bundles/*.jar
+ORIGINAL=/net/mmx/mnt/app/navigation/resources/app/
 
 echo $DESCRIPTION
 
@@ -22,16 +22,16 @@ DUMPFOLDER=$VOLUME/Dump/$VERSION/$FAZIT/$TOPIC
 
 echo Dump-folder: $DUMPFOLDER
 mkdir -p $DUMPFOLDER
-echo "Please wait while the files are dumped"
+echo Dumping, please wait.
 sleep 1
 
 echo
-echo "Dumping, this can take a moment. Please be patient."
-cp  $ORIGINAL $DUMPFOLDER/
+echo Copying Mapstyles to SD-card. This could take a while
+cp -R $ORIGINAL $DUMPFOLDER/
 
 # Make readonly again
 mount -ur $VOLUME
 
-echo "Done. Bundles dump can be found in the Dump folder on your SD-card"
+echo "Done. Mapstyles dump can be found in the Dump folder on your SD-card"
 
 exit 0

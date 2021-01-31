@@ -7,10 +7,10 @@
 #
 ###########################################################################################
 #
-# Main -> MQBCoding -> Customization -> Adaptions -> HMI FunctionBlockingTable
+# Main -> MQBCoding -> Customization -> Adaptation -> HMI FunctionBlockingTable
 #
 ###########################################################################################
-screen "HMI_FunctionBlockingTable" adaptations
+screen HMIFunctionBlockingTable Adaptation
 
 bitselect
         value per 0x0 0xC0020091

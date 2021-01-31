@@ -4,11 +4,12 @@
 TOPIC=IFS
 DESCRIPTION="This script will dump the ifs-root."
 
+#Volumes/files
+ORIGINAL=/net/rcc/dev/fs0
+
 echo $DESCRIPTION
 
-
 . /eso/hmi/engdefs/scripts/mqb/util_info.sh
-
 . /eso/hmi/engdefs/scripts/mqb/util_mountsd.sh
 if [[ -z "$VOLUME" ]] 
 then
@@ -18,19 +19,18 @@ fi
 
 sleep .5
 
-#Make backup folder
+#Make dump folder
 DUMPFOLDER=$VOLUME/Dump/$VERSION/$FAZIT/$TOPIC
 
 echo Dump-folder: $DUMPFOLDER
-
 mkdir -p $DUMPFOLDER
 echo "Please wait while the file is dumped"
 echo "It will appear like nothing is happening."
 sleep 1
+
 echo
 echo "Dumping, this will take a while. Please be patient."
-
-cat /net/rcc/dev/fs0 > $DUMPFOLDER/ifs_dump.bin
+cat $ORIGINAL > $DUMPFOLDER/ifs_dump.bin
 
 # Make readonly again
 mount -ur $VOLUME

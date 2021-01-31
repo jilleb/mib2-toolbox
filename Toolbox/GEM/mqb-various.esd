@@ -10,7 +10,7 @@
 # Main -> MQBCoding -> Customization -> Various
 #
 ###########################################################################################
-screen  Various Customization 
+screen  Various Customization
 
 keyValue
     value	String sys 0x00000000 0

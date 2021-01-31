@@ -10,7 +10,7 @@
 # Main -> MQBCoding -> Customization -> Sounds
 #
 ###########################################################################################
-screen  Sounds Customization 
+screen  Sounds Customization
 
 keyValue
     value	String sys 0x00000000 0

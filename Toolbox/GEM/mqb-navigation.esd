@@ -14,7 +14,12 @@ screen Navigation Customization
 
 script
    value   sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/import_mapstyles.sh"
-   label   "Install mapstyles from SD Custom/Mapstyles"   
+   label   "Install mapstyles from SD Custom/Mapstyles"
+
+keyValue
+    value   String sys 0x00000000 0
+    label   ""
+    poll    0    
 
 choice
 	value 	per 0x01c500e6 17

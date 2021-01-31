@@ -14,12 +14,12 @@ screen   GreenMenu Customization
 
 keyValue
     value	String sys 0x00000000 0
-    label   "Instructions: Put new .esd files into the Custom/GreenMenu folder on your SD-card."
+    label   "Instructions: Put new .esd files into the Custom/GreenMenu folder on your"
     poll    0    
 
 keyValue
     value   String sys 0x00000000 0
-    label   "If you added any new scripts in your custom green menu screen,"
+    label   "SD-card. If you added any new scripts in your custom green menu screen,"
     poll    0    
 
 keyValue

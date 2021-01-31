@@ -7,10 +7,10 @@
 #
 ###########################################################################################
 #
-# Main -> MQBCoding -> Customization -> Adaptions -> RCC Adaptions
+# Main -> MQBCoding -> Customization -> Adaptation -> RCC Adaptation
 #
 ###########################################################################################
-screen RccAdaptations adaptations
+screen RccAdaptations Adaptation
 
 keyValue
     value    String sys 0x00000000 0

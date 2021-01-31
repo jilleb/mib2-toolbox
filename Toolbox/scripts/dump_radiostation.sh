@@ -1,11 +1,11 @@
 #!/bin/sh
 
 #info
-TOPIC=Bundles
-DESCRIPTION="This script will dump all files in /eso/bundles/"
+TOPIC=Radiostations
+DESCRIPTION="This script will dump Radio Station DB"
 
 #Volumes/files
-ORIGINAL=/eso/bundles/*.jar
+ORIGINAL=/net/mmx/mnt/boardbook/RSDB/VW_STL_DB.sqlite
 
 echo $DESCRIPTION
 
@@ -22,16 +22,16 @@ DUMPFOLDER=$VOLUME/Dump/$VERSION/$FAZIT/$TOPIC
 
 echo Dump-folder: $DUMPFOLDER
 mkdir -p $DUMPFOLDER
-echo "Please wait while the files are dumped"
+echo Dumping, please wait.
 sleep 1
 
 echo
-echo "Dumping, this can take a moment. Please be patient."
+echo Copying Radio Station DB to SD-card.
 cp  $ORIGINAL $DUMPFOLDER/
 
 # Make readonly again
 mount -ur $VOLUME
 
-echo "Done. Bundles dump can be found in the Dump folder on your SD-card"
+echo "Done. Radio Station DB dump can be found in the Dump folder on your SD-card"
 
 exit 0

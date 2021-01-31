@@ -7,10 +7,10 @@
 #
 ###########################################################################################
 #
-# Main -> MQBCoding -> Customization -> Adaptions -> CarDeviceBusAssignment
+# Main -> MQBCoding -> Customization -> Adaptation -> CarDeviceBusAssignment
 #
 ###########################################################################################
-screen CarDeviceBusAssignment adaptations
+screen CarDeviceBusAssignment Adaptation
 
 BIOSCtrl
       value       int per 28442848 409

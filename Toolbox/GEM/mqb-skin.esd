@@ -10,7 +10,7 @@
 # Main -> MQBCoding -> Customization -> Skin
 #
 ###########################################################################################
-screen  Skin Customization 
+screen  Skin Customization
 
 keyValue
     value	String sys 0x00000000 0

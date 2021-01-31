@@ -7,10 +7,10 @@
 #
 ###########################################################################################
 #
-# Main -> MQBCoding -> Customization -> Adaptions -> CarFunctionsList BAP
+# Main -> MQBCoding -> Customization -> Adaptation -> CarFunctionsList BAP
 #
 ###########################################################################################
-screen "CarFunctionsList_BAP" adaptations
+screen "CarFunctionsList_BAP" Adaptation
 
 BIOSCtrl
 	value 	int per 28442848 408

@@ -7,10 +7,10 @@
 #
 ###########################################################################################
 #
-# Main -> MQBCoding -> Customization -> Adaptions -> CarFunctionsList CAN
+# Main -> MQBCoding -> Customization -> Adaptation -> CarFunctionsList CAN
 #
 ###########################################################################################
-screen "CarFunctionsList_CAN" adaptations
+screen "CarFunctionsList_CAN" Adaptation
 
 BIOSCtrl
 	value   int per 0 1343769616

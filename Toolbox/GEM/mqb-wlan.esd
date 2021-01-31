@@ -7,10 +7,10 @@
 #
 ###########################################################################################
 #
-# Main -> MQBCoding -> Adaptions -> WLAN
+# Main -> MQBCoding -> Adaptation -> WLAN
 #
 ###########################################################################################
-screen WLAN adaptations
+screen WLAN Adaptation
 
 choice
     value	per 0x01b800e1 41

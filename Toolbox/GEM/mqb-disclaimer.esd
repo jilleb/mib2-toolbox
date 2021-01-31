@@ -10,7 +10,7 @@
 # Main -> MQBCoding -> Disclaimer
 #
 ###########################################################################################
-screen   Disclaimer MQBCoding 
+screen   Disclaimer MQBCoding
 
 keyValue
     value	String sys 0x00000000 0
@@ -60,4 +60,4 @@ keyValue
 keyValue
     value   String sys 0x00000000 0
     label   "Copyright MQB Coding 2021"
-    poll    0    
+    poll    0

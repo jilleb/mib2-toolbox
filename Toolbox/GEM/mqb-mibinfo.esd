@@ -10,7 +10,7 @@
 # Main -> MQBCoding -> MIB Information
 #
 ###########################################################################################
-screen  "MIB_Information"  MQBCoding
+screen  "MIB_Information" MQBCoding
 
 keyValue
     value	String sys 0x00000000 0
@@ -87,4 +87,4 @@ keyValue
 keyValue
     value	int per 0x4B9 102
 	label	"Nav sensor temperature"
-	poll	1000 
+	poll	1000

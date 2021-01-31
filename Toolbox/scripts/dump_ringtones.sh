@@ -1,11 +1,11 @@
 #!/bin/sh
 
 #info
-TOPIC=Bundles
-DESCRIPTION="This script will dump all files in /eso/bundles/"
+TOPIC=Ringtones
+DESCRIPTION="This script will dump telephone ringtones"
 
 #Volumes/files
-ORIGINAL=/eso/bundles/*.jar
+ORIGINAL=/net/mmx/mnt/app/hb/ringtones/*.*
 
 echo $DESCRIPTION
 
@@ -18,20 +18,20 @@ then
 fi
 
 #Make dump folder
-DUMPFOLDER=$VOLUME/Dump/$VERSION/$FAZIT/$TOPIC
+DUMPFOLDER=$VOLUME/Dump/$VERSION/$FAZIT/Sounds/$TOPIC
 
 echo Dump-folder: $DUMPFOLDER
 mkdir -p $DUMPFOLDER
-echo "Please wait while the files are dumped"
+echo Dumping, please wait.
 sleep 1
 
 echo
-echo "Dumping, this can take a moment. Please be patient."
+echo Copying telephone ringtones to SD-card.
 cp  $ORIGINAL $DUMPFOLDER/
 
 # Make readonly again
 mount -ur $VOLUME
 
-echo "Done. Bundles dump can be found in the Dump folder on your SD-card"
+echo "Done. Telephone ringtones dump can be found in the Dump folder on your SD-card"
 
 exit 0

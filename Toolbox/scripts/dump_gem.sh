@@ -9,9 +9,7 @@ ORIGINAL=/eso/hmi/lsd/jars/GEM.jar
 
 echo $DESCRIPTION
 
-
 . /eso/hmi/engdefs/scripts/mqb/util_info.sh
-
 . /eso/hmi/engdefs/scripts/mqb/util_mountsd.sh
 if [[ -z "$VOLUME" ]] 
 then
@@ -19,26 +17,16 @@ then
 	exit 0
 fi
 
-#Make app volume writable
-echo Mounting app folder.
-mount -uw /mnt/app
-mount -uw /mnt/system
-
-
-#Make backup folder
+#Make dump folder
 DUMPFOLDER=$VOLUME/Dump/$VERSION/$FAZIT/$TOPIC
 
 echo Dump-folder: $DUMPFOLDER
-
-echo Dumping, please wait. This can take a while.
-
 mkdir -p $DUMPFOLDER
-
+echo Dumping, please wait. This can take a while.
+sleep 1
 
 echo Copying files
 cp $ORIGINAL $DUMPFOLDER
-
-sleep 1
 
 # Make readonly again
 mount -ur $VOLUME

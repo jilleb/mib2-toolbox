@@ -10,7 +10,7 @@
 # Main -> MQBCoding -> Customization -> Startup
 #
 ###########################################################################################
-screen  Startup Customization 
+screen  Startup Customization
 
 keyValue
     value	String sys 0x00000000 0
@@ -63,13 +63,23 @@ keyValue
 
 keyValue
     value   String sys 0x00000000 0
-    label   "Use the following if you don't have the tools to change coding"
+    label   "Use the following if you don't have the tools to change coding."
     poll    0  
     
 keyValue
     value   String sys 0x00000000 0
-    label   "Put your custom splash.canim in the Custom/Splashscreen folder on SD-card"
+    label   "Rename your custom Splashsceen into splash.canim in the Custom/Splashscreen"
     poll    0  
+
+keyValue
+    value   String sys 0x00000000 0
+    label   "folder on SD-card."
+    poll    0 
+	
+keyValue
+    value   String sys 0x00000000 0
+    label   ""
+    poll    0 
 
 script
    value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/install_forcedcanim.sh"

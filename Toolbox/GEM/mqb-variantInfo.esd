@@ -7,10 +7,10 @@
 #
 ###########################################################################################
 #
-# Main -> MQBCoding -> Customization -> Adaptions -> VariantInfo
+# Main -> MQBCoding -> Customization -> Adaptation -> VariantInfo
 #
 ###########################################################################################
-screen  VariantInfo  adaptations
+screen  VariantInfo  Adaptation
 
 keyValue
     value    String sys 0x00000000 0

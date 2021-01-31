@@ -10,7 +10,7 @@
 # Main -> MQBCoding -> Uninstall
 #
 ###########################################################################################
-screen  Uninstall MQBCoding   
+screen  Uninstall MQBCoding
 
 keyValue
     value   String sys 0x00000000 0
@@ -24,7 +24,21 @@ script
 keyValue
     value   String sys 0x00000000 0
     label   ""
+    poll    0
+
+keyValue
+    value   String sys 0x00000000 0
+    label   "This will cleanup old files which aren't used anymore from the toolbox."
     poll    0 
+	
+script
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/util_clean.sh"
+   label    "Start cleanup"  
+
+keyValue
+    value   String sys 0x00000000 0
+    label   ""
+    poll    0 	
 
 keyValue
     value   String sys 0x00000000 0
