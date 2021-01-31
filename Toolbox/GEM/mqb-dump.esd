@@ -23,7 +23,7 @@ keyValue
     poll     0  	
     
 script
-   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/dump_all_new.sh"
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/dump_all.sh"
    label    "Dump everything to SD-card (This will take a while)"
    
 keyValue
