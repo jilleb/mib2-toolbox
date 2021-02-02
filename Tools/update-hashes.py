@@ -1,24 +1,26 @@
-#----------------------------------------------------------
-#--- Update the hashes in the repo
+# ----------------------------------------------------------
+# --- Update the hashes in the repo
 #
 # File:        update-hashes.py
 # Author:      andrewleech
 # Revision:    1
 # Purpose:     Update all sha1 hashes and hash files
 # Comments:    Usage: python update-hashes.py
-#----------------------------------------------------------
+# ----------------------------------------------------------
 
-import os
 import re
-import io
 import hashlib
-import configparser
-from copy import deepcopy
+import binascii
 from pathlib import Path
+try:
+    from typing import *
+except ImportError:
+    pass
 try:
     from configobj import ConfigObj
 except ImportError:
     import sys
+
     sys.path.append(str(Path(__file__).parent))
     from configobj import ConfigObj
 
@@ -65,35 +67,36 @@ signature6 = "b6b7989079d3f2f44bcec54ef59212a2"
 signature7 = "133f9224b6bcc4492e6818b1475a7d83"
 signature8 = "0dde6b0489314cf4924be9e2e91db990"
 
-"""    
+"""
+
 
 def file_hash(path, checksumsize=524288, current=None):
-  with open(path,'rb') as f:
-    if checksumsize!=0:
-      l = 0
-      digests = []
-      first = True
-      while True:
-        hasher=hashlib.sha1()
-        buf = f.read(checksumsize)
-        hasher.update(buf)
-        if len(buf)==0:
-          break
-        l += len(buf)
-        hash = hasher.hexdigest()
-        if current and first and hash == current.strip('"'):
-          raise StopIteration
-        first = False
-        digests.append(f'"{hash}"')
-      return ( l, digests )
-    else:
-      hasher=hashlib.sha1()
-      buf = f.read()
-      hasher.update(buf)
-      hash = hasher.hexdigest()
-      if current and hash == current:
-          raise StopIteration
-      return ( len(buf), [f'"{hash}"'] )
+    with open(path, 'rb') as f:
+        if checksumsize != 0:
+            length = 0
+            digests = []
+            first = True
+            while True:
+                hasher = hashlib.sha1()
+                buf = f.read(checksumsize)
+                hasher.update(buf)
+                if len(buf) == 0:
+                    break
+                length += len(buf)
+                fhash = hasher.hexdigest()
+                if current and first and fhash == current.strip('"'):
+                    raise StopIteration
+                first = False
+                digests.append(f'"{fhash}"')
+            return length, digests
+        else:
+            hasher = hashlib.sha1()
+            buf = f.read()
+            hasher.update(buf)
+            fhash = hasher.hexdigest()
+            if current and fhash == current:
+                raise StopIteration
+            return len(buf), [f'"{fhash}"']
 
 
 class HashFileDef:
@@ -104,13 +107,13 @@ class HashFileDef:
         self.CheckSum = self.shas[0]
         self.CheckSumSize = CheckSumSize
         self.idx = idx
-    
+
     @classmethod
     def parse(self, chunk, idx):
-        FileName = re.findall('FileName = "(.+?)"', chunk)[0]
-        FileSize = int(re.findall('FileSize = "(.+?)"', chunk)[0])
-        shas = re.findall('CheckSum\d* = "(.+?)"', chunk)
-        CheckSumSize = int([*re.findall('CheckSumSize = "(.+?)"', chunk), 0][0])
+        FileName = re.findall(r'FileName = "*(.+?)"*\s', chunk)[0]
+        FileSize = int(re.findall(r'FileSize = "*(.+?)"*\s', chunk)[0])
+        shas = re.findall(r'CheckSum\d* = "*(.+?)"*\s', chunk)
+        CheckSumSize = int([*re.findall(r'CheckSumSize = "*(.+?)"*\s', chunk), 0][0])
         return HashFileDef(FileName, FileSize, shas, CheckSumSize, idx)
 
     def __eq__(self, other):
@@ -126,12 +129,12 @@ class HashFileDef:
             chunk += f'\nCheckSumSize = "{self.CheckSumSize}"'
         for n, sha in enumerate(self.shas):
             n = '' if n == 0 else str(n)
+            sha = sha.strip('"')
             chunk += f'\nCheckSum{n} = "{sha}"'
-        return chunk+'\n'
+        return chunk + '\n'
 
     def __repr__(self):
         return self.__str__()
-
 
 
 def generate_hashes(path, checksumsize=524288):
@@ -142,18 +145,23 @@ def generate_hashes(path, checksumsize=524288):
     hashes_text = ''
     hashes_text_orig = finalhash.read_bytes() if finalhash.exists() else b''
     header_split = re.search(b'^FileName =', hashes_text_orig, re.MULTILINE)
-    hashes_text_header = hashes_text_orig[0:header_split.start()]
-    hashes_text_content = hashes_text_orig[header_split.start():]
-    endings = b'\r\n' if b'\r\n' in hashes_text_content else b'\n' 
+    if header_split:
+        hashes_text_header = hashes_text_orig[0:header_split.start()]
+        hashes_text_content = hashes_text_orig[header_split.start():]
+    else:
+        hashes_text_header = b''
+        hashes_text_content = hashes_text_orig
+    endings = b'\r\n' if b'\r\n' in hashes_text_content else b'\n'
     hashes_text_content = hashes_text_content.replace(b'\r\n', b'\n').decode()
     trailing_newlines = len(hashes_text_content) - len(hashes_text_content.rstrip('\n'))
-    
+
     hashes_text = []
-    
-    hashes_chunks = re.split("(?=^FileName )", hashes_text_content, flags=re.MULTILINE)
-    
+
+    hashes_chunks = re.split("(^FileName )", hashes_text_content, flags=re.MULTILINE)
+    hashes_chunks = [f'FileName {c}' for c in hashes_chunks[1:] if c != 'FileName ']
+
     n = len(hashes_chunks)
-    hashes_chunks = [HashFileDef.parse(chunk, n-i) for i, chunk in enumerate(hashes_chunks[1:])]
+    hashes_chunks = [HashFileDef.parse(chunk, n - i) for i, chunk in enumerate(hashes_chunks)]  # type: List[HashFileDef]
 
     def hash_dir(p, stem=''):
         nonlocal hashes_chunks, hashes_text, final_dir_size, checksumsize
@@ -186,22 +194,23 @@ def generate_hashes(path, checksumsize=524288):
                     size = existing.FileSize
 
                 final_dir_size += size
-    
+
     hash_dir(path)
-    hashes_text.sort(key=lambda chunk:chunk.idx, reverse=True)
+    # Preserve original file order
+    hashes_text.sort(key=lambda chunk: chunk.idx, reverse=True)
 
     new_text = '\n'.join([str(c) for c in hashes_text])
-    
+
     footer_len = len(new_text) - len(new_text.rstrip('\n'))
     if trailing_newlines > footer_len:
         new_text += '\n' * (trailing_newlines - footer_len)
 
-    new_text = (new_text).encode().replace(b'\n', endings)  # ensure line endings match original
+    new_text = new_text.encode().replace(b'\n', endings)  # ensure line endings match original
     new_text = hashes_text_header + new_text
     if new_text != hashes_text_orig:
         finalhash.write_bytes(new_text)
         print("hashes.txt: Updated details for", path)
-    final_dir_size += len(new_text)  
+    final_dir_size += len(new_text)
     return finalhash, final_dir_size
 
 
@@ -244,108 +253,126 @@ def config_set_key(config, section, key, value):
         return True
     return False
 
+def main():
+    print("Loading", metainfo)
+    metainfo_contents = metainfo.read_bytes()
+    windows_line_ending = b'\r\n' in metainfo_contents
+    metainfo_contents = metainfo_contents.replace(b'\r\n', b'\n')  # Ensure LF line endings while building
 
-print("Loading", metainfo)
-metainfo_contents = metainfo.read_bytes()
-windows_line_ending = b'\r\n' in metainfo_contents
-metainfo_contents = metainfo_contents.replace(b'\r\n', b'\n')  # Ensure LF line endings while building
+    # split metainfo into original and new parts
+    metainfo_splits = re.findall(b'^signature\d* = "\S+"\n?', metainfo_contents, flags=re.MULTILINE)
+    divide = metainfo_contents.index(metainfo_splits[-1])
+    divide += len(metainfo_splits[-1])
+    metainfo_orig = metainfo_contents[0:divide]
+    metainfo_new = metainfo_contents[divide + 1:]
 
-# split metainfo into original and new parts
-metainfo_splits = re.findall(b'^signature\d* = "\S+"\n?', metainfo_contents, flags=re.MULTILINE)
-divide = metainfo_contents.index(metainfo_splits[-1])
-divide += len(metainfo_splits[-1])
-metainfo_orig = metainfo_contents[0:divide]
-metainfo_new = metainfo_contents[divide+1:]
+    if not metainfo_new.strip():
+        print("metainfo2.txt: No donor header, adding now...")
+        metainfo_new = re.split(b'^\[Signature\]', metainfo_orig, flags=(re.IGNORECASE | re.MULTILINE))[0]
+        metainfo_orig = donor_header
 
-if not metainfo_new.strip():
-    print("metainfo2.txt: No donor header, adding now...")
-    metainfo_new = re.split(b'^\[Signature\]', metainfo_orig, flags=(re.IGNORECASE | re.MULTILINE))[0]
-    metainfo_orig = donor_header
+    lines = metainfo_new.split(b'\n')
+
+    config = ConfigObj(lines, list_values=False)
+
+    common_dir = None
+
+    # Ensure versions are consistent
+    muconsistency_section = ([s for s in config.sections if s.lower() == 'muconsistency'] or [''])[0]
+    if muconsistency_section:
+        try:
+            muconsistency_dir = next((d for d in repo.iterdir() if d.name.lower() == 'muconsistency'))
+            muconsistency_file = next((repo / muconsistency_dir).glob('**/*.txt'))
+            muc_details = muconsistency_file.read_bytes()
+            pattern = b'(\[CRC\]\r?\n)\S\S\S\S\S\S\S\S'
+            crc = binascii.crc32(re.sub(pattern, b'[CRC]', muc_details, flags=re.MULTILINE))
+            hexcrc = f'{crc:x}'
+            new_muc_details = re.sub(pattern, b'\g<1>%s' % hexcrc.encode(), muc_details, flags=re.MULTILINE)
+            if muc_details.lower() != new_muc_details.lower():
+                print("Updating muconsistency CRC")
+                muconsistency_file.write_bytes(new_muc_details)
+        except IndexError:
+            print('Error in muconsistency parsing; could not find files')
+
+    # Calculate hashes for each section
+    for section in config.sections:
+        changed = False
+        title = f"metainfo2.txt: {section}"
+        print(title + (" " * (max(0, 70 - len(title)))), end="")
+        if section == "common" and 'FinalScript' in config[section]:
+            common_dir_block, changed = handle_common_final(config)
+
+        elif common_dir and section.lower() == common_dir:
+            # already handled above
+            pass
+
+        else:
+            if 'CheckSum' in config[section]:
+                section_path = repo / section.strip('"')
+                source = section_path.parent
+                stype = section_path.name.lower()
+                checksumsize = int(config[section].get('CheckSumSize', '524288').strip('"'))
+                if stype == 'dir':
+                    if not source.is_dir():
+                        print("Inconsistent dir/file for", section)
+                        continue
+                    hashfile, hashfile_dir_size = generate_hashes(source)
+                    changed |= config_set_key(config, section, 'FileSize', '"%i"' % hashfile_dir_size)
+                    _, shas = file_hash(hashfile, checksumsize)
+                    changed |= config_set_key(config, section, 'CheckSum', shas[0].upper())
+                elif stype == 'file':
+                    if 'Source' not in config[section]:
+                        print('Source missing from', section)
+                        continue
+                    source = source / config[section]['Source'].strip('"')
+                    if not source.exists():
+                        print(source, 'file missing')
+                        continue
+                    try:
+                        current = config[section][f'CheckSum']
+                        filesize, shas = file_hash(source, checksumsize, current=current)
+                        changed |= config_set_key(config, section, 'FileSize', '"%i"' % filesize)
+                        for n, sha in enumerate(shas):
+                            n = '' if n == 0 else str(n)
+                            changed |= config_set_key(config, section, f'CheckSum{n}', sha.upper())
+                    except StopIteration:
+                        pass
+                elif stype == 'application' or stype == 'bootloader':
+                    if 'FileName' not in config[section]:
+                        print('FileName missing from', section)
+                        continue
+                    source = source / config[section]['FileName'].strip('"')
+                    if not source.exists():
+                        print(source, 'file missing')
+                        continue
+                    try:
+                        current = config[section][f'CheckSum']
+                        filesize, shas = file_hash(source, checksumsize, current=current)
+                        changed |= config_set_key(config, section, 'FileSize', '"%i"' % filesize)
+                        for n, sha in enumerate(shas):
+                            n = '' if n == 0 else str(n)
+                            changed |= config_set_key(config, section, f'CheckSum{n}', sha.upper())
+                    except StopIteration:
+                        pass
+                else:
+                    print("Don't know how to process:", section_path)
+
+        if changed:
+            print(": UPDATED")
+        else:
+            print(": -------")
+
+    lines = config.write()
+
+    metainfo_contents = '\n'.join([metainfo_orig.decode(), *lines])
+
+    if windows_line_ending:
+        # metainfo needs to be CRLF to maintain original crc's
+        metainfo_contents = metainfo_contents.replace('\n', '\r\n')
+
+    metainfo.write_bytes(metainfo_contents.encode())
+    print("Finished")
 
 
-metainfo_new_header = []
-lines = metainfo_new.split(b'\n')
-
-config = ConfigObj(lines, list_values=False)
-
-common_dir = None
-
-#Calculate hashes for each section
-for section in config.sections:
-    changed = False
-    title = f"metainfo2.txt: {section}"
-    print(title + (" " * (max(0,70-len(title)))), end="")
-    if section == "common" and 'FinalScript' in config[section]:
-        common_dir_block, changed = handle_common_final(config)
-        
-    elif common_dir and section.lower() == common_dir:
-        # already handled above
-        pass
-
-    else:
-        if 'CheckSum' in config[section]:
-            section_path = repo / section.strip('"')
-            source = section_path.parent
-            stype = section_path.name.lower()
-            checksumsize = int(config[section].get('CheckSumSize', '524288').strip('"'))
-            if stype == 'dir': 
-                if not source.is_dir():
-                    print("Inconsistent dir/file for", section)
-                    continue
-                hashfile, hashfile_dir_size = generate_hashes(source)
-                changed |= config_set_key(config, section, 'FileSize', '"%i"' % hashfile_dir_size)
-                _, shas = file_hash(hashfile, checksumsize)
-                changed |= config_set_key(config, section, 'CheckSum', shas[0].upper())
-            elif stype == 'file':
-                if 'Source' not in config[section]:
-                    print('Source missing from', section) 
-                    continue
-                source = source / config[section]['Source'].strip('"')
-                if not source.exists():
-                    print(source, 'file missing') 
-                    continue
-                try:
-                    current = config[section][f'CheckSum']
-                    filesize, shas = file_hash(source, checksumsize, current=current)
-                    changed |= config_set_key(config, section, 'FileSize', '"%i"' % filesize)
-                    for n, sha in enumerate(shas):
-                        n = '' if n == 0 else str(n)
-                        changed |= config_set_key(config, section, f'CheckSum{n}', sha.upper())
-                except StopIteration:
-                    pass
-            elif stype == 'application' or stype == 'bootloader':
-                if 'FileName' not in config[section]:
-                    print('FileName missing from', section) 
-                    continue
-                source = source / config[section]['FileName'].strip('"')
-                if not source.exists():
-                    print(source, 'file missing') 
-                    continue
-                try:
-                    current = config[section][f'CheckSum']
-                    filesize, shas = file_hash(source, checksumsize, current=current)
-                    changed |= config_set_key(config, section, 'FileSize', '"%i"' % filesize)
-                    for n, sha in enumerate(shas):
-                        n = '' if n == 0 else str(n)
-                        changed |= config_set_key(config, section, f'CheckSum{n}', sha.upper())
-                except StopIteration:
-                    pass
-            else:
-                print("Don't know how to process:", section_path)
-            
-    if changed:
-        print(": UPDATED")
-    else:
-        print(": -------")
-
-
-lines = config.write()
-
-metainfo_contents = '\n'.join([metainfo_orig.decode(), *lines])
-
-if windows_line_ending:
-    # metainfo needs to be CRLF to maintain original crc's
-    metainfo_contents = metainfo_contents.replace('\n', '\r\n')
-
-metainfo.write_bytes(metainfo_contents.encode())
-print("Finished")
+if __name__ == '__main__':
+    main()
