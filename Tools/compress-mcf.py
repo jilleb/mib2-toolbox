@@ -13,6 +13,8 @@ import sys
 import os
 import zlib
 from PIL import Image
+import binascii
+
 
 if len(sys.argv) != 4:
   print ("usage: compress-mcf.py <original-file> <new-file> <imagesdir>")
@@ -54,9 +56,9 @@ struct_data = ''
 
 def find(s, ch):
     return [i for i, ltr in enumerate(s) if ltr == ch]
-	
+
 for image_id in range(0, int(num_files)):
-	(original_type, original_file_id, original_always_8, original_zsize, original_max_pixel_count, original_always_1, original_unknown_hash1, original_width, original_height, original_image_mode, original_always__1) = struct.unpack_from('<4sIIIIIIhhhh', data, offset_original)
+	(original_type, original_file_id, original_always_8, original_zsize, original_max_pixel_count, original_always_1, original_hash1, original_width, original_height, original_image_mode, original_always__1) = struct.unpack_from('<4sIIIIIIhhhh', data, offset_original)
 	(original_unknown_hash2,) = struct.unpack_from('<I', data, offset_original+original_zsize+36)
 	
 	im = Image.open(os.path.join(dir, 'img_%d.png'%image_id))
@@ -69,8 +71,7 @@ for image_id in range(0, int(num_files)):
 	file_id = image_id + 1
 	always_8 = 8
 	zsize = len(image_zlib)
-	always_1 = 1
-	unknown_hash1 = original_unknown_hash1
+	always_1 = 1    
 	unknown_hash2 = original_unknown_hash2
 	width = im.size[0]
 	height = im.size[1]
@@ -102,10 +103,11 @@ for image_id in range(0, int(num_files)):
 		zsize += 3
 		image_zlib = image_zlib + chr(0) + chr(0) + chr(0) 
 	
-	print ("%s;%d;%d;%d;%d;%d;%d;%d;%d;%d;%d;%d"%(type, file_id, always_8, zsize, max_pixel_count, always_1, unknown_hash1, width, height, image_mode, always__1, unknown_hash2))
-	#print ("%s;%d;%d;%d;%d;%d;%d;%d;%d;%d;%d;%d"%(original_type, original_file_id, original_always_8, original_zsize, original_max_pixel_count, original_always_1, original_unknown_hash1, original_width, original_height, original_image_mode, original_always__1, original_unknown_hash2))
 	
-	struct_data = struct_data + struct.pack('<4sIIIIIIhhhh', type, file_id, always_8, zsize, max_pixel_count, always_1, unknown_hash1, width, height, image_mode, always__1) + image_zlib + struct.pack('<I', original_unknown_hash2)
+	hash_1 = (zlib.crc32(struct.pack('<4sIIIII',type, file_id , always_8 , zsize,  max_pixel_count, always_1)))
+	print ("%s;%d;%d;%d;%d;%d;%d;%d;%d;%d;%d;%d"%(type, file_id, always_8, zsize, max_pixel_count, always_1, hash_1, width, height, image_mode, always__1, unknown_hash2))
+	
+	struct_data = struct_data + struct.pack('<4sIIIIIihhhh', type, file_id, always_8, zsize, max_pixel_count, always_1, hash_1, width, height, image_mode, always__1) + image_zlib + struct.pack('<I', original_unknown_hash2)
 	struct_toc = struct_toc + struct.pack('<4sIII', type, file_id, offset_new, zsize+40) # file_size = meta information (size of 40) + zsize
 	
 	offset_original = offset_original+original_zsize+40
