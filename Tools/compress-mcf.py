@@ -2,10 +2,12 @@
 #--- Quick 'n' dirty MCF file compressor
 #
 # File:        compress-mcf.py
-# Author:      sVn
-# Revision:    1
+# Author:      sVn, Jille
+# Revision:    1.1
 # Purpose:     Compress MIB2 images in mcf file
 # Comments:    Usage: compress-mcf.py <original-file> <new-file> <imagesdir>
+# Changelog:   v1:      initial version
+#              v1.1:    added missing hash to image headers and after zlib data    
 #----------------------------------------------------------
 
 import struct
@@ -72,7 +74,6 @@ for image_id in range(0, int(num_files)):
 	always_8 = 8
 	zsize = len(image_zlib)
 	always_1 = 1    
-	unknown_hash2 = original_unknown_hash2
 	width = im.size[0]
 	height = im.size[1]
 	
@@ -102,12 +103,16 @@ for image_id in range(0, int(num_files)):
 	elif mod == 1:
 		zsize += 3
 		image_zlib = image_zlib + chr(0) + chr(0) + chr(0) 
-	
-	
-	hash_1 = (zlib.crc32(struct.pack('<4sIIIII',type, file_id , always_8 , zsize,  max_pixel_count, always_1)))
-	print ("%s;%d;%d;%d;%d;%d;%d;%d;%d;%d;%d;%d"%(type, file_id, always_8, zsize, max_pixel_count, always_1, hash_1, width, height, image_mode, always__1, unknown_hash2))
-	
-	struct_data = struct_data + struct.pack('<4sIIIIIihhhh', type, file_id, always_8, zsize, max_pixel_count, always_1, hash_1, width, height, image_mode, always__1) + image_zlib + struct.pack('<I', original_unknown_hash2)
+
+
+	header_part1 = struct.pack('<4sIIIII',type, file_id , always_8 , zsize,  max_pixel_count, always_1)
+	hash_1 = (zlib.crc32(header_part1))
+	hash_2 = (zlib.crc32(struct.pack('<hhhh',width,height,image_mode, always__1) + image_zlib))
+
+	print ("%s;%d;%d;%d;%d;%d;%d;%d;%d;%d;%d;%d"%(type, file_id, always_8, zsize, max_pixel_count, always_1, hash_1, width, height, image_mode, always__1, hash_2))
+  
+    
+	struct_data = struct_data + struct.pack('<4sIIIIIihhhh', type, file_id, always_8, zsize, max_pixel_count, always_1, hash_1, width, height, image_mode, always__1) + image_zlib + struct.pack('<i', hash_2)
 	struct_toc = struct_toc + struct.pack('<4sIII', type, file_id, offset_new, zsize+40) # file_size = meta information (size of 40) + zsize
 	
 	offset_original = offset_original+original_zsize+40
