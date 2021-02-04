@@ -50,15 +50,15 @@ print ("data start: %d"%(offset_data_start))
 offset_original = offset_data_start
 offset_new = offset_data_start
 
-original_header = data[0:52]
-unknown_toc = data[offset_data_start-4:offset_data_start]
+original_header = data[0:48]
+original_toc_checksum = data[offset_data_start-4:offset_data_start]
 
 struct_toc = ''
 struct_data = ''
 
 def find(s, ch):
     return [i for i, ltr in enumerate(s) if ltr == ch]
-
+#num_files = 1
 for image_id in range(0, int(num_files)):
 	(original_type, original_file_id, original_always_8, original_zsize, original_max_pixel_count, original_always_1, original_hash1, original_width, original_height, original_image_mode, original_always__1) = struct.unpack_from('<4sIIIIIIhhhh', data, offset_original)
 	(original_unknown_hash2,) = struct.unpack_from('<I', data, offset_original+original_zsize+36)
@@ -119,5 +119,7 @@ for image_id in range(0, int(num_files)):
 	offset_new = offset_new+zsize+40
 
 f = open(sys.argv[2],'wb')
-f.write(original_header + struct_toc + unknown_toc + struct_data)
+toc = struct.pack('<I',num_files) + struct_toc
+toc_checksum = struct.pack('<i',(zlib.crc32(toc)))
+f.write(original_header + toc + toc_checksum + struct_data)
 f.close()
