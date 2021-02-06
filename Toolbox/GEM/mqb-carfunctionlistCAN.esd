@@ -1,0 +1,24 @@
+###########################################################################################
+#
+# Custom Green Engineering Menu screen
+# Author:       Jille & Olli
+# Version:      4.1A
+# Disclaimer:   THIS SCREEN WILL VOID YOUR WARRANTY
+#
+###########################################################################################
+#
+# Main -> MQBCoding -> Customization -> Adaptation -> CarFunctionsList CAN
+#
+###########################################################################################
+screen "CarFunctionsList_CAN" Adaptation
+
+BIOSCtrl
+	value   int per 0 1343769616
+	label   "RVC as RVC_Low: "
+	entry	"not coded" 0
+	entry	"coded" 1        
+   
+choice
+    value   per 28442848 521
+    label   "Display OPS in Kombi"
+    poll    1000   

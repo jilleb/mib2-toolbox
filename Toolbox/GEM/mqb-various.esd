@@ -1,0 +1,63 @@
+###########################################################################################
+#
+# Custom Green Engineering Menu screen
+# Author:       Jille & Olli
+# Version:      4.1A
+# Disclaimer:   THIS SCREEN WILL VOID YOUR WARRANTY
+#
+###########################################################################################
+#
+# Main -> MQBCoding -> Customization -> Various
+#
+###########################################################################################
+screen  Various Customization
+
+keyValue
+    value	String sys 0x00000000 0
+    label   "Various tweaks:"
+    poll    0  
+
+script
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/import_gracenote.sh"
+   label    "Import new Gracenote database" 
+    
+script
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/patch_googleearth.sh"
+   label    "Activate 3D terrain/buildings in Carnet Google Earth"    
+   
+script
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/patch_menumode.sh"
+   label    "Activate User-switchable MenuMode"
+   
+script
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/install_rsdb.sh"
+   label    "Install new Radio Station DB"
+
+script
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/set_nosslcheck.sh"
+   label    "Disable Online service SSL checks"
+
+script
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/unset_nosslcheck.sh"
+   label    "Re-enable online service SSL checks"
+   
+script
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/set_DataOverDLink.sh"
+   label    "Data over D-link"
+   
+script
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/set_DataOverSIM.sh"
+   label    "Data over SIM"
+
+script
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/util_showOnlineRouterStatus.sh"
+   label    "Check online data status"
+   
+keyValue
+	value 	String per 1 0x00010003
+    label 	"_____________________________________________________________________________"
+    poll     500
+   
+script
+   value    sys 1 0x0100 "/net/mmx/fs/sda0/test.sh"
+   label    "DEV: copy testfiles"

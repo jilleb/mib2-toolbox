@@ -1,0 +1,37 @@
+###########################################################################################
+#
+# Custom Green Engineering Menu screen
+# Author:       Jille & Olli
+# Version:      4.1A
+# Disclaimer:   THIS SCREEN WILL VOID YOUR WARRANTY
+#
+###########################################################################################
+#
+# Main -> MQBCoding
+#
+###########################################################################################
+screen   MQBCoding Main
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "[MQB CODING - MIB Toolbox v4.1A]"
+    poll     0
+    
+keyValue
+    value    String sys 0x00000000 0
+    label    "Warning: This toolbox has the potential to break your unit and void your"
+    poll     0
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "warranty. Be careful!"
+    poll     0
+
+script
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/update_toolbox.sh"
+   label    "Update Toolbox"
+   
+keyValue
+	value 	String per 1 0x00010003
+    label 	"_____________________________________________________________________________"
+    poll     500

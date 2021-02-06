@@ -1,0 +1,41 @@
+###########################################################################################
+#
+# Custom Green Engineering Menu screen
+# Author:       Jille & Olli
+# Version:      4.1A
+# Disclaimer:   THIS SCREEN WILL VOID YOUR WARRANTY
+#
+###########################################################################################
+#
+# Main -> MQBCoding -> Customization -> Sounds
+#
+###########################################################################################
+screen  Sounds Customization
+
+keyValue
+    value	String sys 0x00000000 0
+    label   "This screen can be used to replace ringtones and sounds of the MIB."
+    poll    0  
+
+keyValue
+    value   String sys 0x00000000 0
+    label   "Wav-files go into the Custom/Ringtones-folder on SD-card"
+    poll    0  
+
+keyValue
+    value   String sys 0x00000000 0
+    label   "Reboot after installing new files."
+    poll    0      
+	
+keyValue
+    value   String sys 0x00000000 0
+    label   ""
+    poll    0      
+
+script
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/install_ringtones.sh"
+   label    "Install new ringtones from Custom/Ringtones/ on SD"
+   
+script
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/install_systemsounds.sh"
+   label    "Install new system sounds from Custom/Systemsounds/ on SD"

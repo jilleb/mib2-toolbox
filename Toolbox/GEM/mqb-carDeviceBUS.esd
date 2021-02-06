@@ -1,0 +1,1094 @@
+###########################################################################################
+#
+# Custom Green Engineering Menu screen
+# Author:       Jille & Olli
+# Version:      4.1A
+# Disclaimer:   THIS SCREEN WILL VOID YOUR WARRANTY
+#
+###########################################################################################
+#
+# Main -> MQBCoding -> Customization -> Adaptation -> CarDeviceBusAssignment
+#
+###########################################################################################
+screen CarDeviceBusAssignment Adaptation
+
+BIOSCtrl
+      value       int per 28442848 409
+      label       "Adaptive Cruise Control (ACC):"
+	entry			"CAN Comfort" 0
+	entry			"CAN Antrieb" 1
+	entry			"CAN Infotainment" 2
+	entry			"CAN Extended" 3
+	entry			"CAN Fahrwerk" 4
+	entry			"CAN Hybrid" 31
+	entry			"CAN MIB" 32
+	entry			"CAN Kombi/Dashbrd" 33			
+	entry			"Flexray" 5
+	entry			"Clamp15" 6	
+	entry			"CLST1 TUEREN" 7
+	entry			"CLST2 ANHAENGER" 8
+	entry			"CLST3 NIGHTVISION" 9
+	entry			"CLST4 SITZ" 10
+	entry			"CLST5 KLAPPEN" 11
+	entry			"CLST6 INFOTAINMENT" 12
+	entry			"CLST7 SUB_INFOTAIN" 13
+	entry			"CLST8 ANZEIGE" 14
+	entry			"CLST9 LADEN" 15		
+	entry			"not available" 63
+
+BIOSCtrl
+      value       int per 28442848 401
+      label       "Air condition (master): "
+	entry			"CAN Comfort" 0
+	entry			"CAN Antrieb" 1
+	entry			"CAN Infotainment" 2
+	entry			"CAN Extended" 3
+	entry			"CAN Fahrwerk" 4
+	entry			"CAN Hybrid" 31
+	entry			"CAN MIB" 32
+	entry			"CAN Kombi/Dashbrd" 33			
+	entry			"Flexray" 5
+	entry			"Clamp15" 6	
+	entry			"CLST1 TUEREN" 7
+	entry			"CLST2 ANHAENGER" 8
+	entry			"CLST3 NIGHTVISION" 9
+	entry			"CLST4 SITZ" 10
+	entry			"CLST5 KLAPPEN" 11
+	entry			"CLST6 INFOTAINMENT" 12
+	entry			"CLST7 SUB_INFOTAIN" 13
+	entry			"CLST8 ANZEIGE" 14
+	entry			"CLST9 LADEN" 15		
+	entry			"not available" 63
+
+BIOSCtrl
+      value       int per 28442848 403
+      label       "Air condition (slave1): "
+	entry			"CAN Comfort" 0
+	entry			"CAN Antrieb" 1
+	entry			"CAN Infotainment" 2
+	entry			"CAN Extended" 3
+	entry			"CAN Fahrwerk" 4
+	entry			"CAN Hybrid" 31
+	entry			"CAN MIB" 32
+	entry			"CAN Kombi/Dashbrd" 33			
+	entry			"Flexray" 5
+	entry			"Clamp15" 6	
+	entry			"CLST1 TUEREN" 7
+	entry			"CLST2 ANHAENGER" 8
+	entry			"CLST3 NIGHTVISION" 9
+	entry			"CLST4 SITZ" 10
+	entry			"CLST5 KLAPPEN" 11
+	entry			"CLST6 INFOTAINMENT" 12
+	entry			"CLST7 SUB_INFOTAIN" 13
+	entry			"CLST8 ANZEIGE" 14
+	entry			"CLST9 LADEN" 15		
+	entry			"not available" 63
+
+BIOSCtrl
+      value       int per 28442848 443
+      label       "Air condition (slave2): "
+	entry			"CAN Comfort" 0
+	entry			"CAN Antrieb" 1
+	entry			"CAN Infotainment" 2
+	entry			"CAN Extended" 3
+	entry			"CAN Fahrwerk" 4
+	entry			"CAN Hybrid" 31
+	entry			"CAN MIB" 32
+	entry			"CAN Kombi/Dashbrd" 33			
+	entry			"Flexray" 5
+	entry			"Clamp15" 6	
+	entry			"CLST1 TUEREN" 7
+	entry			"CLST2 ANHAENGER" 8
+	entry			"CLST3 NIGHTVISION" 9
+	entry			"CLST4 SITZ" 10
+	entry			"CLST5 KLAPPEN" 11
+	entry			"CLST6 INFOTAINMENT" 12
+	entry			"CLST7 SUB_INFOTAIN" 13
+	entry			"CLST8 ANZEIGE" 14
+	entry			"CLST9 LADEN" 15		
+	entry			"not available" 63
+
+BIOSCtrl
+      value       int per 28442848 411
+      label       "Air suspension: "
+	entry			"CAN Comfort" 0
+	entry			"CAN Antrieb" 1
+	entry			"CAN Infotainment" 2
+	entry			"CAN Extended" 3
+	entry			"CAN Fahrwerk" 4
+	entry			"CAN Hybrid" 31
+	entry			"CAN MIB" 32
+	entry			"CAN Kombi/Dashbrd" 33			
+	entry			"Flexray" 5
+	entry			"Clamp15" 6	
+	entry			"CLST1 TUEREN" 7
+	entry			"CLST2 ANHAENGER" 8
+	entry			"CLST3 NIGHTVISION" 9
+	entry			"CLST4 SITZ" 10
+	entry			"CLST5 KLAPPEN" 11
+	entry			"CLST6 INFOTAINMENT" 12
+	entry			"CLST7 SUB_INFOTAIN" 13
+	entry			"CLST8 ANZEIGE" 14
+	entry			"CLST9 LADEN" 15		
+	entry			"not available" 63
+
+BIOSCtrl
+      value       int per 28442848 405
+      label       "Auxiliary heater: "
+	entry			"CAN Comfort" 0
+	entry			"CAN Antrieb" 1
+	entry			"CAN Infotainment" 2
+	entry			"CAN Extended" 3
+	entry			"CAN Fahrwerk" 4
+	entry			"CAN Hybrid" 31
+	entry			"CAN MIB" 32
+	entry			"CAN Kombi/Dashbrd" 33			
+	entry			"Flexray" 5
+	entry			"Clamp15" 6	
+	entry			"CLST1 TUEREN" 7
+	entry			"CLST2 ANHAENGER" 8
+	entry			"CLST3 NIGHTVISION" 9
+	entry			"CLST4 SITZ" 10
+	entry			"CLST5 KLAPPEN" 11
+	entry			"CLST6 INFOTAINMENT" 12
+	entry			"CLST7 SUB_INFOTAIN" 13
+	entry			"CLST8 ANZEIGE" 14
+	entry			"CLST9 LADEN" 15		
+	entry			"not available" 63
+
+BIOSCtrl
+      value       int per 28442848 477
+      label       "BatteryCtrl: "
+	entry			"CAN Comfort" 0
+	entry			"CAN Antrieb" 1
+	entry			"CAN Infotainment" 2
+	entry			"CAN Extended" 3
+	entry			"CAN Fahrwerk" 4
+	entry			"CAN Hybrid" 31
+	entry			"CAN MIB" 32
+	entry			"CAN Kombi/Dashbrd" 33			
+	entry			"Flexray" 5
+	entry			"Clamp15" 6	
+	entry			"CLST1 TUEREN" 7
+	entry			"CLST2 ANHAENGER" 8
+	entry			"CLST3 NIGHTVISION" 9
+	entry			"CLST4 SITZ" 10
+	entry			"CLST5 KLAPPEN" 11
+	entry			"CLST6 INFOTAINMENT" 12
+	entry			"CLST7 SUB_INFOTAIN" 13
+	entry			"CLST8 ANZEIGE" 14
+	entry			"CLST9 LADEN" 15		
+	entry			"not available" 63
+
+BIOSCtrl
+      value       int per 28442848 467
+      label       "BC with Efficiency (BCmE): "
+	entry			"CAN Comfort" 0
+	entry			"CAN Antrieb" 1
+	entry			"CAN Infotainment" 2
+	entry			"CAN Extended" 3
+	entry			"CAN Fahrwerk" 4
+	entry			"CAN Hybrid" 31
+	entry			"CAN MIB" 32
+	entry			"CAN Kombi/Dashbrd" 33			
+	entry			"Flexray" 5
+	entry			"Clamp15" 6	
+	entry			"CLST1 TUEREN" 7
+	entry			"CLST2 ANHAENGER" 8
+	entry			"CLST3 NIGHTVISION" 9
+	entry			"CLST4 SITZ" 10
+	entry			"CLST5 KLAPPEN" 11
+	entry			"CLST6 INFOTAINMENT" 12
+	entry			"CLST7 SUB_INFOTAIN" 13
+	entry			"CLST8 ANZEIGE" 14
+	entry			"CLST9 LADEN" 15		
+	entry			"not available" 63
+		
+BIOSCtrl
+      value       int per 28442848 473
+      label       "Brake: "
+	entry			"CAN Comfort" 0
+	entry			"CAN Antrieb" 1
+	entry			"CAN Infotainment" 2
+	entry			"CAN Extended" 3
+	entry			"CAN Fahrwerk" 4
+	entry			"CAN Hybrid" 31
+	entry			"CAN MIB" 32
+	entry			"CAN Kombi/Dashbrd" 33			
+	entry			"Flexray" 5
+	entry			"Clamp15" 6	
+	entry			"CLST1 TUEREN" 7
+	entry			"CLST2 ANHAENGER" 8
+	entry			"CLST3 NIGHTVISION" 9
+	entry			"CLST4 SITZ" 10
+	entry			"CLST5 KLAPPEN" 11
+	entry			"CLST6 INFOTAINMENT" 12
+	entry			"CLST7 SUB_INFOTAIN" 13
+	entry			"CLST8 ANZEIGE" 14
+	entry			"CLST9 LADEN" 15		
+	entry			"not available" 63
+		
+BIOSCtrl
+      value       int per 28442848 453
+      label       "Braking way reduction (AWV): "
+	entry			"CAN Comfort" 0
+	entry			"CAN Antrieb" 1
+	entry			"CAN Infotainment" 2
+	entry			"CAN Extended" 3
+	entry			"CAN Fahrwerk" 4
+	entry			"CAN Hybrid" 31
+	entry			"CAN MIB" 32
+	entry			"CAN Kombi/Dashbrd" 33			
+	entry			"Flexray" 5
+	entry			"Clamp15" 6	
+	entry			"CLST1 TUEREN" 7
+	entry			"CLST2 ANHAENGER" 8
+	entry			"CLST3 NIGHTVISION" 9
+	entry			"CLST4 SITZ" 10
+	entry			"CLST5 KLAPPEN" 11
+	entry			"CLST6 INFOTAINMENT" 12
+	entry			"CLST7 SUB_INFOTAIN" 13
+	entry			"CLST8 ANZEIGE" 14
+	entry			"CLST9 LADEN" 15		
+	entry			"not available" 63
+
+BIOSCtrl
+      value       int per 28442848 425
+      label       "Central lock system (ZV): "
+	entry			"CAN Comfort" 0
+	entry			"CAN Antrieb" 1
+	entry			"CAN Infotainment" 2
+	entry			"CAN Extended" 3
+	entry			"CAN Fahrwerk" 4
+	entry			"CAN Hybrid" 31
+	entry			"CAN MIB" 32
+	entry			"CAN Kombi/Dashbrd" 33			
+	entry			"Flexray" 5
+	entry			"Clamp15" 6	
+	entry			"CLST1 TUEREN" 7
+	entry			"CLST2 ANHAENGER" 8
+	entry			"CLST3 NIGHTVISION" 9
+	entry			"CLST4 SITZ" 10
+	entry			"CLST5 KLAPPEN" 11
+	entry			"CLST6 INFOTAINMENT" 12
+	entry			"CLST7 SUB_INFOTAIN" 13
+	entry			"CLST8 ANZEIGE" 14
+	entry			"CLST9 LADEN" 15		
+	entry			"not available" 63
+
+BIOSCtrl
+      value       int per 28442848 445
+      label       "Charisma: "
+	entry			"CAN Comfort" 0
+	entry			"CAN Antrieb" 1
+	entry			"CAN Infotainment" 2
+	entry			"CAN Extended" 3
+	entry			"CAN Fahrwerk" 4
+	entry			"CAN Hybrid" 31
+	entry			"CAN MIB" 32
+	entry			"CAN Kombi/Dashbrd" 33			
+	entry			"Flexray" 5
+	entry			"Clamp15" 6	
+	entry			"CLST1 TUEREN" 7
+	entry			"CLST2 ANHAENGER" 8
+	entry			"CLST3 NIGHTVISION" 9
+	entry			"CLST4 SITZ" 10
+	entry			"CLST5 KLAPPEN" 11
+	entry			"CLST6 INFOTAINMENT" 12
+	entry			"CLST7 SUB_INFOTAIN" 13
+	entry			"CLST8 ANZEIGE" 14
+	entry			"CLST9 LADEN" 15		
+	entry			"not available" 63
+
+BIOSCtrl
+      value       int per 28442848 433
+      label       "Clock: "
+	entry			"CAN Comfort" 0
+	entry			"CAN Antrieb" 1
+	entry			"CAN Infotainment" 2
+	entry			"CAN Extended" 3
+	entry			"CAN Fahrwerk" 4
+	entry			"CAN Hybrid" 31
+	entry			"CAN MIB" 32
+	entry			"CAN Kombi/Dashbrd" 33			
+	entry			"Flexray" 5
+	entry			"Clamp15" 6	
+	entry			"CLST1 TUEREN" 7
+	entry			"CLST2 ANHAENGER" 8
+	entry			"CLST3 NIGHTVISION" 9
+	entry			"CLST4 SITZ" 10
+	entry			"CLST5 KLAPPEN" 11
+	entry			"CLST6 INFOTAINMENT" 12
+	entry			"CLST7 SUB_INFOTAIN" 13
+	entry			"CLST8 ANZEIGE" 14
+	entry			"CLST9 LADEN" 15		
+	entry			"not available" 63
+
+BIOSCtrl
+      value       int per 0 0x502014FC
+      label       "DisplayConfig: "
+	entry			"CAN Comfort" 0
+	entry			"CAN Antrieb" 1
+	entry			"CAN Infotainment" 2
+	entry			"CAN Extended" 3
+	entry			"CAN Fahrwerk" 4
+	entry			"CAN Hybrid" 31
+	entry			"CAN MIB" 32
+	entry			"CAN Kombi/Dashbrd" 33			
+	entry			"Flexray" 5
+	entry			"Clamp15" 6	
+	entry			"CLST1 TUEREN" 7
+	entry			"CLST2 ANHAENGER" 8
+	entry			"CLST3 NIGHTVISION" 9
+	entry			"CLST4 SITZ" 10
+	entry			"CLST5 KLAPPEN" 11
+	entry			"CLST6 INFOTAINMENT" 12
+	entry			"CLST7 SUB_INFOTAIN" 13
+	entry			"CLST8 ANZEIGE" 14
+	entry			"CLST9 LADEN" 15		
+	entry			"not available" 63
+
+BIOSCtrl
+      value       int per 0 0x5008CCFC 
+      label       "eCALL: "
+	entry			"CAN Comfort" 0
+	entry			"CAN Antrieb" 1
+	entry			"CAN Infotainment" 2
+	entry			"CAN Extended" 3
+	entry			"CAN Fahrwerk" 4
+	entry			"CAN Hybrid" 31
+	entry			"CAN MIB" 32
+	entry			"CAN Kombi/Dashbrd" 33			
+	entry			"Flexray" 5
+	entry			"Clamp15" 6	
+	entry			"CLST1 TUEREN" 7
+	entry			"CLST2 ANHAENGER" 8
+	entry			"CLST3 NIGHTVISION" 9
+	entry			"CLST4 SITZ" 10
+	entry			"CLST5 KLAPPEN" 11
+	entry			"CLST6 INFOTAINMENT" 12
+	entry			"CLST7 SUB_INFOTAIN" 13
+	entry			"CLST8 ANZEIGE" 14
+	entry			"CLST9 LADEN" 15		
+	entry			"not available" 63
+
+BIOSCtrl
+      value       int per 0 0x5008F0FC 
+      label       "EfficiencyAssist(PEA): "
+	entry			"CAN Comfort" 0
+	entry			"CAN Antrieb" 1
+	entry			"CAN Infotainment" 2
+	entry			"CAN Extended" 3
+	entry			"CAN Fahrwerk" 4
+	entry			"CAN Hybrid" 31
+	entry			"CAN MIB" 32
+	entry			"CAN Kombi/Dashbrd" 33			
+	entry			"Flexray" 5
+	entry			"Clamp15" 6	
+	entry			"CLST1 TUEREN" 7
+	entry			"CLST2 ANHAENGER" 8
+	entry			"CLST3 NIGHTVISION" 9
+	entry			"CLST4 SITZ" 10
+	entry			"CLST5 KLAPPEN" 11
+	entry			"CLST6 INFOTAINMENT" 12
+	entry			"CLST7 SUB_INFOTAIN" 13
+	entry			"CLST8 ANZEIGE" 14
+	entry			"CLST9 LADEN" 15		
+	entry			"not available" 63
+
+BIOSCtrl
+      value       int per 0 0x5008DCFC 
+      label       "ENI: "
+	entry			"CAN Comfort" 0
+	entry			"CAN Antrieb" 1
+	entry			"CAN Infotainment" 2
+	entry			"CAN Extended" 3
+	entry			"CAN Fahrwerk" 4
+	entry			"CAN Hybrid" 31
+	entry			"CAN MIB" 32
+	entry			"CAN Kombi/Dashbrd" 33			
+	entry			"Flexray" 5
+	entry			"Clamp15" 6	
+	entry			"CLST1 TUEREN" 7
+	entry			"CLST2 ANHAENGER" 8
+	entry			"CLST3 NIGHTVISION" 9
+	entry			"CLST4 SITZ" 10
+	entry			"CLST5 KLAPPEN" 11
+	entry			"CLST6 INFOTAINMENT" 12
+	entry			"CLST7 SUB_INFOTAIN" 13
+	entry			"CLST8 ANZEIGE" 14
+	entry			"CLST9 LADEN" 15		
+	entry			"not available" 63
+		
+	BIOSCtrl
+      value       int per 28442848 417 
+      label       "Exterior light: "
+	entry			"CAN Comfort" 0
+	entry			"CAN Antrieb" 1
+	entry			"CAN Infotainment" 2
+	entry			"CAN Extended" 3
+	entry			"CAN Fahrwerk" 4
+	entry			"CAN Hybrid" 31
+	entry			"CAN MIB" 32
+	entry			"CAN Kombi/Dashbrd" 33			
+	entry			"Flexray" 5
+	entry			"Clamp15" 6	
+	entry			"CLST1 TUEREN" 7
+	entry			"CLST2 ANHAENGER" 8
+	entry			"CLST3 NIGHTVISION" 9
+	entry			"CLST4 SITZ" 10
+	entry			"CLST5 KLAPPEN" 11
+	entry			"CLST6 INFOTAINMENT" 12
+	entry			"CLST7 SUB_INFOTAIN" 13
+	entry			"CLST8 ANZEIGE" 14
+	entry			"CLST9 LADEN" 15		
+	entry			"not available" 63
+
+BIOSCtrl
+     value       int per 28442848 407
+     label       "Headup display (HUD): "
+	entry			"CAN Comfort" 0
+	entry			"CAN Antrieb" 1
+	entry			"CAN Infotainment" 2
+	entry			"CAN Extended" 3
+	entry			"CAN Fahrwerk" 4
+	entry			"CAN Hybrid" 31
+	entry			"CAN MIB" 32
+	entry			"CAN Kombi/Dashbrd" 33			
+	entry			"Flexray" 5
+	entry			"Clamp15" 6	
+	entry			"CLST1 TUEREN" 7
+	entry			"CLST2 ANHAENGER" 8
+	entry			"CLST3 NIGHTVISION" 9
+	entry			"CLST4 SITZ" 10
+	entry			"CLST5 KLAPPEN" 11
+	entry			"CLST6 INFOTAINMENT" 12
+	entry			"CLST7 SUB_INFOTAIN" 13
+	entry			"CLST8 ANZEIGE" 14
+	entry			"CLST9 LADEN" 15		
+	entry			"not available" 63
+
+BIOSCtrl
+     value       int per 28442848 455
+     label       "Hybrid: "
+	entry			"CAN Comfort" 0
+	entry			"CAN Antrieb" 1
+	entry			"CAN Infotainment" 2
+	entry			"CAN Extended" 3
+	entry			"CAN Fahrwerk" 4
+	entry			"CAN Hybrid" 31
+	entry			"CAN MIB" 32
+	entry			"CAN Kombi/Dashbrd" 33			
+	entry			"Flexray" 5
+	entry			"Clamp15" 6	
+	entry			"CLST1 TUEREN" 7
+	entry			"CLST2 ANHAENGER" 8
+	entry			"CLST3 NIGHTVISION" 9
+	entry			"CLST4 SITZ" 10
+	entry			"CLST5 KLAPPEN" 11
+	entry			"CLST6 INFOTAINMENT" 12
+	entry			"CLST7 SUB_INFOTAIN" 13
+	entry			"CLST8 ANZEIGE" 14
+	entry			"CLST9 LADEN" 15		
+	entry			"not available" 63
+
+BIOSCtrl
+      value       int per 28442848 415
+      label       "Interior light: "
+	entry			"CAN Comfort" 0
+	entry			"CAN Antrieb" 1
+	entry			"CAN Infotainment" 2
+	entry			"CAN Extended" 3
+	entry			"CAN Fahrwerk" 4
+	entry			"CAN Hybrid" 31
+	entry			"CAN MIB" 32
+	entry			"CAN Kombi/Dashbrd" 33			
+	entry			"Flexray" 5
+	entry			"Clamp15" 6	
+	entry			"CLST1 TUEREN" 7
+	entry			"CLST2 ANHAENGER" 8
+	entry			"CLST3 NIGHTVISION" 9
+	entry			"CLST4 SITZ" 10
+	entry			"CLST5 KLAPPEN" 11
+	entry			"CLST6 INFOTAINMENT" 12
+	entry			"CLST7 SUB_INFOTAIN" 13
+	entry			"CLST8 ANZEIGE" 14
+	entry			"CLST9 LADEN" 15		
+	entry			"not available" 63
+
+BIOSCtrl
+      value       int per 28442848 451
+      label       "Lane change assist (SWA): "
+	entry			"CAN Comfort" 0
+	entry			"CAN Antrieb" 1
+	entry			"CAN Infotainment" 2
+	entry			"CAN Extended" 3
+	entry			"CAN Fahrwerk" 4
+	entry			"CAN Hybrid" 31
+	entry			"CAN MIB" 32
+	entry			"CAN Kombi/Dashbrd" 33			
+	entry			"Flexray" 5
+	entry			"Clamp15" 6	
+	entry			"CLST1 TUEREN" 7
+	entry			"CLST2 ANHAENGER" 8
+	entry			"CLST3 NIGHTVISION" 9
+	entry			"CLST4 SITZ" 10
+	entry			"CLST5 KLAPPEN" 11
+	entry			"CLST6 INFOTAINMENT" 12
+	entry			"CLST7 SUB_INFOTAIN" 13
+	entry			"CLST8 ANZEIGE" 14
+	entry			"CLST9 LADEN" 15		
+	entry			"not available" 63
+	
+BIOSCtrl
+      value       int per 28442848 449
+      label       "Lane departure warning (HCA): "
+	entry			"CAN Comfort" 0
+	entry			"CAN Antrieb" 1
+	entry			"CAN Infotainment" 2
+	entry			"CAN Extended" 3
+	entry			"CAN Fahrwerk" 4
+	entry			"CAN Hybrid" 31
+	entry			"CAN MIB" 32
+	entry			"CAN Kombi/Dashbrd" 33			
+	entry			"Flexray" 5
+	entry			"Clamp15" 6	
+	entry			"CLST1 TUEREN" 7
+	entry			"CLST2 ANHAENGER" 8
+	entry			"CLST3 NIGHTVISION" 9
+	entry			"CLST4 SITZ" 10
+	entry			"CLST5 KLAPPEN" 11
+	entry			"CLST6 INFOTAINMENT" 12
+	entry			"CLST7 SUB_INFOTAIN" 13
+	entry			"CLST8 ANZEIGE" 14
+	entry			"CLST9 LADEN" 15		
+	entry			"not available" 63
+
+BIOSCtrl
+      value       int per 28442848 427
+      label       "Mirror: "
+	entry			"CAN Comfort" 0
+	entry			"CAN Antrieb" 1
+	entry			"CAN Infotainment" 2
+	entry			"CAN Extended" 3
+	entry			"CAN Fahrwerk" 4
+	entry			"CAN Hybrid" 31
+	entry			"CAN MIB" 32
+	entry			"CAN Kombi/Dashbrd" 33			
+	entry			"Flexray" 5
+	entry			"Clamp15" 6	
+	entry			"CLST1 TUEREN" 7
+	entry			"CLST2 ANHAENGER" 8
+	entry			"CLST3 NIGHTVISION" 9
+	entry			"CLST4 SITZ" 10
+	entry			"CLST5 KLAPPEN" 11
+	entry			"CLST6 INFOTAINMENT" 12
+	entry			"CLST7 SUB_INFOTAIN" 13
+	entry			"CLST8 ANZEIGE" 14
+	entry			"CLST9 LADEN" 15		
+	entry			"not available" 63
+
+BIOSCtrl
+     value       int per 28442848 447
+     label       "Nightvision: "
+	entry			"CAN Comfort" 0
+	entry			"CAN Antrieb" 1
+	entry			"CAN Infotainment" 2
+	entry			"CAN Extended" 3
+	entry			"CAN Fahrwerk" 4
+	entry			"CAN Hybrid" 31
+	entry			"CAN MIB" 32
+	entry			"CAN Kombi/Dashbrd" 33			
+	entry			"Flexray" 5
+	entry			"Clamp15" 6	
+	entry			"CLST1 TUEREN" 7
+	entry			"CLST2 ANHAENGER" 8
+	entry			"CLST3 NIGHTVISION" 9
+	entry			"CLST4 SITZ" 10
+	entry			"CLST5 KLAPPEN" 11
+	entry			"CLST6 INFOTAINMENT" 12
+	entry			"CLST7 SUB_INFOTAIN" 13
+	entry			"CLST8 ANZEIGE" 14
+	entry			"CLST9 LADEN" 15		
+	entry			"not available" 63
+
+BIOSCtrl
+      value       int per 28442848 429
+      label       "On-board Computer (BCMFA): "
+	entry			"CAN Comfort" 0
+	entry			"CAN Antrieb" 1
+	entry			"CAN Infotainment" 2
+	entry			"CAN Extended" 3
+	entry			"CAN Fahrwerk" 4
+	entry			"CAN Hybrid" 31
+	entry			"CAN MIB" 32
+	entry			"CAN Kombi/Dashbrd" 33			
+	entry			"Flexray" 5
+	entry			"Clamp15" 6	
+	entry			"CLST1 TUEREN" 7
+	entry			"CLST2 ANHAENGER" 8
+	entry			"CLST3 NIGHTVISION" 9
+	entry			"CLST4 SITZ" 10
+	entry			"CLST5 KLAPPEN" 11
+	entry			"CLST6 INFOTAINMENT" 12
+	entry			"CLST7 SUB_INFOTAIN" 13
+	entry			"CLST8 ANZEIGE" 14
+	entry			"CLST9 LADEN" 15		
+	entry			"not available" 63
+		
+BIOSCtrl
+      value       int per 28442848 419
+      label       "Parking system (PDC/OPS): "
+	entry			"CAN Comfort" 0
+	entry			"CAN Antrieb" 1
+	entry			"CAN Infotainment" 2
+	entry			"CAN Extended" 3
+	entry			"CAN Fahrwerk" 4
+	entry			"CAN Hybrid" 31
+	entry			"CAN MIB" 32
+	entry			"CAN Kombi/Dashbrd" 33			
+	entry			"Flexray" 5
+	entry			"Clamp15" 6	
+	entry			"CLST1 TUEREN" 7
+	entry			"CLST2 ANHAENGER" 8
+	entry			"CLST3 NIGHTVISION" 9
+	entry			"CLST4 SITZ" 10
+	entry			"CLST5 KLAPPEN" 11
+	entry			"CLST6 INFOTAINMENT" 12
+	entry			"CLST7 SUB_INFOTAIN" 13
+	entry			"CLST8 ANZEIGE" 14
+	entry			"CLST9 LADEN" 15		
+	entry			"not available" 63
+
+BIOSCtrl
+      value       int per 28442848 421
+      label       "Parking system (VPS): "
+	entry			"CAN Comfort" 0
+	entry			"CAN Antrieb" 1
+	entry			"CAN Infotainment" 2
+	entry			"CAN Extended" 3
+	entry			"CAN Fahrwerk" 4
+	entry			"CAN Hybrid" 31
+	entry			"CAN MIB" 32
+	entry			"CAN Kombi/Dashbrd" 33			
+	entry			"Flexray" 5
+	entry			"Clamp15" 6	
+	entry			"CLST1 TUEREN" 7
+	entry			"CLST2 ANHAENGER" 8
+	entry			"CLST3 NIGHTVISION" 9
+	entry			"CLST4 SITZ" 10
+	entry			"CLST5 KLAPPEN" 11
+	entry			"CLST6 INFOTAINMENT" 12
+	entry			"CLST7 SUB_INFOTAIN" 13
+	entry			"CLST8 ANZEIGE" 14
+	entry			"CLST9 LADEN" 15		
+	entry			"not available" 63
+
+BIOSCtrl
+      value       int per 0 1342761212
+      label       "Pedestrian Assist: "
+	entry			"CAN Comfort" 0
+	entry			"CAN Antrieb" 1
+	entry			"CAN Infotainment" 2
+	entry			"CAN Extended" 3
+	entry			"CAN Fahrwerk" 4
+	entry			"CAN Hybrid" 31
+	entry			"CAN MIB" 32
+	entry			"CAN Kombi/Dashbrd" 33			
+	entry			"Flexray" 5
+	entry			"Clamp15" 6	
+	entry			"CLST1 TUEREN" 7
+	entry			"CLST2 ANHAENGER" 8
+	entry			"CLST3 NIGHTVISION" 9
+	entry			"CLST4 SITZ" 10
+	entry			"CLST5 KLAPPEN" 11
+	entry			"CLST6 INFOTAINMENT" 12
+	entry			"CLST7 SUB_INFOTAIN" 13
+	entry			"CLST8 ANZEIGE" 14
+	entry			"CLST9 LADEN" 15		
+	entry			"not available" 63
+
+BIOSCtrl
+      value       int per 28442848 459
+      label       "Rev. seat-belt tensionier (RGS): "
+	entry			"CAN Comfort" 0
+	entry			"CAN Antrieb" 1
+	entry			"CAN Infotainment" 2
+	entry			"CAN Extended" 3
+	entry			"CAN Fahrwerk" 4
+	entry			"CAN Hybrid" 31
+	entry			"CAN MIB" 32
+	entry			"CAN Kombi/Dashbrd" 33			
+	entry			"Flexray" 5
+	entry			"Clamp15" 6	
+	entry			"CLST1 TUEREN" 7
+	entry			"CLST2 ANHAENGER" 8
+	entry			"CLST3 NIGHTVISION" 9
+	entry			"CLST4 SITZ" 10
+	entry			"CLST5 KLAPPEN" 11
+	entry			"CLST6 INFOTAINMENT" 12
+	entry			"CLST7 SUB_INFOTAIN" 13
+	entry			"CLST8 ANZEIGE" 14
+	entry			"CLST9 LADEN" 15		
+	entry			"not available" 63
+
+BIOSCtrl
+      value       int per 28442848 483
+      label       "Range Data (RD): "
+	entry			"CAN Comfort" 0
+	entry			"CAN Antrieb" 1
+	entry			"CAN Infotainment" 2
+	entry			"CAN Extended" 3
+	entry			"CAN Fahrwerk" 4
+	entry			"CAN Hybrid" 31
+	entry			"CAN MIB" 32
+	entry			"CAN Kombi/Dashbrd" 33			
+	entry			"Flexray" 5
+	entry			"Clamp15" 6	
+	entry			"CLST1 TUEREN" 7
+	entry			"CLST2 ANHAENGER" 8
+	entry			"CLST3 NIGHTVISION" 9
+	entry			"CLST4 SITZ" 10
+	entry			"CLST5 KLAPPEN" 11
+	entry			"CLST6 INFOTAINMENT" 12
+	entry			"CLST7 SUB_INFOTAIN" 13
+	entry			"CLST8 ANZEIGE" 14
+	entry			"CLST9 LADEN" 15		
+	entry			"not available" 63
+
+BIOSCtrl
+      value       int per 28442848 431
+      label       "Seat memory master: "
+	entry			"CAN Comfort" 0
+	entry			"CAN Antrieb" 1
+	entry			"CAN Infotainment" 2
+	entry			"CAN Extended" 3
+	entry			"CAN Fahrwerk" 4
+	entry			"CAN Hybrid" 31
+	entry			"CAN MIB" 32
+	entry			"CAN Kombi/Dashbrd" 33			
+	entry			"Flexray" 5
+	entry			"Clamp15" 6	
+	entry			"CLST1 TUEREN" 7
+	entry			"CLST2 ANHAENGER" 8
+	entry			"CLST3 NIGHTVISION" 9
+	entry			"CLST4 SITZ" 10
+	entry			"CLST5 KLAPPEN" 11
+	entry			"CLST6 INFOTAINMENT" 12
+	entry			"CLST7 SUB_INFOTAIN" 13
+	entry			"CLST8 ANZEIGE" 14
+	entry			"CLST9 LADEN" 15		
+	entry			"not available" 63
+
+BIOSCtrl
+      value       int per 0 1342762236
+      label       "Seatpneumatic: "
+	entry			"CAN Comfort" 0
+	entry			"CAN Antrieb" 1
+	entry			"CAN Infotainment" 2
+	entry			"CAN Extended" 3
+	entry			"CAN Fahrwerk" 4
+	entry			"CAN Hybrid" 31
+	entry			"CAN MIB" 32
+	entry			"CAN Kombi/Dashbrd" 33			
+	entry			"Flexray" 5
+	entry			"Clamp15" 6	
+	entry			"CLST1 TUEREN" 7
+	entry			"CLST2 ANHAENGER" 8
+	entry			"CLST3 NIGHTVISION" 9
+	entry			"CLST4 SITZ" 10
+	entry			"CLST5 KLAPPEN" 11
+	entry			"CLST6 INFOTAINMENT" 12
+	entry			"CLST7 SUB_INFOTAIN" 13
+	entry			"CLST8 ANZEIGE" 14
+	entry			"CLST9 LADEN" 15		
+	entry			"not available" 63
+
+BIOSCtrl
+      value       int per 28442848 435
+      label       "Service interval (SIA): "
+	entry			"CAN Comfort" 0
+	entry			"CAN Antrieb" 1
+	entry			"CAN Infotainment" 2
+	entry			"CAN Extended" 3
+	entry			"CAN Fahrwerk" 4
+	entry			"CAN Hybrid" 31
+	entry			"CAN MIB" 32
+	entry			"CAN Kombi/Dashbrd" 33			
+	entry			"Flexray" 5
+	entry			"Clamp15" 6	
+	entry			"CLST1 TUEREN" 7
+	entry			"CLST2 ANHAENGER" 8
+	entry			"CLST3 NIGHTVISION" 9
+	entry			"CLST4 SITZ" 10
+	entry			"CLST5 KLAPPEN" 11
+	entry			"CLST6 INFOTAINMENT" 12
+	entry			"CLST7 SUB_INFOTAIN" 13
+	entry			"CLST8 ANZEIGE" 14
+	entry			"CLST9 LADEN" 15		
+	entry			"not available" 63
+
+BIOSCtrl
+      value       int per 0 0x502010FC
+      label       "SoundControl: "
+	entry			"CAN Comfort" 0
+	entry			"CAN Antrieb" 1
+	entry			"CAN Infotainment" 2
+	entry			"CAN Extended" 3
+	entry			"CAN Fahrwerk" 4
+	entry			"CAN Hybrid" 31
+	entry			"CAN MIB" 32
+	entry			"CAN Kombi/Dashbrd" 33			
+	entry			"Flexray" 5
+	entry			"Clamp15" 6	
+	entry			"CLST1 TUEREN" 7
+	entry			"CLST2 ANHAENGER" 8
+	entry			"CLST3 NIGHTVISION" 9
+	entry			"CLST4 SITZ" 10
+	entry			"CLST5 KLAPPEN" 11
+	entry			"CLST6 INFOTAINMENT" 12
+	entry			"CLST7 SUB_INFOTAIN" 13
+	entry			"CLST8 ANZEIGE" 14
+	entry			"CLST9 LADEN" 15		
+	entry			"not available" 63
+
+BIOSCtrl
+      value       int per 0 0x502000FC
+      label       "Spoiler: "
+	entry			"CAN Comfort" 0
+	entry			"CAN Antrieb" 1
+	entry			"CAN Infotainment" 2
+	entry			"CAN Extended" 3
+	entry			"CAN Fahrwerk" 4
+	entry			"CAN Hybrid" 31
+	entry			"CAN MIB" 32
+	entry			"CAN Kombi/Dashbrd" 33			
+	entry			"Flexray" 5
+	entry			"Clamp15" 6	
+	entry			"CLST1 TUEREN" 7
+	entry			"CLST2 ANHAENGER" 8
+	entry			"CLST3 NIGHTVISION" 9
+	entry			"CLST4 SITZ" 10
+	entry			"CLST5 KLAPPEN" 11
+	entry			"CLST6 INFOTAINMENT" 12
+	entry			"CLST7 SUB_INFOTAIN" 13
+	entry			"CLST8 ANZEIGE" 14
+	entry			"CLST9 LADEN" 15		
+	entry			"not available" 63
+
+BIOSCtrl
+      value       int per 28442848 475
+      label       "StartStopReasons: "
+	entry			"CAN Comfort" 0
+	entry			"CAN Antrieb" 1
+	entry			"CAN Infotainment" 2
+	entry			"CAN Extended" 3
+	entry			"CAN Fahrwerk" 4
+	entry			"CAN Hybrid" 31
+	entry			"CAN MIB" 32
+	entry			"CAN Kombi/Dashbrd" 33			
+	entry			"Flexray" 5
+	entry			"Clamp15" 6	
+	entry			"CLST1 TUEREN" 7
+	entry			"CLST2 ANHAENGER" 8
+	entry			"CLST3 NIGHTVISION" 9
+	entry			"CLST4 SITZ" 10
+	entry			"CLST5 KLAPPEN" 11
+	entry			"CLST6 INFOTAINMENT" 12
+	entry			"CLST7 SUB_INFOTAIN" 13
+	entry			"CLST8 ANZEIGE" 14
+	entry			"CLST9 LADEN" 15		
+	entry			"not available" 63
+
+BIOSCtrl
+      value       int per 28442848 479
+      label       "Tilt Angle Disp (TAD): "
+	entry			"CAN Comfort" 0
+	entry			"CAN Antrieb" 1
+	entry			"CAN Infotainment" 2
+	entry			"CAN Extended" 3
+	entry			"CAN Fahrwerk" 4
+	entry			"CAN Hybrid" 31
+	entry			"CAN MIB" 32
+	entry			"CAN Kombi/Dashbrd" 33			
+	entry			"Flexray" 5
+	entry			"Clamp15" 6	
+	entry			"CLST1 TUEREN" 7
+	entry			"CLST2 ANHAENGER" 8
+	entry			"CLST3 NIGHTVISION" 9
+	entry			"CLST4 SITZ" 10
+	entry			"CLST5 KLAPPEN" 11
+	entry			"CLST6 INFOTAINMENT" 12
+	entry			"CLST7 SUB_INFOTAIN" 13
+	entry			"CLST8 ANZEIGE" 14
+	entry			"CLST9 LADEN" 15		
+	entry			"not available" 63
+
+BIOSCtrl
+      value       int per 28442848 481
+      label       "Trailer Assistant (ARA): "
+	entry			"CAN Comfort" 0
+	entry			"CAN Antrieb" 1
+	entry			"CAN Infotainment" 2
+	entry			"CAN Extended" 3
+	entry			"CAN Fahrwerk" 4
+	entry			"CAN Hybrid" 31
+	entry			"CAN MIB" 32
+	entry			"CAN Kombi/Dashbrd" 33			
+	entry			"Flexray" 5
+	entry			"Clamp15" 6	
+	entry			"CLST1 TUEREN" 7
+	entry			"CLST2 ANHAENGER" 8
+	entry			"CLST3 NIGHTVISION" 9
+	entry			"CLST4 SITZ" 10
+	entry			"CLST5 KLAPPEN" 11
+	entry			"CLST6 INFOTAINMENT" 12
+	entry			"CLST7 SUB_INFOTAIN" 13
+	entry			"CLST8 ANZEIGE" 14
+	entry			"CLST9 LADEN" 15		
+	entry			"not available" 63
+
+
+BIOSCtrl
+      value       int per 28442848 463
+      label       "Traffic sign detection (TSD): "
+	entry			"CAN Comfort" 0
+	entry			"CAN Antrieb" 1
+	entry			"CAN Infotainment" 2
+	entry			"CAN Extended" 3
+	entry			"CAN Fahrwerk" 4
+	entry			"CAN Hybrid" 31
+	entry			"CAN MIB" 32
+	entry			"CAN Kombi/Dashbrd" 33			
+	entry			"Flexray" 5
+	entry			"Clamp15" 6	
+	entry			"CLST1 TUEREN" 7
+	entry			"CLST2 ANHAENGER" 8
+	entry			"CLST3 NIGHTVISION" 9
+	entry			"CLST4 SITZ" 10
+	entry			"CLST5 KLAPPEN" 11
+	entry			"CLST6 INFOTAINMENT" 12
+	entry			"CLST7 SUB_INFOTAIN" 13
+	entry			"CLST8 ANZEIGE" 14
+	entry			"CLST9 LADEN" 15		
+	entry			"not available" 63
+
+BIOSCtrl
+      value       int per 28442848 413
+      label       "Tyre pressure control (RDK): "
+	entry			"CAN Comfort" 0
+	entry			"CAN Antrieb" 1
+	entry			"CAN Infotainment" 2
+	entry			"CAN Extended" 3
+	entry			"CAN Fahrwerk" 4
+	entry			"CAN Hybrid" 31
+	entry			"CAN MIB" 32
+	entry			"CAN Kombi/Dashbrd" 33			
+	entry			"Flexray" 5
+	entry			"Clamp15" 6	
+	entry			"CLST1 TUEREN" 7
+	entry			"CLST2 ANHAENGER" 8
+	entry			"CLST3 NIGHTVISION" 9
+	entry			"CLST4 SITZ" 10
+	entry			"CLST5 KLAPPEN" 11
+	entry			"CLST6 INFOTAINMENT" 12
+	entry			"CLST7 SUB_INFOTAIN" 13
+	entry			"CLST8 ANZEIGE" 14
+	entry			"CLST9 LADEN" 15		
+	entry			"not available" 63
+
+BIOSCtrl
+      value       int per 28442848 439
+      label       "UGDO / Homelink:"
+	entry			"CAN Comfort" 0
+	entry			"CAN Antrieb" 1
+	entry			"CAN Infotainment" 2
+	entry			"CAN Extended" 3
+	entry			"CAN Fahrwerk" 4
+	entry			"CAN Hybrid" 31
+	entry			"CAN MIB" 32
+	entry			"CAN Kombi/Dashbrd" 33			
+	entry			"Flexray" 5
+	entry			"Clamp15" 6	
+	entry			"CLST1 TUEREN" 7
+	entry			"CLST2 ANHAENGER" 8
+	entry			"CLST3 NIGHTVISION" 9
+	entry			"CLST4 SITZ" 10
+	entry			"CLST5 KLAPPEN" 11
+	entry			"CLST6 INFOTAINMENT" 12
+	entry			"CLST7 SUB_INFOTAIN" 13
+	entry			"CLST8 ANZEIGE" 14
+	entry			"CLST9 LADEN" 15		
+	entry			"not available" 63
+
+BIOSCtrl
+      value       int per 28442848 437
+      label       "Unit master (ZEM): "
+	entry			"CAN Comfort" 0
+	entry			"CAN Antrieb" 1
+	entry			"CAN Infotainment" 2
+	entry			"CAN Extended" 3
+	entry			"CAN Fahrwerk" 4
+	entry			"CAN Hybrid" 31
+	entry			"CAN MIB" 32
+	entry			"CAN Kombi/Dashbrd" 33			
+	entry			"Flexray" 5
+	entry			"Clamp15" 6	
+	entry			"CLST1 TUEREN" 7
+	entry			"CLST2 ANHAENGER" 8
+	entry			"CLST3 NIGHTVISION" 9
+	entry			"CLST4 SITZ" 10
+	entry			"CLST5 KLAPPEN" 11
+	entry			"CLST6 INFOTAINMENT" 12
+	entry			"CLST7 SUB_INFOTAIN" 13
+	entry			"CLST8 ANZEIGE" 14
+	entry			"CLST9 LADEN" 15		
+	entry			"not available" 63
+
+BIOSCtrl
+      value       int per 28442848 465
+      label       "Weariness recognition (MKE): "
+	entry			"CAN Comfort" 0
+	entry			"CAN Antrieb" 1
+	entry			"CAN Infotainment" 2
+	entry			"CAN Extended" 3
+	entry			"CAN Fahrwerk" 4
+	entry			"CAN Hybrid" 31
+	entry			"CAN MIB" 32
+	entry			"CAN Kombi/Dashbrd" 33			
+	entry			"Flexray" 5
+	entry			"Clamp15" 6	
+	entry			"CLST1 TUEREN" 7
+	entry			"CLST2 ANHAENGER" 8
+	entry			"CLST3 NIGHTVISION" 9
+	entry			"CLST4 SITZ" 10
+	entry			"CLST5 KLAPPEN" 11
+	entry			"CLST6 INFOTAINMENT" 12
+	entry			"CLST7 SUB_INFOTAIN" 13
+	entry			"CLST8 ANZEIGE" 14
+	entry			"CLST9 LADEN" 15		
+	entry			"not available" 63
+
+BIOSCtrl
+      value       int per 28442848 423
+      label       "Wiper: "
+	entry			"CAN Comfort" 0
+	entry			"CAN Antrieb" 1
+	entry			"CAN Infotainment" 2
+	entry			"CAN Extended" 3
+	entry			"CAN Fahrwerk" 4
+	entry			"CAN Hybrid" 31
+	entry			"CAN MIB" 32
+	entry			"CAN Kombi/Dashbrd" 33			
+	entry			"Flexray" 5
+	entry			"Clamp15" 6	
+	entry			"CLST1 TUEREN" 7
+	entry			"CLST2 ANHAENGER" 8
+	entry			"CLST3 NIGHTVISION" 9
+	entry			"CLST4 SITZ" 10
+	entry			"CLST5 KLAPPEN" 11
+	entry			"CLST6 INFOTAINMENT" 12
+	entry			"CLST7 SUB_INFOTAIN" 13
+	entry			"CLST8 ANZEIGE" 14
+	entry			"CLST9 LADEN" 15		
+	entry			"not available" 63

@@ -1,0 +1,98 @@
+###########################################################################################
+#
+# Custom Green Engineering Menu screen
+# Author:       Jille & Olli
+# Version:      4.1A
+# Disclaimer:   THIS SCREEN WILL VOID YOUR WARRANTY
+#
+###########################################################################################
+#
+# Main -> MQBCoding -> Customization -> Skin
+#
+###########################################################################################
+screen  Skin Customization
+
+keyValue
+    value	String sys 0x00000000 0
+    label   "This screen can be used to replace skin-graphics of the MIB."
+    poll    0  
+
+keyValue
+    value   String sys 0x00000000 0
+    label   "images.mcf-files and ambienceColorMap.res go into the Custom/Skinfiles folder"
+    poll    0  
+
+keyValue
+    value   String sys 0x00000000 0
+    label   "Reboot after installing a new skin or ambienceColorMap."
+    poll    0      
+	
+keyValue
+    value   String sys 0x00000000 0
+    label   ""
+    poll    0    
+    
+script
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/install_skin0.sh"
+   label    "Install new graphics for Skin0 from /Skinfiles/Skin0/ on SD"
+
+script
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/install_skin1.sh"
+   label    "Install new graphics for Skin1 from /Skinfiles/Skin1/ on SD"
+   
+script
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/install_skin1_ambient.sh"
+   label    "Install new ambient colors for Skin1 from /Skinfiles/Skin1/ on SD"
+
+script
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/install_skin2.sh"
+   label    "Install new graphics for Skin2 from /Skinfiles/Skin2/ on SD"
+   
+script
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/install_skin2_ambient.sh"
+   label    "Install new ambient colors for Skin2 from /Skinfiles/Skin2/ on SD"
+
+script
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/install_skin3.sh"
+   label    "Install new graphics for Skin3 from /Skinfiles/Skin3/ on SD"
+   
+script
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/install_skin3_ambient.sh"
+   label    "Install new ambient colors for Skin3 from /Skinfiles/Skin3/ on SD"
+
+script
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/install_skin4.sh"
+   label    "Install new graphics for Skin4 from /Skinfiles/Skin4/ on SD"
+   
+script
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/install_skin4_ambient.sh"
+   label    "Install new ambient colors for Skin4 from /Skinfiles/Skin4/ on SD"
+
+script
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/install_skin5.sh"
+   label    "Install new graphics for Skin5 from /Skinfiles/Skin5/ on SD"   
+
+script
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/install_skin5_ambient.sh"
+   label    "Install new ambient colors for Skin5 from /Skinfiles/Skin5/ on SD"
+
+script
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/install_skin6.sh"
+   label    "Install new graphics for Skin5 from /Skinfiles/Skin5/ on SD"   
+
+script
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/install_skin6_ambient.sh"
+   label    "Install new ambient colors for Skin5 from /Skinfiles/Skin5/ on SD"
+ 
+keyValue
+    value   String sys 0x00000000 0
+    label   ""
+    poll    0    
+
+script
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/recovery_skins.sh"
+   label    "Recover all skins and ambienceColorMaps from backup"   
+   
+script
+	value 	sys 1 0x0100 "/scripts/performePersReset.sh"
+	label 	"Reboot"

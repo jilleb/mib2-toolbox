@@ -4,8 +4,8 @@ TOPIC=Ringtones
 #info
 DESCRIPTION="This script will install Ringtones"
 echo $DESCRIPTION
-. /eso/bin/PhoneCustomer/default/util_info.sh
-. /eso/bin/PhoneCustomer/default/util_mountsd.sh
+. /eso/hmi/engdefs/scripts/mqb/util_info.sh
+. /eso/hmi/engdefs/scripts/mqb/util_mountsd.sh
 
 #Make backup folder
 BACKUPFOLDER=$VOLUME/Backup/$VERSION/$FAZIT/$TOPIC/

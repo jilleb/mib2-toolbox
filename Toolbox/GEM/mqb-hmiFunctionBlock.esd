@@ -1,0 +1,1189 @@
+###########################################################################################
+#
+# Custom Green Engineering Menu screen
+# Author:       Jille & Olli
+# Version:      4.1A
+# Disclaimer:   THIS SCREEN WILL VOID YOUR WARRANTY
+#
+###########################################################################################
+#
+# Main -> MQBCoding -> Customization -> Adaptation -> HMI FunctionBlockingTable
+#
+###########################################################################################
+screen HMIFunctionBlockingTable Adaptation
+
+bitselect
+        value per 0x0 0xC0020091
+        label "TUNER_0"
+        range 0.0 0.0
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "TUNER_1"
+        range 0.1 0.1
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "TUNER_2"
+        range 0.2 0.2
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "TUNER_3"
+        range 0.3 0.3
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "TUNER_4"
+        range 0.4 0.4
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "TUNER_5"
+        range 0.5 0.5
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "TUNER_6"
+        range 0.6 0.6
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "TUNER_7"
+        range 0.7 0.7
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "TUNER_8"
+        range 1.0 1.0
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "TUNER_9"
+        range 1.1 1.1
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "TUNER_10"
+        range 1.2 1.2
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "TUNER_11"
+        range 1.3 1.3
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "TUNER_12"
+        range 1.4 1.4
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "TUNER_13"
+        range 1.5 1.5
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "TUNER_14"
+        range 1.6 1.6
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "TUNER_15"
+        range 1.7 1.7
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "MEDIA_0"
+        range 2.0 2.0
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "MEDIA_1"
+        range 2.1 2.1
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "MEDIA_2"
+        range 2.2 2.2
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "MEDIA_3"
+        range 2.3 2.3
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "MEDIA_4"
+        range 2.4 2.4
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "MEDIA_5"
+        range 2.5 2.5
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "MEDIA_6"
+        range 2.6 2.6
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "MEDIA_7"
+        range 2.7 2.7
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "MEDIA_8"
+        range 3.0 3.0
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "MEDIA_9"
+        range 3.1 3.1
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "MEDIA_10"
+        range 3.2 3.2
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "MEDIA_11"
+        range 3.3 3.3
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "MEDIA_12"
+        range 3.4 3.4
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "MEDIA_13"
+        range 3.5 3.5
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "MEDIA_14"
+        range 3.6 3.6
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "MEDIA_15"
+        range 3.7 3.7
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "MEDIA_16"
+        range 4.0 4.0
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "MEDIA_17"
+        range 4.1 4.1
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "MEDIA_18"
+        range 4.2 4.2
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "MEDIA_19"
+        range 4.3 4.3
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "MEDIA_20"
+        range 4.4 4.4
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "MEDIA_21"
+        range 4.5 4.5
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "MEDIA_22"
+        range 4.6 4.6
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "MEDIA_23"
+        range 4.7 4.7
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "PHONE_0"
+        range 5.0 5.0
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "PHONE_1"
+        range 5.1 5.1
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "PHONE_2"
+        range 5.2 5.2
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "PHONE_3"
+        range 5.3 5.3
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "PHONE_4"
+        range 5.4 5.4
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "PHONE_5"
+        range 5.5 5.5
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "PHONE_6"
+        range 5.6 5.6
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "PHONE_7"
+        range 5.7 5.7
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "PHONE_8"
+        range 6.0 6.0
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "PHONE_9"
+        range 6.1 6.1
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "PHONE_10"
+        range 6.2 6.2
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "PHONE_11"
+        range 6.3 6.3
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "PHONE_12"
+        range 6.4 6.4
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "PHONE_13"
+        range 6.5 6.5
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "PHONE_14"
+        range 6.6 6.6
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "PHONE_15"
+        range 6.7 6.7
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "NAV_0"
+        range 7.0 7.0
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "NAV_1"
+        range 7.1 7.1
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "NAV_2"
+        range 7.2 7.2
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "NAV_3"
+        range 7.3 7.3
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "NAV_4"
+        range 7.4 7.4
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "NAV_5"
+        range 7.5 7.5
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "NAV_6"
+        range 7.6 7.6
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "NAV_7"
+        range 7.7 7.7
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "NAV_8"
+        range 8.0 8.0
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "NAV_9"
+        range 8.1 8.1
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "NAV_10"
+        range 8.2 8.2
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "NAV_11"
+        range 8.3 8.3
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "NAV_12"
+        range 8.4 8.4
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "NAV_13"
+        range 8.5 8.5
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "NAV_14"
+        range 8.6 8.6
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "NAV_15"
+        range 8.7 8.7
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "NAV_16"
+        range 9.0 9.0
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "NAV_17"
+        range 9.1 9.1
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "NAV_18"
+        range 9.2 9.2
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "NAV_19"
+        range 9.3 9.3
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "NAV_20"
+        range 9.4 9.4
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "NAV_21"
+        range 9.5 9.5
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "NAV_22"
+        range 9.6 9.6
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "NAV_23"
+        range 9.7 9.7
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "NAV_24"
+        range 10.0 10.0
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "NAV_25"
+        range 10.1 10.1
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "NAV_26"
+        range 10.2 10.2
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "NAV_27"
+        range 10.3 10.3
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "NAV_28"
+        range 10.4 10.4
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "NAV_29"
+        range 10.5 10.5
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "NAV_30"
+        range 10.6 10.6
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "NAV_31"
+        range 10.7 10.7
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "NAV_32"
+        range 11.0 11.0
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "NAV_33"
+        range 11.1 11.1
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "NAV_34"
+        range 11.2 11.2
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "NAV_35"
+        range 11.3 11.3
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "NAV_36"
+        range 11.4 11.4
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "NAV_37"
+        range 11.5 11.5
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "NAV_38"
+        range 11.6 11.6
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "NAV_39"
+        range 11.7 11.7
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "CAR_0"
+        range 12.0 12.0
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "CAR_1"
+        range 12.1 12.1
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "CAR_2"
+        range 12.2 12.2
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "CAR_3"
+        range 12.3 12.3
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "CAR_4"
+        range 12.4 12.4
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "CAR_5"
+        range 12.5 12.5
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "Car_6"
+        range 12.6 12.6
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "Car_7"
+        range 12.7 12.7
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "Car_8"
+        range 13.0 13.0
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "Car_9"
+        range 13.1 13.1
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "Car_10"
+        range 13.2 13.2
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "Car_11"
+        range 13.3 13.3
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "Car_12"
+        range 13.4 13.4
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "Car_13"
+        range 13.5 13.5
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "Car_14"
+        range 13.6 13.6
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "Car_15"
+        range 13.7 13.7
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "Car_16"
+        range 14.0 14.0
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "Car_17"
+        range 14.1 14.1
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "Car_18"
+        range 14.2 14.2
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "Car_19"
+        range 14.3 14.3
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "Car_20"
+        range 14.4 14.4
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "Car_21"
+        range 14.5 14.5
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "Car_22"
+        range 14.6 14.6
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "Car_23"
+        range 14.7 14.7
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "MISC_0"
+        range 15.0 15.0
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "MISC_1"
+        range 15.1 15.1
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "MISC_2"
+        range 15.2 15.2
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "MISC_3"
+        range 15.3 15.3
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "MISC_4"
+        range 15.4 15.4
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "MISC_5"
+        range 15.5 15.5
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "MISC_6"
+        range 15.6 15.6
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "MISC_7"
+        range 15.7 15.7
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "MISC_8"
+        range 16.0 16.0
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "MISC_9"
+        range 16.1 16.1
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "MISC_10"
+        range 16.2 16.2
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "MISC_11"
+        range 16.3 16.3
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "MISC_12"
+        range 16.4 16.4
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "MISC_13"
+        range 16.5 16.5
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "MISC_14"
+        range 16.6 16.6
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "MISC_15"
+        range 16.7 16.7
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "MISC_16"
+        range 17.0 17.0
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "MISC_17"
+        range 17.1 17.1
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "MISC_18"
+        range 17.2 17.2
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "MISC_19"
+        range 17.3 17.3
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "MISC_20"
+        range 17.4 17.4
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "MISC_21"
+        range 17.5 17.5
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "MISC_22"
+        range 17.6 17.6
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "MISC_23"
+        range 17.7 17.7
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "MISC_24"
+        range 18.0 18.0
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "MISC_25"
+        range 18.1 18.1
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "MISC_26"
+        range 18.2 18.2
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "MISC_27"
+        range 18.3 18.3
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "MISC_28"
+        range 18.4 18.4
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "MISC_29"
+        range 18.5 18.5
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "MISC_30"
+        range 18.6 18.6
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "MISC_31"
+        range 18.7 18.7
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "MISC_32"
+        range 19.0 19.0
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "MISC_33"
+        range 19.1 19.1
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "MISC_34"
+        range 19.2 19.2
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "MISC_35"
+        range 19.3 19.3
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "MISC_36"
+        range 19.4 19.4
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "MISC_37"
+        range 19.5 19.5
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "MISC_38"
+        range 19.6 19.6
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "MISC_39"
+        range 19.7 19.7
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "MISC_40"
+        range 20.0 20.0
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "MISC_41"
+        range 20.1 20.1
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "MISC_42"
+        range 20.2 20.2
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "MISC_43"
+        range 20.3 20.3
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "MISC_44"
+        range 20.4 20.4
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "MISC_45"
+        range 20.5 20.5
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "MISC_46"
+        range 20.6 20.6
+        entry "not blocked" 0
+        entry "blocked" 1
+		
+bitselect
+        value per 0x0 0xC0020091
+        label "MISC_47"
+        range 20.7 20.7
+        entry "not blocked" 0
+        entry "blocked" 1  

@@ -10,7 +10,7 @@ mount -uw /net/rcc/mnt/efs-persist
 
 sleep .5
 
-NEWFILES=/$VOLUME/Custom/$SDPATH
+NEWFILES=$VOLUME/Custom/$SDPATH
 
 echo "Copying data from SD-card to unit."
 

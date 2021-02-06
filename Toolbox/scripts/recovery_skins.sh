@@ -9,13 +9,13 @@ TOPIC=Skinfiles
 DESCRIPTION="This script will recover the backupped skinfiles and ambienceColorMaps"
 
 
-. /eso/bin/PhoneCustomer/default/util_info.sh
+. /eso/hmi/engdefs/scripts/mqb/util_info.sh
 
 #Make app volume writable
 echo Mounting app folder.
 mount -uw /mnt/app
 
-. /eso/bin/PhoneCustomer/default/util_mountsd.sh
+. /eso/hmi/engdefs/scripts/mqb/util_mountsd.sh
 
 #Make backup folder
 BACKUPFOLDER=$VOLUME/Backup/$VERSION/$FAZIT/$TOPIC

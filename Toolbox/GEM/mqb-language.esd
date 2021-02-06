@@ -1,0 +1,67 @@
+###########################################################################################
+#
+# Custom Green Engineering Menu screen
+# Author:       Jille & Olli
+# Version:      4.1A
+# Disclaimer:   THIS SCREEN WILL VOID YOUR WARRANTY
+#
+###########################################################################################
+#
+# Main -> MQBCoding -> Customization -> Language
+#
+###########################################################################################
+screen  Language Customization
+
+keyValue
+    value	String sys 0x00000000 0
+    label   "WARNING: Make sure your .res file is compatible with your firmware version!"
+    poll    0  
+
+keyValue
+    value	String sys 0x00000000 0
+    label   "This screen can be used to copy and replace language files of the MIB."
+    poll    0  
+
+keyValue
+    value   String sys 0x00000000 0
+    label   ".res files go into the according Custom/Language skin folder on SD."
+    poll    0  
+
+keyValue
+    value   String sys 0x00000000 0
+    label   "Reboot after replacing language files."
+    poll    0      
+	
+keyValue
+    value   String sys 0x00000000 0
+    label   ""
+    poll    0    
+    
+script
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/install_skin1_language.sh"
+   label    "Install new language files for Skin1 from /Language/skin1/ on SD"
+   
+script
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/install_skin2_language.sh"
+   label    "Install new language files for Skin2 from /Language/skin2/ on SD"
+
+script
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/install_skin3_language.sh"
+   label    "Install new language files for Skin3 from /Language/skin3/ on SD"
+   
+script
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/install_skin4_language.sh"
+   label    "Install new language files for Skin4 from /Language/skin4/ on SD"
+
+script
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/install_skin5_language.sh"
+   label    "Install new language files for Skin5 from /Language/skin5/ on SD"
+   
+keyValue
+    value   String sys 0x00000000 0
+    label   ""
+    poll    0    
+
+script
+	value 	sys 1 0x0100 "/scripts/performePersReset.sh"
+	label 	"Reboot"

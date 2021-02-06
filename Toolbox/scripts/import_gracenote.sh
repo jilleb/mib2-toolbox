@@ -9,10 +9,10 @@ export TYPE="folder"
 echo $DESCRIPTION
 
 
-. /eso/bin/PhoneCustomer/default/util_info.sh
+. /eso/hmi/engdefs/scripts/mqb/util_info.sh
 
 #include script to mount the sd-card and set variable $VOLUME as the SD-location
-. /eso/bin/PhoneCustomer/default/util_mountsd.sh
+. /eso/hmi/engdefs/scripts/mqb/util_mountsd.sh
 if [[ -z "$VOLUME" ]] 
 then
 	echo "No SD-card found, quitting"
@@ -23,11 +23,11 @@ fi
 export BACKUPFOLDER=$VOLUME/Backup/$VERSION/$FAZIT/$TOPIC/
 
 #include script to make backup
-. /eso/bin/PhoneCustomer/default/util_backup.sh
+. /eso/hmi/engdefs/scripts/mqb/util_backup.sh
 
 # include script tocopy file(s)
 # remount everything as read-only again
-. /eso/bin/PhoneCustomer/default/util_copy.sh
+. /eso/hmi/engdefs/scripts/mqb/util_copy.sh
 
 
 echo "Done. Now restart the unit."

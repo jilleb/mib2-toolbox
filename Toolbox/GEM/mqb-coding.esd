@@ -1,0 +1,881 @@
+###########################################################################################
+#
+# Custom Green Engineering Menu screen
+# Author:       Jille & Olli
+# Version:      4.1A
+# Disclaimer:   THIS SCREEN WILL VOID YOUR WARRANTY
+#
+###########################################################################################
+#
+# Main -> MQBCoding -> Customization -> Coding
+#
+###########################################################################################
+screen  Coding Customization
+
+keyValue
+    value   String sys 0x00000000 0
+    label   "This screen allows you to change the long coding of module 5F."
+    poll    0    
+    
+keyValue
+    value   String sys 0x00000000 0
+    label   "Use at your own risk, no backups could be made!"
+    poll    0    
+	
+keyValue
+    value   String sys 0x00000000 0
+    label   "Reboot after setting the coding by pressing the button:"
+    poll    0    
+	
+script
+	value		sys 1 0x0100 "/scripts/performePersReset.sh"
+	label   "Reboot unit"
+   
+keyValue
+    value	String sys 0x00000000 0
+    label   ""
+    poll    0   
+
+#####   byte 0  #####
+keyValue
+	value	String sys 0x00000000 0
+    label   "---------------[byte 0]---------------"
+    poll    0 
+    
+BIOSCtrl
+    value   int per 0 0x5018000F
+    label   "Brand"
+    entry	"no Brand" 0
+    entry	"Audi" 1
+    entry	"VW" 2
+    entry	"Skoda" 3
+    entry	"Seat" 4
+    entry	"Bentley" 5
+    entry	"VW-NFZ" 6
+    entry	"Porsche" 7
+    poll	1000    
+
+#####   byte 1  #####
+keyValue
+    value   String sys 0x00000000 0
+    label   "---------------[byte 1]---------------"
+    poll    0
+    
+slider
+    value   per 0 0x5018040F
+	label   "Car Class"
+	limits	absolute 0 9
+    poll    1000
+    
+slider
+	value   per 0 0x501804F0
+	label   "Car Generation"
+	limits	absolute 0 9
+	poll    1000
+
+#####   byte 2  #####
+keyValue
+    value    String sys 0x00000000 0
+    label    "---------------[byte 2]---------------"
+    poll     0    
+	
+slider
+	value    per 0 0x5018080F
+	label    "Car Derivate"
+	limits	 absolute 0 9
+	poll     1000
+
+slider
+	value    per 0 0x501808F0
+	label    "Car Derivate Supplement "
+	limits	 absolute 0 9
+	poll     1000
+
+#####   byte 3  #####
+keyValue
+    value    String sys 0x00000000 0
+    label    "---------------[byte 3]---------------"
+    poll     0   
+    
+BIOSCtrl
+    value    int per 0 0x50180CFF
+    label    "Country Navigation"
+    entry	 "None" 0
+    entry	 "EU" 1
+    entry	 "NAR" 2
+    entry	 "MSA" 3
+    entry	 "Korea" 4
+    entry	 "China" 5
+    entry	 "Japan" 6
+    entry	 "AsiaPacific" 7
+    entry	 "Australia" 8
+    entry	 "South Africa" 9
+    entry	 "NEAST" 10
+    entry	 "NMAfrica" 11
+    entry	 "MEAST" 12
+    entry	 "CentralAsia" 13
+    entry	 "India" 14
+    entry	 "Israel" 15
+    entry	 "Taiwan" 16
+    entry	 "MSA 2 (Chile)" 17
+    entry	 "China 2" 18
+    entry	 "China 3" 19
+    poll     1000
+   
+######   byte 4  #####
+keyValue
+    value    String sys 0x00000000 0
+    label    "---------------[byte 4]---------------"
+    poll     0
+    
+choice
+	value	per 0 0x50181001
+	label 	"Channel 1 HT"
+	poll    1000	
+    
+choice
+	value 	per 0 0x50181002
+	label 	"Channel 1 TT"
+	poll    1000	
+    
+choice
+	value 	per 0 0x50181004
+	label 	"Channel 2 HT"
+	poll    1000	
+    
+choice
+	value 	per 0 0x50181008
+	label 	"Channel 2 TT"
+	poll    1000	
+    
+choice
+	value 	per 0 0x50181010
+	label 	"Channel 3 HT"
+	poll    1000	
+    
+choice
+	value 	per 0 0x50181020
+	label 	"Channel 3 TT"
+	poll    1000	
+    
+choice
+	value 	per 0 0x50181040
+	label 	"Channel 4 HT"
+	poll    1000	
+    
+choice
+	value 	per 0 0x50181080
+	label 	"Channel 4 TT"
+	poll    1000	
+    
+######   byte 5  #####
+keyValue
+    value    String sys 0x00000000 0
+    label    "---------------[byte 5]---------------"
+    poll     0
+    
+choice
+	value 	per 0 0x50181401 
+	label 	"Channel 5 HT"
+	poll    1000	
+    
+choice
+	value 	per 0 0x50181402
+	label 	"Channel 5 TT"
+	poll    1000	
+    
+choice
+	value 	per 0 0x50181404
+	label 	"Channel 6 HT"
+	poll    1000	
+    
+choice
+	value 	per 0 0x50181408
+	label 	"Channel 6 TT"
+	poll    1000	
+    
+choice
+	value 	per 0 0x50181410
+	label 	"Channel 7 HT"
+	poll    1000	
+    
+choice
+	value 	per 0 0x50181420
+	label 	"Channel 7 TT"
+	poll    1000	
+    
+choice
+	value 	per 0 0x50181440
+	label 	"Channel 8 HT"
+	poll    1000	
+    
+choice
+	value 	per 0 0x50181480
+	label 	"Channel 8 TT"
+	poll    1000
+
+######   byte 6  #####
+keyValue
+    value    String sys 0x00000000 0
+    label    "---------------[byte 6]---------------"
+    poll     0
+    
+choice
+	value 	per 0 0x50181801  
+	label 	"Channel 9 HT"
+	poll    1000	
+    
+choice
+	value 	per 0 0x50181802
+	label 	"Channel 9 TT" 
+	poll    1000	
+    
+choice
+	value 	per 0 0x50181804
+	label 	"Channel 10 HT" 
+	poll    1000	
+    
+choice
+	value 	per 0 0x50181808
+	label 	"Channel 10 TT"
+	poll    1000	
+    
+choice
+	value 	per 0 0x50181810
+	label 	"Channel 11 HT" 
+	poll    1000	
+    
+choice
+	value 	per 0 0x50181820
+	label 	"Channel 11 TT"
+	poll    1000	
+    
+choice
+	value 	per 0 0x50181840
+	label 	"Channel 12 HT"
+	poll    1000	
+    
+choice
+	value 	per 0 0x50181880
+	label 	"Channel 12 TT"     
+	poll    1000	
+
+######   byte 7  #####
+keyValue
+    value    String sys 0x00000000 0
+    label    "---------------[byte 7]---------------"
+    poll     0
+   
+choice
+	value 	per 0 0x50181c01
+	label 	"Channel 13 HT"
+	poll    1000	
+    
+choice
+	value 	per 0 0x50181c02
+	label 	"Channel 13 TT"
+	poll    1000	
+    
+choice
+	value 	per 0 0x50181c04
+	label 	"Channel 14 HT"
+	poll    1000	
+    
+choice
+	value 	per 0 0x50181c08
+	label 	"Channel 14 TT"
+	poll    1000	
+    
+choice
+	value 	per 0 0x50181c10
+	label 	"Channel 15 HT"
+	poll    1000	
+    
+choice
+	value 	per 0 0x50181c20
+	label 	"Channel 15 TT"
+	poll    1000	
+    
+choice
+	value 	per 0 0x50181c40
+	label 	"Channel 16 HT"
+	poll    1000	
+    
+choice
+	value 	per 0 0x50181c80
+	label 	"Channel 16 TT"        
+	poll    1000	
+    
+######   byte 8  #####
+keyValue
+    value   String sys 0x00000000 0
+    label   "---------------[byte 8]---------------"
+    poll    0
+
+choice
+    value	per 0 0x50182001
+    label   "Microphone 1"
+    poll    1000	
+    
+choice
+    value   per 0 0x50182002
+    label   "Microphone 2"
+	poll    1000	
+
+choice
+    value  	per 0 0x50182004
+    label 	"Headphones Output 1"
+	poll    1000	
+    
+choice    
+    value   per 0 0x50182008
+    label 	"Headphones Output 2"
+	poll    1000	
+    
+choice    
+    value   per 0 0x50182010
+    label 	"AUX IN"
+	poll    1000	
+    
+choice    
+    value   per 0 0x50182020
+    label 	"AMI/MDI interface"
+	poll    1000	
+    
+choice    
+    value   per 0 0x50182040
+    label 	"VDA-NF IN (TEL IN)"
+	poll    1000	
+    
+choice    
+    value   per 0 0x50182080
+    label 	"Wake Up Over ECL" 
+	poll    1000	
+    
+######   byte 9  #####
+keyValue
+    value   String sys 0x00000000 0
+    label   "---------------[byte 9]---------------"
+    poll    0      
+    
+BIOSCtrl
+    value	int per 0 0x5018240F
+    label   "Bandsettings FM"
+    entry	"no setting" 0
+	entry	"EU (RdW)" 1
+	entry	"NAR" 2
+	entry	"JP" 3
+	entry	"KOR" 4
+	entry	"China" 5
+	poll	1000
+
+BIOSCtrl
+    value   int per 0 0x501824F0
+    label   "Bandsettings AM"
+    entry	"no setting" 0
+	entry	"EU (RdW)" 1
+	entry	"NAR" 2
+	entry	"JP" 3
+	entry	"EU" 4
+	entry	"AUS" 5
+	poll	1000    
+
+######   byte 10  #####
+keyValue
+    value   String sys 0x00000000 0
+    label   "---------------[byte 10]--------------"
+    poll    0
+
+BIOSCtrl
+    value   int per 0 0x5018280F
+    label   "Bandsettings DAB Band 1"
+    entry	"OFF" 0
+	entry	"EU Band III -N" 1
+	entry	"EU Band III" 2
+	entry	"CANADA L-Band" 3
+	entry	"KOREA Band III" 4
+	entry	"CHINA Band III" 5
+	entry	"Download Table 1" 6
+	entry	"NEW ZEALAND Band III" 7
+	poll	1000
+
+BIOSCtrl
+    value   int per 0 0x501828F0
+    label   "Bandsettings DAB Band 2"
+    entry	"OFF" 0
+	entry	"L-Band" 1
+	entry	"Download Table 2" 2
+	poll	1000
+ 
+######   byte 11  #####
+keyValue
+    value	String sys 0x00000000 0
+    label   "---------------[byte 11]--------------"
+    poll    0
+
+BIOSCtrl
+    value   int per 0 1343761663
+    label   "Amplifier"
+    entry	"no assign" 0
+	entry	"intern" 1
+	entry	"external MOST" 2
+	entry	"reserved" 3		
+    entry	"external BAP" 4
+    entry	"internal Individual" 5
+    entry	"external BOOSTER" 6
+	entry	"external BAP with presets" 7
+	poll    1000    
+    
+######   byte 12  #####
+keyValue
+    value   String sys 0x00000000 0
+    label   "---------------[byte 12]--------------"
+    poll    0      
+
+choice    
+    value   per 0 0x50183001
+    label   "FM Antenna" 
+	poll    1000	
+    
+BIOSCtrl
+    value   int per 0 0x5018300E
+    label   "HD FM Antenna Mode"
+    entry	"AM FM ANT" 0
+	entry	"Switching" 1
+	entry	"FM ANT" 2
+	entry	"MRC" 3		
+    entry	"Testmode" 4	
+	poll    1000  
+    
+######   byte 13  #####
+keyValue
+    value    String sys 0x00000000 0
+    label    "---------------[byte 13]--------------"
+    poll     0       
+    
+choice
+    value	per 0 0x50183401
+    label   "RDS"
+    poll    1000					
+
+BIOSCtrl
+    value	int per 0 0x50183402
+    label   "AF"
+    entry	"persistent" 0
+    entry	"temporary" 1
+    poll    1000	
+        
+choice
+    value	per 0 0x50183404
+    label   "HD radio coding"
+    poll    1000		
+ 
+choice
+    value	per 0 0x50183408
+    label   "Radiotext+"
+    poll	1000
+
+choice
+    value	per 0 0x50183410
+	label   "PI ignore"
+    poll    1000    
+    
+BIOSCtrl
+	value	int per 0 0x50183460
+    label   "BWS"
+    entry   "no BWS" 0
+    entry	"restricted" 1
+    entry	"unrestricted" 2
+    entry   "rest/unrest" 3
+    poll    1000	    
+    
+choice
+    value   per 0 0x50183480
+    label   "DAB alarm"
+    poll	1000
+
+######   byte 14  #####
+keyValue
+    value   String sys 0x00000000 0
+    label   "---------------[byte 14]--------------"
+    poll    0           
+ 
+choice
+    value	per 0 0x50183801
+    label   "FM PTY31 off/on"
+	poll	1000
+
+choice
+	value   per 0 0x50183802
+    label   "AM sperre off/on"
+	poll	1000
+    
+choice
+    value   per 0 0x50183804
+    label   "HD radio coding AM"
+	poll	1000    
+    
+choice
+    value   per 0 0x50183808
+    label   "Multiple entry switch"
+	poll	1000  
+    
+choice
+    value   per 0 0x50183810
+    label   "RDS deactivation"
+	poll	1000  
+
+choice
+    value   per 0 0x50183820
+    label   "AF deactivation"
+	poll	1000  
+
+######   byte 15  #####
+keyValue
+    value   String sys 0x00000000 0
+    label   "---------------[byte 15]--------------"
+    poll    0  
+
+choice
+    value	per 0 0x50183C01
+    label   "Baseplate"
+    poll    1000
+
+choice
+    value   per 0 0x50183C02
+    label   "Ant. Baseplate"
+    poll    1000
+
+choice
+    value   per 0 0x50183C04
+    label   "Force Cradle"
+    poll    1000
+
+choice
+    value   per 0 0x50183C08
+    label   "Handy in Cradle"
+    poll    1000
+
+choice
+    value   per 0 0x50183C10
+    label   "Telefon Modul"
+    poll    1000
+  
+choice
+    value   per 0 0x50183C20
+    label   "Wireless Charger"      
+    poll	1000
+
+######   byte 16  #####
+keyValue
+    value   String sys 0x00000000 0
+    label   "---------------[byte 16]--------------"
+    poll    0  
+
+
+choice
+    value	per 0 0x50184001
+    label   "BT available"
+    poll    1000
+
+choice
+    value   per 0 0x50184002
+    label   "BT Multimedia"
+    poll    1000
+
+choice
+    value	per 0 0x50184004
+    label   "BT phone"
+    poll    1000
+
+choice
+    value   per 0 0x50184008
+    label   "BT audio"
+    poll    1000
+
+BIOSCtrl
+    value	int per 0 0x50184030
+    label   "BT visibility"
+    entry   "off" 0
+    entry	"auto" 1
+    entry	"on" 2
+    entry   "limited" 3
+	poll    1000
+
+choice
+    value   per 0 0x50184040
+    label   "BT headphones"
+    poll    1000	
+    
+choice
+    value   per 0 0x50184080
+    label   "legal RVC"
+    poll    1000	 
+
+######   byte 17  #####
+keyValue
+    value	String sys 0x00000000 0
+    label   "---------------[byte 17]--------------"
+    poll    0  
+
+BIOSCtrl
+    value	int per 0 0x501844FF
+    label 	"Skin"
+    entry	"no Skin" 0
+    entry	"Skin 1" 1
+    entry	"Skin 2" 2
+    entry	"Skin 3" 3
+    entry	"Skin 4" 4
+    entry	"Skin 5" 5
+    poll	1000
+ 
+######   byte 18  #####
+keyValue
+    value   String sys 0x00000000 0
+    label   "---------------[byte 18]--------------"
+    poll    0    
+    
+slider
+    value   per 0 0x501848ff
+	label   "Screenings"
+	limits	absolute 0 255
+    poll    1000     
+ 
+######   byte 19  #####
+keyValue
+    value   String sys 0x00000000 0
+    label   "---------------[byte 19]--------------"
+    poll    0  
+
+BIOSCtrl
+    value	int per 0 0x50184C01
+    label   "Boardbook"
+    entry	"not displayed" 0
+	entry	"displayed" 1
+    poll    1000
+
+BIOSCtrl
+    value	int per 0 0x50184C02
+    label   "Suspension arm"
+    entry	"links" 0
+	entry	"rechts" 1
+    poll    1000
+
+BIOSCtrl
+    value	int per 0 0x50184C0C
+    label   "Kombi Track"
+    entry	"n/a" 0
+	entry	"long" 1
+    entry   "short" 2
+    entry   "reserved" 3
+    poll    1000
+
+BIOSCtrl
+    value	int per 0 0x50184C10
+    label   "RVC"
+    entry	"not active" 0
+	entry	"active" 1
+    poll    1000
+
+BIOSCtrl
+    value	int per 0 0x50184C20
+    label   "MOST"
+    entry	"off" 0
+	entry	"on" 1
+    poll    1000
+
+BIOSCtrl
+    value	int per 0 0x50184CC0
+    label   "USB"
+    entry	"off" 0
+	entry	"charge" 1
+	entry	"full" 2
+	entry	"ipod" 3
+    poll    1000        
+ 
+ ######   byte 20  #####
+keyValue
+    value	String sys 0x00000000 0
+    label   "---------------[byte 20]--------------"
+    poll    0 
+
+choice
+    value	per 0 0x50185001
+    label   "Display 1"
+    poll    1000 
+
+choice
+    value   per 0 0x50185002
+    label   "Display 2"
+    poll    1000 
+
+choice
+    value   per 0 0x50185004
+    label   "Display 3"
+    poll    1000 
+
+choice
+    value   per 0 0x50185008
+    label   "Display 4"
+    poll    1000         
+ 
+choice
+    value   per 0 0x50185010
+    label   "Dashboard Audio Slide"
+    poll    1000 
+
+choice
+    value   per 0 0x50185020
+    label   "Dashboard Phone Slide"
+    poll    1000 
+
+choice
+    value   per 0 0x50185040
+    label   "Dashboard Nav Slide"
+    poll    1000 
+ 
+BIOSCtrl
+    value   int per 0 0x50185080
+    label   "Dashboard Communication"
+    entry   "BAP" 0
+    entry   "DDP" 1
+    poll    1000         
+
+######   byte 21  #####
+keyValue
+    value   String sys 0x00000000 0
+    label   "---------------[byte 21]--------------"
+    poll    0           
+
+choice
+    value	per 0 0x50185401
+    label 	"VIWI"
+    poll    1000 
+
+choice
+    value 	per 0 0x50185410
+    label 	"Scrolling"  
+    poll    1000 
+
+choice
+    value 	per 0 0x50185420
+    label 	"Messaging via MAP"    
+    poll    1000 
+
+choice
+    value 	per 0 0x50185440
+    label 	"Pagewise scrolling" 
+    poll    1000 
+
+choice
+    value 	per 0 0x50185480
+    label 	"GPS Antenna Availability"  
+    poll    1000    
+ 
+######   byte 22  #####
+keyValue
+    value   String sys 0x00000000 0
+    label   "---------------[byte 22]--------------"
+    poll    0
+
+choice    
+    value	per 0 0x50185801 
+    label   "Dashboard Graphic Variant" 
+    poll    1000  
+  
+choice              
+    value   per 0 0x50185802 
+    label   "Dashboard Text Replace"
+    poll    1000  
+
+choice
+    value   per 0 0x50185804
+    label   "SDS"
+    poll    1000    
+   
+choice
+    value   per 0 0x50185808
+    label   "OnlineFunctions"
+    poll    1000        
+
+choice
+    value 	per 0 0x50185810
+    label 	"Touch Screen Remote"
+    poll    1000        
+
+choice 
+    value 	per 0 0x50185820 
+    label 	"Keypad Rear Keys"
+    poll    1000    
+
+######   byte 23  #####
+keyValue
+    value   String sys 0x00000000 0
+    label   "---------------[byte 23]--------------"
+    poll    0 
+
+choice 
+    value 	per 0 0x50185c01    
+    label 	"Speller"
+    poll    1000    
+    
+choice 
+    value 	per 0 0x50185c02 
+    label 	"Initial Disclaimer"
+    poll    1000    
+    
+choice 
+    value 	per 0 0x50185c04     
+    label 	"Legal Disclaimer"
+    poll    1000    
+    
+choice 
+    value 	per 0 0x50185c08  
+    label 	"Display Turnout Speed"    
+    poll    1000       
+    
+######   byte 24  #####
+keyValue
+    value   String sys 0x00000000 0
+    label   "---------------[byte 24]--------------"
+    poll    0
+
+choice 
+    value 	per 0 0x50186001	
+    label 	"Emergency Call"
+    poll    1000        
+
+choice     
+    value 	per 0 0x50186002	
+    label 	"SDS"
+    poll    1000        
+
+choice     
+    value 	per 0 0x50186004	
+    label 	"Navigation"
+    poll    1000        
+
+choice     
+    value 	per 0 0x50186008	
+    label 	"WLAN"
+    poll    1000        
+
+choice    
+    value 	per 0 0x50186010	
+    label 	"Import media"
+    poll    1000        
+
+choice     
+    value 	per 0 0x50186020	
+    label 	"Ripping"
+    poll    1000        
+
+choice     
+    value 	per 0 0x50186040	
+    label 	"VZA"
+    poll    1000        
+
+choice     
+    value 	per 0 0x50186080	
+    label 	"PSD"
+    poll    1000  

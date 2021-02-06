@@ -1,0 +1,33 @@
+###########################################################################################
+#
+# Custom Green Engineering Menu screen
+# Author:       Jille & Olli
+# Version:      4.1A
+# Disclaimer:   THIS SCREEN WILL VOID YOUR WARRANTY
+#
+###########################################################################################
+#
+# Main -> MQBCoding -> Customization -> Display
+#
+###########################################################################################
+screen  Display Customization
+
+script
+   value    sys 1 0x0100 "/scripts/activateDisplayManagerSplitscreen.sh"
+   label    "Splitscreen mode on (makes the screen pretty hard to read!"
+
+script
+   value    sys 1 0x0100 "/scripts/deactivateDisplayManagerSplitscreen.sh"
+   label    "Splitscreen mode off"
+
+script
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/info_displaymanager.sh"
+   label    "Show displaymanager info"
+
+script
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/set_VIM.sh"
+   label    "Force set Video in Motion" 
+
+script
+   value    sys 1 0x0100 "/scripts/performePersReset.sh"
+   label    "Reboot unit"

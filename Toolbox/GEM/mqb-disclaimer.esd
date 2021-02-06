@@ -1,0 +1,63 @@
+###########################################################################################
+#
+# Custom Green Engineering Menu screen
+# Author:       Jille & Olli
+# Version:      4.1A
+# Disclaimer:   THIS SCREEN WILL VOID YOUR WARRANTY
+#
+###########################################################################################
+#
+# Main -> MQBCoding -> Disclaimer
+#
+###########################################################################################
+screen   Disclaimer MQBCoding
+
+keyValue
+    value	String sys 0x00000000 0
+    label   "Warning: These screens have the potential to break your unit and void your "
+    poll    0
+    
+keyValue
+    value   String sys 0x00000000 0
+    label   "warranty. Be careful! MQB Coding is not responsible for any troubles to you,"
+    poll    0
+    
+keyValue
+    value   String sys 0x00000000 0
+    poll    0
+    label   "your car or software. MQB Coding is always looking for cool hacks and"
+	
+keyValue
+    value   String sys 0x00000000 0
+    label   "retrofits to increase the potential of the MQB platform. It's never our "
+    poll    0 
+
+keyValue
+    value   String sys 0x00000000 0
+    label   "intention to harm any person, car or brand."
+    poll    0 
+
+keyValue
+    value   String sys 0x00000000 0
+    label   "If you've paid for this toolbox, you've been scammed."
+    poll    0 
+	
+keyValue
+    value   String sys 0x00000000 0
+    label   ""
+    poll    0 	
+
+keyValue
+    value   String sys 0x00000000 0
+    label   "Knowledge is power, but only when shared."
+    poll    0 
+
+keyValue
+    value   String sys 0x00000000 0
+    label   ""
+    poll    0    
+    
+keyValue
+    value   String sys 0x00000000 0
+    label   "Copyright MQB Coding 2021"
+    poll    0

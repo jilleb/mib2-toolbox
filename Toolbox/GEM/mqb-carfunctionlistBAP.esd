@@ -1,0 +1,302 @@
+###########################################################################################
+#
+# Custom Green Engineering Menu screen
+# Author:       Jille & Olli
+# Version:      4.1A
+# Disclaimer:   THIS SCREEN WILL VOID YOUR WARRANTY
+#
+###########################################################################################
+#
+# Main -> MQBCoding -> Customization -> Adaptation -> CarFunctionsList BAP
+#
+###########################################################################################
+screen "CarFunctionsList_BAP" Adaptation
+
+BIOSCtrl
+	value 	int per 28442848 408
+	label 	"Adaptive cruise control (ACC): "
+	entry	"not coded" 0
+	entry 	"coded" 1
+   
+BIOSCtrl
+	value 	int per 28442848 400
+	label 	"Air condition (master): "
+	entry	"not coded" 0
+	entry	"coded" 1   
+  
+BIOSCtrl
+	value 	int per 28442848 402
+	label 	"Air condition (slave1): "
+	entry	"not coded" 0
+	entry	"coded" 1   
+  
+BIOSCtrl
+	value 	int per 28442848 442
+	label 	"Air condition (slave2): "
+	entry	"not coded" 0
+	entry	"coded" 1   
+  
+BIOSCtrl
+	value 	int per 28442848 410
+	label 	"Air suspension: "
+	entry	"not coded" 0
+	entry	"coded" 1   
+   
+BIOSCtrl
+	value 	int per 28442848 404
+	label 	"Auxiliary heater: "
+	entry	"not coded" 0
+	entry	"coded" 1   
+
+BIOSCtrl		
+	value	int per 28442848 476
+	label	"BatteryCtrl: "
+	entry	"not coded" 0
+	entry	"coded" 1	
+
+BIOSCtrl		
+	value	int per 28442848 466
+	label	"BC with Efficiency (BCmE): "
+	entry	"not coded" 0
+	entry	"coded" 1
+	
+BIOSCtrl		
+	value	int per 28442848 472
+	label	"Brake: "
+	entry	"not coded" 0
+	entry	"coded" 1
+	
+BIOSCtrl
+	value 	int per 28442848 452
+	label 	"Braking way reduction (AWV): "
+	entry	"not coded" 0
+	entry	"coded" 1  
+   
+BIOSCtrl
+	value 	int per 28442848 424
+	label 	"Central lock system (ZV): "
+	entry	"not coded" 0
+	entry	"coded" 1  
+   
+BIOSCtrl
+	value 	int per 28442848 436
+	label 	"Central units master (ZEM): "
+	entry	"not coded" 0
+	entry	"coded" 1   
+   
+BIOSCtrl
+	value 	int per 28442848 444
+	label 	"Charisma: "
+	entry	"not coded" 0
+	entry	"coded" 1  
+   
+BIOSCtrl
+	value 	int per 28442848 432
+	label 	"Clock: "
+	entry	"not coded" 0
+	entry	"coded" 1   
+   
+BIOSCtrl
+	value   int per 28442848 440
+	label   "Compass: "
+	entry	"not coded" 0
+	entry	"coded" 1   
+
+BIOSCtrl
+	value 	int per 0 0x50201403
+	label 	"DisplayConfig: "
+	entry	"not coded" 0
+	entry	"coded" 1 
+   
+BIOSCtrl
+	value 	int per 0 0x5008CC03
+	label 	"eCALL: "
+	entry	"not coded" 0
+	entry	"coded" 1  
+   
+BIOSCtrl
+	value 	int per 0 0x5008F003
+	label 	"EfficiencyAssist(PEA): "
+	entry	"not coded" 0
+	entry	"coded" 1 
+   
+BIOSCtrl
+	value 	int per 0 0x5008DC03
+	label 	"ENI: "
+	entry	"not coded" 0
+	entry	"coded" 1   
+   
+BIOSCtrl
+	value 	int per 28442848 416
+	label 	"Exterior light: "
+	entry	"not coded" 0
+	entry	"coded" 1  
+   
+BIOSCtrl
+	value 	int per 28442848 406
+	label 	"Headup display (HUD): "
+	entry	"not coded" 0
+	entry	"coded" 1 
+   
+BIOSCtrl
+	value 	int per 28442848 454
+	label 	"Hybrid: "
+	entry	"not coded" 0
+	entry	"coded" 1  
+   
+BIOSCtrl
+	value 	int per 28442848 414
+	label 	"Interior light: "
+	entry	"not coded" 0
+	entry	"coded" 1   
+   
+BIOSCtrl
+	value 	int per 28442848 450
+	label 	"Lane change assist (SWA): "
+	entry	"not coded" 0
+	entry	"coded" 1   
+   
+BIOSCtrl
+	value 	int per 28442848 448
+	label 	"Lane departure warning (HCA): "
+	entry	"not coded" 0
+	entry	"coded" 1   
+   
+BIOSCtrl		
+	value	int per 28442848 470
+	label	"MFL joker key: "
+	entry	"not coded" 0
+	entry	"coded" 1	
+   
+BIOSCtrl
+	value	int per 28442848 426
+	label	"Mirror: "
+	entry	"not coded" 0
+	entry	"coded" 1   
+   
+BIOSCtrl
+	value	int per 28442848 446
+	label 	"Night vision: "
+	entry	"not coded" 0
+	entry	"coded" 1  
+   
+BIOSCtrl		
+	value	int per 28442848 428
+	label	"On-board computer (BCMFA): "
+	entry	"not coded" 0
+	entry	"coded" 1	
+	
+BIOSCtrl
+	value	int per 28442848 418
+	label	"Parking system (PDC/OPS): "
+	entry	"not coded" 0
+	entry	"coded" 1   
+	
+BIOSCtrl
+	value	int per 28442848 420
+	label	"Parking system (VPS): "
+	entry	"not coded" 0
+	entry	"coded" 1  
+	
+BIOSCtrl
+	value	int per 0 1342760963
+	label	"Pedestrian Assist: "
+	entry	"not coded" 0
+	entry	"coded" 1  
+	
+BIOSCtrl
+	value	int per 28442848 458
+	label	"Rev. seat-belt tensionier (RGS): "
+	entry	"not coded" 0
+	entry	"coded" 1   
+	
+BIOSCtrl
+	value 	int per 28442848 482
+	label 	"Range Data (RD): "
+	entry	"not coded" 0
+	entry	"coded" 1   
+BIOSCtrl
+	value	int per 28442848 430
+	label	"Seat memory (master): "
+	entry	"not coded" 0
+	entry	"coded" 1   
+BIOSCtrl
+	value	int per 0 1342761987
+	label	"Seatpneumatic: "
+	entry	"not coded" 0
+	entry	"coded" 1   
+BIOSCtrl
+	value   int per 28442848 460
+	label   "Seat configuration (slave): "
+	entry	"not coded" 0
+	entry	"coded" 1   
+BIOSCtrl
+	value	int per 28442848 434
+	label	"Service interval (SIA): "
+	entry	"not coded" 0
+	entry	"coded" 1   
+BIOSCtrl		
+	value	int per 28442848 456
+	label	"Sideview camera: "
+	entry	"not coded" 0
+	entry	"coded" 1  
+
+BIOSCtrl
+	value 	int per 0 0x50201003
+	label 	"SoundControl: "
+	entry	"not coded" 0
+	entry	"coded" 1   
+
+BIOSCtrl
+	value 	int per 0 0x50200003
+	label 	"Spoiler: "
+	entry	"not coded" 0
+	entry	"coded" 1   
+
+BIOSCtrl		
+	value	int per 28442848 474
+	label	"StartStopReasons: "
+	entry	"not coded" 0
+	entry	"coded" 1	
+	
+BIOSCtrl		
+	value	int per 28442848 478
+	label	"Tilt Angle Disp (TAD): "
+	entry	"not coded" 0
+	entry	"coded" 1
+	
+BIOSCtrl
+	value	int per 28442848 480
+	label	"Trailer Assistant (ARA): "
+	entry	"not coded" 0
+	entry	"coded" 1
+	
+BIOSCtrl
+	value	int per 28442848 462
+	label	"Traffic sign detection (TSD): "
+	entry	"not coded" 0
+	entry	"coded" 1   
+	
+BIOSCtrl
+	value	int per 28442848 412
+	label	"Tyre pressure control (RDK): "
+	entry	"not coded" 0
+	entry	"coded" 1   
+	
+BIOSCtrl
+	value   int per 28442848 438
+	label   "UGDO / Homelink: "
+	entry	"not coded" 0
+	entry	"coded" 1   
+	
+BIOSCtrl		
+	value	int per 28442848 464
+	label	"Weariness recognition (MKE): "
+	entry	"not coded" 0
+	entry	"coded" 1	
+	
+BIOSCtrl
+	value	int per 28442848 422
+	label	"Wiper: "
+	entry	"not coded" 0
+	entry	"coded" 1

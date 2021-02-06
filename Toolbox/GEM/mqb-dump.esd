@@ -1,0 +1,158 @@
+###########################################################################################
+#
+# Custom Green Engineering Menu screen
+# Author:       Jille & Olli
+# Version:      4.1A
+# Disclaimer:   THIS SCREEN WILL VOID YOUR WARRANTY
+#
+###########################################################################################
+#
+# Main -> MQBCoding -> Dump
+#
+###########################################################################################
+screen  Dump MQBCoding
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "Make sure there is a SD-card in slot 1"
+    poll     0    	
+    
+script
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/dump_all.sh"
+   label    "Dump everything to SD-card (This will take a while)"
+   
+keyValue
+	value 	String per 1 0x00010003
+    label 	"_____________________________________________________________________________"
+    poll     500
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "Standalone dump scripts:"
+    poll     0  
+
+#### Grapic dump scripts #####
+keyValue
+    value    String sys 0x00000000 0
+    label    "--- Graphic dump scripts ---"
+    poll     0  	
+	
+script
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/dump_skins.sh"
+   label    "Dump skins to SD-card"	
+   
+script
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/dump_splashscreen.sh"
+   label    "Dump startup screens to SD-card"	
+   
+script
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/dump_mapstyles.sh"
+   label    "Dump Mapstyles to SD-card"	
+
+keyValue
+	value 	String per 1 0x00010003
+    label 	"_____________________________________________________________________________"
+    poll     500 
+	
+#### Sound dump scripts #####
+keyValue
+    value    String sys 0x00000000 0
+    label    "--- Sound dump scripts ---"
+    poll     0  	
+	
+script
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/dump_systemSounds.sh"
+   label    "Dump system sounds to SD-card"	
+   
+script
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/dump_ringtones.sh"
+   label    "Dump telephone ringtones  to SD-card"	
+   
+script
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/dump_tts.sh"
+   label    "Dump TTS-audio alerts to SD-card"	
+   
+keyValue
+	value 	String per 1 0x00010003
+    label 	"_____________________________________________________________________________"
+    poll     500 
+	
+#### Database dump scripts #####
+keyValue
+    value    String sys 0x00000000 0
+    label    "--- Database dump scripts ---"
+    poll     0  	
+	
+script
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/dump_radiostation.sh"
+   label    "Dump Radio Station DB to SD-card"	
+   
+script
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/dump_gracenote.sh"
+   label    "Dump Gracenote DB  to SD-card"	
+
+keyValue
+	value 	String per 1 0x00010003
+    label 	"_____________________________________________________________________________"
+    poll     500
+	
+#### System dump scripts #####
+keyValue
+    value    String sys 0x00000000 0
+    label    "--- System dump scripts ---"
+    poll     0  	
+	
+script
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/dump_androidAuto.sh"
+   label    "Dump Android Auto config file to SD-card"	
+   
+script
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/dump_storage.sh"
+   label    "Dump storage1.raw and storage2.raw to SD-card"	 
+  
+script
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/dump_eeprom.sh"
+   label    "Dump EEPROM to SD-card"	   
+   
+script
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/dump_fec.sh"
+   label    "Dump FEC folder to SD-card"	   
+   
+script
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/dump_hosts.sh"
+   label    "Dump hosts file to SD-card"	
+
+script
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/dump_ifs.sh"
+   label    "Dump ifs-root to SD-card"	   
+
+script
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/dump_shadow.sh"
+   label    "Dump Shadow file to SD-card"
+
+keyValue
+	value 	String per 1 0x00010003
+    label 	"_____________________________________________________________________________"
+    poll     500
+	
+#### Development dump scripts (not included in dump all)#####
+keyValue
+    value    String sys 0x00000000 0
+    label    "--- Development dump scripts ---"
+    poll     0  	
+	
+script
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/dump_lsdjxe.sh"
+   label    "Dump lsd.jxe file to SD-card"	
+   
+script
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/dump_gem.sh"
+   label    "Dump GEM.jar file to SD-card"	 
+
+script
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/dump_bundles.sh"
+   label    "Dump bundles folder to SD-card"
+
+script
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/dump_engdefs.sh"
+   label    "Dump engdefs folder to SD-card"

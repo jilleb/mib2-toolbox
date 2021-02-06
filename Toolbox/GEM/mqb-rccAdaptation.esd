@@ -1,0 +1,192 @@
+###########################################################################################
+#
+# Custom Green Engineering Menu screen
+# Author:       Jille & Olli
+# Version:      4.1A
+# Disclaimer:   THIS SCREEN WILL VOID YOUR WARRANTY
+#
+###########################################################################################
+#
+# Main -> MQBCoding -> Customization -> Adaptation -> RCC Adaptation
+#
+###########################################################################################
+screen RccAdaptations Adaptation
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "Various RCC-specific adaptations."
+    poll     0  
+
+button
+    value       per 0x01b200e0 530 "FF"
+    label       "Reset SDARS Prescript Activation to Defaults (0xFF)"
+
+slider
+    value       per 28442848 501
+	label       "Testmode video"
+	limits		absolute 0 256
+    poll        1000
+
+choice
+    value       per 28442848 502
+    label       "optical wakeup off/on"
+	poll	    1000
+
+BIOSCtrl
+    value       int per 28442848 503
+    label       "summertime algo."
+    entry	    "none" 0
+	entry	    "manual" 1
+	entry	    "MESZ" 2
+    entry	    "USA" 3
+    entry	    "NavDB/automatic" 4
+	poll        1000
+
+BIOSCtrl
+    value       int per 28442848 504
+    label       "Multimedia Data"
+    entry	    "rip off imp off" 0
+	entry	    "rip off imp on" 1
+	entry	    "rip on imp off" 2
+    entry	    "rip on imp on" 3
+	poll        1000
+
+BIOSCtrl
+    value       int per 28442848 505
+    label       "Emergency call priv."
+    entry	    "off" 0
+	entry	    "on" 1
+	entry	    "user defined" 255
+	poll        1000
+    
+slider
+    value       per 28442848 506
+	label       "nr. of retries emergency call"
+	limits		absolute 0 256
+    poll        1000
+
+slider
+    value       per 28442848 507
+	label       "basic vol. speech"
+	limits		absolute 0 128
+    poll        1000
+
+slider
+    value       per 28442848 508
+	label       "basic vol. phone"
+	limits		absolute 0 128
+    poll        1000
+    
+slider
+    value       per 28442848 509
+	label       "micro sensitivity"
+	limits		absolute 0 21
+    poll        1000
+
+choice
+    value       per 28442848 510
+    label       "Telefon off/on"
+	poll	    1000
+  
+choice
+    value       per 28442848 511
+    label       "Tel. dataservices off/on"
+	poll	    1000
+        
+choice
+    value       per 28442848 512
+    label       "BT off/on"
+	poll	    1000
+ 
+choice
+    value       per 28442848 513
+    label       "BT Sniff off/on"
+	poll	    1000
+
+choice
+    value       per 28442848 514
+    label       "WLAN off/on"
+	poll	    1000
+
+slider
+    value       per 28442848 515
+	label       "Regionalcodes DVD"
+	limits		absolute 0 8
+    poll        1000
+
+slider
+    value       per 28442848 516
+	label       "Regionalcodes Blueray"
+	limits		absolute 0 3
+    poll        1000
+
+slider
+    value       per 28442848 517
+	label       "R. Codes DVD Counter"
+	limits		absolute 0 5
+    poll        1000
+    
+slider
+    value       per 28442848 518
+	label       "R. Codes Blueray Counter"
+	limits		absolute 0 5
+    poll        1000
+    
+slider
+    value       per 28442848 520
+	label       "Set PayTMC (coarse)"
+	limits		absolute 0 65535 200
+    poll        1000
+
+slider
+    value       per 28442848 531
+	label       "Set PayTMC (fine)"
+	limits		absolute 0 65535
+    poll        1000
+
+choice
+    value       per 28442848 522
+    label       "RVC Video off(FBAS)/on(LVDS)"
+	poll	    1000
+	
+BIOSCtrl
+    value       int per 28442848 523
+    label       "PSD protocol version"
+    entry       "PSD_1.5" 0
+    entry       "PSD_1.4" 1
+    poll        1000
+
+slider 
+	value       per 28442848 524
+	label       "AM Q-Level offset"
+	limits		absolute -31 31
+	poll        1000
+
+slider 
+	value       per 28442848 525
+	label       "FM Q-Level offset"
+	limits		absolute -31 31
+	poll        1000
+
+slider 
+	value       per 28442848 526
+	label       "HF stereo low thresh.(dBuV)"
+	limits		absolute 20 60
+	poll        1000
+
+slider 
+	value       per 28442848 527
+	label       "NF max stereo chan. sep.(dB)"
+	limits		absolute 0 60
+	poll        1000
+
+slider 
+	value       per 28442848 528
+	label       "Mono/stereo hyst.(msec)"
+	limits		absolute 0 20000 100
+	poll        1000
+
+choice
+    value       per 28442848 529
+    label       "TV Tuner Availability"
+	poll	    1000 

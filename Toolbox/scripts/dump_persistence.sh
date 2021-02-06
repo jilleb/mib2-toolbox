@@ -9,31 +9,24 @@ ORIGINAL=/var/fw/persistence.sqlite
 
 echo $DESCRIPTION
 
-
-. /eso/bin/PhoneCustomer/default/util_info.sh
-
-. /eso/bin/PhoneCustomer/default/util_mountsd.sh
+. /eso/hmi/engdefs/scripts/mqb/util_info.sh
+. /eso/hmi/engdefs/scripts/mqb/util_mountsd.sh
 if [[ -z "$VOLUME" ]] 
 then
 	echo "No SD-card found, quitting"
 	exit 0
 fi
 
-
-#Make backup folder
+#Make dump folder
 DUMPFOLDER=$VOLUME/Dump/$VERSION/$FAZIT/$TOPIC
 
 echo Dump-folder: $DUMPFOLDER
-
-echo Dumping, please wait. This can take a while.
-
 mkdir -p $DUMPFOLDER
-
+echo Dumping, please wait. This can take a while.
+sleep 1
 
 echo Copying files
 cp -R $ORIGINAL $DUMPFOLDER
-
-sleep 1
 
 # Make readonly again
 mount -ur $VOLUME

@@ -1,0 +1,67 @@
+###########################################################################################
+#
+# Custom Green Engineering Menu screen
+# Author:       Jille & Olli
+# Version:      4.1A
+# Disclaimer:   THIS SCREEN WILL VOID YOUR WARRANTY
+#
+###########################################################################################
+#
+# Main -> MQBCoding -> Customization -> Navigation
+#
+###########################################################################################
+screen Navigation Customization
+
+script
+   value   sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/import_mapstyles.sh"
+   label   "Install mapstyles from SD Custom/Mapstyles"
+
+keyValue
+    value   String sys 0x00000000 0
+    label   ""
+    poll    0    
+
+choice
+	value 	per 0x01c500e6 17
+	label 	"cluster_frames_debug"
+	poll 	0
+    
+choice
+	value 	per 0x01c500e6 20
+	label 	"set_calibration_to_car_default"
+	poll 	0
+    
+choice
+	value 	per 0x01c500e6 57
+	label 	"show frame rate"
+	poll 	0
+    
+choice
+	value 	per 0x01c500e6 58
+	label 	"crosshair movement usage"
+	poll 	0
+	
+choice
+	value 	per 0x01c500e6 271
+	label 	"RESET NAVIGATION"
+	poll 	0
+
+choice
+	value 	per 0x01c500e6 300
+	label 	"acoustic speed warning"
+	poll 	0
+    
+choice
+	value 	per 0x01c500e6 310
+	label 	"traffic patterns"
+	poll 	0
+	
+choice
+	value 	per 0x01c500e6 350
+	label 	"Use GPS time as fallback"
+	poll 	0
+	
+choice
+	value 	per 0x01c500e6 360
+	label 	"additional map cursor"
+	poll 	0
