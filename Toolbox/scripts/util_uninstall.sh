@@ -17,6 +17,12 @@ echo "Deleting Toolbox GreenMenus"
 rm -rv /mnt/app/eso/hmi/engdefs/mqb*.esd
 rm -rv /mnt/app/eso/hmi/engdefs/mqb*.esd.*
 
+echo "Deleting Toolbox Demo GreenMenus, if installed"
+rm -rv /mnt/app/eso/hmi/engdefs/Demo.esd
+rm -rv /mnt/app/eso/hmi/engdefs/Demo_sub.esd
+rm -rv /mnt/app/eso/hmi/engdefs/example.esd
+rm -rv /mnt/app/eso/hmi/engdefs/mqbcoding_tests.esd
+
 echo "Deleting old MIB Toolbox scripts pre v4.1"
 rm -rv /mnt/app/eso/bin/PhoneCustomer/*.sh
 rm -rv /mnt/app/eso/bin/PhoneCustomer/default/*.sh
