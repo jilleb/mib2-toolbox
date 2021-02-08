@@ -156,3 +156,7 @@ script
 script
    value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/dump_engdefs.sh"
    label    "Dump engdefs folder to SD-card"
+   
+script
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/dump_ipod.sh"
+   label    "Dump ipod.cfg to SD-card"

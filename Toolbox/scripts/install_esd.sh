@@ -17,8 +17,8 @@ fi
 mount -uw /mnt/app
 
 cp $VOLUME/Custom/$TOPIC/*.esd /eso/hmi/engdefs/
-cp $VOLUME/Custom/$TOPIC/scripts/*.sh /eso/hmi/engdefs/scripts/
-chmod a+rwx /eso/hmi/engdefs/scripts/*
+cp $VOLUME/Custom/$TOPIC/scripts/*.sh /eso/hmi/engdefs/scripts/mqb/
+chmod a+rwx /eso/hmi/engdefs/scripts/mqb/*
 
 
 # Make readonly again

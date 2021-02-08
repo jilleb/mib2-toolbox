@@ -19,17 +19,12 @@ keyValue
 
 keyValue
     value   String sys 0x00000000 0
-    label   "SD-card. If you added any new scripts in your custom green menu screen,"
+    label   "SD-card. Custom scripts go into Custom/GreenMenu/scripts. Make sure to point"
     poll    0    
 
 keyValue
     value   String sys 0x00000000 0
-    label   "make sure you install them with the Update Toolbox in the main menu."
-    poll    0   
-
-keyValue
-    value   String sys 0x00000000 0
-    label   "In your ESD-files, point to scripts at /eso/hmi/engdefs/scripts/mqb"
+    label   "scripts in your ESD-files to /eso/hmi/engdefs/scripts/mqb/"
     poll    0   
 
 keyValue
@@ -39,4 +34,4 @@ keyValue
 
 script
    value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/install_esd.sh"
-   label    "Install green-menu screen files from Custom/GreenMenu" 
+   label    "Install GreenMenu screens and scripts from Custom/GreenMenu" 
