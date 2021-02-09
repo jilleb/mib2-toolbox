@@ -1,11 +1,12 @@
 #----------------------------------------------------------
 #--- Quick 'n' dirty CFF file extractor
 #
-# File:        extract-cff.py
-# Author:      Jille
-# Revision:    0
-# Purpose:     MIB2 cff file exporter
-# Comments:    Usage: extract-cff.py <filename> <outdir>
+# File:        	extract-cff.py
+# Author:      	Jille
+# Revision:    	1
+# Purpose:     	MIB2 cff file exporter
+# Comments:    	Usage: extract-cff.py <filename> <outdir>
+# Changelog:	Updated for Python 3 compatibility.
 #----------------------------------------------------------
 
 import struct
@@ -18,14 +19,6 @@ except ImportError:
   sys.exit("""  You are missing the PIL module!
   install it by running: 
   pip install image""")
-
-try:
-  from progressbar import ProgressBar, Percentage, Bar
-except ImportError:
-  sys.exit("""  You are missing the progressbar module!
-  install it by running: 
-  pip install progressbar""")
-
 
 
 if len(sys.argv) != 3:
@@ -89,21 +82,20 @@ while (i < num_files):
 	i = i + 1
 	
 j = 0
-pbar = ProgressBar(widgets=[Percentage(), Bar()], maxval=num_files).start()
 print ("Extracting files...")
 while (j < num_files):
 	offset = offset_array[j]
 	path = path_array[j]
 	size = size_array[j]
 
-	
 	#create path
 	folder, file = os.path.split(path)
-	#folder = os.path.split(path)
-	folder = out_dir + folder
+	folder = out_dir + "\\" + folder.decode("utf-8")
 	if not os.path.exists(folder):
 		os.makedirs(folder)
-	file = folder + "\\" + file
+	file = folder + "\\" + file.decode("utf-8")
+	print ("Extracting", file)
+
 	output_file = open(file,"wb+")
 	
 	#read data at offset
@@ -111,8 +103,6 @@ while (j < num_files):
 	#binary_data = binascii.unhexlify(dataset)
 	output_file.write(file_data)
 	output_file.close()
-	pbar.update(j)
 	j = j+1
 
-pbar.finish()
 print ("Done")
