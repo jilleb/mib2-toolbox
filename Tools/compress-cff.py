@@ -11,11 +11,9 @@
 #              v1.2:    cff support
 # ----------------------------------------------------------
 
+import os
 import struct
 import sys
-import os
-import zlib
-import binascii
 
 if len(sys.argv) != 4:
     print("usage: compress-cff.py <original-file> <new-file> <imagesdir>")
@@ -34,7 +32,7 @@ print('size of TOC: ' + str(toc_size))
 
 offset = 28
 (num_files,) = struct.unpack_from('<I', data, offset)
-print(("number of files: %d" % (num_files)))
+print(("number of files: %d" % num_files))
 
 # toc1 is a table of contents containing:
 # some ID (2 bytes)
@@ -42,14 +40,14 @@ print(("number of files: %d" % (num_files)))
 # file type (1 byte)
 # size of this toc is tocsize * 4
 offset_toc_1_start = 32
-print(("toc1 start offset: %d" % (offset_toc_1_start)))
+print(("toc1 start offset: %d" % offset_toc_1_start))
 
 # idlist is a table containing:
 # checksum (unknown format, 16 bytes)
 # resource id (4 bytes)
 # size of this list with ids and checksums is equal to number of files * 20
 offset_idlist_start = offset_toc_1_start + (toc_size * 4)
-print(("idlist start offset: %d" % (offset_idlist_start)))
+print(("idlist start offset: %d" % offset_idlist_start))
 
 # toc2 is a table containing:
 # pathlength (4 bytes)
@@ -59,7 +57,7 @@ print(("idlist start offset: %d" % (offset_idlist_start)))
 # offset (4 byte)
 # path (pathlength bytes)
 offset_toc2_start = offset_idlist_start + (num_files * 20)
-print(("toc2 start offset: %d" % (offset_toc2_start)))
+print(("toc2 start offset: %d" % offset_toc2_start))
 
 i = 0
 offset_array = []
@@ -73,8 +71,8 @@ offset = offset_toc2_start
 # Read through the list of files and paths.
 # This is toc2:
 print("number      offset  path")
-#loop through the TOC to save some data
-while (i < num_files):
+# loop through the TOC to save some data
+while i < num_files:
     (path_len, unknown1, unknown2, file_size, file_offset) = struct.unpack_from('<IIIII', data, offset)
 
     offset = offset + 20
@@ -93,7 +91,7 @@ while (i < num_files):
     i = i + 1
 
 offset_data_start = offset_array[0]
-print(("data start offset: %d" % (offset_data_start)))
+print(("data start offset: %d" % offset_data_start))
 
 offset_original = offset_data_start
 offset_new = offset_data_start
@@ -105,7 +103,7 @@ struct_toc = bytes()
 toc2 = bytes()
 
 image_id = 0
-#loop through all the images and pack them into the cff
+# loop through all the images and pack them into the cff
 for image_id in range(0, int(num_files)):
     fileoffset_original = offset_array[image_id]
     filepath_original = path_array[image_id]
@@ -120,10 +118,10 @@ for image_id in range(0, int(num_files)):
     imagedata = open(fileimage_dir, 'rb').read()
     imagesize = len(imagedata)
 
-    print ("%s : %d bytes "%(fileimage_dir,imagesize))
+    print("%s : %d bytes " % (fileimage_dir, imagesize))
 
     struct_toc: bytes = struct.pack('<IIIII', len(filepath_original), fileunknown1_original, fileunknown2_original,
-                               imagesize, offset_new)
+                                    imagesize, offset_new)
     toc2 = toc2 + struct_toc + filepath_original
 
     images = images + imagedata
@@ -135,6 +133,6 @@ f = open(sys.argv[2], 'wb')
 
 print("Writing %d images to %s " % (num_files, sys.argv[2]))
 
-#original header is the entire TOC1 and IDs chunk I don't know anything about yet
+# original header is the entire TOC1 and IDs chunk I don't know anything about yet
 f.write(original_header + toc2 + images)
 f.close()
