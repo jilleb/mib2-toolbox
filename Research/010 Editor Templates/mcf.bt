@@ -1,0 +1,71 @@
+//--------------------------------------
+//--- 010 Editor v5.0 Binary Template
+//
+// File:        mcf.bt
+// Author:      Jille
+// Revision:    9
+// Purpose:     Discover Pro MIB2 images.mcf file parser
+// Comments:    Each of the marked files in this archive is ZLIB-compressed RGBA data
+// Colorcoding: Red = unknown, Green = known. Dark gray = probable. Light gray = Zlib data.
+// Verified with MIB3 MCFObjectReader classes
+//--------------------------------------
+LittleEndian();
+////////////////////////////////////////////////////////////
+uchar file_header_identification[4]<format=hex,bgcolor=cLtGreen>; // ‰MCF
+// followed by the same 4 bytes that are always in the MCF header: CR, LF, SUB(0x1A), LF
+byte CR[1]<bgcolor=cGreen>; 
+byte LF[1]<bgcolor=cGreen>;
+byte SUB[1]<bgcolor=cGreen>;
+byte LF_2[1]<bgcolor=cGreen>;
+
+uint header_unk_2<bgcolor=cSilver>;     //at least, for the ones I've checked.
+uint header_unk_3<bgcolor=cSilver>;     //so this is also always the same
+uint header_unk_4<bgcolor=cSilver>;     //as well as this
+
+struct
+{
+    byte header[4]<format=hex,bgcolor=cLtGreen>; //"TOC " This is where the table of contents starts.
+    
+    uint ContentTable_id; //First chunk in file should be a TOC chunk with id=0
+    uint ContentTable_headerlength <bgcolor=cGreen>;
+    uint ContentTable_size <format=decimal,bgcolor=cLtGreen>; //the size of the table of contents. This table starts after num_of_files
+    uint ContentTable_compressed_size <format=decimal,bgcolor=cLtGreen>; //== always identical to 7
+    uint boolCompressed; //always 0. Divider?
+    uint toc_header_crc32 <bgcolor=cDkGreen>; // crc32 over the first 20 bytes of the content table
+    uint num_of_files <format=decimal,bgcolor=cLtGreen>;  // the number of files in this archive. After this, size_of_TOC is going to count.
+} ContentTable_header<optimize=false>;
+
+
+// first, it's displaying a list of files, their ID, the offset where it starts
+// As described in ContentTableEntry.class
+struct    
+{
+    uchar filetype[4] <bgcolor=cGreen>;  // always "IMG "
+    uint file_id <bgcolor=cLtGreen>;
+    uint offset <bgcolor=cGreen>;
+    uint size<bgcolor=cLtGreen>;
+} ContentTable [ContentTable_header.num_of_files];
+
+
+uint unknown_11 <bgcolor=cRed>;
+
+struct 
+{
+    byte filetype[4] <bgcolor=cGreen>;      //always "IMG "
+    uint file_id <bgcolor=cLtGreen>;           //the unique number of the file. Be aware, it starts at 1, while this array starts numbering at 0;
+    uint pixel_depth <bgcolor=cLtGreen>;        // this seems to be always 0x08 00 00 00
+    uint zipped_size <bgcolor=cLtGreen>;
+    uint unzipped_size <bgcolor=cLtGreen>;
+    uint bool_compression <bgcolor=cLtGreen>;        // always 1. Possibly a boolean for compression on/off?
+    uint crc32_over_header <bgcolor=cDkGreen>;        //crc32 checksum over the first 24 byes of the header
+    short width <bgcolor=cLtGreen>;    //speaks for itself
+    short height <bgcolor=cLtGreen>;   //speaks for itself
+    short picture_mode <bgcolor=cSilver>;      // this is sometimes 0x0411(4356), sometimes 0x0010(4096)
+    short divider_18 <bgcolor=cBlack>;     //always 00
+    byte data[zipped_size+4] <format=hex,bgcolor=cLtGray>; // Zlib data
+} contents[ContentTable_header.num_of_files] <optimize=false>;
+
+
+
+
+Assert(FEof());

@@ -1,0 +1,83 @@
+//--------------------------------------
+//--- 010 Editor v5.0 Binary Template
+//
+// File:        imageidmapres.bt
+// Author:      Jille
+// Revision:    1
+// Purpose:     Discover Pro MIB1 imageidmap.res file parser
+// Comments:    none
+//--------------------------------------
+
+
+////////////////////////////////////////////////////////////
+
+uint un_3, un_5, un_2; // version numbers?
+char magic[4]; // "Skr0"
+int uid; // UID should match mapping.txt
+
+uint unknown_1;
+
+uint image_count; //the amount of images
+
+struct
+{
+  uint zero;
+  uint len; //lenght of the upcoming filename
+  wchar_t original_filename[len];
+//Printf("Filename = '%s'\n", original_filename);  
+} images[ image_count ] <optimize=false>;
+
+uint unknown_5;
+
+uint mifId_count;
+struct
+{
+    int mifID;
+} mifIDs [ mifId_count ];
+
+
+// This will output the right xcopy commands to copy each file to the right dir
+local int temp;
+local int temp2;
+local string file;
+
+Printf ("%s","\n---------------------------------------------------\n");
+Printf ("%s","The following commands are to copy all files from their id names to the right folders after extracting.\n");
+Printf ("%s","Note: make sure all slashes are pointing the right way, perform a find& replace if needed.\n");
+Printf ("%s","---------------------------------------------------\n");
+while (temp < mifId_count)
+ {
+    Printf ("%s","echo f | xcopy /f /y ");
+    Printf("img_%d.png", (mifIDs[temp].mifID)-1);
+
+    file = images[temp].original_filename;
+
+    
+
+    Printf(" .\\sorted\\%s \n", file);
+    temp +=1;
+}
+
+
+
+
+Printf ("%s","\n---------------------------------------------------\n");
+Printf ("%s","The following commands are to copy all files from their folders back to 1 folder with the right ids \n");
+Printf ("%s","Note: make sure all slashes are pointing the right way, perform a find& replace if needed.\n");
+Printf ("%s","---------------------------------------------------\n");
+
+
+while (temp2 < mifId_count)
+ {
+
+
+
+    Printf ("%s","echo f | xcopy /f /y ");
+    file = images[temp2].original_filename;
+    Printf(" .\\sorted\\%s", file);
+    Printf(" .\\ids_only\\img_%d.png\n", (mifIDs[temp2].mifID)-1);
+
+    temp2 +=1;
+}
+Assert(FEof());
+

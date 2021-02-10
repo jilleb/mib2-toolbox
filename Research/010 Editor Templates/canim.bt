@@ -1,0 +1,55 @@
+//--------------------------------------
+//--- 010 Editor v5.0 Binary Template
+//
+// File:        canim.bt
+// Author:      Jille
+// Revision:    4
+// Purpose:     Discover Pro MIB1&2 canim file parser
+// Comments:    zlib -d the canim file first!!!
+//--------------------------------------
+
+
+////////////////////////////////////////////////////////////
+uchar magic[8]; // "ANIM1    ";
+uint canvas_width <format=decimal,bgcolor=cGreen>; //should be 800 or 1280
+uint canvas_height <format=decimal,bgcolor=cGreen>; //should be 480 or 640
+uint cmdblock_len <format=decimal,bgcolor=cGreen>; //size of the first block
+uint unknown_block_1 <format=decimal,bgcolor=cRed>;
+local int number_of_images = 0;
+//number_of_images = ((cmdblock_len - 712)/296); // -712 is skoda value
+number_of_images = ((cmdblock_len - 1772)/296); // -1772 is vw value
+        
+
+struct IMAGE_TABLE {
+  uint CMD_code <format=decimal,bgcolor=cSilver>;
+  uint image_num <format=decimal,bgcolor=cGreen>;
+  uint image_width <format=decimal,bgcolor=cGreen>;
+  uint image_height <format=decimal,bgcolor=cGreen>;
+  uint bytes_per_pixel <format=decimal,bgcolor=cGreen>;
+  uint start_offset <format=decimal,bgcolor=cGreen>;
+  uint unknown_CC <format=decimal,bgcolor=cRed>;  //Could be some kind of animation-type indicator? In this case, it could mean: fade in. At least it's always "CC".
+  uint unknown_2 <format=decimal,bgcolor=cRed>;   //I don't know what this is. Maybe the time to show this image?
+} image_table [number_of_images];
+
+
+// data of each image consists of RGBA data.
+// this could be easily converted by exporting it to .rgba file
+// and using imagemagick to convert to png:
+// magick convert -size "<width*height>" -depth 8 <input>.rgba <output>.png
+// for example:
+// magick convert -size "584x303" -depth 8 img_5.rgba img_5.png
+// but there are probably nicer methods do this.
+
+local int i =0;
+while( i < number_of_images )
+{
+    FSeek(cmdblock_len+image_table[i].start_offset+32);
+    struct{
+        byte rgba_data[image_table[i].image_width * image_table[i].image_height * image_table[i].bytes_per_pixel] <format=hex,bgcolor=cGreen>;
+    } image_data;
+    i = i + 1;
+}
+
+
+
+

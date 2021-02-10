@@ -1,0 +1,48 @@
+//--------------------------------------
+//--- 010 Editor v5.0 Binary Template
+//
+// File:        mif.bt
+// Author:      Jille
+// Revision:    2
+// Purpose:     Discover Pro MIB1 images.mif file parser
+// Comments:    Each of the marked files in this archive is ZLIB-compressed RGBA data
+//--------------------------------------
+
+////////////////////////////////////////////////////////////
+uchar magic[6]; // ESOMIF
+uint footer_offset; //the location of the footer
+
+// [..]
+FSeek(footer_offset);
+
+uint num_files; //number of files in this specific archive
+
+struct
+{
+  SetBackColor (cGreen);
+  uint index; // 0-based
+  SetBackColor (cNone);
+  uint image_offset;
+} offset_table[ num_files ];
+
+int uid; // mapping.txt and imageidmap.res store this as a signed integer
+
+uint meta_name_len;
+char meta_name[meta_name_len];
+
+uint meta_author_len;
+char meta_author[meta_author_len];
+
+
+FSeek(offset_table[0].image_offset);
+struct
+{
+  SetBackColor (cGreen);
+  uint  width, height, byte_per_pixel;
+  uint zsize;
+  SetBackColor (cNone);
+  ubyte data[zsize];    //this is ZLIB compressed RGBA data.
+} images[ num_files ] <optimize=false>;
+
+
+//Assert(FEof());

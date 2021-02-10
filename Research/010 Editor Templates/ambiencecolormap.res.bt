@@ -1,0 +1,93 @@
+//--------------------------------------
+//--- 010 Editor Binary Template
+//
+// File:        ambienceColorMap.res
+// Author:      Jille
+// Revision:    1
+// Purpose:     parse colors inside MIB ambienceColorMap.res
+// Legend:      Green       - verified data
+//              Red         - unknown
+//              Yellow      - probable, but not yet verified 
+//              Grey        - seemingly irrelevant, but not yet verified
+//              RGB-colors  - this template displays RGB values as colors on color_profiles[i].zero_value
+//--------------------------------------
+
+////////////////////////////////////////////////////////////
+
+
+byte header[16]  <format=hex,bgcolor=cSilver>;          //identical across all ambientColorMap.res files
+long type_size <format=hex,bgcolor=cDkGreen>;
+short type[type_size]  <format=hex,bgcolor=cGreen>;     // MIB platform has many different types of RES files. This "type" is to identify the right type of RES-file.
+byte unknown_1[18]<format=hex,bgcolor=cRed>;            // identical on all ambienceColorMap.res files I've seen. Some kind of file type version indicator?
+long amount_of_something <format=hex,bgcolor=cYellow>;  
+
+// this is probably some kind of reference table which links Screenings (module 5F, byte 18) values to specific color profiles?
+// needs testing
+struct
+    {
+    short unknown_2_1 <format=hex,bgcolor=cLtRed >;
+    short unknown_2_2 <format=hex,bgcolor=cLtRed >;
+    short unknown_2_always_0A <format=hex,bgcolor=cLtRed >;
+    short unknown_2_4 <format=hex,bgcolor=cLtRed >;
+    short unknown_2_5 <format=hex,bgcolor=cLtRed >;
+    short unknown_2_6 <format=hex,bgcolor=cLtRed >;
+    short unknown_2_7 <format=hex,bgcolor=cLtRed >;
+    short unknown_2_8 <format=hex,bgcolor=cLtRed >;
+    short unknown_2_9 <format=hex,bgcolor=cLtRed >;
+    short unknown_2_10 <format=hex,bgcolor=cLtRed >;
+    short unknown_2_11 <format=hex,bgcolor=cLtRed >;
+    short unknown_2_12 <format=hex,bgcolor=cLtRed >;
+    short unknown_2_relevant_data <format=hex,bgcolor=cLtRed >;// the only byte which changes. Known values: 39, 35, 37 and 33.
+    short unknown_2_14 <format=hex,bgcolor=cLtRed >;
+    
+
+} something [amount_of_something]; // I don't have an idea what this is currently.
+
+long unknown_3 <format=hex,bgcolor=cRed>;       // probably the length of the following data 
+long size_of_data <format=hex,bgcolor=cYellow >;
+long amount_of_profiles <format=hex,bgcolor=cYellow>;
+
+struct
+    {
+    long profile_number <format=decimal,bgcolor=cSilver>;
+//setting a color in profile colors[0] seems to disable the color at all.
+    struct{
+    
+        ubyte B_value <format=hex,bgcolor=cNone,fgcolor=cGray >;
+        ubyte G_value <format=hex,bgcolor=cNone,fgcolor=cGray >;
+        ubyte R_value <format=hex,bgcolor=cNone,fgcolor=cGray >;
+       
+        local int display_int_RGB = R_value + (G_value*0x100) + (B_value *0x10000); // for displaying purposes, 010 editor needs BGR?!
+        local int int_RGB = (R_value *0x10000) + (G_value*0x100) + B_value;
+    
+        SetBackColor(display_int_RGB);
+        SetForeColor(display_int_RGB );
+    
+        byte zero_value <format=hex, comment="ambient color">; //this value will have the RGB color for easy diaplaying
+            SetBackColor(cNone);
+            SetForeColor(cNone);
+
+    } colors[4] <optimize=false>;
+    
+
+
+} color_profiles[amount_of_profiles] <optimize=false>;
+
+local int number = 0;
+local int colornumber = 0;
+
+
+while( number < amount_of_profiles )
+    {
+        Printf ("Color profile number %i:\n", number);
+        colornumber = 0;
+        while( colornumber < 4 )
+        {
+        Printf ("Color number %i: #%02x%02x%02x\n", colornumber,color_profiles[number].colors[colornumber].R_value,color_profiles[number].colors[colornumber].G_value,color_profiles[number].colors[colornumber].B_value);
+        colornumber += 1;
+
+        }
+    
+    number += 1;
+    Printf("\n ");
+}
