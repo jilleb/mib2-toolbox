@@ -75,7 +75,11 @@ print("number      offset  path")
 while i < num_files:
     (path_len, unknown1, unknown2, file_size, file_offset) = struct.unpack_from('<IIIII', data, offset)
 
-    offset = offset + 20
+    if (unknown1==8388608):
+        offset = offset + 20
+
+    else: 
+        offset = offset + 24
     (file_path,) = struct.unpack_from("%ds" % path_len, data, offset)
     # file_path = "\\"+ file_path
     path_array.append(file_path)

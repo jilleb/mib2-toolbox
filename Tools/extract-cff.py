@@ -57,11 +57,15 @@ size_array = []
 # id_array will be a list of offsets
 # path_array will be a list of paths
 
-#go through the entire table of contents to get all paths and offsets
+# go through the entire table of contents to get all paths and offsets
 while (i < num_files):
-	(path_len,) =  struct.unpack_from('<I', data, offset)
+	(path_len,unknown1,unknown2) =  struct.unpack_from('<III', data, offset)
 	
-	offset = offset + 12
+	if (unknown1==8388608):
+		offset = offset + 12
+	else: 
+		offset = offset + 16
+
 	(file_size,) =  struct.unpack_from('<I', data, offset)
 
 	
