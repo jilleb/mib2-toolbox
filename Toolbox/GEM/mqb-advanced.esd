@@ -63,3 +63,27 @@ script
 script
    value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/flash_ifs.sh"
    label    "Flash ifsroot.ifs from /Custom/IFS"
+   
+keyValue
+    value   String sys 0x00000000 0
+    label   ""
+    poll    0  
+
+keyValue
+    value   String sys 0x00000000 0
+    label   "Install SSH service."
+    poll    0  
+    
+keyValue
+    value   String sys 0x00000000 0
+    label   "Place a copy of your id_rsa.pub login key in Custom/ folder on SD-card"
+    poll    0  
+
+keyValue
+    value   String sys 0x00000000 0
+    label   "before running to enable password-less login."
+    poll    0 
+    
+script
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/sshd_install.sh"
+   label    "Install SSHD service"  
