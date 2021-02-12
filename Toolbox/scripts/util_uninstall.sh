@@ -32,7 +32,27 @@ echo "Deleting MIB Toolbox scripts"
 rm -rv /mnt/app/eso/hmi/engdefs/scripts/mqb/*.sh
 rm -rv /mnt/app/eso/hmi/engdefs/scripts/mqb
 
+
+SSD_INSTALL_DIR=/net/mmx/mnt/app/eso/hmi/engdefs/scripts/ssh
+if [ -e ${SSD_INSTALL_DIR} ]; then
+    echo "Uninstalling sshd"
+    mount -uw /mnt/system
+
+    rm -rf ${SSD_INSTALL_DIR}
+
+    if [ -f /mnt/system/etc/inetd.conf.bu ]; then
+        mv /mnt/system/etc/inetd.conf.bu /mnt/system/etc/inetd.conf
+    fi
+    rm -rf /root/.sshd
+    rm -f /root/.profile
+    rm -f /root/scp
+    if [ -f /mnt/system/etc/pf.conf.bu ]; then
+	    mv /mnt/system/etc/pf.conf.bu /mnt/system/etc/pf.conf
+    fi
+fi
+
 mount -ur /mnt/app
+mount -ur /mnt/system
 
 echo "Uninstall complete. Please reboot unit."
 
