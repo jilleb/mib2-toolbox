@@ -4,7 +4,11 @@
 
 #Firmware/unit info:
 export VERSION="$(cat /net/rcc/dev/shmem/version.txt | grep "Current train" | sed 's/Current train = //g' | sed -e 's|["'\'']||g' | sed 's/\r//')"
-export FAZIT=$(cat /tmp/fazit-id);
+if [ -e /tmp/fazit-id ]; then
+  export FAZIT=$(cat /tmp/fazit-id);
+else
+  export FAZIT="unknown";
+fi
 
 echo "---------------------------"
 echo FAZIT of this unit: "$FAZIT"
