@@ -59,6 +59,10 @@ script
 script
    value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/import_hosts.sh"
    label    "Import hosts file from /Custom/Hosts"
+   
+script
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/import_pf.sh"
+   label    "Import pf.conf file from /Custom/pf.conf"
   
 script
    value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/flash_ifs.sh"
