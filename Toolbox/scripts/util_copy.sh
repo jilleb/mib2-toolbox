@@ -21,7 +21,7 @@ if [[ "$TYPE" == "folder" ]]
         cp -R "$NEWFILES" "$MIBPATH"
     else 
 		echo "Copying file from Custom/$TOPIC folder on SD-card."
-        cp "$NEWFILES" "$MIBPATH"
+        cp $NEWFILES "$MIBPATH"
 fi 
 
 echo "Copy done"
@@ -36,3 +36,5 @@ mount -ur /net/mmx/mnt/app
 mount -ur /net/rcc/mnt/efs-persist
 
 sleep .5
+
+/net/mmx/fs/sda0/Custom/Splashscreen/*.canim

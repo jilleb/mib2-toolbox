@@ -1,7 +1,7 @@
 #!/bin/sh
 
 export TOPIC=Splashscreen
-export MIBPATH=/eso/hmi/splashscreen/*.canim
+export MIBPATH="/eso/hmi/splashscreen/"
 export SDPATH=/$TOPIC/*.canim
 export DESCRIPTION="This script will copy custom canim files from Splashscreen folder on your SD to the unit."
 export TYPE="file"

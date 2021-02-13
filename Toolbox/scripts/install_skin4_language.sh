@@ -1,7 +1,7 @@
 #!/bin/sh
 export SKINNAME=skin4
 export TOPIC=Language
-export MIBPATH=/eso/hmi/lsd/Resources/$SKINNAME/i18n/*.res
+export MIBPATH=/eso/hmi/lsd/Resources/$SKINNAME/i18n/ 
 export SDPATH=/$TOPIC/$SKINNAME/*.res
 export DESCRIPTION="This script will copy and replace language files"
 export TYPE="file"
