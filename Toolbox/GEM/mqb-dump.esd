@@ -160,3 +160,7 @@ script
 script
    value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/dump_ipod.sh"
    label    "Dump ipod.cfg to SD-card"
+
+script
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/dump_pf.sh"
+   label    "Dump pf.conf (firewall) file to SD-card"
