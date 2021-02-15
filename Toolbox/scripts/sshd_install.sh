@@ -65,8 +65,8 @@ if [ ! -f ${SSD_INSTALL_DIR}/etc/ssh_host_key ]; then
 fi
 
 # Manually start the sshd server (you need to specify the full path):
-# slay -v inetd
-# ${SSD_INSTALL_DIR}/usr/sbin/sshd -ddd -f ${SSD_INSTALL_DIR}/etc/sshd_config
+# on -f mmx slay -v inetd
+# on -f mmx ${SSD_INSTALL_DIR}/usr/sbin/sshd -ddd -f ${SSD_INSTALL_DIR}/etc/sshd_config
 # If something isn't working start the server with debug output enabled and the problem should become obvious: /usr/sbin/sshd -ddd
 
 if [ ! -f /mnt/system/etc/inetd.conf.bu ]; then
@@ -80,18 +80,21 @@ echo "ssh        stream tcp nowait root ${SSD_INSTALL_DIR}/usr/sbin/start_sshd i
 
 # Open up sshd port in firewall
 echo "Add firewall configuration"
-if [ ! -f /mnt/system/etc/pf.conf.bu ]; then
-	cp -pv /mnt/system/etc/pf.conf /mnt/system/etc/pf.conf.bu
-fi
-cp -pv /mnt/system/etc/pf.conf.bu /mnt/system/etc/pf.conf
+for PF in /mnt/system/etc/pf.conf /mnt/system/etc/pf.mlan0.conf; do
+  if [ -e ${PF} ]; then
+    if [ ! -f ${PF}.bu ]; then
+      cp -pv ${PF} ${PF}.bu
+    fi
+    cp -pv ${PF}.bu ${PF}
 
-echo "" >> /mnt/system/etc/pf.conf
-echo "# Allow sshd on wifi" >> /mnt/system/etc/pf.conf
-
-UPNP_ALLOW=$(grep 49152 /mnt/system/etc/pf.conf | grep "pass in")
-SSHD_ALLOW=$(echo ${UPNP_ALLOW} | sed -r 's:49152:22:g')
-echo "${SSHD_ALLOW}" >> /mnt/system/etc/pf.conf
-/mnt/app/armle/sbin/pfctl -F all -f /mnt/system/etc/pf.conf
+    # Duplicate any UPnP lines (has wifi access) to ssh lines
+    # These often need to be in the same part of the config file as the UPnP lines, doesn't work at the end.
+    sed -i -r 's:^(.*)( port 49152 )(.*)$:\1\2\3\n\1 port 22 \3:g' "${PF}"
+      
+    /mnt/app/armle/sbin/pfctl -F all -f ${PF}
+    echo "Updated ${PF}"
+  fi
+done
 
 echo "Restart inetd"
 slay -v inetd
