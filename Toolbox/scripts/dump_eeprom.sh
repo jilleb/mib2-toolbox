@@ -40,11 +40,12 @@ sleep 1
 #show contents
 echo Text dump done, converting to binary...
 
+INFILE="$DUMPFOLDER/eepromdump.txt"
 BINFILE="$DUMPFOLDER/eepromdump.bin"
 # Ensure single-byte output from awk
 export LC_ALL=C
-HEX=$(sed -rn 's/^0x\S+\W+(.*?)$/\1/p' "$DUMPFOLDER/eepromdump.txt" | sed -r 's:\W*(\S\S)\W*:\1;:g'| awk '{printf("%s",toupper($0))}')
-echo "ibase=16;${HEX}" | bc | awk '{printf("%c",$0)}' > "${BINFILE}"
+HEX=$(sed -rn 's/^0x\S+\W+(.*?)$/\1/p' "${INFILE}" | sed -rnz 's:\W*(\S\S)\W*:0x\1\n:pg')
+echo "${HEX}" | awk '{printf("%c",strtonum($0))}' > "${BINFILE}"
 
 echo "Written: ${BINFILE}"
 echo "-------------------------------------"
