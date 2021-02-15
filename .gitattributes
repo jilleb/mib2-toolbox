@@ -5,3 +5,6 @@
 *.sh text eol=lf
 *.exe filter=lfs diff=lfs merge=lfs -text
 *.jar filter=lfs diff=lfs merge=lfs -text
+/Toolbox/apps/sshd/usr/sbin/start_sshd text eol=lf
+/Toolbox/apps/sshd/scp_wrapper text eol=lf
+/Toolbox/apps/sshd/etc/banner.txt text eol=lf
