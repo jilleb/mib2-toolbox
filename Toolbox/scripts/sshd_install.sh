@@ -1,10 +1,13 @@
 #!/bin/sh
+export PATH=/proc/boot:/bin:/usr/bin:/usr/sbin:/sbin:/mnt/app/media/gracenote/bin:/mnt/app/armle/bin:/mnt/app/armle/sbin:/mnt/app/armle/usr/bin:/mnt/app/armle/usr/sbin:$PATH
 
-SCRIPTDIR=$( cd -P -- "$(dirname -- "$(command -v -- "$_")")" && pwd -P )
+if [ "$_" = "/bin/on" ]; then BASE="$0"; else BASE="$_"; fi
+SCRIPTDIR=$( cd -P -- "$(dirname -- "$(command -v -- "$BASE")")" && pwd -P )
+
 SSD_INSTALL_DIR="/net/mmx/mnt/app/eso/hmi/engdefs/scripts/ssh"
 
 export LD_LIBRARY_PATH=/net/mmx/mnt/app/root/lib-target:/net/mmx/eso/lib:/net/mmx/mnt/app/usr/lib:/net/mmx/mnt/app/armle/lib:/net/mmx/mnt/app/armle/lib/dll:/net/mmx/mnt/app/armle/usr/lib
-export PATH=${SCRIPTDIR}:${SSD_INSTALL_DIR}/usr/bin:${SSD_INSTALL_DIR}/usr/sbin:/proc/boot:/bin:/usr/bin:/usr/sbin:/sbin:/mnt/app/media/gracenote/bin:/mnt/app/armle/bin:/mnt/app/armle/sbin:/mnt/app/armle/usr/bin:/mnt/app/armle/usr/sbin
+export PATH=${SCRIPTDIR}:${SSD_INSTALL_DIR}/usr/bin:${SSD_INSTALL_DIR}/usr/sbin:$PATH
 
 . ${SCRIPTDIR}/util_mountsd.sh
 if [[ -z "$VOLUME" ]] 
