@@ -3,67 +3,94 @@
 //
 // File:        gca.bt
 // Author:      Jille
-// Revision:    2
+// Revision:    3
 // Purpose:     Discover Pro MIB2 *.gca file parser
 // Comments:    This will translate the gca files used for vehicle-specific 
 //              Ambient and Climate configurations. It will generate a list of
 //              coordinates as well as commands to be used with ImageMagick 
 //              convert to generate a graphic based on Interior_LHD.png or 
 //              Interior_RHD.png
+//				Can also be used on carstatus.car, but will not generate any
+//				Commands for graphics then. carstatus.car holds the upper left 
+//				corner for each of the featured graphics.
 //--------------------------------------
-byte header[2] <bgcolor=cGreen>; //CAFE
-FSeek(6);
-short amount_of_zones <bgcolor=cDkGreen>;
-struct 
-{
-    short zone_number <bgcolor=cGreen>;
-    byte filler[4] <fgcolor=cGray>;
-    short amount_of_points <bgcolor=cDkGreen>;
-    struct
+short header <bgcolor=cGreen>; //CAFE
+short filetype;
+
+if (filetype == 1){ // car status screen
+    short amount_of_features <bgcolor=cDkGreen>;
+    short offset_x;
+    short offset_y;
+    FSeek(256);
+    
+    
+    struct 
     {
-        short data[2] <bgcolor=cBlue>;
-    } point [amount_of_points] <optimize=false>;
-byte filler2[18] <fgcolor=cGray>;
+        local int x_coordinate,y_coordinate;
+        short zone_number <bgcolor=cGreen>;
+        short position_x;
+        short position_y;
+        x_coordinate = position_x - offset_x; // x,y = upper left corner of the feature graphic
+        y_coordinate = position_y - offset_y; //
+        short zeroes[3];
+        short one;
+        short ffff<bgcolor=cBlack>;
+    }   feature[amount_of_features] <optimize=false>;
 
-} zone[amount_of_zones] <optimize=false>;
 
-
-// code for generating output to console:
-local int i=0;
-local int j=0;
-local string command = "convert Interior_LHD.png"; //will be used to generate imagemagick command
-//command = "convert Interior_RHD.png"; //use if you want to generate righthand drive
-local string polygon = "" ;
-local int x =0;
-local int y =0;
-local string coordinate,Ycoordinate,Xcoordinate,zonetitle,zonetext;
-
-while (i<amount_of_zones){
-
-    Printf ( "Zone %i \n" ,zone[i].zone_number  );
-    j=0;
-    SPrintf (zonetitle, "%d", zone[i].zone_number);
-    polygon = " -fill \"rgba( 255, 0, 0 , 0.2 )\" -draw \"polyline ";
-    while (j<zone[i].amount_of_points){
-        x = zone[i].point[j].data[0];
-        y = zone[i].point[j].data[1];
-        Printf ("Point %i - x: %i y: %i \n", j, x, y);
-        SPrintf( Xcoordinate, "%d", (int)x);
-        SPrintf( Ycoordinate, "%d", (int)y);
-
-        zonetext = " -fill white -pointsize 24 -annotate +" + Xcoordinate + "+" + Ycoordinate + " " + zonetitle;
-
-        if ( j < zone[i].amount_of_points -1){
-            Ycoordinate = "," + Ycoordinate + " ";
-        } else { 
-            Ycoordinate = "," + Ycoordinate + "\"";
+} else if (filetype == 4){  // ambient coloring / general car adjuster
+    short amount_of_zones <bgcolor=cDkGreen>;
+    struct 
+    {
+        short zone_number <bgcolor=cGreen>;
+        byte filler[4] <fgcolor=cGray>;
+        short amount_of_points <bgcolor=cDkGreen>;
+        struct
+        {
+            short data[2] <bgcolor=cBlue>;
+        } point [amount_of_points] <optimize=false>;
+    byte filler2[18] <fgcolor=cGray>;
+    
+    } zone[amount_of_zones] <optimize=false>;
+    
+    
+    // code for generating output to console:
+    local int i=0;
+    local int j=0;
+    local string command = "convert Interior_LHD.png"; //will be used to generate imagemagick command
+    //command = "convert Interior_RHD.png"; //use if you want to generate righthand drive
+    local string polygon = "" ;
+    local int x =0;
+    local int y =0;
+    local string coordinate,Ycoordinate,Xcoordinate,zonetitle,zonetext;
+    
+    while (i<amount_of_zones){
+    
+        Printf ( "Zone %i \n" ,zone[i].zone_number  );
+        j=0;
+        SPrintf (zonetitle, "%d", zone[i].zone_number);
+        polygon = " -fill \"rgba( 255, 0, 0 , 0.2 )\" -draw \"polyline ";
+        while (j<zone[i].amount_of_points){
+            x = zone[i].point[j].data[0];
+            y = zone[i].point[j].data[1];
+            Printf ("Point %i - x: %i y: %i \n", j, x, y);
+            SPrintf( Xcoordinate, "%d", (int)x);
+            SPrintf( Ycoordinate, "%d", (int)y);
+    
+            zonetext = " -fill white -pointsize 24 -annotate +" + Xcoordinate + "+" + Ycoordinate + " " + zonetitle;
+    
+            if ( j < zone[i].amount_of_points -1){
+                Ycoordinate = "," + Ycoordinate + " ";
+            } else { 
+                Ycoordinate = "," + Ycoordinate + "\"";
+            }
+            coordinate = Xcoordinate + Ycoordinate;
+            polygon = polygon + coordinate;
+            j=j+1;         
         }
-        coordinate = Xcoordinate + Ycoordinate;
-        polygon = polygon + coordinate;
-        j=j+1;         
+        command = command + polygon + zonetext;
+        i=i+1;
     }
-    command = command + polygon + zonetext;
-    i=i+1;
+    
+    Printf ("\nCommand for imagemagick:\n%s output.png", command);
 }
-
-Printf ("\nCommand for imagemagick:\n%s output.png", command);
