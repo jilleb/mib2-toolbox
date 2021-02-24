@@ -54,7 +54,7 @@ FinalScriptName = "Final Script"
 
 [Toolbox\final\Dir]
 FileSize = "2622"
-CheckSum = "3b2d9b5727a292c923922293ff7c3ec88d7c3681"
+CheckSum = "3B2D9B5727A292C923922293FF7C3EC88D7C3681"
 
 [Toolbox]
 VendorInfo = "MQB.Coding"
