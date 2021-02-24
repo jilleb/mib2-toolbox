@@ -46,9 +46,11 @@ if [ -e ${SSD_INSTALL_DIR} ]; then
     rm -rf /root/.sshd
     rm -f /root/.profile
     rm -f /root/scp
-    if [ -f /mnt/system/etc/pf.conf.bu ]; then
-	    mv /mnt/system/etc/pf.conf.bu /mnt/system/etc/pf.conf
-    fi
+    for PF in /net/mmx/mnt/system/etc/pf*.conf ; do
+      if [ -f ${PF}.bu ]; then
+        mv -f ${PF}.bu ${PF}
+      fi
+    done
 fi
 
 mount -ur /mnt/app

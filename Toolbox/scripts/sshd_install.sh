@@ -83,21 +83,35 @@ echo "ssh        stream tcp nowait root ${SSD_INSTALL_DIR}/usr/sbin/start_sshd i
 
 # Open up sshd port in firewall
 echo "Add firewall configuration"
-for PF in /mnt/system/etc/pf.conf /mnt/system/etc/pf.mlan0.conf; do
-  if [ -e ${PF} ]; then
-    if [ ! -f ${PF}.bu ]; then
-      cp -pv ${PF} ${PF}.bu
-    fi
-    cp -pv ${PF}.bu ${PF}
-
-    # Duplicate any UPnP lines (has wifi access) to ssh lines
-    # These often need to be in the same part of the config file as the UPnP lines, doesn't work at the end.
-    sed -i -r 's:^(.*)( port 49152 )(.*)$:\1\2\3\n\1 port 22 \3:g' "${PF}"
-      
-    /mnt/app/armle/sbin/pfctl -F all -f ${PF}
-    echo "Updated ${PF}"
+for PF in /mnt/system/etc/pf*.conf ; do
+  if [ ! -f ${PF}.bu ]; then
+    cp -pv ${PF} ${PF}.bu
   fi
+  cp -p ${PF}.bu ${PF}
+
+  # Insert suitable firewall rules just under the "allow dns" section
+  # These often need to be in the same part of the config file as the other "allow" lines, doesn't always work appended to the end of the file.
+  sed -i -r 's:^(.* port domain keep .*)$:\1\n\n# SSH Access:' "${PF}"
+  
+  if grep -q '\$dbg_if' ${PF}; then
+    sed -i -r 's:^(# SSH Access)$:\1\npass in quick on \$dbg_if proto tcp from any to (\$dbg_if) port 22 keep state allow-opts:' "${PF}"
+  fi
+  if grep -q '\$wlan_if' ${PF}; then
+    sed -i -r 's:^(# SSH Access)$:\1\npass in quick on \$wlan_if proto tcp from any to (\$wlan_if) port 22 keep state allow-opts:' "${PF}"
+  fi
+  if grep -q '\$ext_if' ${PF}; then
+    sed -i -r 's:^(# SSH Access)$:\1\npass in quick on \$ext_if proto tcp from any to (\$ext_if) port 22 keep state allow-opts:' "${PF}"
+  fi
+  if grep -q '\$ppp_if' ${PF}; then
+    sed -i -r 's:^(# SSH Access)$:\1\npass in quick on \$ppp_if proto tcp from any to (\$ppp_if) port 22 keep state allow-opts:' "${PF}"
+  fi
+  
+  echo "Updated ${PF}"
 done
+if [ -f /mnt/system/etc/pf.mlan0.conf ]; then
+  /mnt/app/armle/sbin/pfctl -F all -f /mnt/system/etc/pf.mlan0.conf
+  echo "Reloaded ${PF} with wlan rules."
+fi
 
 echo "Restart inetd"
 slay -v inetd
