@@ -46,12 +46,10 @@ Note3: If you're a business that tries to make a profit off of this:  Don't be a
 - Put the mib2-toolbox on an SD-card and insert it into the MIB-unit SD1 slot.
 - Make a connection to the debug console of the unit (either via D-Link Dub-E100 or ASIX AX88179 on the USB port, or serial interface on the back of the unit)
 - Log in
-- make the mmx app volume writable:  
-  * `mount -uw /net/mmx/mnt/app/`
-- install mqbcoding.esd:  
-  * `cp /net/mmx/fs/sda0/Toolbox/GEM/mqbcoding.esd /net/mmx/mnt/app/eso/hmi/engdefs/mqbcoding.esd`
-- install scripts:  
-  * `sh /net/mmx/fs/sda0/Toolbox/final/finalScript.sh`
+- Mount the SD card:
+  * `mount -uw /net/mmx/fs/sda0` 
+- Run the finalScript:  
+  * `sh /net/mmx/fs/sda0/Toolbox/final/finalScripts.sh`
 
 - Hold the MENU button, and go to TESTMODE. On older versions you can go to the developer menu by holding the MENU button for about 10 seconds.
 - Go to the Green Developer Menu
@@ -62,48 +60,50 @@ Note3: If you're a business that tries to make a profit off of this:  Don't be a
 # Green menu screen overview:
 
 ```
-MQBCoding
+MQBCoding Main
 |
-+---Dump                                # dump various data to SD-card
-|   
-+---Customization                       # customisation features        
-|   +---Skin                            # Skin graphics import
-|   +---AndroidAuto                     # Android Auto custom apps patch
-|   +---Startup                         # Startup graphics import
-|   +---Sounds                          # Sounds import (experimental)
-|   +---Various                         # Various tweaks
-|   +---GreenMenu                       # Import new green menu screens and scripts
-|   +---Navigation                      # Navigation tweaks
-|   +---Advanced                        # Import shadow file, FECs and such
-|   +---Updates                         # Custom SWDL modes and emergency
-|   +---Coding                          # Long coding editor
-|   \---Adaptations                     # Adaptation channels
++---Customization                       # Customization features
+|   +---Adaptations                     # Adaptation channels
+|       +---CarDeviceBUSAssignment
 |       +---CarFunctionsList_BAP
 |       +---CarFunctionsList_CAN
-|       +---CarDeviceBusAssignment
-|       +---RCC
-|       +---VariantInfo
+|       +---CarMenuOperation
 |       +---HMI_FunctionBlockingTable
+|       +---RCCAdaptions
+|       +---VariantInfo
+|       +---VehicleConfiguration
 |       +---WLAN
-|      
-+---privacy                             # Privacy features
-|
-+---MIB_Information                     # Information about the unit
-|   \---password                        # Password finder
+|   +---Advanced                        # Import shadow file, FECs pf.conf and such
+|   +---AndroidAuto                     # Android Auto custom apps patch
+|   +---Coding                          # Long coding editor
+|   +---Display                         # Displaymanager and other related features
+|   +---GreenMenu                       # Import new GreenMenu screens and scripts
+|   +---Language                        # Replacing language data
+|   +---Navigation                      # Navigation tweaks
+|   +---Privacy                         # Privacy features
+|   +---Skin                            # Skin graphics import
+|   +---Sounds                          # Sounds import (experimental)
+|   +---Startup                         # Startup graphics import
+|   +---Updates                         # Custom SWDL modes and emergency
+|   +---Various                         # Various tweaks
 |
 +---Disclaimer                          # Some wise words
 |
-+---Uninstall                           # Uninstalls the MIB Toolbox
-|    
-\---History                             # Version history of the toolbox
++---Dump                                # Dump various data to SD-card
+|
++---History                             # Version history of the Toolbox
+|
++---MIB_Information                     # Information about the unit
+|   +---Password                        # Password finder
+|
++---Uninstall                           # Uninstalls and or cleans up the MIB Toolbox
 ```
 
 # How to use the new screens
-
 Most screens have a description inside, or show information when running a script. It's always wise to have an SD-card in slot 1.
 
 ## dump
-This screen lets you dump skin-files(images.mcf files), Android Auto configuration files (gal.json) and Startup screens (.canim files). Make sure an SD-card with enough space is inserted in one of the slots. Dumps will be placed in a folder specific for your unit (FAZIT) and firmware version.
+Here you can dump various things which you need to customise you unit. Make sure a SD-card is inserted.
 
 ## customization
 ### androidauto
@@ -156,7 +156,7 @@ This script can extract images.cff files, container files for navigation icons a
 If you run into any issues, consult the [F.A.Q.](https://github.com/jilleb/mib2-toolbox/blob/master/FAQ.md).
 
 ## Supported firmware versions
-This toolbox probably doesn't work on all available firmware versions. IOC version can be an issue too and can cause fatal metadata/release info errors upon installing. I'm currently investigating this issue (issue #1)
+This toolbox probably doesn't work on all available firmware versions but the current SD-card installtion mproves to be mostly compatible with most firmwares.
 
 
 # Disclaimer:
