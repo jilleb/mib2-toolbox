@@ -7,32 +7,61 @@ echo $DESCRIPTION
 
 . /eso/hmi/engdefs/scripts/mqb/util_info.sh
 
+# Mount directories as writeable
 mount -uw /mnt/app
+mount -uw /net/rcc/mnt/efs-persist
 
-echo "Deleting old mqbcoding.esd pre v4.1"
-rm -v /mnt/app/eso/hmi/engdefs/mqbcoding.esd
-rm -rv /mnt/app/eso/hmi/engdefs/mqbcoding.esd.*
+# Check for old pre v4.1 versions
+OLD_TOOLBOX=/mnt/app/eso/hmi/engdefs/mqbcoding.esd
+if [[ -f $OLD_TOOLBOX ]]; then
+	echo "Old Toolbox installation pre v4.1 found"
+	echo "Deleting old mqbcoding.esd"
+	rm $OLD_TOOLBOX
+	rm -r ${OLD_TOOLBOX}.*
+	
+	echo "Deleting old Toolbox scripts"
+	rm -r /mnt/app/eso/bin/PhoneCustomer/*.sh
+	rm -r /mnt/app/eso/bin/PhoneCustomer/default/*.sh
+	rm -r /mnt/app/eso/bin/PhoneCustomer/scripts
+	
+	echo "Deleting old Toolbox versions entry"
+	rm /net/rcc/mnt/efs-persist/SWDL/FileCopyInfo/MQB.info
+fi
 
+# Deleting Toolbox GreenMenus
 echo "Deleting Toolbox GreenMenus"
-rm -rv /mnt/app/eso/hmi/engdefs/mqb*.esd
-rm -rv /mnt/app/eso/hmi/engdefs/mqb*.esd.*
+rm -r /mnt/app/eso/hmi/engdefs/mqb*.esd
+rm -r /mnt/app/eso/hmi/engdefs/mqb*.esd.*
 
-echo "Deleting Toolbox Demo GreenMenus, if installed"
-rm -v /mnt/app/eso/hmi/engdefs/Demo.esd
-rm -v /mnt/app/eso/hmi/engdefs/Demo_sub.esd
-rm -v /mnt/app/eso/hmi/engdefs/example.esd
-rm -v /mnt/app/eso/hmi/engdefs/mqbcoding_tests.esd
+# Demo GreenMenu check
+DEMO_FILE1=/mnt/app/eso/hmi/engdefs/Demo.esd
+DEMO_FILE2=/mnt/app/eso/hmi/engdefs/Demo_sub.esd
+DEMO_FILE3=/mnt/app/eso/hmi/engdefs/example.esd
+DEMO_FILE4=/mnt/app/eso/hmi/engdefs/mqbcoding_tests.esd
+if [[ -f $DEMO_FILE1 ]]; then
+	echo "Demo GreenMenu found. Deleting"
+	rm $DEMO_FILE1
+	if [[ -f $DEMO_FILE2 ]]; then
+		rm $DEMO_FILE2
+	fi
+	if [[ -f $DEMO_FILE3 ]]; then
+		rm $DEMO_FILE3
+	fi
+	if [[ -f $DEMO_FILE4 ]]; then
+		rm $DEMO_FILE4
+	fi
+fi
 
-echo "Deleting old MIB Toolbox scripts pre v4.1"
-rm -rv /mnt/app/eso/bin/PhoneCustomer/*.sh
-rm -rv /mnt/app/eso/bin/PhoneCustomer/default/*.sh
-rm -rv /mnt/app/eso/bin/PhoneCustomer/scripts
-
+# Deleting Toolbox scripts
 echo "Deleting MIB Toolbox scripts"
-rm -rv /mnt/app/eso/hmi/engdefs/scripts/mqb/*.sh
-rm -rv /mnt/app/eso/hmi/engdefs/scripts/mqb
+rm -r /mnt/app/eso/hmi/engdefs/scripts/mqb/*.sh
+rm -r /mnt/app/eso/hmi/engdefs/scripts/mqb
 
+# Deleting Toolbox version entry
+echo "Deleting versions entry"
+rm /net/rcc/mnt/efs-persist/SWDL/FileCopyInfo/Toolbox.info
 
+# Deleting SSH install
 SSD_INSTALL_DIR=/net/mmx/mnt/app/eso/hmi/engdefs/scripts/ssh
 if [ -e ${SSD_INSTALL_DIR} ]; then
     echo "Uninstalling sshd"
@@ -53,8 +82,10 @@ if [ -e ${SSD_INSTALL_DIR} ]; then
     done
 fi
 
+# Remount as read only
 mount -ur /mnt/app
 mount -ur /mnt/system
+mount -ur /net/rcc/mnt/efs-persist
 
 echo "Uninstall complete. Please reboot unit."
 

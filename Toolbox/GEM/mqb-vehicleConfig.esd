@@ -1,0 +1,831 @@
+###########################################################################################
+#
+# Custom Green Engineering Menu screen
+# Author:       Olli
+# Version:      4.1A
+# Disclaimer:   THIS SCREEN WILL VOID YOUR WARRANTY
+#
+###########################################################################################
+#
+# Main -> MQBCoding -> Customization -> Adaptation -> VehicleConfiguration
+#
+###########################################################################################
+screen VehicleConfiguration Adaptation
+
+##### Byte 0 ##### tested
+bitselect
+    value 			per 0x0 0xC0020054
+    label 			"VZA Pro"
+    range 			0.0 0.0
+    entry 			"off" 0
+	entry 			"on" 1
+	
+bitselect
+    value 			per 0x0 0xC0020054
+    label 			"Online POI"
+    range 			0.1 0.1
+    entry 			"off" 0
+	entry 			"on" 1
+	
+bitselect
+    value 			per 0x0 0xC0020054
+    label 			"Online POI Voice"
+    range 			0.2 0.2
+    entry 			"off" 0
+	entry 			"on" 1
+
+bitselect
+    value 			per 0x0 0xC0020054
+    label 			"Online Portal Browser Services"
+    range 			0.3 0.3
+    entry 			"off" 0
+	entry 			"on" 1
+	
+bitselect
+    value 			per 0x0 0xC0020054
+    label 			"Online Navigation"
+    range 			0.4 0.4
+    entry 			"off" 0
+	entry 			"on" 1
+	
+bitselect
+    value 			per 0x0 0xC0020054
+    label 			"Online Streetview"
+    range 			0.5 0.5
+    entry 			"off" 0
+	entry 			"on" 1
+	
+bitselect
+    value 			per 0x0 0xC0020054
+    label 			"WIFI Hotspot"
+    range 			0.6 0.6
+    entry 			"off" 0
+	entry 			"on" 1
+	
+bitselect
+    value 			per 0x0 0xC0020054
+    label 			"My Audi"
+    range 			0.7 0.7
+    entry 			"off" 0
+	entry 			"on" 1
+
+##### Byte 1 ##### tested
+bitselect
+    value 			per 0x0 0xC0020054
+    label 			"Picture Navi"
+    range 			1.0 1.0
+    entry 			"off" 0
+	entry 			"on" 1
+
+bitselect
+    value 			per 0x0 0xC0020054
+    label 			"Online Dictation"
+    range 			1.1 1.1
+    entry 			"off" 0
+	entry 			"on" 1
+	
+bitselect
+    value 			per 0x0 0xC0020054
+    label 			"Remote HMI"
+    range 			1.2 1.2
+    entry 			"off" 0
+	entry 			"on" 1
+
+bitselect
+    value 			per 0x0 0xC0020054
+    label 			"Advanced Range Display"
+    range 			1.3 1.3
+    entry 			"off" 0
+	entry 			"on" 1
+	
+bitselect
+    value 			per 0x0 0xC0020054
+    label 			"Gracenote Online Cover"
+    range 			1.4 1.4
+    entry 			"off" 0
+	entry 			"on" 1
+
+bitselect
+    value 			per 0x0 0xC0020054
+    label 			"Gracenote Online Other"
+    range 			1.5 1.5
+    entry 			"off" 0
+	entry 			"on" 1
+
+bitselect
+    value 			per 0x0 0xC0020054
+    label 			"Gracenote Local Cover"
+    range 			1.6 1.6
+    entry 			"off" 0
+	entry 			"on" 1
+
+bitselect
+    value 			per 0x0 0xC0020054
+    label 			"Gracenote Local Other"
+    range 			1.7 1.7
+    entry 			"off" 0
+	entry 			"on" 1
+
+##### Byte 2 ##### tested
+bitselect
+    value 			per 0x0 0xC0020054
+    label 			"UPnP"
+    range 			2.0 2.0
+    entry 			"off" 0
+	entry 			"on" 1
+
+bitselect
+    value 			per 0x0 0xC0020054
+    label 			"OPS Display in Dash Board Display Unit"
+    range 			2.1 2.1
+    entry 			"off" 0
+	entry 			"on" 1
+	
+bitselect
+    value 			per 0x0 0xC0020054
+    label 			"Joker Button 1"
+    range 			2.2 2.3
+    entry 			"not detected" 0
+	entry 			"left" 1
+	entry 			"right" 2
+
+bitselect
+    value 			per 0x0 0xC0020054
+    label 			"Joker Button 2"
+    range 			2.4 2.5
+    entry 			"not detected" 0
+	entry 			"left" 1
+	entry 			"right" 2
+		
+bitselect
+    value 			per 0x0 0xC0020054
+    label 			"LTE Modul"
+    range 			2.6 2.6
+    entry 			"activated" 0
+	entry 			"deactivated" 1
+
+bitselect
+    value 			per 0x0 0xC0020054
+    label 			"Support Second Phone"
+    range 			2.7 2.7
+    entry 			"off" 0
+	entry 			"on" 1
+	
+##### Byte 3 ##### tested
+bitselect
+    value 			per 0x0 0xC0020054
+    label 			"Support of Threeway Calling"
+    range 			3.0 3.0
+    entry 			"off" 0
+	entry 			"on" 1
+	
+bitselect
+    value 			per 0x0 0xC0020054
+    label 			"DTMF without Active Call"
+    range 			3.1 3.1
+    entry 			"off" 0
+	entry 			"on" 1
+
+bitselect
+    value 			per 0x0 0xC0020054
+    label 			"Support for Response and Hold"
+    range 			3.2 3.2
+    entry 			"off" 0
+	entry 			"on" 1
+
+bitselect
+    value 			per 0x0 0xC0020054
+    label 			"SIM Card Mode Switch"
+    range 			3.3 3.3
+    entry 			"not detected" 0
+	entry 			"detected" 1
+
+bitselect
+    value 			per 0x0 0xC0020054
+    label 			"Phone Module Operation Mode"
+    range 			3.4 3.4
+    entry 			"voice and data" 0
+	entry 			"only data" 1
+	
+	
+##### Byte 4 ##### tested
+bitselect
+    value 			per 0x0 0xC0020054
+    label 			"PSD Protocol Version"
+    range 			4.0 4.0
+    entry 			"PSD 1.5" 0
+	entry 			"PSD 1.4" 1
+	
+#BIOSCtrl ## works also
+#    value       int per 28442848 523
+#    label       "PSD protocol version"
+#    entry       "PSD_1.5" 0
+#    entry       "PSD_1.4" 1
+#    poll        1000
+
+## Bits 1-7 not used ##	
+
+	
+##### Byte 5 ##### tested
+bitselect
+    value 			per 0x0 0xC0020054
+    label 			"RVC Video Input"
+    range 			5.0 5.1
+    entry 			"FBAS" 0
+	entry 			"LVDS" 1
+	entry 			"FBAS Scaling 2" 2
+	entry 			"reserved" 3
+	
+bitselect
+    value 			per 0x0 0xC0020054
+    label 			"RVC Low Black Screen Velocity Threshold"
+    range 			5.2 5.2
+    entry 			"not active" 0
+	entry 			"active" 1
+	
+bitselect
+    value 			per 0x0 0xC0020054
+    label 			"RVC Low Failsafe"
+    range 			5.3 5.3
+    entry 			"not active" 0
+	entry 			"active" 1
+
+bitselect
+    value 			per 0x0 0xC0020054
+    label 			"RVC Low Black Screen Trunk Open"
+    range 			5.4 5.4
+    entry 			"not active" 0
+	entry 			"active" 1
+
+##### Byte 6 ##### tested
+bitslider
+    value 			per 0x0 0xC0020054
+    label 			"RadioStation DB"
+	range			6 6
+	
+##### Byte 7 ##### tested
+bitselect
+    value 			per 0x0 0xC0020054
+    label 			"TPEG Availability"
+    range 			7.0 7.0
+    entry 			"off" 0
+	entry 			"on" 1
+
+bitselect
+    value 			per 0x0 0xC0020054
+    label 			"VZO"
+    range 			7.1 7.1
+    entry 			"off" 0
+	entry 			"on" 1
+
+bitselect
+    value 			per 0x0 0xC0020054
+    label 			"LGI"
+    range 			7.2 7.2
+    entry 			"off" 0
+	entry 			"on" 1
+
+bitselect
+    value 			per 0x0 0xC0020054
+    label 			"ProbeCar VZO"
+    range 			7.3 7.3
+    entry 			"off" 0
+	entry 			"on" 1
+
+bitselect
+    value 			per 0x0 0xC0020054
+    label 			"Online Media"
+    range 			7.4 7.4
+    entry 			"off" 0
+	entry 			"on" 1
+	
+bitselect
+    value 			per 0x0 0xC0020054
+    label 			"ProbeCar LGI"
+    range 			7.5 7.5
+    entry 			"off" 0
+	entry 			"on" 1
+
+bitselect
+    value 			per 0x0 0xC0020054
+    label 			"Baidu Car Life"
+    range 			7.6 7.6
+    entry 			"off" 0
+	entry 			"on" 1
+	
+bitselect
+    value 			per 0x0 0xC0020054
+    label 			"Google GAL"
+    range 			7.7 7.7
+    entry 			"off" 0
+	entry 			"on" 1
+	
+##### Byte 8 ##### tested
+bitselect
+    value 			per 0x0 0xC0020054
+    label 			"Apple DIO"
+    range 			8.0 8.0
+    entry 			"off" 0
+	entry 			"on" 1
+	
+bitselect
+    value 			per 0x0 0xC0020054
+    label 			"UOTA"
+    range 			8.1 8.1
+    entry 			"off" 0
+	entry 			"on" 1
+	
+bitselect
+    value 			per 0x0 0xC0020054
+    label 			"WiFi Client HMI"
+    range 			8.2 8.2
+    entry 			"off" 0
+	entry 			"on" 1
+	
+bitselect
+    value 			per 0x0 0xC0020054
+    label 			"RSE Software Component"
+    range 			8.3 8.3
+    entry 			"activated" 0
+	entry 			"deactivated" 1
+
+bitselect
+    value 			per 0x0 0xC0020054
+    label 			"Smartphone Interface for RHMI"
+    range 			8.4 8.4
+    entry 			"activated" 0
+	entry 			"deactivated" 1
+
+bitselect
+    value 			per 0x0 0xC0020054
+    label 			"Mirror Link"
+    range 			8.5 8.5
+    entry 			"off" 0
+	entry 			"on" 1
+
+## Bit 6 and 7 not used ##
+
+	
+##### Byte 9 ##### tested
+bitselect
+    value 			per 0x0 0xC0020054
+    label 			"SDS Region Flag "
+    range 			9 9
+    entry 			"no region" 0
+	entry 			"Region EU" 1
+	entry 			"Region NAR" 2
+	entry 			"Region ROW Southamerica" 3
+	entry 			"Region Asia Korea" 4
+	entry 			"Region Asia China" 5
+	entry 			"Region Asia Japan" 6
+	entry 			"Region Asia Taiwan" 16
+	entry 			"Region ROW Asia" 7
+	entry 			"Region ROW Australia" 8
+	entry 			"Region ROW Southafrica" 9
+	entry 			"Region ROW Neareast" 10
+	entry 			"Region ROW Middleeast" 12
+	entry 			"Region ROW India" 14
+	entry 			"Region ROW Israel" 15
+	entry 			"Region ROW Chile" 17
+	
+##### Byte 10 ##### tested
+bitselect
+    value 			per 0x0 0xC0020054
+    label 			"SD Slot deactivation"
+    range 			10.0 10.1
+    entry 			"all sd slots active" 0
+	entry 			"sd 1 slot inactive" 1
+	entry 			"sd 2 slot inactive" 2
+	
+bitselect
+    value 			per 0x0 0xC0020054
+    label 			"Map SMS Support"
+    range 			10.2 10.2
+    entry 			"off" 0
+	entry 			"on" 1
+	
+bitselect
+    value 			per 0x0 0xC0020054
+    label 			"Map Email Support"
+    range 			10.3 10.3
+    entry 			"off" 0
+	entry 			"on" 1
+
+bitselect
+    value 			per 0x0 0xC0020054
+    label 			"Map Instant Messaging Support"
+    range 			10.4 10.4
+    entry 			"off" 0
+	entry 			"on" 1
+
+bitselect
+    value 			per 0x0 0xC0020054
+    label 			"SIM Data Only SMS Support"
+    range 			10.5 10.5
+    entry 			"off" 0
+	entry 			"on" 1
+
+bitselect
+    value 			per 0x0 0xC0020054
+    label 			"eSIM Data Only SMS Support"
+    range 			10.6 10.6
+    entry 			"off" 0
+	entry 			"on" 1
+
+bitselect
+    value 			per 0x0 0xC0020054
+    label 			"Allow Message Editing"
+    range 			10.7 10.7
+    entry 			"off" 0
+	entry 			"on" 1
+	
+##### Byte 11 ##### tested
+bitselect
+    value 			per 0x0 0xC0020054
+    label 			"Vehicle Readniness Sound"
+    range 			11.0 11.0
+    entry 			"not active" 0
+	entry 			"active" 1
+
+bitselect
+    value 			per 0x0 0xC0020054
+    label 			"Vehicle Leaving Sound"
+    range 			11.1 11.1
+    entry 			"not active" 0
+	entry 			"active" 1
+
+bitslider
+    value 			per 0x0 0xC0020054
+    label 			"Map Style"
+	range			11.2 11.7
+	
+##### Byte 12 ##### tested
+bitselect
+    value 			per 0x0 0xC0020054
+    label 			"MirrorLink Country Code"
+    range 			12.0 12.6
+    entry 			"MIB EU" 0
+	entry 			"MIB NAR" 1
+	entry 			"MIB JP" 2
+	entry 			"MIB CHN" 3	
+	entry 			"MIB KOR" 4
+	entry 			"MIB TWN" 5
+	entry 			"MIB RdW / RoW" 6
+	entry 			"MIB HK" 7
+	entry 			"MIB MO" 8
+	entry 			"MIB EPE" 9
+	entry 			"MIB CAN" 10
+	entry 			"MIB AMERICA" 11
+	entry 			"MIB AUS" 12
+	entry 			"MIB IND" 13
+	entry 			"MIB APAC" 14
+	entry 			"MIB AFRICA" 15
+	entry 			"MIB AFG" 16
+	entry 			"MIB AGO" 17
+	entry 			"MIB ARE" 18
+	entry 			"MIB ARG" 19
+	entry 			"MIB AZE" 20
+	entry 			"MIB BGD" 21
+	entry 			"MIB BHR" 22
+	entry 			"MIB BLR" 23
+	entry 			"MIB BOL" 24
+	entry 			"MIB BRA" 25
+	entry 			"MIB BWA" 26
+	entry 			"MIB CAF" 27
+	entry 			"MIB CHE" 28
+	entry 			"MIB CHL" 29
+	entry 			"MIB CIV" 30
+	entry 			"MIB CMR" 31
+	entry 			"MIB COD" 32
+	entry 			"MIB COG" 33
+	entry 			"MIB COL" 34
+	entry 			"MIB CRI" 35
+	entry 			"MIB CUB" 36
+	entry 			"MIB DOM" 37
+	entry 			"MIB DZA" 38
+	entry 			"MIB ECU" 39
+	entry 			"MIB EGY" 40
+	entry 			"MIB ERI" 41
+	entry 			"MIB ETH" 42
+	entry 			"MIB GAB" 43
+	entry 			"MIB GBR" 44
+	entry 			"MIB GEO" 45
+	entry 			"MIB GHA" 46
+	entry 			"MIB GIN" 47
+	entry 			"MIB GMB" 48
+	entry 			"MIB GNQ" 49
+	entry 			"MIB GRL" 50
+	entry 			"MIB GTM" 51
+	entry 			"MIB HND" 52
+	entry 			"MIB HTI" 53
+	entry 			"MIB IDN" 54
+	entry 			"MIB IRN" 55
+	entry 			"MIB IRQ" 56
+	entry 			"MIB ISR" 57
+	entry 			"MIB JAM" 58
+	entry 			"MIB JOR" 59
+	entry 			"MIB KAZ" 60
+	entry 			"MIB KEN" 61
+	entry 			"MIB KGZ" 62
+	entry 			"MIB KHM" 63
+	entry 			"MIB KWT" 64
+	entry 			"MIB LAO" 65
+	entry 			"MIB LBN" 66
+	entry 			"MIB LBR" 67
+	entry 			"MIB LBY" 68
+	entry 			"MIB LKA" 69
+	entry 			"MIB MAR" 70
+	entry 			"MIB MDA" 71
+	entry 			"MIB MDG" 72
+	entry 			"MIB MEX" 73
+	entry 			"MIB MKD" 74
+	entry 			"MIB MLI" 75
+	entry 			"MIB MMR" 76
+	entry 			"MIB MNG" 77
+	entry 			"MIB MOZ" 78
+	entry 			"MIB MRT" 79
+	entry 			"MIB MWI" 80
+	entry 			"MIB MYS" 81
+	entry 			"MIB NAM" 82
+	entry 			"MIB NER" 83
+	entry 			"MIB NGA" 84
+	entry 			"MIB NIC" 85
+	entry 			"MIB NPL" 86
+	entry 			"MIB NZL" 87
+	entry 			"MIB OMN" 88
+	entry 			"MIB PAK" 89
+	entry 			"MIB PAN" 90
+	entry 			"MIB PER" 91
+	entry 			"MIB PHL" 92
+	entry 			"MIB PNG" 93
+	entry 			"MIB PRI" 94
+	entry 			"MIB PRK" 95
+	entry 			"MIB PRY" 96
+	entry 			"MIB PSE" 97
+	entry 			"MIB QAT" 98
+	entry 			"MIB RUS" 99
+	entry 			"MIB RWA" 100
+	entry 			"MIB SAU" 101
+	entry 			"MIB SDN" 102
+	entry 			"MIB SEN" 103
+	entry 			"MIB SGP" 104
+	entry 			"MIB SOM" 105
+	entry 			"MIB SSD" 106
+	entry 			"MIB SYR" 107
+	entry 			"MIB TCD" 108
+	entry 			"MIB TGO" 109
+	entry 			"MIB THA" 110
+	entry 			"MIB TJK" 111
+	entry 			"MIB TKM" 112
+	entry 			"MIB TUN" 113
+	entry 			"MIB TUR" 114
+	entry 			"MIB TZA" 115
+	entry 			"MIB UGA" 116
+	entry 			"MIB UKR" 117
+	entry 			"MIB URY" 118
+	entry 			"MIB UZB" 119
+	entry 			"MIB VEN" 120
+	entry 			"MIB VNM" 121
+	entry 			"MIB YEM" 122
+	entry 			"MIB ZAF" 123
+	entry 			"MIB ZMB" 124
+	entry 			"MIB ZWE" 125
+	entry 			"Automatic" 126
+	entry 			"reserved" 127	
+
+bitselect
+    value 			per 0x0 0xC0020054
+    label 			"MirrorLink RGB Preference"
+    range 			12.7 12.7
+    entry 			"RGB565" 0
+	entry 			"RGB888" 1
+
+##### Byte 13 ##### tested
+bitslider
+    value 			per 0x0 0xC0020054
+    label 			"Conditioning Varinant"
+    range 			13 13
+
+##### Byte 14 ##### tested
+bitslider
+    value 			per 0x0 0xC0020054
+    label 			"Privacy With PIN Request"
+    range 			14 14
+	
+##### Byte 15 ##### tested
+bitslider
+    value 			per 0x0 0xC0020054
+    label 			"Phone HMI Privacy"
+    range 			15 15
+	
+##### Byte 16 ##### tested
+bitselect
+    value 			per 0x0 0xC0020054
+    label 			"Hybrid Radio Additional Online Data"
+    range 			16.0 16.0
+    entry 			"not activated" 0
+	entry 			"activated" 1
+
+bitselect
+    value 			per 0x0 0xC0020054
+    label 			"Hybrid Radio Range Extender"
+    range 			16.1 16.2
+    entry 			"deactivated" 0
+	entry 			"manual only" 1
+	entry 			"automatic without time scaling" 2
+	entry 			"automatic with time scaling" 3	
+	
+## Bit 3 and 4 unused ##
+
+bitselect
+    value 			per 0x0 0xC0020054
+    label 			"Online Radio"
+    range 			16.5 16.6
+    entry 			"deactivated" 0
+	entry 			"HMI only" 1
+	entry 			"HMI + SDK" 2
+
+## Bit 7 unused ##
+
+	
+##### Byte 17 ##### tested
+
+## Bit 0 unused ##
+	
+bitselect
+    value 			per 0x0 0xC0020054
+    label 			"Media Control"
+    range 			17.1 17.1
+    entry 			"not activated" 0
+	entry 			"activated" 1
+	
+bitselect
+    value 			per 0x0 0xC0020054
+    label 			"Scon Telephony"
+    range 			17.2 17.2
+    entry 			"not activated" 0
+	entry 			"activated" 1
+	
+bitselect
+    value 			per 0x0 0xC0020054
+    label 			"Voice over LTE"
+    range 			17.3 17.3
+    entry 			"not activated" 0
+	entry 			"activated" 1
+	
+bitselect
+    value 			per 0x0 0xC0020054
+    label 			"Show VoLTE HMI Switch"
+    range 			17.4 17.4
+    entry 			"not activated" 0
+	entry 			"activated" 1
+	
+bitselect
+    value 			per 0x0 0xC0020054
+    label 			"WLAN 5GHz Switch"
+    range 			17.5 17.5
+    entry 			"not activated" 0
+	entry 			"activated" 1
+	
+bitselect
+    value 			per 0x0 0xC0020054
+    label 			"Unblock Functions while Piloted Driving"
+    range 			17.6 17.6
+    entry 			"blocked" 0
+	entry 			"non blocked" 1
+	
+bitselect
+    value 			per 0x0 0xC0020054
+    label 			"Block HMI Function P EPB"
+    range 			17.7 17.7
+    entry 			"blocked" 0
+	entry 			"non blocked" 1
+	
+##### Byte 18 ##### tested
+bitselect
+    value 			per 0x0 0xC0020054
+    label 			"Popup if GPS Services in use"
+    range 			18.0 18.0
+    entry 			"not activated" 0
+	entry 			"activated" 1
+	
+bitselect
+    value 			per 0x0 0xC0020054
+    label 			"Pilot Parking"
+    range 			18.1 18.1
+    entry 			"not activated" 0
+	entry 			"activated" 1
+	
+##### Byte 19 ##### tested
+## unused ##
+
+##### Byte 20 ##### tested
+bitselect
+    value 			per 0x0 0xC0020054
+    label 			"Baidu CarLife iOS"
+    range 			20.2 20.2
+    entry 			"off" 0
+	entry 			"on" 1
+	
+bitselect
+    value 			per 0x0 0xC0020054
+    label 			"Tencent myCar Canceling Share Location"
+    range 			20.3 20.3
+    entry 			"off" 0
+	entry 			"on" 1
+	
+bitselect
+    value 			per 0x0 0xC0020054
+    label 			"UOTA 2"
+    range 			20.4 20.4
+    entry 			"off" 0
+	entry 			"on" 1
+
+bitselect
+    value 			per 0x0 0xC0020054
+    label 			"FoD"
+    range 			20.5 20.5
+    entry 			"SWaP" 0
+	entry 			"FoD" 1
+
+
+##### Byte 21 ##### open ### Scale change evaluation // Currently not working properly ###
+#bitslider
+#    value 			per 0x0 0xC0020054
+#    label 			"Perso V Threshold"
+#    range 			21 21
+#	limits			absolute 0 99
+	
+##### Byte 22 ##### open ### Scale change evaluation // Currently not working properly ###
+#bitslider
+#    value 			per 0x0 0xC0020054
+#    label 			"Perso V Threshold Hysteresis"
+#    range 			22 22
+#	limits			absolute 0 99
+	
+##### Byte 23 ##### tested
+bitselect
+    value 			per 0x0 0xC0020054
+    label 			"Baidu CarLife Wireless"
+    range 			23.0 23.0
+    entry 			"off" 0
+	entry 			"on" 1
+	
+bitselect
+    value 			per 0x0 0xC0020054
+    label 			"Baidu CarLife iOS Wireless"
+    range 			23.1 23.1
+    entry 			"off" 0
+	entry 			"on" 1
+	
+bitselect
+    value 			per 0x0 0xC0020054
+    label 			"Google GAL Wireless"
+    range 			23.2 23.2
+    entry 			"off" 0
+	entry 			"on" 1
+	
+bitselect
+    value 			per 0x0 0xC0020054
+    label 			"Apple DIO Wireless"
+    range 			23.3 23.3
+    entry 			"off" 0
+	entry 			"on" 1
+	
+bitselect
+    value 			per 0x0 0xC0020054
+    label 			"AliBox"
+    range 			23.4 23.4
+    entry 			"off" 0
+	entry 			"on" 1	
+
+bitselect
+    value 			per 0x0 0xC0020054
+    label 			"Internet over WLAN Default Setting"
+    range 			23.5 23.5
+    entry 			"off" 0
+	entry 			"on" 1	
+	
+##### Byte 24 ##### tested
+bitslider
+    value 			per 0x0 0xC0020054
+    label 			"Correction e Mileage"
+    range 			24 24
+
+##### Byte 25 ##### open
+## unused ##
+
+##### Byte 26 ##### open
+## unused ##
+
+##### Byte 27 ##### open
+## unused ##
+
+##### Byte 28 ##### open
+## unused ##
+
+##### Byte 29 ##### open
+## unused ##
+
+##### Byte 30 ##### open
+## unused ##
