@@ -156,7 +156,7 @@ This script can extract images.cff files, container files for navigation icons a
 If you run into any issues, consult the [F.A.Q.](https://github.com/jilleb/mib2-toolbox/blob/master/FAQ.md).
 
 ## Supported firmware versions
-This toolbox probably doesn't work on all available firmware versions but the current SD-card installtion mproves to be mostly compatible with most firmwares.
+This toolbox probably doesn't work on all available firmware versions but the current SD-card installtion proves to be mostly compatible with most firmwares.
 
 
 # Disclaimer:
