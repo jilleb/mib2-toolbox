@@ -5,7 +5,7 @@ TOPIC=Gracenote
 DESCRIPTION="This script will dump Gracenote DB"
 
 #Volumes/files
-ORIGINAL=/net/mmx/mnt/boardbook/RSDB/VW_STL_DB.sqlite
+ORIGINAL=/net/mmx/mnt/gracenotedb
 
 echo $DESCRIPTION
 
@@ -26,8 +26,8 @@ echo Dumping, please wait.
 sleep 1
 
 echo
-echo Copying Gracenote DB to SD-card. This could take a while
-cp  $ORIGINAL $DUMPFOLDER/
+echo Copying Gracenote DB to SD-card. This will take a while
+cp -r $ORIGINAL $DUMPFOLDER/
 
 # Make readonly again
 mount -ur $VOLUME
