@@ -12,9 +12,31 @@
 ###########################################################################################
 screen Navigation Customization
 
+#script
+#   value   sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/import_mapstyles.sh"
+#   label   "Install mapstyles from SD Custom/Mapstyles"
+
+
+
 script
-   value   sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/import_mapstyles.sh"
-   label   "Install mapstyles from SD Custom/Mapstyles"
+   value   sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/patch_mapstylestoSD_AU.sh"
+   label   "Use Audi mapstyles from SD-card"
+
+script
+   value   sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/patch_mapstylestoSD_VW.sh"
+   label   "Use VW mapstyles from SD-card"
+
+script
+   value   sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/patch_mapstylestoSD_SK.sh"
+   label   "Use Skoda mapstyles from SD-card"
+
+script
+   value   sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/patch_mapstylestoSD_SE.sh"
+   label   "Use Seat mapstyles from SD-card"
+
+script
+   value   sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/patch_mapstylestoSD_BY.sh"
+   label   "Use Bentley mapstyles from SD-card"
    
 script
    value   sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/patch_mapstylestoSD_PO.sh"
