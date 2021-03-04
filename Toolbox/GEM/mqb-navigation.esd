@@ -15,6 +15,11 @@ screen Navigation Customization
 script
    value   sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/import_mapstyles.sh"
    label   "Install mapstyles from SD Custom/Mapstyles"
+   
+script
+   value   sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/patch_mapstylestoSD_PO.sh"
+   label   "Use Porsche mapstyles from SD-card"
+
 
 keyValue
     value   String sys 0x00000000 0
