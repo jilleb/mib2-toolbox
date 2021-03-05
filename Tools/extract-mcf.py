@@ -8,6 +8,10 @@
 # Comments:    Usage: extract-mcf.py <filename> <outdir>
 # Credits:     Partially based on code supplied by booto @ 
 # 			   https://goo.gl/GqSfpt
+# Changelog:   v1: Initial version
+#			   v2: Parsing of ImageIdMap.res added
+#			   v3: Python 3 support
+#			   v4: Moving and renaming skin0 files.
 # ----------------------------------------------------------
 
 import struct
