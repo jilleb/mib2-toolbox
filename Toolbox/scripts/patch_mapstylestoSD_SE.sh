@@ -24,7 +24,7 @@ mount -uw /mnt/system
 echo "Mounting Seat mapstyles iso"
 mount -t cd /net/mmx.mibhigh.net/mnt/navdb/database/eu/mapStyles/4/navigation_styles_SE_EU.iso /mnt/tmp
 echo "Copying Seat mapstyles files to SD"
-cp -R -V /mnt/tmp/ $VOLUME
+cp -R -V /mnt/tmp/. $VOLUME/
 
 
 #make readonly again
