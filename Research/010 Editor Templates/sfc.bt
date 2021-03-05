@@ -1,0 +1,38 @@
+//--------------------------------------
+//--- 010 Editor v5.0 Binary Template
+//
+// File:        sfc.bts
+// Author:      Jille
+// Revision:    1
+// Purpose:     Discover Pro MIB2 scf file parser
+// Comments:    SFC files can be found in objects.cff
+// Colorcoding: Red = unknown, Green = known. Yellow = not sure
+//--------------------------------------
+
+////////////////////////////////////////////////////////////
+
+LittleEndian();
+byte header[16]<bgcolor=cYellow>;
+long num_files;
+struct {
+    long id <bgcolor=cLtGreen>;
+    long unknown <bgcolor=cRed>;
+    long start_offset <bgcolor=cGreen>;
+    long size <bgcolor=cDkGreen>;
+} files[num_files]<optimize=false>;
+
+
+local int i =0;
+while( i < num_files )
+{
+    FSeek(files[i].start_offset);
+    struct{
+        byte data[files[i].size]<format=hex,bgcolor=cGreen>;
+    } file;
+    i = i + 1;
+}
+
+
+
+
+ 
