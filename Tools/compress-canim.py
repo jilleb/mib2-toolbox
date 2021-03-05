@@ -3,11 +3,12 @@
 #
 # File:        compress_canim_vw
 # Author:      Jille
-# Revision:    5
+# Revision:    6
 # Purpose:     Compress canim startup images files
 # Comments:    Usage: compress-canim.py <original-file> <new-file> <imagesdir>
-# Changelog:   v5: can handle brand specific offsets, 
-#			   Python 3 compatible
+# Changelog:   v6: RGB-format PNG handling and conversion
+#              v5: Can now handle brand specific offsets
+#			   v4: Python 3 compatible
 #----------------------------------------------------------
 
 import struct
@@ -40,8 +41,7 @@ offset = 0
 (magic,) = struct.unpack_from('<8s', data, offset)
 offset = offset + 8
 
-#shutil.copyfile (sys.argv[1], sys.argv[2])
-  
+ 
 (stage_width, stage_height, cmdblock_len, unk) = struct.unpack_from('<LLLL', data, offset)
 offset = offset + 16
 
@@ -83,6 +83,10 @@ for image_id in range(0, int(num_files)):
  
  # load image as rgba data
  im = Image.open(os.path.join(dir, 'img_%d.png'%image_id))
+ if im.mode!="RGBA":
+   print ("! WARNING: img_%d.png isn't RGBA format. Make sure the image is saved as 32bit RGBA."%image_id)
+   print ("Converting img_%d.png to RGBA format. This image will not have any transparency."%image_id)
+   im = im.convert('RGBA')
  image_bytes = im.tobytes('raw')
  tempfile.seek(target_offset)
  tempfile.write(image_bytes)
@@ -98,11 +102,3 @@ newfile.close()
 os.remove ('temp.anim')
 
 print ("Done writing output file. \n")
-
-try:
-    input("Press F to pay respect to Vasco \n")
-except NameError:
-    pass
-except SyntaxError:
-    pass
-
