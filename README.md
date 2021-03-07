@@ -16,7 +16,7 @@ Note3: If you're a business that tries to make a profit off of this:  Don't be a
 - Some place to save your backups
 
 ## Optional requirements ##
-- Python 2.7, if you want to extract/compress graphics containers (canim/mcf)
+- Python 3, if you want to extract/compress graphics containers (canim/mcf)
 - A text-editor, if you want to make your own green menu files or scripts
 - Picture editing software, if you want to customize graphics files
 
@@ -79,7 +79,7 @@ MQBCoding Main
 |   +---Display                         # Displaymanager and other related features
 |   +---GreenMenu                       # Import new GreenMenu screens and scripts
 |   +---Language                        # Replacing language data
-|   +---Navigation                      # Navigation tweaks
+|   +---Navigation                      # Navigation tweaks, mapstyles switching
 |   +---Privacy                         # Privacy features
 |   +---Skin                            # Skin graphics import
 |   +---Sounds                          # Sounds import (experimental)
@@ -120,8 +120,7 @@ This screen will let you import new .esd files from the GreenMenu folder on your
 
 # How to use the tools
 In the Tools folder you will find a couple of tools:
-- extract-canim_seat.py
-- extract-canim_vw.py
+- extract-canim.py
 
 These are Python-scripts to extract startup screen files (.canim files) in 2 formats. If one of the scripts doesn't extract your canim, try the other one. Both work in the same way: extract_canim.py <filename> <outdir>, for instance: 
 
@@ -134,10 +133,9 @@ This a python script to extract skinfile containers (mcf) and it works similar t
  ```extract_mcf.py images.mcf .\extracted\```
  
  
-- compress-canim_seat.py
-- compress-canim_vw.py
+- compress-canim.py
 
-These are the scripts to compress the startup-screens. Make sure you use the same compress-method you used when extracting. Usage: compress-canim.py <original-file> <new-file> <imagesdir>, for instance:
+This is the script to compress the startup-screens. Make sure you use the same compress-method you used when extracting. Usage: compress-canim.py <original-file> <new-file> <imagesdir>, for instance:
 
 ```compress-canim.py test.canim modified.canim .\testfiles\```
 
