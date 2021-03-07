@@ -13,6 +13,8 @@
 
 import struct
 import sys
+if sys.version_info[0] < 3:
+    sys.exit("You need to run this with Python 3")
 import os
 import zlib
 from PIL import Image

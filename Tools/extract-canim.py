@@ -15,6 +15,9 @@ import sys
 import os
 import zlib
 
+if sys.version_info[0] < 3:
+    sys.exit("You need to run this with Python 3")
+
 try:
   from PIL import Image
 except ImportError:

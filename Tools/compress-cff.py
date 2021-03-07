@@ -14,6 +14,9 @@
 import os
 import struct
 import sys
+if sys.version_info[0] < 3:
+    sys.exit("You need to run this with Python 3")
+
 
 if len(sys.argv) != 4:
     print("usage: compress-cff.py <original-file> <new-file> <imagesdir>")
