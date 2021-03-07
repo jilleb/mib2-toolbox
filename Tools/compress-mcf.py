@@ -3,11 +3,12 @@
 #
 # File:        compress-mcf.py
 # Author:      sVn, Jille
-# Revision:    1.1
+# Revision:    1.2
 # Purpose:     Compress MIB2 images in mcf file
 # Comments:    Usage: compress-mcf.py <original-file> <new-file> <imagesdir>
 # Changelog:   v1:      initial version
-#              v1.1:    added missing hash to image headers and after zlib data    
+#              v1.1:    added missing hash to image headers and after zlib data
+#              v1.2:    Now works with Python 3. Python 2.7 is no longer supported.
 # ----------------------------------------------------------
 
 import struct
@@ -15,7 +16,6 @@ import sys
 import os
 import zlib
 from PIL import Image
-import binascii
 
 if len(sys.argv) != 4:
     print("usage: compress-mcf.py <original-file> <new-file> <imagesdir>")
@@ -31,9 +31,6 @@ data = open(sys.argv[1], 'rb').read()
 offset = 0
 
 (magic,) = struct.unpack_from('<4s', data, offset)
-if magic != '\x89\x4d\x43\x46':  # corresponds to MCF file starting
-    print('original-file incorrect magic!')
-# sys.exit(1)
 
 offset = 32
 (size_of_TOC,) = struct.unpack_from('<I', data, offset)
@@ -60,7 +57,8 @@ def find(s, ch):
     return [i for i, ltr in enumerate(s) if ltr == ch]
 
 
-# num_files = 1
+print("type, file_id, always_8, zsize, max_pixel_count, always_1, hash_1, width, height, image_mode, always__1, hash_2")
+
 for image_id in range(0, int(num_files)):
     (original_type, original_file_id, original_always_8, original_zsize, original_max_pixel_count, original_always_1,
      original_hash1, original_width, original_height, original_image_mode, original_always__1) = struct.unpack_from(
@@ -90,34 +88,32 @@ for image_id in range(0, int(num_files)):
         print('make sure to use a good image editor')
         sys.exit(1)
     always__1 = 1
-
+    max_pixel_count = 0
     if (image_mode == 4356):
         max_pixel_count = width * height * 4
     elif (image_mode == 4096):
         max_pixel_count = width * height
 
-    # fill up bytes to make it divideable by 4
+    # fill up bytes to make it dividable by 4
     mod = zsize % 4
     if mod == 3:
         zsize += 1
-        image_zlib = image_zlib + chr(0)
+        image_zlib = image_zlib + chr(0).encode("UTF-8")
     elif mod == 2:
         zsize += 2
-        image_zlib = image_zlib + chr(0) + chr(0)
+        image_zlib = image_zlib + chr(0).encode("UTF-8") + chr(0).encode("UTF-8")
     elif mod == 1:
         zsize += 3
-        image_zlib = image_zlib + chr(0) + chr(0) + chr(0)
+        image_zlib = image_zlib + chr(0).encode("UTF-8") + chr(0).encode("UTF-8") + chr(0).encode("UTF-8")
 
     header_part1 = struct.pack('<4sIIIII', type.encode("UTF-8"), file_id, always_8, zsize, max_pixel_count, always_1)
     hash_1 = (zlib.crc32(header_part1))
     hash_2 = (zlib.crc32(struct.pack('<hhhh', width, height, image_mode, always__1) + image_zlib))
 
-    print("%s;%d;%d;%d;%d;%d;%d;%d;%d;%d;%d;%d" % (
-    type, file_id, always_8, zsize, max_pixel_count, always_1, hash_1, width, height, image_mode, always__1, hash_2))
-
-    struct_data = struct_data + struct.pack('<4siiiiiihhhh', type.encode("UTF-8"), file_id, always_8, zsize,
+    print("Importing IMG_%d.png to %s" % (file_id, sys.argv[2]))
+    struct_data = struct_data + struct.pack('<4sIiiiiIhhhh', type.encode("UTF-8"), file_id, always_8, zsize,
                                             max_pixel_count, always_1, hash_1, width, height, image_mode,
-                                            always__1) + image_zlib + struct.pack('<i', hash_2)
+                                            always__1) + image_zlib + struct.pack('<I', hash_2)
     struct_toc = struct_toc + struct.pack('<4sIII', type.encode("UTF-8"), file_id, offset_new,
                                           zsize + 40)  # file_size = meta information (size of 40) + zsize
 
@@ -126,6 +122,7 @@ for image_id in range(0, int(num_files)):
 
 f = open(sys.argv[2], 'wb')
 toc = struct.pack('<I', num_files) + struct_toc
-toc_checksum = struct.pack('<i', (zlib.crc32(toc)))
+toc_checksum = struct.pack('<I', (zlib.crc32(toc)))
 f.write(original_header + toc + toc_checksum + struct_data)
+print ("\nAll files are imported to %s" % sys.argv[2])
 f.close()
