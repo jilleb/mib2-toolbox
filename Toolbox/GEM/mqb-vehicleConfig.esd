@@ -13,134 +13,98 @@
 screen VehicleConfiguration Adaptation
 
 ##### Byte 0 ##### tested
-bitselect
-    value 			per 0x0 0xC0020054
-    label 			"VZA Pro"
-    range 			0.0 0.0
-    entry 			"off" 0
-	entry 			"on" 1
+bitcheck
+    value   		per 0x0 0xC0020054
+	index   		0 0
+	label   		"VZA Pro"
 	
-bitselect
-    value 			per 0x0 0xC0020054
-    label 			"Online POI"
-    range 			0.1 0.1
-    entry 			"off" 0
-	entry 			"on" 1
+bitcheck
+    value   		per 0x0 0xC0020054
+	index   		0 1
+	label   		"Online POI"
 	
-bitselect
-    value 			per 0x0 0xC0020054
-    label 			"Online POI Voice"
-    range 			0.2 0.2
-    entry 			"off" 0
-	entry 			"on" 1
+bitcheck
+    value   		per 0x0 0xC0020054
+	index   		0 2
+	label   		"Online POI Voice"
 
-bitselect
-    value 			per 0x0 0xC0020054
-    label 			"Online Portal Browser Services"
-    range 			0.3 0.3
-    entry 			"off" 0
-	entry 			"on" 1
-	
-bitselect
-    value 			per 0x0 0xC0020054
-    label 			"Online Navigation"
-    range 			0.4 0.4
-    entry 			"off" 0
-	entry 			"on" 1
-	
-bitselect
-    value 			per 0x0 0xC0020054
-    label 			"Online Streetview"
-    range 			0.5 0.5
-    entry 			"off" 0
-	entry 			"on" 1
-	
-bitselect
-    value 			per 0x0 0xC0020054
-    label 			"WIFI Hotspot"
-    range 			0.6 0.6
-    entry 			"off" 0
-	entry 			"on" 1
-	
-bitselect
-    value 			per 0x0 0xC0020054
-    label 			"My Audi"
-    range 			0.7 0.7
-    entry 			"off" 0
-	entry 			"on" 1
+bitcheck
+    value   		per 0x0 0xC0020054
+	index   		0 3
+	label   		"Online Portal Browser Services"
 
+bitcheck
+    value   		per 0x0 0xC0020054
+	index   		0 4
+	label   		"Online Navigation"
+	
+bitcheck
+    value   		per 0x0 0xC0020054
+	index   		0 5
+	label   		"Online Streetview"
+
+bitcheck
+    value   		per 0x0 0xC0020054
+	index   		0 6
+	label   		"WiFi Hotspot"
+	
+bitcheck
+    value   		per 0x0 0xC0020054
+	index   		0 7
+	label   		"My Audi"
+	
 ##### Byte 1 ##### tested
-bitselect
-    value 			per 0x0 0xC0020054
-    label 			"Picture Navi"
-    range 			1.0 1.0
-    entry 			"off" 0
-	entry 			"on" 1
+bitcheck
+    value   		per 0x0 0xC0020054
+	index   		1 0
+	label   		"Picture Navi"
 
-bitselect
-    value 			per 0x0 0xC0020054
-    label 			"Online Dictation"
-    range 			1.1 1.1
-    entry 			"off" 0
-	entry 			"on" 1
+bitcheck
+    value   		per 0x0 0xC0020054
+	index   		1 1
+	label   		"Online Dictation"
+
+bitcheck
+    value   		per 0x0 0xC0020054
+	index   		1 2
+	label   		"Remote HMI"
 	
-bitselect
-    value 			per 0x0 0xC0020054
-    label 			"Remote HMI"
-    range 			1.2 1.2
-    entry 			"off" 0
-	entry 			"on" 1
-
-bitselect
-    value 			per 0x0 0xC0020054
-    label 			"Advanced Range Display"
-    range 			1.3 1.3
-    entry 			"off" 0
-	entry 			"on" 1
+bitcheck
+    value   		per 0x0 0xC0020054
+	index   		1 3
+	label   		"Advanced Range Display"
 	
-bitselect
-    value 			per 0x0 0xC0020054
-    label 			"Gracenote Online Cover"
-    range 			1.4 1.4
-    entry 			"off" 0
-	entry 			"on" 1
+bitcheck
+    value   		per 0x0 0xC0020054
+	index   		1 4
+	label   		"Gracenote Online Cover"
+	
+bitcheck
+    value   		per 0x0 0xC0020054
+	index   		1 5
+	label   		"Gracenote Online Other"
 
-bitselect
-    value 			per 0x0 0xC0020054
-    label 			"Gracenote Online Other"
-    range 			1.5 1.5
-    entry 			"off" 0
-	entry 			"on" 1
-
-bitselect
-    value 			per 0x0 0xC0020054
-    label 			"Gracenote Local Cover"
-    range 			1.6 1.6
-    entry 			"off" 0
-	entry 			"on" 1
-
-bitselect
-    value 			per 0x0 0xC0020054
-    label 			"Gracenote Local Other"
-    range 			1.7 1.7
-    entry 			"off" 0
-	entry 			"on" 1
+bitcheck
+    value   		per 0x0 0xC0020054
+	index   		1 6
+	label   		"Gracenote Local Cover"
+	
+bitcheck
+    value   		per 0x0 0xC0020054
+	index   		1 7
+	label   		"Gracenote Local Other"
 
 ##### Byte 2 ##### tested
-bitselect
-    value 			per 0x0 0xC0020054
-    label 			"UPnP"
-    range 			2.0 2.0
-    entry 			"off" 0
-	entry 			"on" 1
-
-bitselect
-    value 			per 0x0 0xC0020054
-    label 			"OPS Display in Dash Board Display Unit"
-    range 			2.1 2.1
-    entry 			"off" 0
-	entry 			"on" 1
+bitcheck
+    value   		per 0x0 0xC0020054
+	index   		2 0
+	label   		"UPnP"
 	
+bitcheck
+    value   		per 0x0 0xC0020054
+	index   		2 1
+	label   		"OPS Display in Dash Board Display Unit"
+
 bitselect
     value 			per 0x0 0xC0020054
     label 			"Joker Button 1"
@@ -156,42 +120,32 @@ bitselect
     entry 			"not detected" 0
 	entry 			"left" 1
 	entry 			"right" 2
+
+bitcheck
+    value   		per 0x0 0xC0020054
+	index   		2 6
+	label   		"Deactivate LTE Modul"
+	
+bitcheck
+    value   		per 0x0 0xC0020054
+	index   		2 7
+	label   		"Support Second Phone"
 		
-bitselect
-    value 			per 0x0 0xC0020054
-    label 			"LTE Modul"
-    range 			2.6 2.6
-    entry 			"activated" 0
-	entry 			"deactivated" 1
-
-bitselect
-    value 			per 0x0 0xC0020054
-    label 			"Support Second Phone"
-    range 			2.7 2.7
-    entry 			"off" 0
-	entry 			"on" 1
-	
 ##### Byte 3 ##### tested
-bitselect
-    value 			per 0x0 0xC0020054
-    label 			"Support of Threeway Calling"
-    range 			3.0 3.0
-    entry 			"off" 0
-	entry 			"on" 1
+bitcheck
+    value   		per 0x0 0xC0020054
+	index   		3 0
+	label   		"Support of Threeway Calling"
 	
-bitselect
-    value 			per 0x0 0xC0020054
-    label 			"DTMF without Active Call"
-    range 			3.1 3.1
-    entry 			"off" 0
-	entry 			"on" 1
-
-bitselect
-    value 			per 0x0 0xC0020054
-    label 			"Support for Response and Hold"
-    range 			3.2 3.2
-    entry 			"off" 0
-	entry 			"on" 1
+bitcheck
+    value   		per 0x0 0xC0020054
+	index   		3 1
+	label   		"DTMF without Active Call"
+	
+bitcheck
+    value   		per 0x0 0xC0020054
+	index   		3 2
+	label   		"Support for Response and Hold"
 
 bitselect
     value 			per 0x0 0xC0020054
@@ -235,27 +189,21 @@ bitselect
 	entry 			"LVDS" 1
 	entry 			"FBAS Scaling 2" 2
 	entry 			"reserved" 3
-	
-bitselect
-    value 			per 0x0 0xC0020054
-    label 			"RVC Low Black Screen Velocity Threshold"
-    range 			5.2 5.2
-    entry 			"not active" 0
-	entry 			"active" 1
-	
-bitselect
-    value 			per 0x0 0xC0020054
-    label 			"RVC Low Failsafe"
-    range 			5.3 5.3
-    entry 			"not active" 0
-	entry 			"active" 1
 
-bitselect
-    value 			per 0x0 0xC0020054
-    label 			"RVC Low Black Screen Trunk Open"
-    range 			5.4 5.4
-    entry 			"not active" 0
-	entry 			"active" 1
+bitcheck
+    value   		per 0x0 0xC0020054
+	index   		5 2
+	label   		"RVC Low Black Screen Velocity Threshold"
+	
+bitcheck
+    value   		per 0x0 0xC0020054
+	index   		5 3
+	label   		"RVC Low Failsafe"
+	
+bitcheck
+    value   		per 0x0 0xC0020054
+	index   		5 4
+	label   		"RVC Low Black Screen Trunk Open"
 
 ##### Byte 6 ##### tested
 bitslider
@@ -264,83 +212,61 @@ bitslider
 	range			6 6
 	
 ##### Byte 7 ##### tested
-bitselect
-    value 			per 0x0 0xC0020054
-    label 			"TPEG Availability"
-    range 			7.0 7.0
-    entry 			"off" 0
-	entry 			"on" 1
-
-bitselect
-    value 			per 0x0 0xC0020054
-    label 			"VZO"
-    range 			7.1 7.1
-    entry 			"off" 0
-	entry 			"on" 1
-
-bitselect
-    value 			per 0x0 0xC0020054
-    label 			"LGI"
-    range 			7.2 7.2
-    entry 			"off" 0
-	entry 			"on" 1
-
-bitselect
-    value 			per 0x0 0xC0020054
-    label 			"ProbeCar VZO"
-    range 			7.3 7.3
-    entry 			"off" 0
-	entry 			"on" 1
-
-bitselect
-    value 			per 0x0 0xC0020054
-    label 			"Online Media"
-    range 			7.4 7.4
-    entry 			"off" 0
-	entry 			"on" 1
+bitcheck
+    value   		per 0x0 0xC0020054
+	index   		7 0
+	label   		"TPEG Availability"
 	
-bitselect
-    value 			per 0x0 0xC0020054
-    label 			"ProbeCar LGI"
-    range 			7.5 7.5
-    entry 			"off" 0
-	entry 			"on" 1
+bitcheck
+    value   		per 0x0 0xC0020054
+	index   		7 1
+	label   		"VZO"
 
-bitselect
-    value 			per 0x0 0xC0020054
-    label 			"Baidu Car Life"
-    range 			7.6 7.6
-    entry 			"off" 0
-	entry 			"on" 1
-	
-bitselect
-    value 			per 0x0 0xC0020054
-    label 			"Google GAL"
-    range 			7.7 7.7
-    entry 			"off" 0
-	entry 			"on" 1
-	
+bitcheck
+    value   		per 0x0 0xC0020054
+	index   		7 2
+	label   		"LGI"
+
+bitcheck
+    value   		per 0x0 0xC0020054
+	index   		7 3
+	label   		"ProbeCar VZO"
+
+bitcheck
+    value   		per 0x0 0xC0020054
+	index   		7 4
+	label   		"Online Media"
+
+bitcheck
+    value   		per 0x0 0xC0020054
+	index   		7 5
+	label   		"ProbeCar LGI"
+
+bitcheck
+    value   		per 0x0 0xC0020054
+	index   		7 6
+	label   		"Baidu Car Life"
+
+bitcheck
+    value   		per 0x0 0xC0020054
+	index   		7 7
+	label   		"Google GAL"
+		
 ##### Byte 8 ##### tested
-bitselect
-    value 			per 0x0 0xC0020054
-    label 			"Apple DIO"
-    range 			8.0 8.0
-    entry 			"off" 0
-	entry 			"on" 1
+bitcheck
+    value   		per 0x0 0xC0020054
+	index   		8 0
+	label   		"Apple DIO"
 	
-bitselect
-    value 			per 0x0 0xC0020054
-    label 			"UOTA"
-    range 			8.1 8.1
-    entry 			"off" 0
-	entry 			"on" 1
+bitcheck
+    value   		per 0x0 0xC0020054
+	index   		8 1
+	label   		"UOTA"
 	
-bitselect
-    value 			per 0x0 0xC0020054
-    label 			"WiFi Client HMI"
-    range 			8.2 8.2
-    entry 			"off" 0
-	entry 			"on" 1
+bitcheck
+    value   		per 0x0 0xC0020054
+	index   		8 2
+	label   		"WiFi Client HMI"
 	
 bitselect
     value 			per 0x0 0xC0020054
@@ -356,15 +282,12 @@ bitselect
     entry 			"activated" 0
 	entry 			"deactivated" 1
 
-bitselect
-    value 			per 0x0 0xC0020054
-    label 			"Mirror Link"
-    range 			8.5 8.5
-    entry 			"off" 0
-	entry 			"on" 1
-
+bitcheck
+    value   		per 0x0 0xC0020054
+	index   		8 5
+	label   		"Mirror Link"
+	
 ## Bit 6 and 7 not used ##
-
 	
 ##### Byte 9 ##### tested
 bitselect
@@ -396,63 +319,47 @@ bitselect
     entry 			"all sd slots active" 0
 	entry 			"sd 1 slot inactive" 1
 	entry 			"sd 2 slot inactive" 2
+
+bitcheck
+    value   		per 0x0 0xC0020054
+	index   		10 2
+	label   		"Map SMS Support"
 	
-bitselect
-    value 			per 0x0 0xC0020054
-    label 			"Map SMS Support"
-    range 			10.2 10.2
-    entry 			"off" 0
-	entry 			"on" 1
+bitcheck
+    value   		per 0x0 0xC0020054
+	index   		10 3
+	label   		"Map Email Support"
 	
-bitselect
-    value 			per 0x0 0xC0020054
-    label 			"Map Email Support"
-    range 			10.3 10.3
-    entry 			"off" 0
-	entry 			"on" 1
+bitcheck
+    value   		per 0x0 0xC0020054
+	index   		10 4
+	label   		"Map Instant Messaging Support"
 
-bitselect
-    value 			per 0x0 0xC0020054
-    label 			"Map Instant Messaging Support"
-    range 			10.4 10.4
-    entry 			"off" 0
-	entry 			"on" 1
+bitcheck
+    value   		per 0x0 0xC0020054
+	index   		10 5
+	label   		"SIM Data Only SMS Support"
 
-bitselect
-    value 			per 0x0 0xC0020054
-    label 			"SIM Data Only SMS Support"
-    range 			10.5 10.5
-    entry 			"off" 0
-	entry 			"on" 1
+bitcheck
+    value   		per 0x0 0xC0020054
+	index   		10 6
+	label   		"eSIM Data Only SMS Support"
 
-bitselect
-    value 			per 0x0 0xC0020054
-    label 			"eSIM Data Only SMS Support"
-    range 			10.6 10.6
-    entry 			"off" 0
-	entry 			"on" 1
-
-bitselect
-    value 			per 0x0 0xC0020054
-    label 			"Allow Message Editing"
-    range 			10.7 10.7
-    entry 			"off" 0
-	entry 			"on" 1
+bitcheck
+    value   		per 0x0 0xC0020054
+	index   		10 7
+	label   		"Allow Message Editing"
 	
 ##### Byte 11 ##### tested
-bitselect
-    value 			per 0x0 0xC0020054
-    label 			"Vehicle Readniness Sound"
-    range 			11.0 11.0
-    entry 			"not active" 0
-	entry 			"active" 1
-
-bitselect
-    value 			per 0x0 0xC0020054
-    label 			"Vehicle Leaving Sound"
-    range 			11.1 11.1
-    entry 			"not active" 0
-	entry 			"active" 1
+bitcheck
+    value   		per 0x0 0xC0020054
+	index   		11 0
+	label   		"Vehicle Readniness Sound"
+	
+bitcheck
+    value   		per 0x0 0xC0020054
+	index   		11 1
+	label   		"Vehicle Leaving Sound"
 
 bitslider
     value 			per 0x0 0xC0020054
@@ -619,13 +526,11 @@ bitslider
     range 			15 15
 	
 ##### Byte 16 ##### tested
-bitselect
-    value 			per 0x0 0xC0020054
-    label 			"Hybrid Radio Additional Online Data"
-    range 			16.0 16.0
-    entry 			"not activated" 0
-	entry 			"activated" 1
-
+bitcheck
+    value   		per 0x0 0xC0020054
+	index   		16 0
+	label   		"Hybrid Radio Additional Online Data"
+	
 bitselect
     value 			per 0x0 0xC0020054
     label 			"Hybrid Radio Range Extender"
@@ -651,95 +556,71 @@ bitselect
 ##### Byte 17 ##### tested
 
 ## Bit 0 unused ##
+
+bitcheck
+    value   		per 0x0 0xC0020054
+	index   		17 1
+	label   		"Media Control"
 	
-bitselect
-    value 			per 0x0 0xC0020054
-    label 			"Media Control"
-    range 			17.1 17.1
-    entry 			"not activated" 0
-	entry 			"activated" 1
+bitcheck
+    value   		per 0x0 0xC0020054
+	index   		17 2
+	label   		"Scon Telephony"
 	
-bitselect
-    value 			per 0x0 0xC0020054
-    label 			"Scon Telephony"
-    range 			17.2 17.2
-    entry 			"not activated" 0
-	entry 			"activated" 1
+bitcheck
+    value   		per 0x0 0xC0020054
+	index   		17 3
+	label   		"Voice over LTE"
 	
-bitselect
-    value 			per 0x0 0xC0020054
-    label 			"Voice over LTE"
-    range 			17.3 17.3
-    entry 			"not activated" 0
-	entry 			"activated" 1
+bitcheck
+    value   		per 0x0 0xC0020054
+	index   		17 4
+	label   		"Show VoLTE HMI Switch"
 	
-bitselect
-    value 			per 0x0 0xC0020054
-    label 			"Show VoLTE HMI Switch"
-    range 			17.4 17.4
-    entry 			"not activated" 0
-	entry 			"activated" 1
+bitcheck
+    value   		per 0x0 0xC0020054
+	index   		17 5
+	label   		"WLAN 5GHz Switch"
 	
-bitselect
-    value 			per 0x0 0xC0020054
-    label 			"WLAN 5GHz Switch"
-    range 			17.5 17.5
-    entry 			"not activated" 0
-	entry 			"activated" 1
+bitcheck
+    value   		per 0x0 0xC0020054
+	index   		17 6
+	label   		"Unblock Functions while Piloted Driving"
 	
-bitselect
-    value 			per 0x0 0xC0020054
-    label 			"Unblock Functions while Piloted Driving"
-    range 			17.6 17.6
-    entry 			"blocked" 0
-	entry 			"non blocked" 1
-	
-bitselect
-    value 			per 0x0 0xC0020054
-    label 			"Block HMI Function P EPB"
-    range 			17.7 17.7
-    entry 			"blocked" 0
-	entry 			"non blocked" 1
+bitcheck
+    value   		per 0x0 0xC0020054
+	index   		17 7
+	label   		"Unblock HMI Function P EPB"
 	
 ##### Byte 18 ##### tested
-bitselect
-    value 			per 0x0 0xC0020054
-    label 			"Popup if GPS Services in use"
-    range 			18.0 18.0
-    entry 			"not activated" 0
-	entry 			"activated" 1
+bitcheck
+    value   		per 0x0 0xC0020054
+	index   		18 0
+	label   		"Popup if GPS Services in use"
 	
-bitselect
-    value 			per 0x0 0xC0020054
-    label 			"Pilot Parking"
-    range 			18.1 18.1
-    entry 			"not activated" 0
-	entry 			"activated" 1
-	
+bitcheck
+    value   		per 0x0 0xC0020054
+	index   		18 1
+	label   		"Pilot Parking"
+		
 ##### Byte 19 ##### tested
 ## unused ##
 
 ##### Byte 20 ##### tested
-bitselect
-    value 			per 0x0 0xC0020054
-    label 			"Baidu CarLife iOS"
-    range 			20.2 20.2
-    entry 			"off" 0
-	entry 			"on" 1
+bitcheck
+    value   		per 0x0 0xC0020054
+	index   		20 2
+	label   		"Baidu CarLife iOS"
 	
-bitselect
-    value 			per 0x0 0xC0020054
-    label 			"Tencent myCar Canceling Share Location"
-    range 			20.3 20.3
-    entry 			"off" 0
-	entry 			"on" 1
+bitcheck
+    value   		per 0x0 0xC0020054
+	index   		20 3
+	label   		"Tencent myCar Canceling Share Location"
 	
-bitselect
-    value 			per 0x0 0xC0020054
-    label 			"UOTA 2"
-    range 			20.4 20.4
-    entry 			"off" 0
-	entry 			"on" 1
+bitcheck
+    value   		per 0x0 0xC0020054
+	index   		20 4
+	label   		"UOTA 2"
 
 bitselect
     value 			per 0x0 0xC0020054
@@ -747,7 +628,6 @@ bitselect
     range 			20.5 20.5
     entry 			"SWaP" 0
 	entry 			"FoD" 1
-
 
 ##### Byte 21 ##### open ### Scale change evaluation // Currently not working properly ###
 #bitslider
@@ -764,41 +644,31 @@ bitselect
 #	limits			absolute 0 99
 	
 ##### Byte 23 ##### tested
-bitselect
-    value 			per 0x0 0xC0020054
-    label 			"Baidu CarLife Wireless"
-    range 			23.0 23.0
-    entry 			"off" 0
-	entry 			"on" 1
+bitcheck
+    value   		per 0x0 0xC0020054
+	index   		23 0
+	label   		"Baidu CarLife Wireless"
 	
-bitselect
-    value 			per 0x0 0xC0020054
-    label 			"Baidu CarLife iOS Wireless"
-    range 			23.1 23.1
-    entry 			"off" 0
-	entry 			"on" 1
+bitcheck
+    value   		per 0x0 0xC0020054
+	index   		23 1
+	label   		"Baidu CarLife iOS Wireless"
 	
-bitselect
-    value 			per 0x0 0xC0020054
-    label 			"Google GAL Wireless"
-    range 			23.2 23.2
-    entry 			"off" 0
-	entry 			"on" 1
+bitcheck
+    value   		per 0x0 0xC0020054
+	index   		23 2
+	label   		"Google GAL Wireless"
 	
-bitselect
-    value 			per 0x0 0xC0020054
-    label 			"Apple DIO Wireless"
-    range 			23.3 23.3
-    entry 			"off" 0
-	entry 			"on" 1
+bitcheck
+    value   		per 0x0 0xC0020054
+	index   		23 3
+	label   		"Apple DIO Wireless"
 	
-bitselect
-    value 			per 0x0 0xC0020054
-    label 			"AliBox"
-    range 			23.4 23.4
-    entry 			"off" 0
-	entry 			"on" 1	
-
+bitcheck
+    value   		per 0x0 0xC0020054
+	index   		23 4
+	label   		"AliBox"
+	
 bitselect
     value 			per 0x0 0xC0020054
     label 			"Internet over WLAN Default Setting"
