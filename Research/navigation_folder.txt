@@ -1,5 +1,5 @@
 Navigation
-│   AppStartATF                             # ?
+│   AppStartATF                             # Is running when Navigation application is started
 │   ATFHorizonProvider.conf                 # ?
 │   channel_configuration.txt               # ?
 │   CTracer.conf                            # ?
@@ -38,8 +38,8 @@ Navigation
 │   │       ├───eu
 │   │       │   │   amzoomconfig.xml        # In what cases should the navi autozoom?
 │   │       │   │   amzoomconfig_1280x640.xml # same, but for big screen. Not there for all regions.
-│   │       │   │   images.cff              # !! Container with navi-related images. Icons, POI icons, Flags, Road classes, brand logos, etc.
-│   │       │   │                           # !!use extract-cff.py from tools to extract this file.                
+│   │       │   │   images.cff              # Container with navi-related images. Icons, POI icons, Flags, Road classes, brand logos, etc.
+│   │       │   │                           # use extract-cff.py from tools to extract this file.                
 │   │       │   │  
 │   │       │   │   resourceConfig.xml      # resource ID's for each of the files in images.cff
 │   │       │   │   revision.txt            # version management file

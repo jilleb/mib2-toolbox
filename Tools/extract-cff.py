@@ -109,7 +109,6 @@ while (j < num_files):
 
     # read data at offset
     file_data = data[offset:offset + size]
-    # binary_data = binascii.unhexlify(dataset)
     output_file.write(file_data)
     output_file.close()
     j = j + 1
