@@ -4,15 +4,14 @@
 // File:        CFF.bt
 // Author:      Jille
 // Revision:    8
-// Purpose:     Discover Pro MIB2 images.mcf file parser
-// Comments:    Each of the marked files in this archive is ZLIB-compressed RGBA data
+// Purpose:     Discover Pro MIB2 cff file parser
 // Colorcoding: Red = unknown, Green = known. Dark gray = probable. Light gray = Zlib data.
 //--------------------------------------
 
 ////////////////////////////////////////////////////////////
 
 LittleEndian();
-byte magic[12]  <format=hex,bgcolor=cSilver>; //
+byte magic[12]  <bgcolor=cSilver>; //
 long data_size  <format=decimal,bgcolor=cGreen>;
 long data_size2 <format=decimal,bgcolor=cGreen>;
 long unknown_0  <format=hex,bgcolor=cRed>;
