@@ -16,10 +16,20 @@ keyValue
     value	String sys 0x00000000 0
     label   "This screen can be used to replace skin-graphics of the MIB."
     poll    0  
+	
+keyValue
+    value   String sys 0x00000000 0
+    label   ""
+    poll    0  
+	
+keyValue
+    value   String sys 0x00000000 0
+    label   "--- Scripts for SEAT, SKODA and VW ---"
+    poll    0  	
 
 keyValue
     value   String sys 0x00000000 0
-    label   "images.mcf-files and ambienceColorMap.res go into the Custom/Skinfiles folder"
+    label   "images.mcf-files and ambienceColorMap.res go into the Custom/Skinfiles folder."
     poll    0  
 
 keyValue
@@ -30,8 +40,8 @@ keyValue
 keyValue
     value   String sys 0x00000000 0
     label   ""
-    poll    0    
-    
+    poll    0  
+
 script
    value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/install_skin0.sh"
    label    "Install new graphics for Skin0 from /Skinfiles/Skin0/ on SD"
@@ -96,3 +106,55 @@ script
 script
 	value 	sys 1 0x0100 "/scripts/performePersReset.sh"
 	label 	"Reboot"
+   
+keyValue
+	value 	String per 1 0x00010003
+    label 	"_____________________________________________________________________________"
+    poll     500
+
+keyValue
+    value   String sys 0x00000000 0
+    label   "--- Scripts for AUDI, BENTLEY, LAMBORGHINI and PORSCHE ---"
+    poll    0 
+
+keyValue
+    value   String sys 0x00000000 0
+    label   "Custom skin graphics go into accodring folders in Custom/Skinfiles/BRAND."
+    poll    0 
+
+keyValue
+    value   String sys 0x00000000 0
+    label   "Custom car graphics content.kzb file go into Custom/Skinfiles/BRAND-Car."
+    poll    0 
+	
+keyValue
+    value   String sys 0x00000000 0
+    label   "Reboot after installing a new skin or ambienceColorMap."
+    poll    0  
+	
+keyValue
+    value   String sys 0x00000000 0
+    label   ""
+    poll    0  
+	
+script
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/install_skin.sh"
+   label    "Install new skin graphics from /Skinfiles/BRAND on SD" 	
+   
+script
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/install_skin_car.sh"
+   label    "Install new car graphics from /Skinfiles/BRAND-Car on SD" 	
+   
+keyValue
+    value   String sys 0x00000000 0
+    label   ""
+    poll    0    
+
+script
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/recovery_skins.sh"
+   label    "Recover skin and car graphics from backup" 
+
+script
+	value 	sys 1 0x0100 "/scripts/performePersReset.sh"
+	label 	"Reboot"   
+   
