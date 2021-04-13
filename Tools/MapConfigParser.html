@@ -1,0 +1,110 @@
+<!-- 
+ MapConfig.mxf file color parser
+ by Jille
+ 
+ Borrowed some code from:
+ https://www.aspsnippets.com/Articles/Read-Parse-and-display-XML-file-using-JavaScript-jQuery-and-HTML5.aspx
+ and
+ https://css-tricks.com/converting-color-spaces-in-javascript/
+-->
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title></title>
+        <style>
+            table {
+                border-collapse: collapse;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+        </style>
+    </head>
+    <body>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+        <script type="text/javascript">
+            $(function () {
+                $("#upload").bind("click", function () {
+                    var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.mxf)$/;
+                    if (regex.test($("#fileUpload").val().toLowerCase())) {
+                        if (typeof FileReader != "undefined") {
+                            var reader = new FileReader();
+                            reader.onload = function (e) {
+                                var xmlDoc = $.parseXML(e.target.result);
+                                var configs = $(xmlDoc).find("drawingconfiguration");
+
+                                //Create a HTML Table element.
+                                var table = $("<table />");
+                                table[0].border = "1";
+
+                                //Add the header row.
+                                var row = $(table[0].insertRow(-1));
+                                var headerCell = $("<th />");
+                                headerCell.html("drawingconfiguration name");
+                                row.append(headerCell);
+                                configs
+                                    .eq(0)
+                                    .children()
+                                    .each(function () {
+                                        var headerCell = $("<th />");
+                                        headerCell.html(this.nodeName);
+                                        row.append(headerCell);
+                                    });
+
+                                //Add the data rows.
+                                $(configs).each(function () {
+                                    row = $(table[0].insertRow(-1));
+                                    name = $(this).attr("name");
+                                    var cell = $("<td />");
+                                    cell.html(name);
+                                    row.append(cell);
+                                    $(this)
+                                        .children()
+                                        .each(function () {
+                                            $(this)
+                                                .children("color")
+                                                .each(function () {
+                                                    color = $(this).attr("dccolor");
+                                                    colorrgb = hexAToRGBA(color);
+                                                    var cell = $("<td style='background-color:" + colorrgb + "' />");
+                                                    cell.html(colorrgb);
+                                                    row.append(cell);
+                                                });
+                                        });
+                                });
+
+                                var dvTable = $("#dvTable");
+                                dvTable.html("");
+                                dvTable.append(table);
+                            };
+                            reader.readAsText($("#fileUpload")[0].files[0]);
+                        } else {
+                            alert("This browser does not support HTML5.");
+                        }
+                    } else {
+                        alert("Please upload a valid XML file.");
+                    }
+                });
+
+                function hexAToRGBA(h) {
+                    let r = 0,
+                        g = 0,
+                        b = 0,
+                        a = 1;
+
+                    if (h.length == 10) {
+                        a = "0x" + h[2] + h[3];
+                        b = "0x" + h[4] + h[5];
+                        g = "0x" + h[6] + h[7];
+                        r = "0x" + h[8] + h[9];
+                    }
+                    a = +(a / 255).toFixed(3);
+
+                    return "rgba(" + +r + "," + +g + "," + +b + "," + a + ")";
+                }
+            });
+        </script>
+        <input type="file" id="fileUpload" />
+        <input type="button" id="upload" value="Upload" />
+        <hr />
+        <div id="dvTable"></div>
+    </body>
+</html>
