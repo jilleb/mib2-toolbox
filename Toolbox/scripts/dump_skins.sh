@@ -3,7 +3,6 @@
 #info
 TOPIC=Skinfiles
 DESCRIPTION="This script will dump all skin files"
-BRAND="$(/eso/bin/apps/pc i:0x286f058c:10 2> /dev/null)"
 
 #Volumes/files
 echo $DESCRIPTION
@@ -17,69 +16,23 @@ then
 fi
 
 # Brand checkup because the folders are different
-if [ $BRAND == "1" ]; then
-	BRAND=Volkswagen
+if [[ $BRAND == "Volkswagen" || $BRAND == "Skoda" || $BRAND == "Seat" ]]; then
 	ORIGINAL=/eso/hmi/lsd/Resources
 	DUMPFOLDER=$VOLUME/Dump/$VERSION/$FAZIT/$TOPIC
 	DUMPTYPE=1
 	COPYTYPE=1	
-	echo "Brand detected: $BRAND"	
 	
-elif [ $BRAND == "2" ]; then
-	BRAND=Audi
+elif [[ $BRAND == "Audi" || $BRAND == "Porsche"  || $BRAND == "Bentley" || $BRAND == "Lamborghini" ]]; then
 	ORIGINAL=/eso/hmi/lsd/images
 	ORIGINAL2=/eso/content.kzb
 	DUMPFOLDER=$VOLUME/Dump/$VERSION/$FAZIT/$TOPIC/$BRAND
 	DUMPFOLDER2=$VOLUME/Dump/$VERSION/$FAZIT/$TOPIC/$BRAND-Car
 	DUMPTYPE=2
 	COPYTYPE=2	
-	echo "Brand detected: $BRAND"	
 	
-elif [ $BRAND == "3" ]; then
-	BRAND=Skoda
-	ORIGINAL=/eso/hmi/lsd/Resources
-	DUMPFOLDER=$VOLUME/Dump/$VERSION/$FAZIT/$TOPIC
-	DUMPTYPE=1
-	COPYTYPE=1	
-	echo "Brand detected: $BRAND"
-	
-elif [ $BRAND == "4" ]; then
-	BRAND=Seat
-	ORIGINAL=/eso/hmi/lsd/Resources
-	DUMPFOLDER=$VOLUME/Dump/$VERSION/$FAZIT/$TOPIC
-	DUMPTYPE=1
-	COPYTYPE=1	
-	echo "Brand detected: $BRAND"
-	
-elif [ $BRAND == "5" ]; then
-	BRAND=Porsche
-	ORIGINAL=/eso/hmi/lsd/images
-	ORIGINAL2=/eso/content.kzb
-	DUMPFOLDER=$VOLUME/Dump/$VERSION/$FAZIT/$TOPIC/$BRAND
-	DUMPFOLDER2=$VOLUME/Dump/$VERSION/$FAZIT/$TOPIC/$BRAND-Car
-	DUMPTYPE=2
-	COPYTYPE=2	
-	echo "Brand detected: $BRAND"
-	
-elif [ $BRAND == "6" ]; then
-	BRAND=Bentley
-	ORIGINAL=/eso/hmi/lsd/images
-	ORIGINAL2=/eso/content.kzb
-	DUMPFOLDER=$VOLUME/Dump/$VERSION/$FAZIT/$TOPIC/$BRAND
-	DUMPFOLDER2=$VOLUME/Dump/$VERSION/$FAZIT/$TOPIC/$BRAND-Car
-	DUMPTYPE=2
-	COPYTYPE=2	
-	echo "Brand detected: $BRAND"
-	
-elif [ $BRAND == "7" ]; then
-	BRAND=Lamborghini
-	ORIGINAL=/eso/hmi/lsd/images
-	ORIGINAL2=/eso/content.kzb
-	DUMPFOLDER=$VOLUME/Dump/$VERSION/$FAZIT/$TOPIC/$BRAND
-	DUMPFOLDER2=$VOLUME/Dump/$VERSION/$FAZIT/$TOPIC/$BRAND-Car
-	DUMPTYPE=2
-	COPYTYPE=2	
-	echo "Brand detected: $BRAND"
+else
+	echo "No brand detected. Aborting"
+	exit 0
 fi
 
 #Make dump folder
@@ -88,6 +41,7 @@ if [ $DUMPTYPE == 1 ]; then
 	mkdir -p $DUMPFOLDER
 	echo "Dumping, please wait."
 	sleep 1
+	
 else 
 	echo "Skin dump folder: $DUMPFOLDER"
 	echo "Car graphics dump folder: $DUMPFOLDER2"
@@ -102,6 +56,7 @@ if [ $COPYTYPE == 1 ]; then
 	echo
 	echo "Copying skins to SD-card. This could take a moment"
 	cp -R $ORIGINAL $DUMPFOLDER/
+	
 else
 	echo
 	echo "Copying skin to SD-card. This could take a moment"

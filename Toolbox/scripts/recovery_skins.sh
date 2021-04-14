@@ -7,7 +7,6 @@
 #info
 TOPIC=Skinfiles
 DESCRIPTION="This script will recover the backupped skinfiles"
-BRAND="$(/eso/bin/apps/pc i:0x286f058c:10 2> /dev/null)"
 
 #Volumes/files
 echo $DESCRIPTION
@@ -15,67 +14,22 @@ echo $DESCRIPTION
 . /eso/hmi/engdefs/scripts/mqb/util_info.sh
 . /eso/hmi/engdefs/scripts/mqb/util_mountsd.sh
 
-#Make app volume writable
-echo Mounting app folder.
-mount -uw /mnt/app
-
-#backup folder
-if [ $BRAND == "1" ];then
-	BRAND=Volkswagen
+#backup folders
+if [[ $BRAND == "Volkswagen" || $BRAND == "Skoda" || $BRAND == "Seat" ]]; then
 	BACKUP=$VOLUME/Backup/$VERSION/$FAZIT/$TOPIC
 	MIBPATH=/eso/hmi/lsd/Resources/
 	COPYTYPE=1	
-	echo "Brand detected: $BRAND"
 	
-elif [ $BRAND == "2" ];then
-	BRAND=Audi
+elif [[ $BRAND == "Audi" || $BRAND == "Porsche"  || $BRAND == "Bentley" || $BRAND == "Lamborghini" ]]; then
 	BACKUP=$VOLUME/Backup/$VERSION/$FAZIT/$TOPIC/$BRAND
 	BACKUP2=$VOLUME/Backup/$VERSION/$FAZIT/$TOPIC/$BRAND-Car
 	MIBPATH=/eso/hmi/lsd/images
 	MIBPATH2=/eso/content.kzb
 	COPYTYPE=2	
-	echo "Brand detected: $BRAND"
 	
-elif [ $BRAND == "3" ];then
-	BRAND=Skoda
-	BACKUP=$VOLUME/Backup/$VERSION/$FAZIT/$TOPIC
-	MIBPATH=/eso/hmi/lsd/Resources/
-	COPYTYPE=1	
-	echo "Brand detected: $BRAND"
-	
-elif [ $BRAND == "4" ];then
-	BRAND=Seat
-	BACKUP=$VOLUME/Backup/$VERSION/$FAZIT/$TOPIC
-	MIBPATH=/eso/hmi/lsd/Resources/
-	COPYTYPE=1	
-	echo "Brand detected: $BRAND"
-	
-elif [ $BRAND == "5" ];then
-	BRAND=Porsche
-	BACKUP=$VOLUME/Backup/$VERSION/$FAZIT/$TOPIC/$BRAND
-	BACKUP2=$VOLUME/Backup/$VERSION/$FAZIT/$TOPIC/$BRAND-Car
-	MIBPATH=/eso/hmi/lsd/images
-	MIBPATH2=/eso/content.kzb
-	COPYTYPE=2	
-	echo "Brand detected: $BRAND"
-	
-elif [ $BRAND == "6" ];then
-	BRAND=Bentley
-	BACKUP=$VOLUME/Backup/$VERSION/$FAZIT/$TOPIC/$BRAND
-	BACKUP2=$VOLUME/Backup/$VERSION/$FAZIT/$TOPIC/$BRAND-Car
-	MIBPATH=/eso/hmi/lsd/images
-	MIBPATH2=/eso/content.kzb
-	COPYTYPE=2	
-	echo "Brand detected: $BRAND"
-	
-elif [ $BRAND == "7" ];then
-	BRAND=Lamborghini
-	BACKUP=$VOLUME/Backup/$VERSION/$FAZIT/$TOPIC/$BRAND
-	BACKUP2=$VOLUME/Backup/$VERSION/$FAZIT/$TOPIC/$BRAND-Car
-	MIBPATH=/eso/hmi/lsd/images
-	MIBPATH2=/eso/content.kzb
-	COPYTYPE=2	
-	echo "Brand detected: $BRAND"
+else
+	echo "No brand detected. Aborting"
+	exit 0
 fi
 
 # Make app volume writable
@@ -214,8 +168,9 @@ if [ $COPYTYPE == 1 ];then
 		echo "No skin6 ambience backup found"
 		sleep 1
 	fi
+	
 else
-	# Restoring skins for AUDI, BENTLEY, PORSCHE and LAMBORGHINI
+	# Restoring skins for AUDI, BENTLEY, LAMBORGHINI and PORSCHE 
 	# Checkup if a backup is present 
 	if [ -d $BACKUP ]; then
 		cp -R $BACKUP $MIBPATH

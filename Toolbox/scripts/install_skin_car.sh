@@ -1,29 +1,14 @@
 #!/bin/sh
 export TOPIC=Skinfiles
 export MIBPATH=/eso/content.kzb
-export BRAND="$(/eso/bin/apps/pc i:0x286f058c:10 2> /dev/null)"
-if [ $BRAND == "1" ]; then
-	export BRAND=Volkswagen
-elif [ $BRAND == "2" ]; then
-	export BRAND=Audi
-elif [ $BRAND == "3" ]; then
-	export BRAND=Skoda
-elif [ $BRAND == "4" ]; then
-	export BRAND=Seat
-elif [ $BRAND == "5" ]; then
-	export BRAND=Porsche
-elif [ $BRAND == "6" ]; then
-	export BRAND=Bentley
-elif [ $BRAND == "7" ]; then
-	export BRAND=Lamborghini
-fi
-export SDPATH=/$TOPIC/$BRAND-Car
 export DESCRIPTION="This script will install $TOPIC"
 export TYPE="file"
 
 echo $DESCRIPTION
 
 . /eso/hmi/engdefs/scripts/mqb/util_info.sh
+export SDPATH=/$TOPIC/$BRAND-Car
+
 . /eso/hmi/engdefs/scripts/mqb/util_mountsd.sh
 if [[ -z "$VOLUME" ]] 
 then
@@ -32,23 +17,16 @@ then
 fi
 
 # Checkup for brands and if this is the correct script for the brand
-if [ $BRAND == "Volkswagen" ]; then
+if [[ $BRAND == "Volkswagen" || $BRAND == "Skoda" || $BRAND == "Seat" ]]; then
 	echo "Wrong brand for this script detected: $BRAND. Aborting"
 	exit 0
-elif [ $BRAND == "Audi" ]; then
+	
+elif [[ $BRAND == "Audi" || $BRAND == "Porsche"  || $BRAND == "Bentley" || $BRAND == "Lamborghini" ]]; then
 	echo "Correct brand for this script detected: $BRAND. Moving on..."
-elif [ $BRAND == "Skoda" ]; then
-	echo "Wrong brand for this script detected: $BRAND. Aborting"
+	
+else
+	echo "No brand detected. Aborting"
 	exit 0
-elif [ $BRAND == "Seat" ]; then
-	echo "Wrong brand for this script detected: $BRAND. Aborting"
-	exit 0
-elif [ $BRAND == "Porsche" ]; then
-	echo "Correct brand for this script detected: $BRAND. Moving on..."
-elif [ $BRAND == "Bentley" ]; then
-	echo "Correct brand for this script detected: $BRAND. Moving on..."
-elif [ $BRAND == "Lamborghini" ]; then
-	echo "Correct brand for this script detected: $BRAND. Moving on..."
 fi
 
 #Make backup folder

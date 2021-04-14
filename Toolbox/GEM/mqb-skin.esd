@@ -129,7 +129,7 @@ keyValue
 	
 keyValue
     value   String sys 0x00000000 0
-    label   "Reboot after installing a new skin or ambienceColorMap."
+    label   "Reboot after installing a new skin or car graphics."
     poll    0  
 	
 keyValue
