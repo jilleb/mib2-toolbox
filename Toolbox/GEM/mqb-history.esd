@@ -14,6 +14,11 @@ screen  History MQBCoding
 
 keyValue
     value    String sys 0x00000000 0
+    label    "v4.11A - Fixed canim error after copying, AA patch recovery added"
+    poll     0
+
+keyValue
+    value    String sys 0x00000000 0
     label    "v4.1A - New - factory like install paths, cleanups and uninstall added"
     poll     0
 
