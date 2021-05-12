@@ -24,10 +24,6 @@ script
    value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/info_displaymanager.sh"
    label    "Show displaymanager info"
 
-#script ### currently not properly working
-#   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/set_VIM.sh"
-#   label    "Force set Video in Motion" 
-
 script
    value    sys 1 0x0100 "/scripts/performePersReset.sh"
    label    "Reboot unit"
