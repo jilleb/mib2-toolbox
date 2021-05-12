@@ -17,25 +17,30 @@
 import struct
 import sys
 if sys.version_info[0] < 3:
-    sys.exit("You need to run this with Python 3")
+    raw_input("You need to run this with Python 3!\nPress Enter to exit...")
+    sys.exit(1)
 
 import os
 import zlib
 from shutil import copyfile
 
 try:
-	from PIL import Image
-	from PIL import ImageFont
-	from PIL import ImageDraw
+    from PIL import Image
+    from PIL import ImageFont
+    from PIL import ImageDraw
 except ImportError:
-	sys.exit("""  You are missing the PIL module!
-  install it by running: 
-  pip install image
-  """)
+    print("  You are missing the PIL module!\n"
+          "  install it by running:\n"
+          "  pip install image")
+    input("\nPress Enter to exit...")
+    sys.exit(1)
+
 
 if len(sys.argv) != 3:
-	print("usage: extract-mcf.py <filename> <outdir>")
-	sys.exit(1)
+    print("usage: extract-mcf.py <filename> <outdir>")
+    input("\nPress Enter to exit...")
+    sys.exit(1)
+
 
 out_dir = sys.argv[2]
 mcf_path = sys.argv[1]
@@ -48,10 +53,11 @@ num_mifIDs2 = 0
 
 offset = 1  # skip the first bytes, makes comparing easier
 (magic,) = struct.unpack_from('<3s', mcf_data,
-							  offset)  # '<4s'  =  '<' little-endian, 's' is type char, '6s' Array of 6 chars; get first entry of the returned tuple
+                              offset)  # '<4s'  =  '<' little-endian, 's' is type char, '6s' Array of 6 chars; get first entry of the returned tuple
 if magic != str('MCF').encode("UTF-8"):  # corresponds to MCF file starting
-	print('This is not a correct MCF file!')
-	sys.exit(1)
+    print('This is not a correct MCF file!')
+    input("\nPress Enter to exit...")
+    sys.exit(1)
 
 filepath, filename = os.path.split(mcf_path)
 idmap_path = filepath + "\imageidmap.res"
