@@ -19,7 +19,7 @@ keyValue
 	
 script
    value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/util_clean_old.sh"
-   label    "Start cleanup pre v4.1 installations"  
+   label    "Start cleanup pre v4.1 installtions"  
 
 keyValue
     value   String sys 0x00000000 0
