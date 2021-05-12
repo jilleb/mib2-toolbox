@@ -36,5 +36,3 @@ mount -ur /net/mmx/mnt/app
 mount -ur /net/rcc/mnt/efs-persist
 
 sleep .5
-
-/net/mmx/fs/sda0/Custom/Splashscreen/*.canim
