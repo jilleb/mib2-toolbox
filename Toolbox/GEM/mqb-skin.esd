@@ -29,8 +29,13 @@ keyValue
 
 keyValue
     value   String sys 0x00000000 0
-    label   "images.mcf-files and ambienceColorMap.res go into the Custom/Skinfiles folder."
+    label   "images.mcf-files and ambienceColorMap.res go into the matching"
     poll    0  
+
+keyValue
+    value   String sys 0x00000000 0
+    label   "Custom/Skinfiles/skinX folder. Reboot after installing a new skin or ambienceColorMap."
+    poll    0      
 
 keyValue
     value   String sys 0x00000000 0
@@ -43,57 +48,9 @@ keyValue
     poll    0  
 
 script
-   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/install_skin0.sh"
-   label    "Install new graphics for Skin0 from /Skinfiles/Skin0/ on SD"
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/install_skins_VW_SK_SE.sh"
+   label    "Install graphics/ambient colors for skins from SD"  
 
-script
-   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/install_skin1.sh"
-   label    "Install new graphics for Skin1 from /Skinfiles/Skin1/ on SD"
-   
-script
-   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/install_skin1_ambient.sh"
-   label    "Install new ambient colors for Skin1 from /Skinfiles/Skin1/ on SD"
-
-script
-   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/install_skin2.sh"
-   label    "Install new graphics for Skin2 from /Skinfiles/Skin2/ on SD"
-   
-script
-   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/install_skin2_ambient.sh"
-   label    "Install new ambient colors for Skin2 from /Skinfiles/Skin2/ on SD"
-
-script
-   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/install_skin3.sh"
-   label    "Install new graphics for Skin3 from /Skinfiles/Skin3/ on SD"
-   
-script
-   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/install_skin3_ambient.sh"
-   label    "Install new ambient colors for Skin3 from /Skinfiles/Skin3/ on SD"
-
-script
-   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/install_skin4.sh"
-   label    "Install new graphics for Skin4 from /Skinfiles/Skin4/ on SD"
-   
-script
-   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/install_skin4_ambient.sh"
-   label    "Install new ambient colors for Skin4 from /Skinfiles/Skin4/ on SD"
-
-script
-   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/install_skin5.sh"
-   label    "Install new graphics for Skin5 from /Skinfiles/Skin5/ on SD"   
-
-script
-   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/install_skin5_ambient.sh"
-   label    "Install new ambient colors for Skin5 from /Skinfiles/Skin5/ on SD"
-
-script
-   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/install_skin6.sh"
-   label    "Install new graphics for Skin6 from /Skinfiles/Skin6/ on SD"   
-
-script
-   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/install_skin6_ambient.sh"
-   label    "Install new ambient colors for Skin6 from /Skinfiles/Skin6/ on SD"
- 
 keyValue
     value   String sys 0x00000000 0
     label   ""
@@ -104,7 +61,7 @@ script
    label    "Recover all skins and ambienceColorMaps from backup"   
    
 script
-	value 	sys 1 0x0100 "/scripts/performePersReset.sh"
+	value 	sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/util_reboot.sh"
 	label 	"Reboot"
    
 keyValue
@@ -138,11 +95,11 @@ keyValue
     poll    0  
 	
 script
-   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/install_skin.sh"
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/install_skin_AU_PO_BE_LA.sh"
    label    "Install new skin graphics from /Skinfiles/BRAND on SD" 	
    
 script
-   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/install_skin_car.sh"
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/install_skin_car_AU_PO_BE_LA.sh"
    label    "Install new car graphics from /Skinfiles/BRAND-Car on SD" 	
    
 keyValue
@@ -155,6 +112,6 @@ script
    label    "Recover skin and car graphics from backup" 
 
 script
-	value 	sys 1 0x0100 "/scripts/performePersReset.sh"
-	label 	"Reboot"   
+	value 	sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/util_reboot.sh"
+	label 	"Reboot" 
    

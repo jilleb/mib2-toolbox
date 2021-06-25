@@ -82,7 +82,7 @@ fi
 echo "---------------------------"
 echo FAZIT of this unit: "$FAZIT"
 echo Firmware version: "$VERSION"
-echo Detected brand: "$BRAND"
-echo Detected country: "$COUNTRY"
+#echo Detected brand: "$BRAND"
+#echo Detected country: "$COUNTRY"
 echo "---------------------------"
 sleep .5
