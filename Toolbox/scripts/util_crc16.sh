@@ -2,6 +2,11 @@
 # Revision crcr16/CCITT-False v0.1.1 (2021-02-22 by MIBonk)
 # Modified for MIB2Toolbox by Olli & Jille
 # This script will calculate CRC checksums
+<<<<<<< Updated upstream
+=======
+
+# Info
+>>>>>>> Stashed changes
 export PATH=:/proc/boot:/sbin:/bin:/usr/bin:/usr/sbin:/net/mmx/bin:/net/mmx/usr/bin:/net/mmx/usr/sbin:/net/mmx/sbin:/net/mmx/mnt/app/armle/bin:/net/mmx/mnt/app/armle/sbin:/net/mmx/mnt/app/armle/usr/bin:/net/mmx/mnt/app/armle/usr/sbin
 export LD_LIBRARY_PATH=/net/mmx/mnt/app/root/lib-target:/net/mmx/mnt/eso/lib:/net/mmx/eso/lib:/net/mmx/mnt/app/usr/lib:/net/mmx/mnt/app/armle/lib:/net/mmx/mnt/app/armle/lib/dll:/net/mmx/mnt/app/armle/usr/lib
 export IPL_CONFIG_DIR=/etc/eso/production

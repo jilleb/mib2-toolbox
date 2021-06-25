@@ -56,6 +56,10 @@ script
 script
    value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/install_skin5_language.sh"
    label    "Install new language files for Skin5 from /Language/skin5/ on SD"
+
+script
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/install_skin6_language.sh"
+   label    "Install new language files for Skin6 from /Language/skin6/ on SD"
    
 keyValue
     value   String sys 0x00000000 0

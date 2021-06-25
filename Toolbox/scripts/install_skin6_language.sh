@@ -4,7 +4,7 @@
 ########################################################################################
 
 # Info
-export SKINNAME=skin3
+export SKINNAME=skin6
 export TOPIC=Language
 export MIBPATH=/eso/hmi/lsd/Resources/$SKINNAME/i18n/ 
 export SDPATH=/$TOPIC/$SKINNAME/*.res

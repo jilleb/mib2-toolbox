@@ -40,7 +40,11 @@ bitslider
     value 	per 0x0 0xC0030002
     label 	"Video Speed limit [km/h]"
     range 	0 0
+<<<<<<< Updated upstream
 	limits	absolute 0 254
+=======
+	limits	absolute 0 250
+>>>>>>> Stashed changes
 
 #bitvalue
 #   value   per 0 0xC0030002
@@ -59,7 +63,11 @@ bitslider
     value 	per 0x0 0xC0030002
     label 	"Car Menu Speed limit [km/h]"
     range 	2 2
+<<<<<<< Updated upstream
 	limits	absolute 0 254
+=======
+	limits	absolute 0 250
+>>>>>>> Stashed changes
 
 #bitvalue
 #	value   per 0 0xC0030002
@@ -78,7 +86,11 @@ bitslider
     value 	per 0x0 0xC0030002
     label 	"DAB Slideshow Speed limit [km/h]"
     range 	4 4
+<<<<<<< Updated upstream
 	limits	absolute 0 254
+=======
+	limits	absolute 0 250
+>>>>>>> Stashed changes
 
 #bitvalue
 #   value   per 0 0xC0030002
@@ -213,7 +225,11 @@ bitslider
     value 	per 0x0 0xC0030002
     label 	"Bluetooth/MirrorLink Speed limit [km/h]"
     range 	16 16
+<<<<<<< Updated upstream
 	limits	absolute 0 254
+=======
+	limits	absolute 0 250
+>>>>>>> Stashed changes
 
 #bitvalue
 #   value   per 0 0xC0030002
@@ -232,7 +248,11 @@ bitslider
     value 	per 0x0 0xC0030002
     label 	"SMS Editor Speed limit [km/h]"
     range 	18 18
+<<<<<<< Updated upstream
 	limits	absolute 0 254
+=======
+	limits	absolute 0 250
+>>>>>>> Stashed changes
 
 #bitvalue
 #   value   per 0 0xC0030002
@@ -251,7 +271,11 @@ bitslider
     value 	per 0x0 0xC0030002
     label 	"Radiotext Speed limit [km/h]"
     range 	20 20
+<<<<<<< Updated upstream
 	limits	absolute 0 254
+=======
+	limits	absolute 0 250
+>>>>>>> Stashed changes
 
 #bitvalue
 #   value   per 0 0xC0030002

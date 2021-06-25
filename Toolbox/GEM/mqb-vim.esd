@@ -30,7 +30,11 @@ keyValue
 bitvalue
     value   per 0 0xC0030002
 	range   0 0
+<<<<<<< Updated upstream
 	label   "Currently coded Video Speed limit [km/h]"
+=======
+	label   "Currently coded speed limit [km/h]"
+>>>>>>> Stashed changes
 
 script
 	value   sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/patch_vim199.sh"

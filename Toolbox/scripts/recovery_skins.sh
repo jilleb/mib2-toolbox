@@ -1,5 +1,9 @@
 #!/bin/sh
+# This script is meant to recover all skins
+# Author: Jille & Olli
+########################################################################################
 
+<<<<<<< Updated upstream
 # This script is meant to recover all skin mcf files
 # author: Jille
 ########################
@@ -9,12 +13,28 @@ TOPIC=Skinfiles
 DESCRIPTION="This script will recover the backupped skinfiles"
 
 #Volumes/files
+=======
+# Info
+export TOPIC=Skinfiles
+export DESCRIPTION="This script will recover the backupped skinfiles"
+export MOUNTPOINT=1
+
+>>>>>>> Stashed changes
 echo $DESCRIPTION
 
+# Include info script
 . /eso/hmi/engdefs/scripts/mqb/util_info.sh
+<<<<<<< Updated upstream
 . /eso/hmi/engdefs/scripts/mqb/util_mountsd.sh
 
 #backup folders
+=======
+
+# Include SD card mount script
+. /eso/hmi/engdefs/scripts/mqb/util_mountsd.sh
+
+# Backup folder definition
+>>>>>>> Stashed changes
 if [[ $BRAND == "Volkswagen" || $BRAND == "Skoda" || $BRAND == "Seat" ]]; then
 	BACKUP=$VOLUME/Backup/$VERSION/$FAZIT/$TOPIC
 	MIBPATH=/eso/hmi/lsd/Resources/
@@ -32,9 +52,16 @@ else
 	exit 0
 fi
 
+<<<<<<< Updated upstream
 # Make app volume writable
 echo Mounting app folder.
 mount -uw /mnt/app
+=======
+# Include writeable system mount script
+. /eso/hmi/engdefs/scripts/mqb/util_mountsys.sh
+
+# Starting the restore process
+>>>>>>> Stashed changes
 echo "Copying all skin files from backup folder to the unit"
 echo "Please be patient"
 sleep 1
@@ -161,7 +188,11 @@ if [ $COPYTYPE == 1 ];then
 	fi
 	if [ -f $BACKUP/skin6/ambienceColorMap.res ]; then
 		cp $BACKUP/skin6/ambienceColorMap.res $MIBPATH/skin6/ambienceColorMap.res
+<<<<<<< Updated upstream
 		echo "Skin6 ambiencerestored"
+=======
+		echo "Skin6 ambience restored"
+>>>>>>> Stashed changes
 		RESTORE=yes
 		sleep 1
 	else
@@ -199,6 +230,12 @@ else
 	fi
 fi
 
+<<<<<<< Updated upstream
+=======
+# Include back to read-only system mount script
+. /eso/hmi/engdefs/scripts/mqb/util_unmountsys.sh
+
+>>>>>>> Stashed changes
 # Conclusion
 if [ "$RESTORE" == "yes" ]; then
 	echo
@@ -207,8 +244,11 @@ else
 	echo
 	echo "No backups found. Nothing to restore"
 fi
+<<<<<<< Updated upstream
 
 # Make readonly again
 mount -ur /mnt/app
+=======
+>>>>>>> Stashed changes
 
 exit 0

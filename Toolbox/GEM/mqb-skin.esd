@@ -88,11 +88,11 @@ script
 
 script
    value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/install_skin6.sh"
-   label    "Install new graphics for Skin5 from /Skinfiles/Skin5/ on SD"   
+   label    "Install new graphics for Skin6 from /Skinfiles/Skin6/ on SD"   
 
 script
    value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/install_skin6_ambient.sh"
-   label    "Install new ambient colors for Skin5 from /Skinfiles/Skin5/ on SD"
+   label    "Install new ambient colors for Skin6 from /Skinfiles/Skin6/ on SD"
  
 keyValue
     value   String sys 0x00000000 0
