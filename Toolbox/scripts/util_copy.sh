@@ -26,7 +26,6 @@ echo "Copy done"
 echo
 sleep .5
 
-<<<<<<< Updated upstream
 
 echo Mounting System volume as read-only.
 mount -ur /net/mmx/mnt/system
@@ -36,8 +35,6 @@ mount -ur /net/rcc/mnt/efs-persist
 
 sleep .5
 
-/net/mmx/fs/sda0/Custom/Splashscreen/*.canim
-=======
+
 # Include back to read-only system mount script
 . /eso/hmi/engdefs/scripts/mqb/util_unmountsys.sh
->>>>>>> Stashed changes
