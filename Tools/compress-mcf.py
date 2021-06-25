@@ -1,4 +1,4 @@
-# --------------------------------------------------------------------------------
+# ----------------------------------------------------------
 # --- Quick 'n' dirty MCF file compressor
 #
 # File:        compress-mcf.py
@@ -9,35 +9,24 @@
 # Changelog:   v1:      initial version
 #              v1.1:    added missing hash to image headers and after zlib data
 #              v1.2:    Now works with Python 3. Python 2.7 is no longer supported.
-# ---------------------------------------------------------------------------------
+# ----------------------------------------------------------
 
 import struct
 import sys
 if sys.version_info[0] < 3:
-    raw_input("You need to run this with Python 3!\nPress Enter to exit...")
-    sys.exit(1)
-    
+    sys.exit("You need to run this with Python 3")
 import os
 import zlib
-try:
-    from PIL import Image
-except ImportError:
-    print("  You are missing the PIL module!\n"
-          "  install it by running:\n"
-          "  pip install image")
-    input("\nPress Enter to exit...")
-    sys.exit(1)
+from PIL import Image
 
 if len(sys.argv) != 4:
     print("usage: compress-mcf.py <original-file> <new-file> <imagesdir>")
-    input("\nPress Enter to exit...")
     sys.exit(1)
 
 dir = sys.argv[3]
 if not os.path.exists(dir):
     print("folder does not exist.")
     print("usage: compress-mcf.py <original-file> <new-file> <imagesdir>")
-    input("\nPress Enter to exit...")
     sys.exit(1)
 
 data = open(sys.argv[1], 'rb').read()
@@ -97,9 +86,8 @@ for image_id in range(0, int(num_files)):
     elif im.mode == 'RGBA':
         image_mode = 4356
     else:
-        print('Invalid image mode %s in img_%d.png' % (im.mode, image_id))
+        print('invalid image mode %s in img_%d.png' % (im.mode, image_id))
         print('make sure to use a good image editor')
-        input("\nPress Enter to exit...")
         sys.exit(1)
     always__1 = 1
     max_pixel_count = 0
