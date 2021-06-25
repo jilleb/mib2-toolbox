@@ -1,31 +1,13 @@
 #!/bin/sh
-<<<<<<< Updated upstream
-=======
 # This script will install skin files only for AUDI, BENTLEY, LAMBORGHINI and PORSCHE
 # Author:  Olli
 ########################################################################################
 
 # Info
->>>>>>> Stashed changes
 export TOPIC=Skinfiles
 export MIBPATH=/eso/hmi/lsd/images
 export DESCRIPTION="This script will install $TOPIC"
 export TYPE="folder"
-<<<<<<< Updated upstream
-
-echo $DESCRIPTION
-
-. /eso/hmi/engdefs/scripts/mqb/util_info.sh
-export SDPATH=/$TOPIC/$BRAND
-
-. /eso/hmi/engdefs/scripts/mqb/util_mountsd.sh
-if [[ -z "$VOLUME" ]] 
-then
-	echo "No SD-card found, quitting"
-	exit 0
-fi
-
-=======
 export MOUNTPOINT=1
 
 echo $DESCRIPTION
@@ -34,7 +16,6 @@ echo $DESCRIPTION
 . /eso/hmi/engdefs/scripts/mqb/util_info.sh
 export SDPATH=/$TOPIC/$BRAND
 
->>>>>>> Stashed changes
 # Checkup for brands and if this is the correct script for the brand
 if [[ $BRAND == "Volkswagen" || $BRAND == "Skoda" || $BRAND == "Seat" ]]; then
 	echo "Wrong brand for this script detected: $BRAND. Aborting"
@@ -48,16 +29,6 @@ else
 	exit 0
 fi
 
-<<<<<<< Updated upstream
-#Make backup folder
-export BACKUPFOLDER=$VOLUME/Backup/$VERSION/$FAZIT/$TOPIC/$BRAND
-
-#include script to make backup
-. /eso/hmi/engdefs/scripts/mqb/util_backup.sh
-
-# include script tocopy file(s)
-# remount everything as read-only again
-=======
 # Include SD card mount script
 . /eso/hmi/engdefs/scripts/mqb/util_mountsd.sh
 
@@ -68,7 +39,6 @@ export BACKUPFOLDER=$VOLUME/Backup/$VERSION/$FAZIT/$TOPIC/$BRAND
 . /eso/hmi/engdefs/scripts/mqb/util_backup.sh
 
 # Include script to copy file(s)
->>>>>>> Stashed changes
 . /eso/hmi/engdefs/scripts/mqb/util_copy.sh
 
 echo "Done. Now restart the unit."

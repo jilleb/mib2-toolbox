@@ -26,15 +26,5 @@ echo "Copy done"
 echo
 sleep .5
 
-
-echo Mounting System volume as read-only.
-mount -ur /net/mmx/mnt/system
-echo Mounting App volume as read-only.
-mount -ur /net/mmx/mnt/app
-mount -ur /net/rcc/mnt/efs-persist
-
-sleep .5
-
-
 # Include back to read-only system mount script
 . /eso/hmi/engdefs/scripts/mqb/util_unmountsys.sh

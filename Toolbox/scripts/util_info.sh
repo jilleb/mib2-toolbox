@@ -1,13 +1,8 @@
-#!/bin/sh
 # MIB2 script, part of the MIB High toolbox.
 # Coded by Jille & Olli
 # This script will show unit info on screen and write this data to variables for use in other scripts.
 ########################################################################################
 
-<<<<<<< Updated upstream
-# Firmware/unit info:
-=======
->>>>>>> Stashed changes
 # Firmware version
 export VERSION="$(cat /net/rcc/dev/shmem/version.txt | grep "Current train" | sed 's/Current train = //g' | sed -e 's|["'\'']||g' | sed 's/\r//')"
 
@@ -18,11 +13,7 @@ else
   export FAZIT="unknown";
 fi
 
-<<<<<<< Updated upstream
-# Car brand
-=======
 # Car brand detection
->>>>>>> Stashed changes
 export BRAND="$(/eso/bin/apps/pc i:0x286f058c:10 2> /dev/null)"
 if [ $BRAND == "1" ]; then
 	export BRAND="Volkswagen"
@@ -42,11 +33,7 @@ else
 	export BRAND="No brand detected!"
 fi
 
-<<<<<<< Updated upstream
-# Navigation country
-=======
 # Navigation country detection
->>>>>>> Stashed changes
 export COUNTRY="$(/eso/bin/apps/pc i:0:1343753471 2> /dev/null)"
 if [ $COUNTRY == "1" ]; then
 	export COUNTRY="EU"
@@ -90,11 +77,8 @@ else
 	export COUNTRY="No country detected!"
 fi
 
-<<<<<<< Updated upstream
-=======
 #---------------------------------------------------------------------------------
 # Output
->>>>>>> Stashed changes
 echo "---------------------------"
 echo FAZIT of this unit: "$FAZIT"
 echo Firmware version: "$VERSION"

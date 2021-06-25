@@ -1,10 +1,7 @@
 # MIB2 script, part of the MIB High toolbox.
 # Coded by Olli
 # This script will reboot your unit
-<<<<<<< Updated upstream
-=======
 ########################################################################################
->>>>>>> Stashed changes
 
 echo "Rebooting unit now"
 echo "5"
