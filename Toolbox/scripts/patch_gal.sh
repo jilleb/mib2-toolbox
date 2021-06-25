@@ -3,8 +3,10 @@
 export TOPIC=AndroidAuto
 export DESCRIPTION="This script will backup and patch AA config files."
 export MIBPATH=/etc/eso/production/gal.json
+export SDPATH=/$TOPIC/gal.json
 export ORIGINAL=/etc/eso/production/
 export FILENAME=gal.json
+export SDPATH=/$TOPIC/gal.json
 
 
 echo $DESCRIPTION
