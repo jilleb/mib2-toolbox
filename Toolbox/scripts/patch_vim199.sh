@@ -1,20 +1,27 @@
 #!/bin/sh
 # esd vim199.sh v0.1.0 (2021-02-22 by MIBonk)
 # modified for MIB2Toolbox by Olli & jille
+# Info
 export PATH=:/proc/boot:/sbin:/bin:/usr/bin:/usr/sbin:/net/mmx/bin:/net/mmx/usr/bin:/net/mmx/usr/sbin:/net/mmx/sbin:/net/mmx/mnt/app/armle/bin:/net/mmx/mnt/app/armle/sbin:/net/mmx/mnt/app/armle/usr/bin:/net/mmx/mnt/app/armle/usr/sbin
 export LD_LIBRARY_PATH=/net/mmx/mnt/app/root/lib-target:/net/mmx/mnt/eso/lib:/net/mmx/eso/lib:/net/mmx/mnt/app/usr/lib:/net/mmx/mnt/app/armle/lib:/net/mmx/mnt/app/armle/lib/dll:/net/mmx/mnt/app/armle/usr/lib
 export IPL_CONFIG_DIR=/etc/eso/production
-export TOPIC=VIM6
-export DESCRIPTION="This script will patch VIM to 199 km/h"
-
-echo $DESCRIPTION
-
-. /eso/hmi/engdefs/scripts/mqb/util_info.sh
-
+export TOPIC=VIM199
 VIM=$(on -f mmx /eso/bin/dumb_persistence_reader 0 3221422082 2> /dev/null)
 VIM=$(echo $VIM | awk '{print toupper($0)}')  
 BC="/eso/hmi/engdefs/scripts/mqb/sbin/bc"
 
+echo "This script will patch VIM to 199 km/h"
+
+# Include info script
+. /eso/hmi/engdefs/scripts/mqb/util_info.sh
+
+# Check if BC is actually present on the unit
+if [ ! -f $BC ]; then
+	echo "Necessary file (BC) not found, aborting"
+	exit 0
+fi
+
+# Calculating new checksum
 if [ ! -z $VIM 2>/dev/null ]; then
 	echo "VIM on Unit: "$VIM""
 	POSITION=0

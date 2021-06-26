@@ -1,7 +1,9 @@
 #!/bin/ksh
 # This script will will install skin files and ambienceColorMaps
 # Author: lprot modified to MHI by Olli
-########################################################################################
+################################################################
+#Info
+export TOPIC=Skinfiles
 
 echo "This script will install custom skins (images.mcf) and/or"
 echo "ambienceColorMap.res from Custom/Skinfiles/skinX folders"
@@ -24,10 +26,9 @@ else
 fi
 
 # Include SD card mount script
-. /eso/hmi/engdefs/scripts/mqb/util_mountsd.sh
+. /eso/hmi/engdefs/scripts/mqb/util_mountsd.sh > /dev/null
 
 export TYPE="file"
-export MOUNTPOINT=1
 WRITE=""
 
 # Copy custom file(s) to unit
@@ -36,7 +37,7 @@ for skin_folder in $VOLUME/Custom/Skinfiles/skin*; do
 	#Extract skin folder name
 	FOLDER=${skin_folder##*/}
 	if [ -f $skin_folder/images.mcf ]; then
-		export MIBPATH=/eso/hmi/lsd/Resources/$FOLDER/images.mcf
+		export MIBPATH=/net/mmx/mnt/app/eso/hmi/lsd/Resources/$FOLDER/images.mcf
 		if [ -n "$(cmp $skin_folder/images.mcf $MIBPATH)" ]; then
 			export TOPIC=Skinfiles/$FOLDER
 			export BACKUPFOLDER=$VOLUME/Backup/$VERSION/$FAZIT/$TOPIC
@@ -53,7 +54,7 @@ for skin_folder in $VOLUME/Custom/Skinfiles/skin*; do
 		fi
 	fi
 	if [ -f $skin_folder/ambienceColorMap.res ]; then
-		export MIBPATH=/eso/hmi/lsd/Resources/$FOLDER/ambienceColorMap.res
+		export MIBPATH=/net/mmx/mnt/app/eso/hmi/lsd/Resources/$FOLDER/ambienceColorMap.res
 		if [ -n "$(cmp $skin_folder/ambienceColorMap.res $MIBPATH)" ]; then
 			export TOPIC=Skinfiles/$FOLDER
 			export BACKUPFOLDER=$VOLUME/Backup/$VERSION/$FAZIT/$TOPIC

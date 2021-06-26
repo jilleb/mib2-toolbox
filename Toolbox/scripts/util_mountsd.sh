@@ -6,7 +6,7 @@
 if [ -d /net/mmx/fs/sda0/Toolbox ]; then
     echo "Toolbox on SDA0 found"
     export VOLUME="/net/mmx/fs/sda0"
-elif [ -d /net/mmx/fs/sdb0/Toolbox ]then
+elif [ -d /net/mmx/fs/sdb0/Toolbox ]; then
     echo "Toolbox on SDB0 found"
     export VOLUME="/net/mmx/fs/sdb0"
 else 

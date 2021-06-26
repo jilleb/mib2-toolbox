@@ -10,16 +10,26 @@
 NEWFILES=$VOLUME/Custom/$SDPATH
 
 # Copying the files
-echo "Copying data from SD-card to unit..."
+echo "Copying $TYPE"
+echo "Source:" $NEWFILES
+echo "Destination:" $MIBPATH
 
 # Check if a folder or only a file needs to be copied
-if [ "$TYPE" == "folder" ]; then
-	echo "Copying files recursively from Custom/$TOPIC folder on SD-card."
-	echo "This can take some time. Please wait..."
-    cp -R "$NEWFILES" "$MIBPATH"
+if [ "$TYPE" = "folder" ]; then
+	if [ -d ${NEWFILES} ]; then	
+		echo "Copying folder, please wait..."
+		cp -R ${NEWFILES}/. ${MIBPATH}
+	else
+		echo "ERROR: No files found"
+		exit 0
 else 
-	echo "Copying file from Custom/$TOPIC folder on SD-card."
-    cp $NEWFILES "$MIBPATH"
+	if [ -f ${NEWFILES} ]; then
+		echo "Copying file, please wait..."
+		cp ${NEWFILES} ${MIBPATH}
+	else
+		echo "ERROR: No files found"
+		exit 0
+	fi
 fi 
 
 echo "Copy done"

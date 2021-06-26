@@ -1,14 +1,12 @@
 #!/bin/sh
 # Coded Olli
 # This script will uninstall the whole toolbox
-########################################################################################
-
+##############################################
 #Info
-export DESCRIPTION="This script will uninstall the MIB Toolbox"
-export MOUNTPOINT=1
-export MOUNTPOINT2=4
+export MIBPATH=/net/mmx/mnt/app/eso/hmi/engdefs
+export MIBPATH2=/net/rcc/mnt/efs-persist/SWDL/FileCopyInfo
 
-echo $DESCRIPTION
+echo "This script will uninstall the MIB Toolbox"
 
 # Include info script
 . /eso/hmi/engdefs/scripts/mqb/util_info.sh
@@ -17,7 +15,7 @@ echo $DESCRIPTION
 . /eso/hmi/engdefs/scripts/mqb/util_mountsys.sh
 
 # Check for old pre v4.1 versions
-OLD_TOOLBOX=/mnt/app/eso/hmi/engdefs/mqbcoding.esd
+OLD_TOOLBOX=/net/mmx/mnt/app/eso/hmi/engdefs/mqbcoding.esd
 if [ -f $OLD_TOOLBOX ]; then
 	echo "Old Toolbox installation pre v4.1 found"
 	echo "Deleting old mqbcoding.esd"
@@ -65,6 +63,7 @@ rm -r /mnt/app/eso/hmi/engdefs/scripts/mqb/*.sh
 rm -r /mnt/app/eso/hmi/engdefs/scripts/mqb
 
 # Deleting Toolbox version entry
+export MOUNTPOINT2=4
 echo "Deleting versions entry"
 rm /net/rcc/mnt/efs-persist/SWDL/FileCopyInfo/Toolbox.info
 

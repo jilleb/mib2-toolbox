@@ -3,28 +3,18 @@
 # author: Jille
 ########################
 
-#info
-DESCRIPTION="This script will dump everything to SD-card."
+echo "This script will dump everything to SD-card."
 
-echo $DESCRIPTION
-
-. /eso/hmi/engdefs/scripts/mqb/util_info.sh
+# Include SD card mount script
 . /eso/hmi/engdefs/scripts/mqb/util_mountsd.sh
-if [[ -z "$VOLUME" ]] 
-then
-	echo "No SD-card found, quitting"
-	exit 0
-fi
 
-#Make dump folders
-DUMPPATH=$VOLUME/Dump/$VERSION/$FAZIT/
-
-echo Making dump folders on SD-card.
-mkdir -p $DUMPPATH
+# Include info script
+. /eso/hmi/engdefs/scripts/mqb/util_info.sh
 
 # Include all dump scripts
-echo Dumping, please wait
+echo Dumping, please wait...
 sleep 1
+
 
 # Graphic dump scripts
 echo Dumping skin files. This could take a while
@@ -42,6 +32,7 @@ echo Dumping Mapstyles. This could take a while
 echo Mapstyles dump done
 sleep 1
 
+
 # Sound dump scripts
 echo Dumping system sounds. This could take a while
 . /eso/hmi/engdefs/scripts/mqb/dump_systemSounds.sh > /dev/null & wait $!
@@ -58,6 +49,7 @@ echo Dumping TTS-audio alerts
 echo TTS-audio alerts dump done
 sleep 1
 
+
 # Database dump scripts
 echo Dumping Radio Station DB. This could take a while
 . /eso/hmi/engdefs/scripts/mqb/dump_radiostation.sh > /dev/null & wait $!
@@ -68,6 +60,7 @@ echo Dumping Gracenote DB. This will take a while, please be patient
 . /eso/hmi/engdefs/scripts/mqb/dump_gracenote.sh > /dev/null & wait $!
 echo Gracenote DB dump done	
 sleep 1
+
 
 # System dump scripts
 echo Dumping Android Auto config file
@@ -110,30 +103,8 @@ echo Dumping persistence database
 echo Persistence database dump done	
 sleep 1
 
-# Development dump scripts
-#echo Dumping lsd.jxe file
-#. /eso/hmi/engdefs/scripts/mqb/dump_lsdjxe.sh > /dev/null & wait $!
-#echo Lsd.jxe file dump done		
-#sleep 1
-#
-#echo Dumping GEM.jar file
-#. /eso/hmi/engdefs/scripts/mqb/dump_gem.sh > /dev/null & wait $!
-#echo GEM.jar file dump done	
-#sleep 1
-#
-#echo Dumping bundles folder
-#. /eso/hmi/engdefs/scripts/mqb/dump_bundles.sh > /dev/null & wait $!
-#echo Bundles dump done
-#sleep 1
-#
-#echo Dumping engdefs folder
-#. /eso/hmi/engdefs/scripts/mqb/dump_engdefs.sh > /dev/null & wait $!
-#echo Engdefs dump done
-#sleep 1
 
-# Make readonly again
-mount -ur $VOLUME
-
+# Conclusion
 echo 
 echo All dumps done. You can now start tweaking the dumped stuff!
 

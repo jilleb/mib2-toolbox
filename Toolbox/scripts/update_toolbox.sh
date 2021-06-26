@@ -1,13 +1,11 @@
 #!/bin/sh
 # Coded by Jille & Olli
 # This script will update the toolbox and also cleans up old stuff
-########################################################################################
-
+##################################################################
 # Info
-export DESCRIPTION="This script will update the toolbox and also cleans up old stuff"
-export MOUNTPOINT=1
+export MIBPATH=/net/mmx/mnt/app/eso/hmi/engdefs/
 
-echo $DESCRIPTION
+echo "This script will update the toolbox and also cleans up old stuff"
 
 # Include info script
 . /eso/hmi/engdefs/scripts/mqb/util_info.sh

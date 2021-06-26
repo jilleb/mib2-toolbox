@@ -2,16 +2,11 @@
 # Coded by Olli
 # This script will cleanup old old MIB Toolbox installations
 ########################################################################################
-
 #Info
-export DESCRIPTION="This script will cleanup old pre v4.1 MIB Toolbox installations."
-export MOUNTPOINT=1
-export MOUNTPOINT2=4
+export MIBPATH=/net/mmx/mnt/app/eso/hmi/engdefs/
+export MIBPATH2=/net/rcc/mnt/efs-persist/SWDL/FileCopyInfo/
 
-echo $DESCRIPTION
-
-# Include info script
-. /eso/hmi/engdefs/scripts/mqb/util_info.sh
+echo "This script will cleanup old pre v4.1 MIB Toolbox installations."
 
 # Include writeable system mount script
 . /eso/hmi/engdefs/scripts/mqb/util_mountsys.sh

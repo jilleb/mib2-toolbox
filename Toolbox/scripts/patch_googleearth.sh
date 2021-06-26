@@ -1,36 +1,24 @@
 #!/bin/sh
+# Info
 export TOPIC=GoogleEarth
-export MIBPATH=/gemib/
-export SDPATH=/$TOPIC/gemib/
-export DESCRIPTION="This script will patch Google Earth (CarNet service) files to enable 3d terrain and buildings"
+export MIBPATH=/net/mmx/gemib
+export SDPATH=$TOPIC/gemib/
 export TYPE="folder"
 
+echo "This script will patch Google Earth (CarNet service) files to enable 3d terrain and buildings"
 
-echo $DESCRIPTION
-
-
+# Include info script
 . /eso/hmi/engdefs/scripts/mqb/util_info.sh
-
-. /eso/hmi/engdefs/scripts/mqb/util_mountsd.sh
-if [[ -z "$VOLUME" ]] 
-then
-	echo "No SD-card found, quitting"
-	exit 0
-fi
-
-#Make backup folder
-export BACKUPFOLDER=$VOLUME/Backup/$VERSION/$FAZIT/$TOPIC/
 
 #include script to make backup
 . /eso/hmi/engdefs/scripts/mqb/util_backup.sh
-
  
 #Only start patching when a backup is there
 if [ -d $BACKUPFOLDER ]; then
-    echo Backup copied to $BACKUP
-    echo "Start patching"
+    echo "Start patching..."
+	
+	# Mount unit as read/write
 	mount -uw /mnt/app
-	mount -uw $VOLUME
 	mount -uw /mnt/system
 	
     echo "Patching gemib.cfg"
@@ -46,9 +34,8 @@ else
     exit 0   
 fi
 
-#make readonly again
+# Make readonly again
 mount -ur /mnt/app
-mount -ur $VOLUME
 mount -ur /mnt/system
 
 echo "---------------------------"

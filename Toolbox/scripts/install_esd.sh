@@ -1,30 +1,29 @@
 #!/bin/sh
+# Info
+export TOPIC=GreenMenu
+export MIBPATH=/net/mmx/mnt/app/eso/hmi/engdefs
+export SDPATH=$TOPIC
+export TYPE="folder"
 
-#info
-TOPIC=GreenMenu
-DESCRIPTION="This script will copy custom ESD(Green Menu) files from GreenMenu folder on your SD to the unit."
+echo "This script will copy custom ESD(Green Menu) files from GreenMenu folder on your SD to the unit."
 
-echo $DESCRIPTION
+# Include info script
 . /eso/hmi/engdefs/scripts/mqb/util_info.sh
-. /eso/hmi/engdefs/scripts/mqb/util_mountsd.sh
-if [[ -z "$VOLUME" ]] 
-then
-	echo "No SD-card found, quitting"
-	exit 0
-fi
 
-# Make readonly again
-mount -uw /mnt/app
+#include script to make backup
+. /eso/hmi/engdefs/scripts/mqb/util_backup.sh
 
+# Include writeable system mount script
+. /eso/hmi/engdefs/scripts/mqb/util_mountsys.sh
+
+# Copying files
 cp $VOLUME/Custom/$TOPIC/*.esd /eso/hmi/engdefs/
 cp $VOLUME/Custom/$TOPIC/scripts/*.sh /eso/hmi/engdefs/scripts/mqb/
 chmod a+rwx /eso/hmi/engdefs/scripts/mqb/*
 
+# Include back to read-only system mount script
+. /eso/hmi/engdefs/scripts/mqb/util_unmountsys.sh
 
-# Make readonly again
-mount -ur /mnt/app
-mount -ur $VOLUME
-
-echo Done. Please restart green menu.
+echo "Done. Please restart green menu."
 
 exit 0

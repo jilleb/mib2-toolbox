@@ -3,29 +3,45 @@
 # This script will make a backup if it's not already there
 ########################################################################################
 
-echo "Making backup folders on SD-card."
+# Include SD card mount script
+. /eso/hmi/engdefs/scripts/mqb/util_mountsd.sh
 
-if [ -d "$BACKUPFOLDER" ]; then
-	echo "Backup already exists. Not making a backup."
-	
+# Special behaviour for brand specific skin files
+if [[ $BRAND == "Audi" || $BRAND == "Porsche"  || $BRAND == "Bentley" || $BRAND == "Lamborghini" ]]; then
+	if [ $TYPE = "file" ]; then
+		export BACKUPFOLDER=$VOLUME/Backup/$VERSION/$FAZIT/$TOPIC/$BRAND-Car
+	else
+		export BACKUPFOLDER=$VOLUME/Backup/$VERSION/$FAZIT/$TOPIC/$BRAND
+	fi
 else
-	echo "No backup found, making backup folder..."
-	mkdir -p $BACKUPFOLDER
-	touch $BACKUPFOLDER/DONT_TOUCH_ANYTHING_HERE
-	sleep 1
-	
-    if [ "$TYPE" == "folder" ]; then
-		echo "Copying folders recursively to backup folder on SD-card."
-		echo "This can take some time. Please wait..."
-        cp -R "$MIBPATH" "$BACKUPFOLDER"
-		sleep 1
-    else 
-		echo "Copying file to backup folder on SD-card."
-        cp "$MIBPATH" "$BACKUPFOLDER"
-		sleep 1
-    fi 
-	
-    echo "Backup done. Saved at $BACKUPFOLDER"   
+	# Normal backup folder
+	export BACKUPFOLDER=$VOLUME/Backup/$VERSION/$FAZIT/$TOPIC
 fi
 
+echo "Making $TYPE backup..."
+echo "Source: $MIBPATH"
+echo "Destination: Backup/$VERSION/$FAZIT/$TOPIC"
+
+if [ "$TYPE" = "folder" ]; then
+	if [ -d "${BACKUPFOLDER}" ]; then
+		echo "Backup already exists. Skipping..."
+	else
+		echo "Copying files, please wait..."
+		mkdir -p ${BACKUPFOLDER}
+		touch $BACKUPFOLDER/DONT_TOUCH_ANYTHING_HERE
+		cp -r ${MIBPATH}/. ${BACKUPFOLDER}
+		echo "Backup is done."
+	fi
+else
+	FILENAME=${SDPATH##*/}
+	if [ -f "$BACKUPFOLDER/$FILENAME" ]; then
+		echo "Backup already exists. Skipping..."
+	else
+		echo "Copying file, please wait..."
+		mkdir -p ${BACKUPFOLDER}
+		touch $BACKUPFOLDER/DONT_TOUCH_ANYTHING_HERE
+		cp ${MIBPATH} ${BACKUPFOLDER}/
+		echo "Backup is done."
+	fi
+fi
 sleep .5
