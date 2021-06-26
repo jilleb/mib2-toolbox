@@ -41,12 +41,14 @@ script
    value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/install_language_VW_SK_SE.sh"
    label    "Install new language files from SD"
 
-RECOVERY EINBAUEN!
-   
 keyValue
     value   String sys 0x00000000 0
     label   ""
-    poll    0    
+    poll    0  
+
+script
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/recovery_language.sh"
+   label    "Recover language files from backup"	
 
 script
 	value 	sys 1 0x0100 "/scripts/performePersReset.sh"

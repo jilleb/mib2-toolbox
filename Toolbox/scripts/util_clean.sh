@@ -41,7 +41,6 @@ if [ -f /mnt/app/eso/hmi/engdefs/scripts/mqb/set_displaycontexts_1.sh ]; then
 	rm /mnt/app/eso/hmi/engdefs/scripts/mqb/set_displaycontexts_1.sh
 	CLEANUP=yes
 fi
-
 if [ -f /mnt/app/eso/hmi/engdefs/scripts/mqb/install_skin0.sh ]; then
 	rm /mnt/app/eso/hmi/engdefs/scripts/mqb/install_skin0.sh
 	CLEANUP=yes
