@@ -22,6 +22,7 @@ if [ "$TYPE" = "folder" ]; then
 	else
 		echo "ERROR: No files found"
 		exit 0
+	fi
 else 
 	if [ -f ${NEWFILES} ]; then
 		echo "Copying file, please wait..."

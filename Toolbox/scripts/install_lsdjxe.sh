@@ -5,6 +5,7 @@
 # Info
 export TOPIC=LSD
 export MIBPATH=/net/mmx/ifs/lsd.jxe
+export MIBPATH2=/net/mmx/mnt/app
 export SDPATH=$TOPIC/lsd.jxe
 export TYPE="file"
 

@@ -26,9 +26,10 @@ else
 fi
 
 # Include SD card mount script
-. /eso/hmi/engdefs/scripts/mqb/util_mountsd.sh > /dev/null
+. /eso/hmi/engdefs/scripts/mqb/util_mountsd.sh
 
 export TYPE="file"
+CMP="/eso/hmi/engdefs/scripts/mqb/sbin/cmp"
 WRITE=""
 
 # Copy custom file(s) to unit
@@ -38,7 +39,7 @@ for skin_folder in $VOLUME/Custom/Skinfiles/skin*; do
 	FOLDER=${skin_folder##*/}
 	if [ -f $skin_folder/images.mcf ]; then
 		export MIBPATH=/net/mmx/mnt/app/eso/hmi/lsd/Resources/$FOLDER/images.mcf
-		if [ -n "$(cmp $skin_folder/images.mcf $MIBPATH)" ]; then
+		if [ -n "$($CMP $skin_folder/images.mcf $MIBPATH)" ]; then
 			export TOPIC=Skinfiles/$FOLDER
 			export BACKUPFOLDER=$VOLUME/Backup/$VERSION/$FAZIT/$TOPIC
 			# Make backup
@@ -55,7 +56,7 @@ for skin_folder in $VOLUME/Custom/Skinfiles/skin*; do
 	fi
 	if [ -f $skin_folder/ambienceColorMap.res ]; then
 		export MIBPATH=/net/mmx/mnt/app/eso/hmi/lsd/Resources/$FOLDER/ambienceColorMap.res
-		if [ -n "$(cmp $skin_folder/ambienceColorMap.res $MIBPATH)" ]; then
+		if [ -n "$($CMP  $skin_folder/ambienceColorMap.res $MIBPATH)" ]; then
 			export TOPIC=Skinfiles/$FOLDER
 			export BACKUPFOLDER=$VOLUME/Backup/$VERSION/$FAZIT/$TOPIC
 			# Make backup
@@ -72,7 +73,7 @@ for skin_folder in $VOLUME/Custom/Skinfiles/skin*; do
 	fi
 #	if [ -f $skin_folder/info.txt ]; then
 #		export MIBPATH=/tsd/hmi/Resources/$FOLDER/info.txt
-#		if [ -n "$(cmp $skin_folder/info.txt $MIBPATH)" ]; then
+#		if [ -n "$($CMP  $skin_folder/info.txt $MIBPATH)" ]; then
 #			export TOPIC=skins/$FOLDER
 #			export SDPATH=$TOPIC/info.txt
 #			# Make backup

@@ -12,6 +12,7 @@ echo "This script will patch info.txt of the skins to activate menumode switcher
 
 echo "Start patching"
 
+CMP="/eso/hmi/engdefs/scripts/mqb/sbin/cmp"
 WRITE=""
 
 for skin_folder in $MIBPATH/skin*; do
@@ -19,7 +20,7 @@ for skin_folder in $MIBPATH/skin*; do
 	FOLDER=${skin_folder##*/}
 	if [ -f $skin_folder/$FILENAME ]; then
 		export MIBPATH=/net/mmx/mnt/app/eso/hmi/lsd/Resources/$FOLDER/$FILENAME
-		if [ -n "$(cmp $skin_folder/images.mcf $MIBPATH)" ]; then
+		if [ -n "$($CMP $skin_folder/images.mcf $MIBPATH)" ]; then
 			export TOPIC=Skinfiles/$FOLDER
 			export BACKUPFOLDER=$VOLUME/Backup/$VERSION/$FAZIT/$TOPIC
 			# Make backup
@@ -34,6 +35,7 @@ for skin_folder in $MIBPATH/skin*; do
 			echo "Done."
 		fi
 	fi
+done
 
 if [ -n "$WRITE" ]; then
 	# Mount system partition in read/only mode

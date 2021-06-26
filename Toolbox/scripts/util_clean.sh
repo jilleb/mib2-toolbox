@@ -42,6 +42,79 @@ if [ -f /mnt/app/eso/hmi/engdefs/scripts/mqb/set_displaycontexts_1.sh ]; then
 	CLEANUP=yes
 fi
 
+if [ -f /mnt/app/eso/hmi/engdefs/scripts/mqb/install_skin0.sh ]; then
+	rm /mnt/app/eso/hmi/engdefs/scripts/mqb/install_skin0.sh
+	CLEANUP=yes
+fi
+if [ -f /mnt/app/eso/hmi/engdefs/scripts/mqb/install_skin1.sh ]; then
+	rm /mnt/app/eso/hmi/engdefs/scripts/mqb/install_skin1.sh
+	CLEANUP=yes
+fi
+if [ -f /mnt/app/eso/hmi/engdefs/scripts/mqb/install_skin2.sh ]; then
+	rm /mnt/app/eso/hmi/engdefs/scripts/mqb/install_skin2.sh
+	CLEANUP=yes
+fi
+if [ -f /mnt/app/eso/hmi/engdefs/scripts/mqb/install_skin3.sh ]; then
+	rm /mnt/app/eso/hmi/engdefs/scripts/mqb/install_skin3.sh
+	CLEANUP=yes
+fi
+if [ -f /mnt/app/eso/hmi/engdefs/scripts/mqb/install_skin4.sh ]; then
+	rm /mnt/app/eso/hmi/engdefs/scripts/mqb/install_skin4.sh
+	CLEANUP=yes
+fi
+if [ -f /mnt/app/eso/hmi/engdefs/scripts/mqb/install_skin5.sh ]; then
+	rm /mnt/app/eso/hmi/engdefs/scripts/mqb/install_skin5.sh
+	CLEANUP=yes
+fi
+if [ -f /mnt/app/eso/hmi/engdefs/scripts/mqb/install_skin6.sh ]; then
+	rm /mnt/app/eso/hmi/engdefs/scripts/mqb/install_skin6.sh
+	CLEANUP=yes
+fi
+if [ -f /mnt/app/eso/hmi/engdefs/scripts/mqb/install_skin1_ambient.sh ]; then
+	rm /mnt/app/eso/hmi/engdefs/scripts/mqb/install_skin1_ambient.sh
+	CLEANUP=yes
+fi
+if [ -f /mnt/app/eso/hmi/engdefs/scripts/mqb/install_skin2_ambient.sh ]; then
+	rm /mnt/app/eso/hmi/engdefs/scripts/mqb/install_skin2_ambient.sh
+	CLEANUP=yes
+fi
+if [ -f /mnt/app/eso/hmi/engdefs/scripts/mqb/install_skin3_ambient.sh ]; then
+	rm /mnt/app/eso/hmi/engdefs/scripts/mqb/install_skin3_ambient.sh
+	CLEANUP=yes
+fi
+if [ -f /mnt/app/eso/hmi/engdefs/scripts/mqb/install_skin4_ambient.sh ]; then
+	rm /mnt/app/eso/hmi/engdefs/scripts/mqb/install_skin4_ambient.sh
+	CLEANUP=yes
+fi
+if [ -f /mnt/app/eso/hmi/engdefs/scripts/mqb/install_skin5_ambient.sh ]; then
+	rm /mnt/app/eso/hmi/engdefs/scripts/mqb/install_skin5_ambient.sh
+	CLEANUP=yes
+fi
+if [ -f /mnt/app/eso/hmi/engdefs/scripts/mqb/install_skin6_ambient.sh ]; then
+	rm /mnt/app/eso/hmi/engdefs/scripts/mqb/install_skin6_ambient.sh
+	CLEANUP=yes
+fi
+if [ -f /mnt/app/eso/hmi/engdefs/scripts/mqb/install_skin1_language.sh ]; then
+	rm /mnt/app/eso/hmi/engdefs/scripts/mqb/install_skin1_language.sh
+	CLEANUP=yes
+fi
+if [ -f /mnt/app/eso/hmi/engdefs/scripts/mqb/install_skin2_language.sh ]; then
+	rm /mnt/app/eso/hmi/engdefs/scripts/mqb/install_skin2_language.sh
+	CLEANUP=yes
+fi
+if [ -f /mnt/app/eso/hmi/engdefs/scripts/mqb/install_skin3_language.sh ]; then
+	rm /mnt/app/eso/hmi/engdefs/scripts/mqb/install_skin3_language.sh
+	CLEANUP=yes
+fi
+if [ -f /mnt/app/eso/hmi/engdefs/scripts/mqb/install_skin4_language.sh ]; then
+	rm /mnt/app/eso/hmi/engdefs/scripts/mqb/install_skin4_language.sh
+	CLEANUP=yes
+fi
+if [ -f /mnt/app/eso/hmi/engdefs/scripts/mqb/install_skin5_language.sh ]; then
+	rm /mnt/app/eso/hmi/engdefs/scripts/mqb/install_skin5_language.sh
+	CLEANUP=yes
+fi
+
 # Include back to read-only system mount script
 . /eso/hmi/engdefs/scripts/mqb/util_unmountsys.sh
 
@@ -53,5 +126,3 @@ else
 	echo
 	echo "No old files found, nothing to cleanup"
 fi
-
-exit 0
