@@ -63,7 +63,6 @@ rm -r /mnt/app/eso/hmi/engdefs/scripts/mqb/*.sh
 rm -r /mnt/app/eso/hmi/engdefs/scripts/mqb
 
 # Deleting Toolbox version entry
-export MOUNTPOINT2=4
 echo "Deleting versions entry"
 rm /net/rcc/mnt/efs-persist/SWDL/FileCopyInfo/Toolbox.info
 
@@ -91,8 +90,9 @@ if [ -e ${SSD_INSTALL_DIR} ]; then
 	mount -ur /mnt/system
 fi
 
-# Include back to read-only system mount script
-. /eso/hmi/engdefs/scripts/mqb/util_unmountsys.sh
+# Remount to readonly again
+mount -ur /net/mmx/mnt/app
+mount -ur /net/rcc/mnt/efs-persist
 
 echo "Uninstall complete. Please reboot unit"
 
