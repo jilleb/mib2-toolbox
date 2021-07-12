@@ -2,7 +2,7 @@
 #
 # Custom Green Engineering Menu screen
 # Author:       Jille & Olli
-# Version:      4.1A
+# Version:      4.2A
 # Disclaimer:   THIS SCREEN WILL VOID YOUR WARRANTY
 #
 ###########################################################################################
@@ -14,7 +14,7 @@ screen   MQBCoding Main
 
 keyValue
     value    String sys 0x00000000 0
-    label    "[MQB CODING - MIB Toolbox v4.1A]"
+    label    "[MQB CODING - MIB Toolbox v4.2A]"
     poll     0
     
 keyValue
