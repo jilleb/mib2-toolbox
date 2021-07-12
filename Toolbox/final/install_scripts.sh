@@ -9,7 +9,7 @@ on -f mmx /bin/mount -uw /mnt/app
 
 # Copy scripts
 on -f mmx /bin/mkdir -p /net/mmx/mnt/app/eso/hmi/engdefs/scripts/mqb
-on -f mmx /bin/cp -r $VOLUME/Toolbox/scripts/*.sh /net/mmx/mnt/app/eso/hmi/engdefs/scripts/mqb
+on -f mmx /bin/cp -r $VOLUME/Toolbox/scripts/* /net/mmx/mnt/app/eso/hmi/engdefs/scripts/mqb
 on -f mmx /bin/chmod a+rwx /net/mmx/mnt/app/eso/hmi/engdefs/scripts/mqb
 
 # Copy additional GreenMenus
