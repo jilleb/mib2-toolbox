@@ -18,8 +18,13 @@ echo "This script will copy custom ESD(Green Menu) files from GreenMenu folder o
 
 # Copying files
 cp $VOLUME/Custom/$TOPIC/*.esd /eso/hmi/engdefs/
-cp $VOLUME/Custom/$TOPIC/scripts/*.sh /eso/hmi/engdefs/scripts/mqb/
-chmod a+rwx /eso/hmi/engdefs/scripts/mqb/*
+if [ -f $VOLUME/Custom/$TOPIC/scripts/*.sh ]; then
+	cp $VOLUME/Custom/$TOPIC/scripts/*.sh /eso/hmi/engdefs/scripts/mqb/
+else
+	cp -rv $VOLUME/Custom/$TOPIC/scripts/* /eso/hmi/engdefs/scripts
+fi
+
+chmod a+rwx /eso/hmi/engdefs/scripts/*
 
 # Include back to read-only system mount script
 . /eso/hmi/engdefs/scripts/mqb/util_unmountsys.sh
