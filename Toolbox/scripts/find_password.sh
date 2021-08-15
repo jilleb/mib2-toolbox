@@ -9,9 +9,6 @@ export TYPE="file"
 
 echo "This script will find your root password"
 
-# Include dump script
-. /eso/hmi/engdefs/scripts/mqb/util_dump.sh
-
 # Check for custom passwords.csv
 echo "Looking for passwords.csv on SD-card"
 if [ ! -f $VOLUME/Custom/passwords.csv ]; then
