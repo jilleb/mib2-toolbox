@@ -24,7 +24,7 @@ keyValue
 	
 keyValue
     value   String sys 0x00000000 0
-    label   "--- Scripts for SEAT, SKODA and VW ---"
+    label   "--- Scripts for SEAT, SKODA and VW (other brands below!)---"
     poll    0  	
 
 keyValue
@@ -34,7 +34,7 @@ keyValue
 
 keyValue
     value   String sys 0x00000000 0
-    label   "Custom/Skinfiles/skinX folder. Reboot after installing a new skin or ambienceColorMap."
+    label   "Custom/Skinfiles/skinX folder."
     poll    0      
 
 keyValue
