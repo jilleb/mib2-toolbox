@@ -1,9 +1,10 @@
 #!/bin/sh
 # Info
 export TOPIC=AndroidAuto
-export MIBPATH=/net/mmx/etc/eso/production/gal.json
+export MIBPATH=/net/mmx/mnt/system/etc/eso/production/gal.json
 export ORIGINAL=/etc/eso/production/
 export FILENAME=gal.json
+export SDPATH=$TOPIC/$FILENAME
 export TYPE="file"
 
 echo "This script will backup and patch AA config files."
@@ -18,9 +19,8 @@ echo "This script will backup and patch AA config files."
 if [ -f $BACKUPFOLDER/gal.json ]; then
     echo "Start patching"
 	
-	# Mount unit as read/write
-	mount -uw /mnt/app
-	mount -uw /mnt/system
+	# Include writeable system mount script
+	. /eso/hmi/engdefs/scripts/mqb/util_mountsys.sh
 	
     sed -i 's/GOOGLE AUTOMOTIVE LINK CONFIGURATION FILE/MQBCODING GOOGLE AUTOMOTIVE LINK CONFIGURATION FILE/g' $ORIGINAL/$FILENAME
     
@@ -47,9 +47,8 @@ else
     exit 0   
 fi
 
-# Make readonly again
-mount -ur /mnt/app
-mount -ur /mnt/system
+# Include back to read-only system mount script
+. /eso/hmi/engdefs/scripts/mqb/util_unmountsys.sh
 
 echo "---------------------------"
 echo "Done patching. Please re-connect your phone and enjoy custom apps."

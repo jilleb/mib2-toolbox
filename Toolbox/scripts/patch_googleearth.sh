@@ -1,8 +1,8 @@
 #!/bin/sh
 # Info
 export TOPIC=GoogleEarth
-export MIBPATH=/net/mmx/gemib
-export SDPATH=$TOPIC/gemib/
+export MIBPATH=/net/mmx/mnt/app/gemib
+export SDPATH=$TOPIC
 export TYPE="folder"
 
 echo "This script will patch Google Earth (CarNet service) files to enable 3d terrain and buildings"
@@ -17,9 +17,8 @@ echo "This script will patch Google Earth (CarNet service) files to enable 3d te
 if [ -d $BACKUPFOLDER ]; then
     echo "Start patching..."
 	
-	# Mount unit as read/write
-	mount -uw /mnt/app
-	mount -uw /mnt/system
+	# Include writeable system mount script
+	. /eso/hmi/engdefs/scripts/mqb/util_mountsys.sh
 	
     echo "Patching gemib.cfg"
     sed -i 's/#MIBEARTH_USE_3DBUILDINGS=no/MIBEARTH_USE_3DBUILDINGS=yes/g' /gemib/gemib.cfg
@@ -34,9 +33,8 @@ else
     exit 0   
 fi
 
-# Make readonly again
-mount -ur /mnt/app
-mount -ur /mnt/system
+# Include back to read-only system mount script
+. /eso/hmi/engdefs/scripts/mqb/util_unmountsys.sh
 
 echo "---------------------------"
 echo "Done patching. Your Google Earth maps now have 3d buildings and terrain"
