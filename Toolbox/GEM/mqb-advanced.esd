@@ -50,7 +50,7 @@ script
    
 script
    value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/install_lsdjxe.sh"
-   label    "Import LSD.jxe from /Custom/LSD"
+   label    "Import and link custom LSD.jxe from /Custom/LSD"
    
 script
    value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/privacy_shadow.sh"

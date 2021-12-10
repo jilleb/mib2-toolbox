@@ -24,7 +24,7 @@ if [ -f $BACKUPFOLDER/gal.json ]; then
 	
     sed -i 's/GOOGLE AUTOMOTIVE LINK CONFIGURATION FILE/MQBCODING GOOGLE AUTOMOTIVE LINK CONFIGURATION FILE/g' $ORIGINAL/$FILENAME
     
-    echo P"atching Car identity"
+    echo "Patching Car identity"
     sed -i 's/\[brand\]/Google/g' $ORIGINAL/$FILENAME
     sed -i 's/\[car_class\]/Desktop Head Unit/g' $ORIGINAL/$FILENAME
     sed -i 's/\[car_generation\]//g' $ORIGINAL/$FILENAME
