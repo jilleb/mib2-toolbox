@@ -42,6 +42,10 @@ script
    value   sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/patch_mapstylestoSD_PO.sh"
    label   "Use Porsche mapstyles from SD-card"
 
+script
+   value   sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/install_nav_active_ignore.sh"
+   label   "Ignore navigation-active status from smartphone"
+
 
 keyValue
     value   String sys 0x00000000 0
