@@ -1,28 +1,12 @@
 #!/bin/sh
-
-export TOPIC="Displaymanager"
-export DESCRIPTION="This script will show and dump information about the displays"
-
-echo $DESCRIPTION
-. "/eso/hmi/engdefs/scripts/mqb/util_info.sh"
-. "/eso/hmi/engdefs/scripts/mqb/util_mountsd.sh"
-
-
-
+# Info
+export TOPIC=Displaymanager
+export SDPATH=$TOPIC
+export TYPE="file"
 export LD_LIBRARY_PATH=/eso/lib
 export IPL_CONFIG_DIR=/etc/eso/production
 
-#Make dump folder
-DUMPFOLDER="$VOLUME/Dump/$VERSION/$FAZIT/$TOPIC"
-echo Dump-folder: $DUMPFOLDER
-echo Dumping, please wait. This can take a while.ø
-mkdir -p $VOLUME/Dump/$VERSION/$FAZIT/$TOPIC
-/eso/bin/apps/dmdt gc > $DUMPFOLDER/gc.txt
+echo "This script will show and dump information about the displays"
 
-echo "Client information"
-cat /$DUMPFOLDER/gc.txt
-sleep 1
-
-
-
-exit 0
+# Include dump script
+. /eso/hmi/engdefs/scripts/mqb/util_dump.sh

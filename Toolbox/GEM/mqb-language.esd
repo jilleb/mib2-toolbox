@@ -2,7 +2,7 @@
 #
 # Custom Green Engineering Menu screen
 # Author:       Jille & Olli
-# Version:      4.1A
+# Version:      4.2A
 # Disclaimer:   THIS SCREEN WILL VOID YOUR WARRANTY
 #
 ###########################################################################################
@@ -38,29 +38,17 @@ keyValue
     poll    0    
     
 script
-   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/install_skin1_language.sh"
-   label    "Install new language files for Skin1 from /Language/skin1/ on SD"
-   
-script
-   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/install_skin2_language.sh"
-   label    "Install new language files for Skin2 from /Language/skin2/ on SD"
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/install_language_VW_SK_SE.sh"
+   label    "Install new language files from SD"
 
-script
-   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/install_skin3_language.sh"
-   label    "Install new language files for Skin3 from /Language/skin3/ on SD"
-   
-script
-   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/install_skin4_language.sh"
-   label    "Install new language files for Skin4 from /Language/skin4/ on SD"
-
-script
-   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/install_skin5_language.sh"
-   label    "Install new language files for Skin5 from /Language/skin5/ on SD"
-   
 keyValue
     value   String sys 0x00000000 0
     label   ""
-    poll    0    
+    poll    0  
+
+script
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/recovery_language.sh"
+   label    "Recover language files from backup"	
 
 script
 	value 	sys 1 0x0100 "/scripts/performePersReset.sh"

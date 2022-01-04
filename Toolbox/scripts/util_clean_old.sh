@@ -1,12 +1,15 @@
 #!/bin/sh
-
+# Coded by Olli
+# This script will cleanup old old MIB Toolbox installations
+########################################################################################
 #Info
-DESCRIPTION="This script will cleanup old MIB Toolbox installations."
+export MIBPATH=/net/mmx/mnt/app/eso/hmi/engdefs/
+export MIBPATH2=/net/rcc/mnt/efs-persist/SWDL/FileCopyInfo/
 
-echo $DESCRIPTION
+echo "This script will cleanup old pre v4.1 MIB Toolbox installations."
 
-. /eso/hmi/engdefs/scripts/mqb/util_info.sh
-mount -uw /mnt/app
+# Include writeable system mount script
+. /eso/hmi/engdefs/scripts/mqb/util_mountsys.sh
 
 echo "Deleting old mqbcoding.esd pre v4.1"
 rm /mnt/app/eso/hmi/engdefs/mqbcoding.esd
@@ -17,7 +20,11 @@ rm -r /mnt/app/eso/bin/PhoneCustomer/*.sh
 rm -r /mnt/app/eso/bin/PhoneCustomer/default/*.sh
 rm -r /mnt/app/eso/bin/PhoneCustomer/default/scripts
 
-mount -ur /mnt/app
+echo "Deleting old Toolbox versions entry"
+rm /net/rcc/mnt/efs-persist/SWDL/FileCopyInfo/MQB.info
+
+# Include back to read-only system mount script
+. /eso/hmi/engdefs/scripts/mqb/util_unmountsys.sh
 
 echo "Cleanup complete."
 

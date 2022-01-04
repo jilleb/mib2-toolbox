@@ -1,33 +1,20 @@
 #!/bin/sh
-TOPIC=Ringtones
+# Info
+export TOPIC=Ringtones
+export MIBPATH=/net/mmx/mnt/app/hb/ringtones/*.*
+export SDPATH=$TOPIC/*.*
+export TYPE="file"
 
-#info
-DESCRIPTION="This script will install Ringtones"
-echo $DESCRIPTION
+echo "This script will install Ringtones"
+
+# Include info script
 . /eso/hmi/engdefs/scripts/mqb/util_info.sh
-. /eso/hmi/engdefs/scripts/mqb/util_mountsd.sh
 
-#Make backup folder
-BACKUPFOLDER=$VOLUME/Backup/$VERSION/$FAZIT/$TOPIC/
+#include script to make backup
+. /eso/hmi/engdefs/scripts/mqb/util_backup.sh
 
-# Make app volume writable
-echo Mounting app folder.
-mount -uw /mnt/app
+# include script tocopy file(s) and remount everything as read-only again
+. /eso/hmi/engdefs/scripts/mqb/util_copy.sh
 
-echo Making backup folders on SD-card.
-mkdir -p $BACKUPFOLDER
-
-echo Copying file to backup folder on SD-card.
-cp /net/mmx/mnt/app/hb/ringtones/*.* $BACKUPFOLDER
-
-echo Copying modified files from SD folder to MIB.
-cp /$VOLUME/Custom/$TOPIC/*.* /net/mmx/mnt/app/hb/ringtones/
-# Make readonly again
-mount -ur /mnt/app
-mount -ur $VOLUME
-
-echo Done. 
-echo "Please restart the unit to apply the new audio"
-echo "Backups are placed at $BACKUPFOLDER"
-
+echo "Done. Now restart the unit."
 exit 0

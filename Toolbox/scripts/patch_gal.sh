@@ -1,41 +1,30 @@
 #!/bin/sh
-#info
+# Info
 export TOPIC=AndroidAuto
-export DESCRIPTION="This script will backup and patch AA config files."
-export MIBPATH=/etc/eso/production/gal.json
+export MIBPATH=/net/mmx/mnt/system/etc/eso/production/gal.json
 export ORIGINAL=/etc/eso/production/
 export FILENAME=gal.json
+export SDPATH=$TOPIC/$FILENAME
+export TYPE="file"
 
+echo "This script will backup and patch AA config files."
 
-echo $DESCRIPTION
-
+# Include info script
 . /eso/hmi/engdefs/scripts/mqb/util_info.sh
-. /eso/hmi/engdefs/scripts/mqb/util_mountsd.sh
 
-export BACKUPFOLDER=$VOLUME/Backup/$VERSION/$FAZIT/$TOPIC/
-
-#include script to make backup
+# Include script to make backup
 . /eso/hmi/engdefs/scripts/mqb/util_backup.sh
 
-sleep .5
-
-echo Mounting SD-card.
-mount -uw $VOLUME
-
-sleep .5
-
-#Only start patching when a backup is there
-if [ -d $BACKUPFOLDER ]; then
-    echo Backup copied to $BACKUP
+# Only start patching when a backup is present
+if [ -f $BACKUPFOLDER/gal.json ]; then
     echo "Start patching"
-   
-	mount -uw /mnt/app
-	mount -uw $VOLUME
-	mount -uw /mnt/system
+	
+	# Include writeable system mount script
+	. /eso/hmi/engdefs/scripts/mqb/util_mountsys.sh
 	
     sed -i 's/GOOGLE AUTOMOTIVE LINK CONFIGURATION FILE/MQBCODING GOOGLE AUTOMOTIVE LINK CONFIGURATION FILE/g' $ORIGINAL/$FILENAME
     
-    echo Patching Car identity
+    echo "Patching Car identity"
     sed -i 's/\[brand\]/Google/g' $ORIGINAL/$FILENAME
     sed -i 's/\[car_class\]/Desktop Head Unit/g' $ORIGINAL/$FILENAME
     sed -i 's/\[car_generation\]//g' $ORIGINAL/$FILENAME
@@ -44,13 +33,12 @@ if [ -d $BACKUPFOLDER ]; then
     sed -i 's/\[branch\]_\[region\]/2015/g' $ORIGINAL/$FILENAME
     sed -i 's/\[car_id\]/0001/g' $ORIGINAL/$FILENAME
     sleep .5
-    echo Patching Headunit information
-    
+	
+    echo "Patching Headunit information"  
     sed -i 's/\[first_tier_supplier\]/Google/g' $ORIGINAL/$FILENAME
     sed -i 's/\[project_id\]/Desktop Head Unit/g' $ORIGINAL/$FILENAME
     sed -i 's/\[train_version\]/2015-09-16-2258745/g' $ORIGINAL/$FILENAME
-    sed -i 's/\[sw_version\]/1.0-windows/g' $ORIGINAL/$FILENAME
-   
+    sed -i 's/\[sw_version\]/1.0-windows/g' $ORIGINAL/$FILENAME   
     sleep .5
     
 else 
@@ -59,14 +47,12 @@ else
     exit 0   
 fi
 
-#make readonly again
-mount -ur /mnt/app
-mount -ur $VOLUME
-mount -ur /mnt/system
+# Include back to read-only system mount script
+. /eso/hmi/engdefs/scripts/mqb/util_unmountsys.sh
 
 echo "---------------------------"
-echo Done patching. Please re-connect your phone and enjoy custom apps.
-echo If something does not work like it should, run the recovery script.
-echo Backup is stored at $BACKUPFOLDER
+echo "Done patching. Please re-connect your phone and enjoy custom apps."
+echo "If something does not work like it should, run the recovery script."
+echo "Backup is stored at $BACKUPFOLDER"
 
 exit 0

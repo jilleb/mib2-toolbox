@@ -1,19 +1,22 @@
 #!/bin/sh
-
+# Coded Olli
+# This script will uninstall the whole toolbox
+##############################################
 #Info
-DESCRIPTION="This script will uninstall the MIB Toolbox"
+export MIBPATH=/net/mmx/mnt/app/eso/hmi/engdefs
+export MIBPATH2=/net/rcc/mnt/efs-persist/SWDL/FileCopyInfo
 
-echo $DESCRIPTION
+echo "This script will uninstall the MIB Toolbox"
 
+# Include info script
 . /eso/hmi/engdefs/scripts/mqb/util_info.sh
 
-# Mount directories as writeable
-mount -uw /mnt/app
-mount -uw /net/rcc/mnt/efs-persist
+# Include writeable system mount script
+. /eso/hmi/engdefs/scripts/mqb/util_mountsys.sh
 
 # Check for old pre v4.1 versions
-OLD_TOOLBOX=/mnt/app/eso/hmi/engdefs/mqbcoding.esd
-if [[ -f $OLD_TOOLBOX ]]; then
+OLD_TOOLBOX=/net/mmx/mnt/app/eso/hmi/engdefs/mqbcoding.esd
+if [ -f $OLD_TOOLBOX ]; then
 	echo "Old Toolbox installation pre v4.1 found"
 	echo "Deleting old mqbcoding.esd"
 	rm $OLD_TOOLBOX
@@ -38,16 +41,18 @@ DEMO_FILE1=/mnt/app/eso/hmi/engdefs/Demo.esd
 DEMO_FILE2=/mnt/app/eso/hmi/engdefs/Demo_sub.esd
 DEMO_FILE3=/mnt/app/eso/hmi/engdefs/example.esd
 DEMO_FILE4=/mnt/app/eso/hmi/engdefs/mqbcoding_tests.esd
-if [[ -f $DEMO_FILE1 ]]; then
+if [ -f $DEMO_FILE1 || -f $DEMO_FILE2 || -f $DEMO_FILE3 || -f $DEMO_FILE4 ]; then
 	echo "Demo GreenMenu found. Deleting"
-	rm $DEMO_FILE1
-	if [[ -f $DEMO_FILE2 ]]; then
+	if [ -f $DEMO_FILE1 ]; then
+		rm $DEMO_FILE1
+	fi
+	if [ -f $DEMO_FILE2 ]; then
 		rm $DEMO_FILE2
 	fi
-	if [[ -f $DEMO_FILE3 ]]; then
+	if [ -f $DEMO_FILE3 ]; then
 		rm $DEMO_FILE3
 	fi
-	if [[ -f $DEMO_FILE4 ]]; then
+	if [ -f $DEMO_FILE4 ]; then
 		rm $DEMO_FILE4
 	fi
 fi
@@ -65,6 +70,7 @@ rm /net/rcc/mnt/efs-persist/SWDL/FileCopyInfo/Toolbox.info
 SSD_INSTALL_DIR=/net/mmx/mnt/app/eso/hmi/engdefs/scripts/ssh
 if [ -e ${SSD_INSTALL_DIR} ]; then
     echo "Uninstalling sshd"
+
     mount -uw /mnt/system
 
     rm -rf ${SSD_INSTALL_DIR}
@@ -80,13 +86,14 @@ if [ -e ${SSD_INSTALL_DIR} ]; then
         mv -f ${PF}.bu ${PF}
       fi
     done
+	
+	mount -ur /mnt/system
 fi
 
-# Remount as read only
-mount -ur /mnt/app
-mount -ur /mnt/system
+# Remount to readonly again
+mount -ur /net/mmx/mnt/app
 mount -ur /net/rcc/mnt/efs-persist
 
-echo "Uninstall complete. Please reboot unit."
+echo "Uninstall complete. Please reboot unit"
 
 exit 0

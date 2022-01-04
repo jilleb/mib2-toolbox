@@ -1,0 +1,322 @@
+###########################################################################################
+#
+# Custom Green Engineering Menu screen
+# Author:       Jille & Olli
+# Version:      4.2A
+# Disclaimer:   THIS SCREEN WILL VOID YOUR WARRANTY
+#
+###########################################################################################
+#
+# Main -> MQBCoding -> Customization -> VIM -> Advanced
+#
+###########################################################################################
+screen  Advanced VIM
+
+keyValue
+    value   String sys 0x00000000 0
+	label	"CAUTION: Advanced editing of VIM dataset - ON YOUR OWN RISK"
+	poll    0
+
+keyValue
+    value   String sys 0x00000000 0
+	label	"Make sure to run the CALCULATE script after editing the values!"
+	poll    0
+	
+keyValue
+    value   String sys 0x00000000 0
+	label 	"Coded and developed for GEM usage by the guys from M.I.B. Thanks!"
+	poll    0
+	
+keyValue
+    value   String sys 0x00000000 0
+	label	""
+	poll    0
+
+script
+	value  sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/patch_vim_advanced.sh"
+    label  "Calculate checksum for dataset and reboot unit"
+
+bitslider
+    value 	per 0x0 0xC0030002
+    label 	"Video Speed limit [km/h]"
+    range 	0 0
+	limits	absolute 0 250
+
+#bitvalue
+#   value   per 0 0xC0030002
+#	range   1.0 1.7
+#	label   "Video Speed Hysterese [km/h]"
+#	entry	"0" 0
+#	entry	"2" 2
+#	entry	"5" 5
+#	entry	"10" 10
+#	entry	"30" 30
+#	entry	"60" 60
+#	entry	"199" 199
+#	entry	"254" 254
+
+bitslider
+    value 	per 0x0 0xC0030002
+    label 	"Car Menu Speed limit [km/h]"
+    range 	2 2
+	limits	absolute 0 250
+
+#bitvalue
+#	value   per 0 0xC0030002
+#	range   3.0 3.7
+#	label   "Car Menu Speed Hysterese [km/h]"
+#	entry	"0" 0
+#	entry	"2" 2
+#	entry	"5" 5
+#	entry	"10" 10
+#	entry	"30" 30
+#	entry	"60" 60
+#	entry	"199" 199
+#	entry	"254" 254
+
+bitslider
+    value 	per 0x0 0xC0030002
+    label 	"DAB Slideshow Speed limit [km/h]"
+    range 	4 4
+	limits	absolute 0 250
+
+#bitvalue
+#   value   per 0 0xC0030002
+#	range   5.0 5.7
+#	label   "DAB Slideshow Speed Hysterese [km/h]"
+#	entry	"0" 0
+#	entry	"2" 2
+#	entry	"5" 5
+#	entry	"10" 10
+#	entry	"30" 30
+#	entry	"60" 60
+#	entry	"199" 199
+#	entry	"254" 254
+
+bitslider
+    value 	per 0x0 0xC0030002
+    label 	"DAB Slideshow Update rate #1 [s]"
+    range 	6 6
+	limits	absolute 0 240
+
+bitslider
+    value 	per 0x0 0xC0030002
+    label 	"DAB Slideshow Update rate #2 [s]"
+    range 	7 7
+	limits	absolute 0 240
+	
+#bitvalue
+#   value   per 0 0xC0030002
+#	range   8.0 8.7
+#	label   "User Manual Speed limit [km/h]"
+#	entry	"0" 0
+#	entry	"2" 2
+#	entry	"5" 5
+#	entry	"10" 10
+#	entry	"30" 30
+#	entry	"60" 60
+#	entry	"199" 199
+#	entry	"254" 254
+
+#bitvalue
+#   value   per 0 0xC0030002
+#	range   9.0 9.7
+#	label   "User Manual Speed Hysterese [km/h]"
+#	entry	"0" 0
+#	entry	"2" 2
+#	entry	"5" 5
+#	entry	"10" 10
+#	entry	"30" 30
+#	entry	"60" 60
+#	entry	"199" 199
+#	entry	"254" 254
+
+#bitvalue
+#   value   per 0 0xC0030002
+#	range   10.0 10.7
+#	label   "Road Guide Speed limit [km/h]"
+#	entry	"0" 0
+#	entry	"2" 2
+#	entry	"5" 5
+#	entry	"10" 10
+#	entry	"30" 30
+#	entry	"60" 60
+#	entry	"199" 199
+#	entry	"254" 254
+
+#bitvalue
+#   value   per 0 0xC0030002
+#	range   11.0 11.7
+#	label   "Road Guide Speed Hysterese [km/h]"
+#	entry	"0" 0
+#	entry	"2" 2
+#	entry	"5" 5
+#	entry	"10" 10
+#	entry	"30" 30
+#	entry	"60" 60
+#	entry	"199" 199
+#	entry	"254" 254
+
+#bitvalue
+#   value   per 0 0xC0030002
+#	range   12.0 12.7
+#	label   "Web Browser Speed limit [km/h]"
+#	entry	"0" 0
+#	entry	"2" 2
+#	entry	"5" 5
+#	entry	"10" 10
+#	entry	"30" 30
+#	entry	"60" 60
+#	entry	"199" 199
+#	entry	"254" 254
+
+#bitvalue
+#   value   per 0 0xC0030002
+#	range   13.0 13.7
+#	label   "Web Browser Speed Hysterese [km/h]"
+#	entry	"0" 0
+#	entry	"2" 2
+#	entry	"5" 5
+#	entry	"10" 10
+#	entry	"30" 30
+#	entry	"60" 60
+#	entry	"199" 199
+#	entry	"254" 254
+
+#bitvalue
+#   value   per 0 0xC0030002
+#	range   14.0 14.7
+#	label   "Destination input Speed limit [km/h]"
+#	entry	"0" 0
+#	entry	"2" 2
+#	entry	"5" 5
+#	entry	"10" 10
+#	entry	"30" 30
+#	entry	"60" 60
+#	entry	"199" 199
+#	entry	"254" 254
+
+#bitvalue
+#   value   per 0 0xC0030002
+#	range   15.0 15.7
+#	label   "Byte 15 - Destination input Speed Hysterese [km/h]"
+#	entry	"0" 0
+#	entry	"2" 2
+#	entry	"5" 5
+#	entry	"10" 10
+#	entry	"30" 30
+#	entry	"60" 60
+#	entry	"199" 199
+#	entry	"254" 254
+
+bitslider
+    value 	per 0x0 0xC0030002
+    label 	"Bluetooth/MirrorLink Speed limit [km/h]"
+    range 	16 16
+	limits	absolute 0 250
+
+#bitvalue
+#   value   per 0 0xC0030002
+#	range   17.0 17.7
+#	label   "Bluetooth binding Hysterese [km/h]"
+#	entry	"0" 0
+#	entry	"2" 2
+#	entry	"5" 5
+#	entry	"10" 10
+#	entry	"30" 30
+#	entry	"60" 60
+#	entry	"199" 199
+#	entry	"254" 254
+
+bitslider
+    value 	per 0x0 0xC0030002
+    label 	"SMS Editor Speed limit [km/h]"
+    range 	18 18
+	limits	absolute 0 250
+
+#bitvalue
+#   value   per 0 0xC0030002
+#	range   19.0 19.7
+#	label   "SMS Editor Hysterese [km/h]"
+#	entry	"0" 0
+#	entry	"2" 2
+#	entry	"5" 5
+#	entry	"10" 10
+#	entry	"30" 30
+#	entry	"60" 60
+#	entry	"199" 199
+#	entry	"254" 254
+
+bitslider
+    value 	per 0x0 0xC0030002
+    label 	"Radiotext Speed limit [km/h]"
+    range 	20 20
+	limits	absolute 0 250
+
+#bitvalue
+#   value   per 0 0xC0030002
+#	range   21.0 21.7
+#	label   "Radiotext Speed Hysterese [km/h]"
+#	entry	"0" 0
+#	entry	"2" 2
+#	entry	"5" 5
+#	entry	"10" 10
+#	entry	"30" 30
+#	entry	"60" 60
+#	entry	"199" 199
+#	entry	"254" 254
+
+bitslider
+    value 	per 0x0 0xC0030002
+    label 	"Radiotext refresh rate [s]"
+    range 	22 22
+	limits	absolute 0 255
+	
+#bitvalue
+#   value   per 0 0xC0030002
+#	range   23.0 23.7
+#	label   "Reserved"
+#	entry	"0" 0
+#	entry	"2" 2
+#	entry	"5" 5
+#	entry	"10" 10
+#	entry	"30" 30
+#	entry	"60" 60
+#	entry	"199" 199
+#	entry	"254" 254
+
+#bitvalue
+#   value   per 0 0xC0030002
+#	range   24.0 24.7
+#	label   "Reserved"
+#	entry	"0" 0
+#	entry	"2" 2
+#	entry	"5" 5
+#	entry	"10" 10
+#	entry	"30" 30
+#	entry	"60" 60
+#	entry	"199" 199
+#	entry	"254" 254
+
+#bitvalue
+#   value   per 0 0xC0030002
+#	range   25.0 25.7
+#	label   "Reserved"
+#	entry	"0" 0
+#	entry	"2" 2
+#	entry	"5" 5
+#	entry	"10" 10
+#	entry	"30" 30
+#	entry	"60" 60
+#	entry	"199" 199
+#	entry	"254" 254
+
+#bitvalue
+#   value   per 0 0xC0030002
+#	range   26.0 29.7
+#	label   "CRC-16/CCITT-FALSE"
+
+script
+	value  sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/patch_vim_advanced.sh"
+    label  "Calculate checksum for dataset and reboot unit"
+	

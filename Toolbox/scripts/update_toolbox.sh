@@ -1,26 +1,36 @@
 #!/bin/sh
+# Coded by Jille & Olli
+# This script will update the toolbox and also cleans up old stuff
+##################################################################
+# Info
+export MIBPATH=/net/mmx/mnt/app/eso/hmi/engdefs/
 
+echo "This script will update the toolbox and also cleans up old stuff"
+
+# Include info script
+. /eso/hmi/engdefs/scripts/mqb/util_info.sh
+
+# Include SD card mount script
 . /eso/hmi/engdefs/scripts/mqb/util_mountsd.sh
-if [[ -z "$VOLUME" ]]
-then
-	echo "No SD-card found, quitting"
-	exit 0
-fi
 
-# Make it writable
-mount -uw /mnt/app
+# Include writeable system mount script
+. /eso/hmi/engdefs/scripts/mqb/util_mountsys.sh
 
+# Updating files
 echo "Copying scripts from $VOLUME"
 mkdir -p /eso/hmi/engdefs/scripts/mqb
 cp -r $VOLUME/Toolbox/scripts/* /eso/hmi/engdefs/scripts/mqb
 chmod a+rwx /eso/hmi/engdefs/scripts/mqb
 
-echo "Copying GreenEngineeringMenu from $VOLUME"
+echo "Copying Green Engineering Menus from $VOLUME"
 cp $VOLUME/Toolbox/GEM/*.esd /eso/hmi/engdefs
 
-# Make readonly again
-mount -ur /mnt/app
+# Include cleanup script
+. /eso/hmi/engdefs/scripts/mqb/util_clean.sh
 
-echo Done.
+# Include back to read-only system mount script
+. /eso/hmi/engdefs/scripts/mqb/util_unmountsys.sh
+
+echo "Done. Please reopen the GreenMenu"
 
 exit 0
