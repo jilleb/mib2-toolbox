@@ -162,7 +162,7 @@ for image_id in range(0, int(num_files)):
 		counterRGBA = counterRGBA + 1
 	if (print_number == "y"):
 		draw = ImageDraw.Draw(im)
-		draw.text((width / 2, height / 2), "%d" % image_id, 255, ImageFont.truetype("cour.ttf", 14))
+		draw.text((width / 2, height / 2), "%d" % image_id, 255, ImageFont.truetype("Arial", 14))
 	out_dir_unsorted = out_dir + "\\Unsorted\\"
 	print("extracting %d to %simg_%d.png" % (image_id, out_dir_unsorted, image_id))
 	if not os.path.exists(out_dir_unsorted):
