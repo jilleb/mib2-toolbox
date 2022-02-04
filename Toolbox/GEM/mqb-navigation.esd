@@ -46,6 +46,10 @@ script
    value   sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/install_nav_active_ignore.sh"
    label   "Ignore navigation-active status from smartphone"
 
+script
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/uninstall_nav_active_ignore.sh"
+   label    "Uninstall Ignore navigation-active"  
+
 
 keyValue
     value   String sys 0x00000000 0
