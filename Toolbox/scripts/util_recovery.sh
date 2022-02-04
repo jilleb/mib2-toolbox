@@ -25,6 +25,7 @@ if [ "$TYPE" = "folder" ]; then
 	else
 		echo "ERROR: No files found"
 		exit 0
+	fi
 else 
 	if [ -f ${OLDFILES} ]; then
 		echo "Recovering file, please wait..."
