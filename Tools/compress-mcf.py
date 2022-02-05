@@ -14,8 +14,7 @@
 import struct
 import sys
 if sys.version_info[0] < 3:
-    raw_input("You need to run this with Python 3!\nPress Enter to exit...")
-    sys.exit(1)
+    sys.exit("You need to run this with Python 3")
     
 import os
 import zlib

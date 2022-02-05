@@ -17,8 +17,7 @@
 import struct
 import sys
 if sys.version_info[0] < 3:
-    raw_input("You need to run this with Python 3!\nPress Enter to exit...")
-    sys.exit(1)
+    sys.exit("You need to run this with Python 3")
 
 import os
 import zlib
@@ -162,9 +161,9 @@ for image_id in range(0, int(num_files)):
 		counterRGBA = counterRGBA + 1
 	if (print_number == "y"):
 		draw = ImageDraw.Draw(im)
-		draw.text((width / 2, height / 2), "%d" % image_id, 255, ImageFont.truetype("cour.ttf", 14))
-	out_dir_unsorted = out_dir + "\\Unsorted\\"
-	print("extracting %d to %simg_%d.png" % (image_id, out_dir_unsorted, image_id))
+		draw.text((width / 2, height / 2), "%d" % image_id, 255, ImageFont.truetype("Arial", 14))
+	out_dir_unsorted = os.path.join(out_dir, "Unsorted")
+	print("extracting %d to %s/img_%d.png" % (image_id, out_dir_unsorted, image_id))
 	if not os.path.exists(out_dir_unsorted):
 		os.makedirs(out_dir_unsorted)
 	out_path = os.path.join(out_dir_unsorted, 'img_%d.png' % image_id)
