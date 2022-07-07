@@ -11,7 +11,7 @@ Note3: If you're a business that tries to make a profit off of this:  Don't be a
 # Requirements
 - Read the entire readme
 - At least 1 healthy set of brains
-- An MIB2 HIGH or MIB2.5 HIGH infotainment unit. It will **not** work on MIB1 or MIB2 Standard units. Discover Media / Compostion Media is not MIB2 HIGH!
+- An MIB2 HIGH or MIB2.5 HIGH infotainment unit. It will **not** work on MIB1 or MIB2 Standard units. Discover Media / Compostion Media is not MIB2 HIGH! For MIB2 Standard see the [olli991/mib-std2-pq-zr-toolbox](https://github.com/olli991/mib-std2-pq-zr-toolbox) project.
 - 1 empty, **FAT32 formatted** SD-card, with enough space. Everything bigger than 1GB is fine
 - Some place to save your backups
 
