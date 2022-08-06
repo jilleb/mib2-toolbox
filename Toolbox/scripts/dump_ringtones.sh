@@ -2,9 +2,9 @@
 
 # Info
 export TOPIC=Sounds/Ringtones
-export MIBPATH=/net/mmx/mnt/app/hb/ringtones/*.*
+export MIBPATH=/net/mmx/mnt/app/hb/ringtones
 export SDPATH=$TOPIC
-export TYPE="file"
+export TYPE="folder"
 
 echo "This script will dump telephone ringtones"
 

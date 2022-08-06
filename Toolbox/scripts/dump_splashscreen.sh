@@ -2,9 +2,9 @@
 
 # Info
 export TOPIC=Splashscreen
-export MIBPATH=/eso/hmi/splashscreen/*.*
+export MIBPATH=/eso/hmi/splashscreen
 export SDPATH=$TOPIC
-export TYPE="file"
+export TYPE="folder"
 
 echo "This script will dump all startup screens"
 

@@ -2,9 +2,9 @@
 
 # Info
 export TOPIC=Sounds/Systemsounds
-export MIBPATH=/net/rcc/mnt/efs-system/opt/audio/tones/*.*
+export MIBPATH=/net/rcc/mnt/efs-system/opt/audio/tones
 export SDPATH=$TOPIC
-export TYPE="file"
+export TYPE="folder"
 
 echo "This script will dump system sounds"
 

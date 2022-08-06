@@ -1,8 +1,8 @@
 #!/bin/sh
 # Info
 export TOPIC=Ringtones
-export MIBPATH=/net/mmx/mnt/app/hb/ringtones/*.*
-export SDPATH=$TOPIC/*.*
+export MIBPATH=/net/mmx/mnt/app/hb/ringtones
+export SDPATH=$TOPIC/*.wav
 export TYPE="file"
 
 echo "This script will install Ringtones"

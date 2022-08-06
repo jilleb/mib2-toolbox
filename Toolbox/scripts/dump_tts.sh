@@ -2,9 +2,9 @@
 
 # Info
 export TOPIC=Sounds/TTS-audio
-export MIBPATH=/net/mmx/ifs/tts-audio/*.*
+export MIBPATH=/net/mmx/ifs/tts-audio
 export SDPATH=$TOPIC
-export TYPE="file"
+export TYPE="folder"
 
 echo "This script will dump TTS-audio alerts"
 

@@ -2,7 +2,7 @@
 # Info
 export TOPIC=Systemsounds
 export MIBPATH=/net/rcc/mnt/efs-system/opt/audio/tones
-export SDPATH=$TOPIC/*.*
+export SDPATH=$TOPIC/*.wav
 export TYPE="file"
 
 echo "This script will install Systemsounds"
