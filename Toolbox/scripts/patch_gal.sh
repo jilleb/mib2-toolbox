@@ -2,7 +2,7 @@
 # Info
 export TOPIC=AndroidAuto
 export MIBPATH=/net/mmx/mnt/system/etc/eso/production/gal.json
-export ORIGINAL=/etc/eso/production/
+export ORIGINAL=/net/mmx/mnt/system/etc/eso/production/
 export FILENAME=gal.json
 export SDPATH=$TOPIC/$FILENAME
 export TYPE="file"
