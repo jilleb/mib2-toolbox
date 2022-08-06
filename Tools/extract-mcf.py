@@ -59,7 +59,7 @@ if magic != str('MCF').encode("UTF-8"):  # corresponds to MCF file starting
     sys.exit(1)
 
 filepath, filename = os.path.split(mcf_path)
-idmap_path = filepath + "\imageidmap.res"
+idmap_path = os.path.join(filepath, "imageidmap.res")
 parse_idmap = "n"
 if os.path.exists(idmap_path):
 	print("Imageidmap found, so you can extract files to the right name/folder")
@@ -106,7 +106,7 @@ if (parse_idmap == "y"):
 		path_len = (path_len * 2)
 		# read the path, for as long as the lenght of this string
 		path = read(path_len).decode('utf-16')
-		filename_array.append(path.replace("/", "\\"))
+		filename_array.append(path.replace("/", os.sep))
 		seek(4, 1)
 		i = i + 1
 
@@ -185,7 +185,7 @@ if parse_idmap == "y":
 	while j < num_mifIDs2:
 		id = mifid_array[j]
 		originalfilepath = os.path.join(out_dir_unsorted, 'img_%d.png' % id)
-		newfilepath = new_path = out_dir + "Images\\" + filename_array[j]
+		newfilepath = new_path = os.path.join(out_dir, "Images", filename_array[j])
 		pngfilepath, pngfilename = os.path.split(newfilepath)
 		print("Copying img_%d.png to %s" % (j, newfilepath))
 		if not os.path.exists(pngfilepath):
