@@ -78,6 +78,7 @@ target_data = zlib.decompress(target_data_zlib)
 tempfile = open('temp.anim', 'wb')
 tempfile.write(target_data)
 
+nonRGBAconverted = False
 for image_id in range(0, int(num_files)):
     target_offset = imagelist[image_id][1]
     print('Importing img_%d.png' % (image_id))
@@ -88,6 +89,7 @@ for image_id in range(0, int(num_files)):
         print("! WARNING: img_%d.png isn't RGBA format. Make sure the image is saved as 32bit RGBA." % image_id)
         print("Converting img_%d.png to RGBA format. This image will not have any transparency." % image_id)
         im = im.convert('RGBA')
+        nonRGBAconverted = True
     image_bytes = im.tobytes('raw')
     tempfile.seek(target_offset)
     tempfile.write(image_bytes)
@@ -102,4 +104,6 @@ newfile.write(target_data_encoded)
 newfile.close()
 os.remove('temp.anim')
 
+if nonRGBAconverted:
+    print("! WARNING: one of the images was converted! transparency lost")
 print("Done writing output file. \n")
