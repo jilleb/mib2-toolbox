@@ -91,3 +91,19 @@ keyValue
 script
    value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/sshd_install.sh"
    label    "Install SSHD service"  
+keyValue
+    value   String sys 0x00000000 0
+    label   ""
+    poll    0  
+
+keyValue
+    value   String sys 0x00000000 0
+    label   "Enable Java (HMI) Logging to SD1."
+    poll    0  
+    
+script
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/install_java_logging.sh"
+   label    "Enable Java Logging"  
+script
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/uninstall_java_logging.sh"
+   label    "Disable Java Logging"  
