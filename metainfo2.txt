@@ -62,6 +62,7 @@ DeviceDescription = "MQB Coding MIB2 Toolbox"
 DownloadGroup = "Toolbox"
 
 [Toolbox\GEM\0\default\File]
+checkUpdate = "true"
 CheckSumSize = "524288"
 CheckSum = "9ea75cae21c7d458955f811f3bc31a769bd55af9"
 FileSize = "1131"
