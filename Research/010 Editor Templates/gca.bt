@@ -15,7 +15,7 @@
 //				corner for each of the featured graphics.
 //--------------------------------------
 short header <bgcolor=cGreen>; //CAFE
-short filetype;
+long filetype;
 
 if (filetype == 1){ // car status screen
     short amount_of_features <bgcolor=cDkGreen>;
