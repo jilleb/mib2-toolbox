@@ -3,118 +3,178 @@
 //
 // File:        gca.bt
 // Author:      Jille
-// Revision:    4
+// Revision:    2
 // Purpose:     Discover Pro MIB2 *.gca file parser
 // Comments:    This will translate the gca files used for vehicle-specific 
 //              Ambient and Climate configurations. It will generate a list of
 //              coordinates as well as commands to be used with ImageMagick 
 //              convert to generate a graphic based on Interior_LHD.png or 
 //              Interior_RHD.png
-//				Can also be used on carstatus.car, but will not generate any
-//				Commands for graphics then. carstatus.car holds the upper left 
-//				corner for each of the featured graphics.
 //--------------------------------------
-short header <bgcolor=cGreen>; //CAFE
+short header < bgcolor = cGreen > ; //CAFE
 long filetype;
 
-if (filetype == 1){ // car status screen
-    short amount_of_features <bgcolor=cDkGreen>;
-    short offset_x;
-    short offset_y;
-    FSeek(256);
-    
-    
-    struct 
-    {
-        local int x_coordinate,y_coordinate;
-        short zone_number <bgcolor=cGreen>;
-        short position_x;
-        short position_y;
-        x_coordinate = position_x - offset_x; // x,y = upper left corner of the feature graphic
-        y_coordinate = position_y - offset_y; //
-        short zeroes[3];
-        short one;
-        short ffff<bgcolor=cBlack>;
-    }   feature[amount_of_features] <optimize=false>;
+if (filetype == 1) { // car status screen
+  short amount_of_features < bgcolor = cDkGreen > ;
+  short offset_x;
+  short offset_y;
+  FSeek(256);
 
+  struct {
+    local int x_coordinate, y_coordinate;
+    short zone_number < bgcolor = cGreen > ;
+    short position_x;
+    short position_y;
+    x_coordinate = position_x - offset_x; // x,y = upper left corner of the feature graphic
+    y_coordinate = position_y - offset_y; //
+    short zeroes[3];
+    short one;
+    short ffff < bgcolor = cBlack > ;
+  }
+  feature[amount_of_features] < optimize = false > ;
 
-} else if (filetype == 4){  // ambient coloring / general car adjuster
-    short amount_of_zones <bgcolor=cDkGreen>;
-    struct 
-    {
-        short zone_number <bgcolor=cGreen>;
-        byte filler[4] <fgcolor=cGray>;
-        short amount_of_points <bgcolor=cDkGreen>;
-        struct
-        {
-            short data[2] <bgcolor=cBlue>;
-        } point [amount_of_points] <optimize=false>;
-    byte filler2[18] <fgcolor=cGray>;
-    
-    } zone[amount_of_zones] <optimize=false>;
-short amount_of_graphics <bgcolor=cDkGreen>;  // looks to be (amount_of_zones*2)-1
-struct {
-    ushort id_1 <bgcolor=cDkGreen>;
-    ushort id_2 <bgcolor=cGreen>;
-    ushort x_location;
-    ushort y_location;
-} graphics[amount_of_graphics];
+} else if (filetype == 4) { // ambient coloring / general car adjuster
+  short amount_of_zones < bgcolor = cDkGreen > ;
+  struct {
+    short zone_number < bgcolor = cGreen > ;
+    byte filler[4] < fgcolor = cGray, hidden = true > ;
+    short amount_of_points < bgcolor = cDkGreen > ;
+    struct {
+      short data[2] < bgcolor = cBlue > ;
+    }
+    point[amount_of_points] < optimize = false > ;
+    byte filler2[18] < fgcolor = cGray, hidden = true > ;
 
+  }
+  zone[amount_of_zones] < optimize = false > ;
+
+  // search for the next value
+  local int64 pos = FTell();
+  while (ReadByte(pos) == 0) {
+    pos = pos + 1;
+    FSeek(pos);
+  };
+
+  short amount_of_points < bgcolor = cDkGreen > ;
+  struct {
+    short point_1 < bgcolor = cLtGreen > ;
+    short point_2 < bgcolor = cLtGreen > ;
+    short point_x < bgcolor = cDkGreen > ;
+    short point_y < bgcolor = cDkGreen > ;
+  }
+  points[amount_of_points];
+
+  // code for generating output to console:
+  local int i = 0;
+  local int j = 0;
+  local int a = 0;
+  local int b = 0;
+  local int c = 0;
+  local int optionLeftOrRight = 0;
+  local string baseimage = "";
+  local string command = "convert Interior_LHD.png"; //will be used to generate imagemagick command
+  local string car_number = "";
+  local string image_position = "";
+  local string polygon = "";
+  local string overlay = "";
+  local int x = 0;
+  local int y = 0;
+  local int x2 = 0;
+  local int y2 = 0;
+
+  car_number = InputString("Car variant", "Car variant", "0400000000");
+
+  // optionLeftOrRight = InputRadioButtonBox("where's the steering wheel?", "RHD or LHD?", 0, "LHD", "RHD");
+  optionLeftOrRight = 0;
+
+  if (optionLeftOrRight == 0) {
+    baseimage = "Interior_LHD.png";
+  } else {
+    baseimage = "Interior_RHD.png";
+  }
+
+  command = "convert " + baseimage;
+  //command = "convert Interior_RHD.png"; //use if you want to generate righthand drive
+
+  local string coordinate, Ycoordinate, Xcoordinate, Ycoordinate2, Xcoordinate2, zonetitle, zonetext, featureTitle, featureNumber1, featureNumber2, labelText;
+
+  while (i < amount_of_zones) {
+
+    Printf("Zone %i \n", zone[i].zone_number);
+    j = 0;
+    SPrintf(zonetitle, "%d", zone[i].zone_number);
+    polygon = " -fill \"rgba( 255, 0, 0 , 0.2 )\" -draw \"polyline ";
+    while (j < zone[i].amount_of_points) {
+      x = zone[i].point[j].data[0];
+      y = zone[i].point[j].data[1];
+      Printf("Point %i - x: %i y: %i \n", j, x, y);
+      SPrintf(Xcoordinate, "%d", (int) x);
+      SPrintf(Ycoordinate, "%d", (int) y);
+
+      zonetext = " -fill white -pointsize 24 -annotate +" + Xcoordinate + "+" + Ycoordinate + " " + zonetitle;
+
+      if (j < zone[i].amount_of_points - 1) {
+        Ycoordinate = "," + Ycoordinate + " ";
+      } else {
+        Ycoordinate = "," + Ycoordinate + "\"";
+      }
+      coordinate = Xcoordinate + Ycoordinate;
+      polygon = polygon + coordinate;
+      j = j + 1;
+    }
+    command = command + polygon + zonetext;
+    i = i + 1;
+  }
+
+  Printf("\nCommand for imagemagick:\n%s output.png\n\n\n", command);
+
+  while (a < amount_of_zones) {
+    x = zone[a].point[0].data[0];
+    y = zone[a].point[0].data[1];
+    if (!((x == 0) && (y == 0))) {
+
+      SPrintf(Xcoordinate, "+%d", (int) x);
+      SPrintf(Ycoordinate, "+%d", (int) y);
+      overlay = overlay + " c:\\temp\\icon.png -geometry " + Xcoordinate + Ycoordinate + " -composite ";
+    }
+
+    a = a + 1;
+
+  }
+
+  while (c < amount_of_points) {
+    x = points[c].point_x;
+    y = points[c].point_y;
+    if (!((x == 0) && (y == 0))) {
+
+      x2 = x + 50;
+      y2 = y + 50;
+      SPrintf(Xcoordinate, "%d", (int) x);
+      SPrintf(Ycoordinate, "%d", (int) y);
+      SPrintf(Xcoordinate2, "%d", (int) x2);
+      SPrintf(Ycoordinate2, "%d", (int) y2);
+      SPrintf(featureNumber1, "%d", points[c].point_1);
+      SPrintf(featureNumber2, "%d", points[c].point_2);
+
+      if (featureNumber1 == featureNumber2) {
+        featureTitle = featureTitle + " -fill \"rgba( 255, 255, 255 , 0.5 )\" -pointsize 16 -annotate +" + Xcoordinate + "+" + Ycoordinate2 + " " + featureNumber1;
+        labelText = labelText + " " + featureNumber1;
+      } else {
+        featureTitle = featureTitle + " -fill \"rgba( 255, 255, 255 , 0.5 )\" -pointsize 16 -annotate +" + Xcoordinate + "+" + Ycoordinate2 + " " + featureNumber1 + " ," + featureNumber2;
+        labelText = labelText + " " + featureNumber1 + " " + featureNumber2;
+
+      };
+
+      image_position = image_position + " -stroke red -draw \"line " + Xcoordinate + "," + Ycoordinate + "," + Xcoordinate2 + "," + Ycoordinate + "\" ";
+      image_position = image_position + " -stroke red -draw \"line " + Xcoordinate + "," + Ycoordinate + "," + Xcoordinate + "," + Ycoordinate2 + "\" ";
+    };
+
+    c = c + 1;
+
+  }
+
+  labelText = " -gravity south -stroke white -pointsize 16 -annotate 0 \" " + car_number + " - Visible features: " + labelText + "\" ";
+
+  Printf("\nCommand for imagemagick:\nconvert .\\" + car_number + "\\GenericCarAdjuster\\AmbianceLight\\" + baseimage + overlay + " " + image_position + featureTitle + labelText + " c:\\temp\\dashboards\\" + car_number + "_Zones_" + baseimage);
 
 }
-
-
-
-    
-    
-    // code for generating output to console:
-    local int i=0;
-    local int j=0;
-    local string command = "convert Interior_LHD.png"; //will be used to generate imagemagick command
-    //command = "convert Interior_RHD.png"; //use if you want to generate righthand drive
-    local string polygon = "" ;
-    local int x =0;
-    local int y =0;
-    local string coordinate,Ycoordinate,Xcoordinate,zonetitle,zonetext;
-    
-    while (i<amount_of_zones){
-    
-        Printf ( "Zone %i \n" ,zone[i].zone_number  );
-        j=0;
-        SPrintf (zonetitle, "%d", zone[i].zone_number);
-        polygon = " -fill \"rgba( 255, 0, 0 , 0.2 )\" -draw \"polyline ";
-        while (j<zone[i].amount_of_points){
-            x = zone[i].point[j].data[0];
-            y = zone[i].point[j].data[1];
-            Printf ("Point %i - x: %i y: %i \n", j, x, y);
-            SPrintf( Xcoordinate, "%d", (int)x);
-            SPrintf( Ycoordinate, "%d", (int)y);
-    
-            zonetext = " -fill white -pointsize 24 -annotate +" + Xcoordinate + "+" + Ycoordinate + " " + zonetitle;
-    
-            if ( j < zone[i].amount_of_points -1){
-                Ycoordinate = "," + Ycoordinate + " ";
-            } else { 
-                Ycoordinate = "," + Ycoordinate + "\"";
-            }
-            coordinate = Xcoordinate + Ycoordinate;
-            polygon = polygon + coordinate;
-            j=j+1;         
-        }
-        command = command + polygon + zonetext;
-        i=i+1;
-    }
-
-
-    i=0;
-    Printf ("\n" );
-
-    while (i<amount_of_graphics){
-    
-        x = graphics[i].x_location;
-        y = graphics[i].y_location;
-        Printf ("Graphic feature %i - x: %i y: %i \n", graphics[i].id_1 , x, y);
-        i++;    
-    }
-  
-    Printf ("\nCommand for imagemagick:\n%s output.png", command);
