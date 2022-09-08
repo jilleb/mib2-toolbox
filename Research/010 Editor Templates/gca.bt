@@ -3,7 +3,7 @@
 //
 // File:        gca.bt
 // Author:      Jille
-// Revision:    3
+// Revision:    4
 // Purpose:     Discover Pro MIB2 *.gca file parser
 // Comments:    This will translate the gca files used for vehicle-specific 
 //              Ambient and Climate configurations. It will generate a list of
@@ -52,6 +52,19 @@ if (filetype == 1){ // car status screen
     byte filler2[18] <fgcolor=cGray>;
     
     } zone[amount_of_zones] <optimize=false>;
+short amount_of_graphics <bgcolor=cDkGreen>;  // looks to be (amount_of_zones*2)-1
+struct {
+    ushort id_1 <bgcolor=cDkGreen>;
+    ushort id_2 <bgcolor=cGreen>;
+    ushort x_location;
+    ushort y_location;
+} graphics[amount_of_graphics];
+
+
+}
+
+
+
     
     
     // code for generating output to console:
@@ -91,6 +104,17 @@ if (filetype == 1){ // car status screen
         command = command + polygon + zonetext;
         i=i+1;
     }
+
+
+    i=0;
+    Printf ("\n" );
+
+    while (i<amount_of_graphics){
     
+        x = graphics[i].x_location;
+        y = graphics[i].y_location;
+        Printf ("Graphic feature %i - x: %i y: %i \n", graphics[i].id_1 , x, y);
+        i++;    
+    }
+  
     Printf ("\nCommand for imagemagick:\n%s output.png", command);
-}
