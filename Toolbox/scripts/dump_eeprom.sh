@@ -38,7 +38,7 @@ BINFILE=$DUMPFOLDER/eepromdump.bin
 
 # Ensure single-byte output from awk
 export LC_ALL=C
-HEX=$(sed -rn 's/^0x\S+\W+(.*?)$/\1/p' "${INFILE}" | sed -rnz 's:\W*(\S\S)\W*:0x\1\n:pg')
+HEX=$(sed -rn 's/^0x\S+\W+(.*?)$/\1/p' "${INFILE}" | sed -rn 's:\W*(\S\S)\W*:0x\1\n:pg' | sed -rn '/^0x/p')
 echo "${HEX}" | awk '{printf("%c",strtonum($0))}' > "${BINFILE}"
 
 echo "Written: ${BINFILE}"
