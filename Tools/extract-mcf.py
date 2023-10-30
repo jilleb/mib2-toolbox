@@ -187,7 +187,7 @@ if parse_idmap == "y":
 		originalfilepath = os.path.join(out_dir_unsorted, 'img_%d.png' % id)
 		newfilepath = new_path = os.path.join(out_dir, "Images", filename_array[j])
 		pngfilepath, pngfilename = os.path.split(newfilepath)
-		print("Copying img_%d.png to %s" % (j, newfilepath))
+		print("Copying img_%d.png to %s" % (id, newfilepath))
 		if not os.path.exists(pngfilepath):
 			os.makedirs(pngfilepath, 0o777)
 		if not os.path.exists(originalfilepath):
