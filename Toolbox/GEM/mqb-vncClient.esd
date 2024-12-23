@@ -1,0 +1,32 @@
+###########################################################################################
+#
+# Custom Green Engineering Menu screen
+# Author:       OneB1t
+# Version:      0.0.5
+# Disclaimer:   THIS SCREEN WILL VOID YOUR WARRANTY
+#
+###########################################################################################
+#
+# Main -> MQBCoding -> Customization -> Virtual cockpit VNC Client
+#
+###########################################################################################
+screen  VncClient Customization
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "This script will install VNC client to your MIB unit."
+    poll     0    
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "Make sure you have an SD-card in slot 1 or 2."
+    poll     0   
+
+keyValue
+    value    String sys 0x00000000 0
+    label    ""
+    poll     0 	
+
+script
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/vncclient_install.sh"
+   label    "Install virtual cockpit VNC client"
