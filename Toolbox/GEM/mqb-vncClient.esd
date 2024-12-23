@@ -61,12 +61,12 @@ keyValue
 
 keyValue
     value    String sys 0x00000000 0
-    label    "and can brick your unit. If you're not experience with emergency"
+    label    "and can brick your unit. If you're not experienced with emergency"
     poll     0 	
 
 keyValue
     value    String sys 0x00000000 0
-    label    "restoring your unit then DON'T use the folowing schript!!!"
+    label    "restoring your unit then DON'T use the folowing script!!!"
     poll     0 		
 	
 script
