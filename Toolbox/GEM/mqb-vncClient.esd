@@ -1,8 +1,8 @@
 ###########################################################################################
 #
 # Custom Green Engineering Menu screen
-# Author:       OneB1t
-# Version:      0.0.5
+# Author:       OneB1t & Olli
+# Version:      0.0.6
 # Disclaimer:   THIS SCREEN WILL VOID YOUR WARRANTY
 #
 ###########################################################################################
@@ -11,6 +11,11 @@
 #
 ###########################################################################################
 screen  VncClient Customization
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "ATTENTION: THIS PAGE IS STILL UNDER DEVELOPMENT! Stuff is untested!"
+    poll     0   
 
 keyValue
     value    String sys 0x00000000 0
@@ -29,4 +34,55 @@ keyValue
 
 script
    value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/vncclient_install.sh"
-   label    "Install virtual cockpit VNC client"
+   label    "Only Install virtual cockpit VNC client on unit"
+   
+script
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/vncclient_run.sh"
+   label    "Manually start VNC client from unit till next reboot"
+   
+script
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/vncclient_kill.sh"
+   label    "Manually kill VNC client process"
+
+script
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/vncclient_config.sh"
+   label    "Replace config.txt with a new from Custom/VNCClient"
+
+
+keyValue
+    value    String sys 0x00000000 0
+    label    ""
+    poll     0 	
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "The following script will edit the startup.sh file. This is risky"
+    poll     0 
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "and can brick your unit. If you're not experience with emergency"
+    poll     0 	
+
+keyValue
+    value    String sys 0x00000000 0
+    label    "restoring your unit then DON'T use the folowing schript!!!"
+    poll     0 		
+	
+script
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/vncclient_install_autorun.sh"
+   label    "Install virtual cockpit VNC client with autorun on boot"  
+
+keyValue
+    value    String sys 0x00000000 0
+    label    ""
+    poll     0 	
+
+script
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/vncclient_uninstall.sh"
+   label    "Uninstall VNC client"  
+   
+script
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/vncclient_uninstall_autorun.sh"
+   label    "Uninstall VNC client and restore startup.sh" 
+   
