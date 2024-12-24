@@ -32,18 +32,22 @@ keyValue
     label    ""
     poll     0 	
 
+#WORKING
 script
    value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/vncclient_install.sh"
    label    "Only Install virtual cockpit VNC client on unit"
-   
+
+#NOT WORKING  script error. maybe not possible in GEM
 script
    value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/vncclient_run.sh"
    label    "Manually start VNC client from unit till next reboot"
-   
+  
+#NOT WORKING   
 script
    value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/vncclient_kill.sh"
    label    "Manually kill VNC client process"
 
+#NOT WORKING path error maybe
 script
    value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/vncclient_config.sh"
    label    "Replace config.txt with a new from Custom/VNCClient"
@@ -68,7 +72,8 @@ keyValue
     value    String sys 0x00000000 0
     label    "restoring your unit then DON'T use the folowing script!!!"
     poll     0 		
-	
+
+#WORKING	
 script
    value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/vncclient_install_autorun.sh"
    label    "Install virtual cockpit VNC client with autorun on boot"  
@@ -78,10 +83,12 @@ keyValue
     label    ""
     poll     0 	
 
+#WORKING
 script
    value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/vncclient_uninstall.sh"
    label    "Uninstall VNC client"  
-   
+
+#NOT WORKING startup will not be replaced.. path error maybe   
 script
    value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/vncclient_uninstall_autorun.sh"
    label    "Uninstall VNC client and restore startup.sh" 
