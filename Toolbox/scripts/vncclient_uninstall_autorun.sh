@@ -25,19 +25,24 @@ rm -fv /navigation/opengl-render-qnx
 rm -fv /navigation/config.txt
 
 # Restoring the files
-OLDFILE=$VOLUME/Backup/$VERSION/$FAZIT/VNCClient
-MIBPATH="/etc/boot/startup.sh"
+OLDFILE=$VOLUME/Backup/$VERSION/$FAZIT/VNCClient/startup.sh
+MIBPATH=/etc/boot/startup.sh
 
 echo "Resotoring old shartup.sh from backup"
 echo "Source: Backup/$VERSION/$FAZIT/VNCClient/startup.sh"
 echo "Destination: /etc/boot/"
 if [ -f ${OLDFILE} ]; then
 		echo "Recovering file, please wait..."
-		cp ${OLDFILE} ${MIBPATH}
+		cp -v ${OLDFILE} ${MIBPATH}
 	else
 		echo "ERROR: No files found"
+		# Make readonly again
+		mount -ur /mnt/app
+		mount -ur /mnt/system
 		exit 0
 	fi
+
+echo "Recovering startup.sh done. Please reboot the headunit."
 
 # Make readonly again
 mount -ur /mnt/app

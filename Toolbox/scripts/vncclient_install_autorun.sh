@@ -52,7 +52,12 @@ sleep .5
 
 # Editing Startup
 if [ -f $BACKUPFOLDER/startup.sh ]; then
-    echo "Start modifying startup.sh"
+	echo "VNC server IP is set to 10.173.189.58. If you got another one, can be"
+	echo "seen within droidVNC, please restore startup.sh and edit the"
+    echo "vncclient-install-autorun.sh again."
+	echo ""
+	echo "Start modifying startup.sh to autoboot VNC client..."
+
 	# Check if the block of code is already present
 	if ! grep -qF "# QNX VNC CLIENT" "$FILE"; then
 		# If not, append it after the specified section
@@ -66,7 +71,7 @@ if [ -f $BACKUPFOLDER/startup.sh ]; then
 			if [ -f /navigation/opengl-render-qnx ]; then \
 				chmod 0777 /navigation/opengl-render-qnx \
 				cd /navigation \
-				./opengl-render-qnx & \
+				./opengl-render-qnx 10.173.189.58 & \
 			else \
 				echo "File /navigation/opengl-render-qnx does not exist." \
 			fi
@@ -77,11 +82,16 @@ if [ -f $BACKUPFOLDER/startup.sh ]; then
 else 
     echo "Backup not found. It's not safe to continue"
     echo "Please make sure your SD-card is writable"
+	# Make readonly again
+	mount -ur /mnt/app
+	mount -ur /mnt/system
     exit 0   
 fi	
 
-echo "Modification of startup.sh done. Pray :D"
-echo "Backup is stored at $BACKUPFOLDER but you'll need emergency to restore the unit anyways."
+echo "Modification of startup.sh done."
+echo "Backup is stored at $BACKUPFOLDER"
+echo ""
+echo "Please restart headunit"
 
 # Make readonly again
 mount -ur /mnt/app

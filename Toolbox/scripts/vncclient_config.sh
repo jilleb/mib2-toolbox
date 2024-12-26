@@ -9,18 +9,18 @@
 mount -uw /mnt/app
 
 # Define the source path
-NEWFILES=$VOLUME/Custom/VNCCient/config.txt
+NEWFILES=$VOLUME/Custom/VNCClient/config.txt
 DESTINATION=/navigation
 
 if [ -f ${NEWFILES} ]; then
 	echo "Copying config.txt from SD to unit..."
 	cp ${NEWFILES} ${DESTINATION}
+	echo "Copy done"
 else
 	echo "ERROR: No files found"
+	mount -ur /mnt/app	
 	exit 0
 fi
-
-echo "Copy done"
 
 sleep .5
 

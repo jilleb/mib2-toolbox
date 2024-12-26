@@ -2,7 +2,7 @@
 #
 # Custom Green Engineering Menu screen
 # Author:       OneB1t & Olli
-# Version:      0.0.6
+# Version:      0.0.7
 # Disclaimer:   THIS SCREEN WILL VOID YOUR WARRANTY
 #
 ###########################################################################################
@@ -14,50 +14,14 @@ screen  VncClient Customization
 
 keyValue
     value    String sys 0x00000000 0
-    label    "ATTENTION: THIS PAGE IS STILL UNDER DEVELOPMENT! Stuff is untested!"
-    poll     0   
-
-keyValue
-    value    String sys 0x00000000 0
-    label    "This script will install VNC client to your MIB unit."
+    label    "On this page you can install / uninstall and edit your VNC Client on MIB."
     poll     0    
 
 keyValue
     value    String sys 0x00000000 0
-    label    "Make sure you have an SD-card in slot 1 or 2."
-    poll     0   
-
-keyValue
-    value    String sys 0x00000000 0
     label    ""
     poll     0 	
-
-#WORKING
-script
-   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/vncclient_install.sh"
-   label    "Only Install virtual cockpit VNC client on unit"
-
-#NOT WORKING  script error. maybe not possible in GEM
-script
-   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/vncclient_run.sh"
-   label    "Manually start VNC client from unit till next reboot"
-  
-#NOT WORKING   
-script
-   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/vncclient_kill.sh"
-   label    "Manually kill VNC client process"
-
-#NOT WORKING path error maybe
-script
-   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/vncclient_config.sh"
-   label    "Replace config.txt with a new from Custom/VNCClient"
-
-
-keyValue
-    value    String sys 0x00000000 0
-    label    ""
-    poll     0 	
-
+	
 keyValue
     value    String sys 0x00000000 0
     label    "The following script will edit the startup.sh file. This is risky"
@@ -70,25 +34,27 @@ keyValue
 
 keyValue
     value    String sys 0x00000000 0
-    label    "restoring your unit then DON'T use the folowing script!!!"
+    label    "restoring your unit then DON'T use the following script!"
     poll     0 		
-
-#WORKING	
-script
-   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/vncclient_install_autorun.sh"
-   label    "Install virtual cockpit VNC client with autorun on boot"  
 
 keyValue
     value    String sys 0x00000000 0
     label    ""
     poll     0 	
 
-#WORKING
 script
-   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/vncclient_uninstall.sh"
-   label    "Uninstall VNC client"  
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/vncclient_install_autorun.sh"
+   label    "Install VNC client with autorun on boot" 
+   
+script
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/vncclient_config.sh"
+   label    "Replace config.txt with a new from Custom/VNCClient"
 
-#NOT WORKING startup will not be replaced.. path error maybe   
+keyValue
+    value    String sys 0x00000000 0
+    label    ""
+    poll     0 	
+
 script
    value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/vncclient_uninstall_autorun.sh"
    label    "Uninstall VNC client and restore startup.sh" 
