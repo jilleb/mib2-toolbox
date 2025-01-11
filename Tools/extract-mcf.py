@@ -12,6 +12,7 @@
 #			   v2: Parsing of ImageIdMap.res added
 #			   v3: Python 3 support
 #			   v4: Moving and renaming skin0 files.
+#			   v5: Added fallback logic for fonts
 # ----------------------------------------------------------
 
 import struct
@@ -159,9 +160,18 @@ for image_id in range(0, int(num_files)):
 	if image_mode == 4356:
 		im = Image.frombuffer('RGBA', (width, height), zlib_decompress, 'raw', 'RGBA', 0, 1)
 		counterRGBA = counterRGBA + 1
-	if (print_number == "y"):
+	if print_number == "y":
 		draw = ImageDraw.Draw(im)
-		draw.text((width / 2, height / 2), "%d" % image_id, 255, ImageFont.truetype("Arial", 14))
+		try:
+			font = ImageFont.truetype("Arial", 14)
+		except IOError:
+			try:
+				windows_fonts_folder = os.path.join(os.environ['SystemRoot'], 'Fonts')
+				font_path = os.path.join(windows_fonts_folder, 'arial.ttf')
+				font = ImageFont.truetype(font_path, 14)
+			except IOError:
+				font = ImageFont.load_default()
+	draw.text((width / 2, height / 2), "%d" % image_id, 255, font=font)
 	out_dir_unsorted = os.path.join(out_dir, "Unsorted")
 	print("extracting %d to %s/img_%d.png" % (image_id, out_dir_unsorted, image_id))
 	if not os.path.exists(out_dir_unsorted):
