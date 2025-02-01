@@ -2,7 +2,7 @@
 #
 # Custom Green Engineering Menu screen
 # Author:       OneB1t & Olli
-# Version:      0.0.7
+# Version:      0.0.8
 # Disclaimer:   THIS SCREEN WILL VOID YOUR WARRANTY
 #
 ###########################################################################################
@@ -59,6 +59,10 @@ script
 script
    value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/vncclient_config.sh"
    label    "Replace config.txt with a new from Custom/VNCClient"
+   
+script
+   value    sys 1 0x0100 "/eso/hmi/engdefs/scripts/mqb/vncclient_update.sh"
+   label    "Update opengl-render-qnx from Toolbox/apps/vncclient"
    
 script
 	value	sys 1 0x0100 "/scripts/performePersReset.sh"
