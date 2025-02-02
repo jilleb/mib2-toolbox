@@ -12,6 +12,10 @@ mount -uw /mnt/app
 NEWFILES=$VOLUME/Toolbox/apps/vncclient/opengl-render-qnx
 DESTINATION=/navigation
 
+# Kill process
+kill $(ps -A | grep opengl-render-qnx | awk '{print $1}')
+
+# updating
 if [ -f ${NEWFILES} ]; then
 	echo "Copying opengl-render-qnx from SD to unit..."
 	cp ${NEWFILES} ${DESTINATION}
