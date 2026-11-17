@@ -14,16 +14,21 @@ echo "Destination: Dump/$VERSION/$FAZIT/"
 echo "             $SDPATH"
 
 if [ "$TYPE" = "file" ]; then
-	if [ -f $MIBPATH ]; then
+	# IFS reads a flash device; test -f only accepts regular files.
+	if { [ "$TOPIC" = "IFS" ] && { [ -b "$MIBPATH" ] || [ -c "$MIBPATH" ]; }; } || [ -f $MIBPATH ]; then
 		# Create destination and all intermediate folders if needed
 		if [ ! -d "$DUMPFOLDER" ]; then
 			echo "Creating folder..."
-			mkdir -p $DUMPFOLDER
+			mkdir -p "$DUMPFOLDER" || exit 1
 		fi
 		echo "Copying, please wait..."
 		# Special behaviour
 		if [ $TOPIC = "IFS" ]; then
-			cat ${MIBPATH} > ${DUMPFOLDER}/ifs_dump.bin
+			if ! cat "$MIBPATH" > "$DUMPFOLDER/ifs_dump.bin"; then
+				echo "ERROR: Failed to dump $MIBPATH"
+				exit 1
+			fi
+			sync
 		elif [ $TOPIC = "Hosts" ]; then
 			cp ${MIBPATH} ${DUMPFOLDER}/hosts.txt
 		elif [ $TOPIC = "Shadowfile" ]; then
@@ -35,7 +40,7 @@ if [ "$TYPE" = "file" ]; then
 			/eso/bin/apps/dmdt gc > ${DUMPFOLDER}/gc.txt
 		# Normal behaviour
 		else
-			cp ${MIBPATH} ${DUMPFOLDER}			
+			cp ${MIBPATH} "${DUMPFOLDER}" || exit 1
 		fi		
 		echo "Copying is completed."	
 		# Show content
@@ -48,6 +53,7 @@ if [ "$TYPE" = "file" ]; then
 		fi
 	else
 		echo "ERROR: Cannot open $MIBPATH"
+		exit 1
 	fi
 elif [ -d $MIBPATH ]; then
 	# Create destination and all intermediate folders if needed

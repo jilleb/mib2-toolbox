@@ -2,11 +2,26 @@
 
 # Info
 export TOPIC=Storage
-export MIBPATH=/net/rcc/mnt/efs-persist/*.raw
 export SDPATH=$TOPIC
 export TYPE="file"
 
 echo "This script will dump storage1.raw and storage2.raw"
 
-# Include dump script
-. /eso/hmi/engdefs/scripts/mqb/util_dump.sh
+# Check each expanded path separately. Passing multiple matches to test -f
+# causes the shared dump script to reject otherwise readable files.
+FOUND=0
+STATUS=0
+for MIBPATH in /net/rcc/mnt/efs-persist/*.raw; do
+	[ -f "$MIBPATH" ] || continue
+	FOUND=1
+	export MIBPATH
+	# util_dump.sh exits when finished, so isolate each invocation.
+	( . /eso/hmi/engdefs/scripts/mqb/util_dump.sh ) || STATUS=1
+done
+
+if [ "$FOUND" -eq 0 ]; then
+	echo "ERROR: No raw files found in /net/rcc/mnt/efs-persist"
+	exit 1
+fi
+
+exit "$STATUS"
